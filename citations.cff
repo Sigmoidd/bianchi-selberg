@@ -1,0 +1,265 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it as below.
+authors:
+- name: bianchi-selberg contributors
+title: bianchi-selberg
+abstract: Certified trace-formula engine for Bianchi groups.
+repository-code: https://github.com/Admin/bianchi-selberg
+references:
+- type: article
+  authors:
+  - family-names: Elstrodt
+    given-names: Jürgen
+  - family-names: Grunewald
+    given-names: Fritz
+  - family-names: Mennicke
+    given-names: Jens
+  title: PSL(2) over imaginary quadratic integers
+  journal: Astérisque
+  volume: 94
+  pages: 43-60
+  year: 1982
+  publisher:
+    name: Société mathématique de France
+  url: http://www.numdam.org/item?id=AST_1982__94__43_0
+  notes: 'Associated files: bianchiselberg-refs/egm_asterisque1982.pdf, bianchiselberg-refs/egm_asterisque1982.txt'
+- type: thesis
+  thesis-type: PhD Thesis
+  authors:
+  - family-names: Friedman
+    given-names: Joshua S.
+  title: The Selberg Trace Formula and Selberg Zeta-Function for Cofinite Kleinian
+    Groups with Finite Dimensional Unitary Representations
+  institution:
+    name: Stony Brook University
+  year: 2005
+  url: https://arxiv.org/abs/math/0612807
+  notes: 'Associated files: bianchiselberg-refs/friedman_thesis.pdf, bianchiselberg-refs/friedman_thesis.txt'
+- type: article
+  authors:
+  - family-names: Kaneko
+    given-names: Ikuya
+  title: The Prime Geodesic Theorem for PSL2(Z[i]) and spectral exponential sums
+  journal: Algebra & Number Theory
+  volume: 16
+  issue: 7
+  pages: 1639-1667
+  year: 2022
+  doi: 10.2140/ant.2022.16.1639
+  url: https://msp.org/ant/2022/16-7/p03.xhtml
+  notes: 'Associated files: bianchiselberg-refs/kaneko.pdf (failed download of Ikuya
+    Kaneko''s paper)'
+- type: article
+  authors:
+  - family-names: Balkanova
+    given-names: Olga
+  - family-names: Chatzakos
+    given-names: Dimitrios
+  - family-names: Cherubini
+    given-names: Giacomo
+  - family-names: Frolenkov
+    given-names: Dmitry
+  - family-names: Laaksonen
+    given-names: Niko
+  title: Prime Geodesic Theorem in the 3-dimensional Hyperbolic Space
+  journal: Transactions of the American Mathematical Society
+  volume: 372
+  issue: 8
+  pages: 5355-5374
+  year: 2019
+  doi: 10.1090/tran/7751
+  url: https://arxiv.org/abs/1712.00880
+  notes: 'Associated files: bianchiselberg-refs/pgt_paper.txt'
+- type: article
+  authors:
+  - family-names: Kaneko
+    given-names: Ikuya
+  title: The Prime Geodesic Theorem for PSL2(Z[i]) and spectral exponential sums
+  journal: Algebra & Number Theory
+  volume: 16
+  issue: 7
+  pages: 1639-1667
+  year: 2022
+  doi: 10.2140/ant.2022.16.1639
+  url: https://msp.org/ant/2022/16-7/p03.xhtml
+  notes: 'Associated files: bianchiselberg-refs/pgt_psl2zi.pdf, bianchiselberg-refs/pgt_psl2zi.txt'
+- type: article
+  authors:
+  - family-names: Rahm
+    given-names: Alexander D.
+  title: An Introduction to Torsion Subcomplex Reduction
+  journal: 'Advanced Studies: Euro-Tbilisi Mathematical Journal'
+  volume: 9
+  pages: 105-126
+  year: 2021
+  doi: 10.32513/tbilisi/1623812411
+  notes: 'Associated files: bianchiselberg-refs/rahm_intro_torsion.pdf (failed download
+    of Alexander D. Rahm''s paper)'
+- type: article
+  authors:
+  - family-names: Rahm
+    given-names: Alexander D.
+  title: The homological torsion of PSL 2 of the imaginary quadratic integers
+  journal: Transactions of the American Mathematical Society
+  volume: 365
+  issue: 3
+  pages: 1603-1635
+  year: 2013
+  doi: 10.1090/S0002-9947-2012-05690-X
+  url: https://arxiv.org/abs/1108.4608
+  notes: 'Associated files: bianchiselberg-refs/rahm_torsion.pdf, bianchiselberg-refs/rahm_torsion.txt'
+- type: article
+  authors:
+  - family-names: Şengün
+    given-names: Mehmet Haluk
+  title: Arithmetic Aspects of Bianchi Groups
+  booktitle: Computations with Modular Forms
+  volume: 6
+  pages: 279-315
+  publisher:
+    name: Springer
+  year: 2014
+  url: https://arxiv.org/abs/1204.6697
+  notes: 'Associated files: bianchiselberg-refs/sengun_survey.pdf, bianchiselberg-refs/sengun_survey.txt'
+- type: article
+  authors:
+  - family-names: Steil
+    given-names: G.
+  title: Eigenvalues of the Laplacian for Bianchi groups
+  booktitle: Emerging Applications of Number Theory
+  volume: 109
+  pages: 617-641
+  publisher:
+    name: Springer
+  year: 1999
+  notes: 'Associated files: bianchiselberg-refs/steil.pdf (failed download of G. Steil''s
+    paper)'
+- type: article
+  authors:
+  - family-names: Szmidt
+    given-names: Janusz
+  title: The Selberg trace formula for the Picard group SL(2, Z[i])
+  journal: Acta Arithmetica
+  volume: 42
+  issue: 4
+  pages: 391-424
+  year: 1983
+  url: https://www.impan.pl/pl/wydawnictwa/czasopisma-i-serie-monograficzne/acta-arithmetica/all/42/4
+  notes: 'Associated files: bianchiselberg-refs/szmidt1983.pdf, bianchiselberg-refs/szmidt1983.txt'
+- type: article
+  authors:
+  - family-names: Then
+    given-names: Holger
+  title: Maass cusp forms for large eigenvalues
+  journal: Mathematics of Computation
+  volume: 74
+  issue: 249
+  pages: 363-381
+  year: 2005
+  doi: 10.1090/S0025-5718-04-01683-1
+  url: https://arxiv.org/abs/math-ph/0305047
+  notes: 'Associated files: bianchiselberg-refs/then.pdf, bianchiselberg-refs/then.txt'
+- type: article
+  authors:
+  - family-names: Aurich
+    given-names: Ralf
+  - family-names: Steiner
+    given-names: Frank
+  - family-names: Then
+    given-names: Holger
+  title: Numerical computation of Maass waveforms and an application to cosmology
+  booktitle: Hyperbolic Geometry and Applications in Quantum Chaos and Cosmology
+  volume: 397
+  pages: 248-284
+  publisher:
+    name: Cambridge University Press
+  year: 2011
+  url: https://arxiv.org/abs/gr-qc/0404020
+  notes: 'Associated files: bianchiselberg-refs/then_picard_maass.pdf, bianchiselberg-refs/then_picard_maass.txt'
+- type: article
+  authors:
+  - family-names: Then
+    given-names: Holger
+  title: Arithmetic quantum chaos of Maass waveforms
+  booktitle: Frontiers in Number Theory, Physics, and Geometry I
+  pages: 183-212
+  publisher:
+    name: Springer
+  year: 2006
+  url: https://arxiv.org/abs/math-ph/0305048
+  notes: 'Associated files: bianchiselberg-refs/then_thesis.pdf, bianchiselberg-refs/then_thesis.txt'
+- type: article
+  authors:
+  - family-names: Carstensen
+    given-names: Carsten
+  - family-names: Gedicke
+    given-names: Joscha
+  title: Guaranteed lower bounds for eigenvalues
+  journal: Mathematics of Computation
+  volume: 83
+  issue: 290
+  pages: 2605-2629
+  year: 2014
+  doi: 10.1090/S0025-5718-2014-02833-0
+  notes: 'Associated files: independent_exclusion/refs/carstensen_gedicke_2014_glb.pdf,
+    independent_exclusion/refs/carstensen_gedicke_2014_glb.txt'
+- type: article
+  authors:
+  - family-names: Carstensen
+    given-names: Carsten
+  - family-names: Puttkammer
+    given-names: Sophie
+  title: How to prove the discrete reliability for nonconforming finite element methods
+  journal: Journal of Computational Mathematics
+  volume: 38
+  issue: 1
+  pages: 142-175
+  year: 2020
+  doi: 10.4208/jcm.1901-m2018-0175
+  url: https://arxiv.org/abs/1808.03535
+  notes: 'Associated files: independent_exclusion/refs/carstensen_puttkammer_2020_discrete_reliability.pdf,
+    independent_exclusion/refs/carstensen_puttkammer_2020_discrete_reliability.txt'
+- type: article
+  authors:
+  - family-names: Carstensen
+    given-names: Carsten
+  - family-names: Puttkammer
+    given-names: Sophie
+  title: Adaptive guaranteed lower eigenvalue bounds with optimal convergence rates
+  journal: Numerische Mathematik
+  volume: 156
+  pages: 1-38
+  year: 2024
+  doi: 10.1007/s00211-023-01389-9
+  url: https://arxiv.org/abs/2203.01028
+  notes: 'Associated files: independent_exclusion/refs/carstensen_puttkammer_2022_adaptive_glb.pdf,
+    independent_exclusion/refs/carstensen_puttkammer_2022_adaptive_glb.txt'
+- type: article
+  authors:
+  - family-names: Carstensen
+    given-names: Carsten
+  - family-names: Zhai
+    given-names: Qingguo
+  - family-names: Zhang
+    given-names: Ran
+  title: A skeletal finite element method can compute lower eigenvalue bounds
+  journal: SIAM Journal on Numerical Analysis
+  volume: 58
+  issue: 1
+  pages: 109-124
+  year: 2020
+  doi: 10.1137/19M1245558
+  notes: 'Associated files: independent_exclusion/refs/czz20_skeletal_glb.pdf (failed
+    download of Carstensen-Zhai-Zhang''s paper)'
+- type: article
+  authors:
+  - family-names: Rump
+    given-names: S. M.
+  title: Verification of positive definiteness
+  journal: BIT Numerical Mathematics
+  volume: 46
+  pages: 433-452
+  year: 2006
+  doi: 10.1007/s10543-006-0056-x
+  notes: 'Associated files: independent_exclusion/refs/rump_2006_positive_definiteness.pdf,
+    independent_exclusion/refs/rump_2006_positive_definiteness.txt'
