@@ -169,6 +169,15 @@ the tets meeting the slab and take maxima. (E-a): per tet
 ~2× worse constant; the slab form is what the code uses, optimizing H_t
 numerically — any H_t is admissible, so the optimization is correctness-free.)
 
+**Remark (τ_h = 0; discovered during the congruence extension).** The top
+plane {y = Y} is exactly tiled by boundary faces of the mesh, and I_CR
+matches the mean of v on *every* mesh face — so in fact t(e) = 0
+identically and (E-t) holds with τ_h = 0: the trace functional is exactly
+reproduced, no slab bound needed, and the Young split of t(v)² in Theorem
+G1's proof can be skipped (boundary term uninflated in D_h). The certified
+level-1 run used the slab constant τ_h > 0, which is valid but lossier, so
+it stands a fortiori. See CONGRUENCE.md Lemma D0, where this is load-bearing.
+
 **Lemma S (sliver via first-layer column means).** Fix a column height
 H_s ∈ (0, Y − max ŷ]. For a floor face F let π(F) ⊂ R be its z-projection,
 δ̂_F the max vertex lift among its vertices (≥ δ on π(F), Lemma G),

@@ -334,6 +334,14 @@ Trust chain:
   could identify (e.g. doubling the order-3 class count gives B ≈ 0.73 < 1).
 - remaining nice-to-have: a fully independent *certified eigenvalue enclosure*
   (interval Hejhal) rather than Then's floating-point spectrum.
+- ✅ **NEW THEOREM (2026-07-10) — first congruence level certified:**
+  **Γ₀(𝔭)\ℍ³ for 𝔭 = (2+i), N𝔭 = 5, has no eigenvalue in (0,1)** —
+  `independent_exclusion/CONGRUENCE.md` (criterion + Theorem G1𝔭) and
+  `m3p_certify.py` (all 8 windows, Rump-verified, 28,400 CR dofs). This
+  is the open-problem territory of the roadmap below: at vol ≈ 1.83 the
+  trace-formula bound gives B ≈ 1.9 > 1, so pure positivity cannot reach
+  this quotient; the FEM exclusion machinery can, and its margins decay
+  sublinearly with volume. Next rungs: N𝔭 = 9, 13.
 - ✅ **DONE (2026-07-10) — independent re-proof of the exclusion itself**
   (`independent_exclusion/`, master doc `PROOF.md`): Lax–Phillips cusp
   reduction + guaranteed Crouzeix–Raviart lower bounds + Arb-verified

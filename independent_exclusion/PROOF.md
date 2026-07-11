@@ -129,6 +129,115 @@ architecture (torsion-free congruence covers, where the elliptic
 bookkeeping vanishes and only the mesh grows) is reusable for levels
 where the statement is new.
 
+## Theorem 2 (level 𝔭 = (2+i)): the first congruence rung
+
+**Theorem 2.** Let Γ₀(𝔭) ⊂ PSL(2,ℤ[i]) be the Hecke congruence subgroup
+for 𝔭 = (2+i), N𝔭 = 5 (index 6, two cusps ∞ and 0, vol ≈ 1.832). Then
+the Laplacian on L²(Γ₀(𝔭)\ℍ³) has **no eigenvalue in (0, 1)**.
+Certified 2026-07-10. Unlike Theorem 1, this statement is not reachable
+by the trace-formula positivity method (B ≈ 1.9 > 1 at this volume).
+
+**Architecture** (documents in this directory):
+- Multi-cusp criterion: `CONGRUENCE.md` §2 — per-cusp copies of the
+  level-1 Lemmas 0–3, with per-cusp data (Λ_α, |T_α|, Y_α = Y); the
+  cusp-0 chain is audited item-by-item in `0cuspchecks.md` (conjugated
+  stabilizer, fold-compatible tiling, height-preserving chimney maps,
+  dual-lattice mode bound, inherited precise invariance).
+- Domain structure: exactly 6 isometric copies of the level-1 reference
+  cell plus two product collars at the same height Y (Facts A–B,
+  `CONGRUENCE.md` §1) — the Reference-Cell Principle: all interval data
+  is level-1-sized; the index enters only through exact 𝔽₅ combinatorics
+  and the size of the final linear algebra.
+- Guaranteed lower bound: Theorem G1𝔭 (`CONGRUENCE.md` §7) = Theorem G1
+  with three refinements, each stated and proved there: **Lemma D0**
+  (the CR interpolant reproduces the cusp trace functionals *exactly* —
+  no trace error terms, uninflated boundary blocks; also strengthens
+  Theorem 1 retroactively, see the remark in `lower_bound_theory.md`),
+  **exact main terms** (Taylor-enclosed exact-weight mass M_ex and
+  stiffness remainder Q_rem; the weight sandwich survives only in error
+  terms), and per-copy sliver constants with per-face column heights.
+- Certificate: `m3p_certify.py` — same verification standard as
+  Theorem 1 (arb geometry admissibility, degree-5 Taylor enclosures,
+  rigorous arb scalar comparisons, literal Rump BIT 46 (2006) matrix
+  certificate).
+
+**Frozen certificate.** Reference mesh 8×4×3 (24-split; 2304 tets/copy),
+28,400 global CR dofs; Y = 1.25; ν* = 1.02; (θ, θ₂, α, θ₄, ρ̃) =
+(0.6, 0.9, 0.2, 0.85, 9.0); κ = κ_sc (Lemma I1); Taylor p = 5; arb
+prec 128; 8 uniform s-windows. Result: every window passes with
+c_e ≥ 0.847 vs d_e ≤ 0.138 and Rump-verified N_h − D_h ⪰ 0 (float
+pencil diagnostic min-eig 1.44). Reproduce: `python m3p_certify.py`.
+
+**Dependency delta vs Theorem 1: none.** The external-input list of §4
+is unchanged — the additional ingredients (coset combinatorics, Facts
+A–B, Lemma D0, C1–C6 of `0cuspchecks.md`) are all proved in-repo;
+Friedman Thm 3.8.1 already covers cofinite Kleinian groups, hence
+Γ₀(𝔭) with trivial character verbatim.
+
+## Theorem 3 (level 𝔭 = (3)): the inert rung N𝔭 = 9
+
+**Theorem 3.** Let Γ₀(𝔭) ⊂ PSL(2,ℤ[i]) be the Hecke congruence subgroup
+for 𝔭 = (3) (inert, N𝔭 = 9, index 10, two cusps ∞ and 0). Then the
+Laplacian on L²(Γ₀(𝔭)\ℍ³) has **no eigenvalue in (0, 1)**.
+Certified 2026-07-11 (worktree np9).
+
+**Architecture:** same as Theorem 2. Residue ring is ℤ[i]/(3) ≅ 𝔽₉
+(pairs a+bi mod 3); Facts A–B give 10 isometric copies of the level-1
+reference cell; Theorem G1𝔭 with Lemma D0 uses σ_h = √10 · α_h^ref.
+Float margin M𝔭0 at the same mesh: min μ ≈ 2.40 on (0,1). Full log:
+`PROGRESS_LADDER.md`.
+
+**Frozen certificate.** Reference mesh 6×3×3 (24-split; 1296 tets/copy),
+26 532 global CR dofs; Y = 1.25; ν* = 1.02; (θ, θ₂, α, θ₄, ρ̃) =
+(0.5, 0.9, 0.15, 0.8, 1.5); κ = κ_sc (Lemma I1); Taylor p = 5; arb
+prec 128; 8 uniform s-windows. Every window: c_S>0, c_e>d_e, Rump PSD.
+Window extremes: c_e ∈ [0.836, 0.881], d_e ∈ [0.079, 0.222]. Float
+pencil diagnostic min-eig ≈ 1.13 at the search windows. Wall time
+≈ 38 min. Reproduce (from `independent_exclusion/`):
+```text
+python -u -c "from m3p_certify import certify; certify(6,3,3,params=(0.5,0.9,0.15,0.8,1.5),level='(3)')"
+```
+or after a parameter re-search: `python -u m3p_certify.py coarse "(3)"`.
+
+**Dependency delta vs Theorem 2: none.** Only the residue ring and
+copy count change; criterion, G1𝔭, Rump standard unchanged.
+
+## Theorem 4 (level 𝔭 = (3+2i)): the split rung N𝔭 = 13
+
+**Theorem 4.** Let Γ₀(𝔭) ⊂ PSL(2,ℤ[i]) be the Hecke congruence subgroup
+for 𝔭 = (3+2i) (split, N𝔭 = 13, index 14, two cusps ∞ and 0). Then the
+Laplacian on L²(Γ₀(𝔭)\ℍ³) has **no eigenvalue in (0, 1)**.
+Certified 2026-07-11 (worktree np9).
+
+**Architecture:** same as Theorems 2–3. Residue ring ℤ[i]/𝔭 ≅ 𝔽₁₃
+with i ↦ 8; 14 isometric copies of the level-1 reference cell;
+σ_h = √14 · α_h^ref (Lemma D0). Float margin M𝔭0: min μ ≈ 1.45 on
+(0,1) (mesh-converged). Full log: `PROGRESS_LADDER.md`,
+`theorem4postmortem.md`.
+
+**Rump implementation note (load-bearing for this size).** Before the
+BIT 46 test, the midpoint matrix is reduced by the exact power-of-two
+diagonal congruence A ↦ SAS with
+s_i = 2^{round(−½ log₂ a_ii)} (IEEE-exact; A ⪰ 0 ⟺ SAS ⪰ 0).
+Radii are applied **per row** (r_i = Σ_j |S ΔA S|_ij subtracted from
+diagonal i), not as a uniform max-row-sum shift — the latter exceeds
+λ_min(A) ~ 10⁻⁵ at n ≈ 3·10⁴ while the matrix is still SPD. No change
+to Theorem G1𝔭.
+
+**Frozen certificate.** Reference mesh 8×3×2 (24-split; 1152 tets/copy),
+33 176 global CR dofs; Y = 1.25; ν* = 1.001; (θ, θ₂, α, θ₄, ρ̃) =
+(0.3, 0.98, 0.1, 0.85, 0.5); κ = κ_sc (Lemma I1); Taylor p = 5; arb
+prec 128; **16** uniform s-windows. Every window: c_S>0, c_e>d_e,
+Rump PSD after equilibration. Window extremes: c_e ∈ [0.870, 0.907],
+d_e ∈ [0.074, 0.485]. Wall time ≈ 93 min. Reproduce
+(from `independent_exclusion/`):
+```text
+python -u -c "import m3p_certify as m; m.NU_STAR=1.001; m.NWIN=16; m.certify(8,3,2,params=(0.3,0.98,0.1,0.85,0.5),level='(3+2i)')"
+```
+
+**Dependency delta vs Theorem 3: none** on the mathematical chain;
+execution uses the equilibrated Rump path above (implementation-only).
+
 ## 6. Loose ends (tracked, non-load-bearing)
 
 - CAMWA doi:10.1016/j.camwa.2026.03.029 (Carstensen–Dond–Maity–Nataraj)
