@@ -3,29 +3,28 @@
 % Exceptional eigenvalues of Bianchi orbifolds by verified finite
 % elements. I: The method, and the spectral gap of the Picard orbifold
 % ---------------------------------------------------------------------
-% OUTLINE (compilable skeleton).  Content notes in [[double brackets]]
-% map each section to its source in the repository:
-%   DESIGN.md, lower_bound_theory.md, PROOF.md, m3_certify.py, refs/.
-% Reviewer burden by design: (i) the continuous-to-discrete reduction,
-% (ii) the guaranteed FEM bounds, (iii) the interval arithmetic.
-% Nothing else.  All group-theoretic/combinatorial content is deferred
-% to Paper II.
+% Sources: independent_exclusion/{PROOF,DESIGN,lower_bound_theory}.md
+%          m3_certify.py, cr_prototype.py
 % =====================================================================
 \documentclass[11pt]{amsart}
-\usepackage{amsmath,amssymb,amsthm}
+\usepackage{amsmath,amssymb,amsthm,booktabs}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{remark}[theorem]{Remark}
+\newtheorem{corollary}[theorem]{Corollary}
 \newcommand{\HH}{\mathbb{H}^3}
 \newcommand{\ZZ}{\mathbb{Z}}
-\newcommand{\note}[1]{\par\smallskip\noindent\textbf{[[#1]]}\par\smallskip}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\PSL}{\mathrm{PSL}}
+\newcommand{\vol}{\mathrm{vol}}
 
 \title[Verified exclusion of exceptional eigenvalues, I]{Exceptional
 eigenvalues of Bianchi orbifolds by verified finite elements.\\
 I: The method, and the spectral gap of the Picard orbifold}
 \author{}
-\date{Draft outline, 2026-07-11}
+\date{Draft, 2026-07-11}
 
 \begin{document}
 \begin{abstract}
@@ -36,179 +35,989 @@ finite-element lower bounds with fully explicit constants, and a
 floating-point positive-definiteness certificate in the sense of Rump.
 The method makes no use of the Selberg trace formula.  As a first
 application we prove: the Picard orbifold
-$\mathrm{PSL}(2,\ZZ[i])\backslash\HH^3$ has no Laplace eigenvalue in
+$\PSL(2,\ZZ[i])\backslash\HH$ has no Laplace eigenvalue in
 $(0,1)$; equivalently $\lambda_1\ge 1$.  Every analytic constant is
 enclosed in ball arithmetic and the final certificate is a
-deterministic, reproducible computation.
-\note{Abstract: stress (a) exclusion vs.\ existence — certified Maass
-computations (BSV) prove existence; exclusion needs a different
-architecture; (b) independence from the trace formula; (c) the
-machinery is the point — Paper II applies it where the statement is
-new.}
+deterministic, reproducible computation.  Where certified Maass
+computations establish existence of eigenvalues, the present work
+establishes exclusion; the two approaches are complementary.  Papers~II
+and~III apply the same machinery at congruence levels of the Picard
+group and to the Eisenstein--Picard orbifold, where the statements are
+new.
 \end{abstract}
 \maketitle
 
 % ---------------------------------------------------------------------
 \section{Introduction}
-\note{Sources: PROOF.md (master), parent README for context.}
-\begin{itemize}
-\item The Selberg eigenvalue problem for Bianchi groups; state of the
-  art ($\lambda_1 \ge 975/1024$ Blomer--Brumley; trace-formula
-  positivity proofs at level one).  Position: level-one Picard is a
-  validation target (believed classically known); the \emph{method} is
-  the contribution.
-\item Main theorem (= Theorem~\ref{thm:main}) and the two-line
-  architecture: criterion $\to$ guaranteed lower bound $\to$ verified
-  certificate.
-\item Related work, three strands: (1) rigorous Maass computations
-  (Booker--Str\"ombergsson--Venkatesh; Child; Seymour-Howell) — existence
-  tools, complementary; (2) guaranteed FEM eigenvalue bounds
-  (Carstensen--Gedicke; Liu; Carstensen--Puttkammer;
-  Carstensen--Dond--Maity--Nataraj CAMWA 2026 for the lower-energy-bound
-  viewpoint); (3) verified numerical linear algebra (Rump).
-\item Independence statement: the proof shares only the fundamental
-  domain with trace-formula treatments.  Complete list of external
-  inputs (one paragraph; full list in \S\ref{sec:deps}).
-\item Reading guide + reproducibility pointer.
-\end{itemize}
+
+The Selberg eigenvalue problem asks for lower bounds on the first
+positive Laplace eigenvalue $\lambda_1$ of arithmetic hyperbolic
+quotients.  For congruence subgroups of $\mathrm{SL}(2,\ZZ)$ the
+celebrated conjecture $\lambda_1\ge 1/4$ remains open in full
+generality; the best unconditional bound is the Kim--Sarnak refinement
+of the Selberg--Ramanujan conjecture.  Over imaginary quadratic fields
+the analogous problem concerns Bianchi groups
+$\Gamma\subset\PSL(2,\mathcal{O}_K)$ acting on hyperbolic $3$-space
+$\HH$, with the Selberg-type threshold $\lambda_1\ge 1$.  The best
+general unconditional bound is $\lambda_1\ge 975/1024$ of
+Blomer--Brumley \cite{BB11}, obtained from the Kim--Sarnak $7/64$
+exponent via the Jacquet--Langlands correspondence.  At level one for
+the class-number-one fields $K=\mathbb{Q}(i)$ and $K=\mathbb{Q}(\omega)$,
+positivity arguments based on the Selberg trace formula can push past
+the threshold $B<1$ and exclude the entire exceptional interval $(0,1)$;
+such an argument is implemented and certified for both groups in the
+companion repository that houses the present work.  Those proofs rely
+on the full conjugacy-class inventory, the scattering matrix, and a
+carefully chosen test function.  Their margin degrades linearly with
+volume, so they do not extend to congruence covers of moderate index.
+
+The contribution of this paper is a \emph{different} architecture for
+the same exclusion problem: a Lax--Phillips analysis of the cusp,
+followed by a guaranteed finite-element lower bound on the compact core
+and a verified positive-definiteness certificate.  The method never
+invokes the Selberg trace formula.  It shares with the trace-formula
+treatments only the classical fundamental domain.  As a validation
+target we prove the level-one Picard statement, believed classically
+known (cf.\ Elstrodt--Grunewald--Mennicke \cite{EGM98}, and Stramm's
+small-eigenvalue bounds for Bianchi groups), by an independent route.
 
 \begin{theorem}\label{thm:main}
 The Laplace--Beltrami operator on
-$L^2(\mathrm{PSL}(2,\ZZ[i])\backslash \HH^3)$ has no eigenvalue in
-$(0,1)$.  Combined with the spectral decomposition, its spectrum in
-$(0,1)$ is empty: $\lambda_1\ge 1$.
+$L^2(\PSL(2,\ZZ[i])\backslash \HH)$ has no eigenvalue in
+$(0,1)$.  Combined with the spectral decomposition of cofinite
+Kleinian groups \cite[Thm.~3.8.1]{Friedman}, the spectrum in $(0,1)$ is
+empty: $\lambda_1\ge 1$.
 \end{theorem}
+
+The architecture has three layers, each of independent interest.
+
+\begin{enumerate}
+\item \textbf{Reduction} (Section~\ref{sec:criterion}).
+  A Lax--Phillips cusp analysis reduces the theorem to positivity of an
+  explicit quadratic form $\mathcal{A}_s$ on a hyperplane in $H^1(K)$,
+  where $K$ is the fundamental domain truncated at height $Y=1.25$.
+  Nonzero Fourier modes in the cusp contribute nonnegatively; only the
+  zero mode needs exact treatment.  Face identifications of the orbifold
+  are relaxed away: testing over all of $H^1(K)$ is a valid relaxation.
+\item \textbf{Guaranteed finite-element lower bound}
+  (Sections~\ref{sec:mesh}--\ref{sec:G1}).
+  A Crouzeix--Raviart discretization on an inner polyhedral mesh
+  $K_h\subset K$ certifies the continuum pencil inequality from three
+  \emph{finite} checks per spectral window: two scalar inequalities and
+  one matrix positive-semidefiniteness check.  All interpolation and
+  absorption constants are explicit.
+\item \textbf{Verified certificate} (Section~\ref{sec:cert}).
+  The finite checks are executed in ball arithmetic (Arb, 128-bit) for
+  geometry and enclosures, with the matrix check certified by a literal
+  implementation of Rump's positive-definiteness verification
+  \cite{Rump06}.
+\end{enumerate}
+
+Related work falls into three strands.  First, rigorous Maass-form
+computations (Booker--Str\"ombergsson--Venkatesh \cite{BSV06}, Child,
+Seymour-Howell) establish \emph{existence} of eigenvalues to high
+precision; exclusion requires a complementary architecture, which is
+what we supply.  Second, the guaranteed FEM eigenvalue literature
+(Carstensen--Gedicke \cite{CG14}, Liu, Carstensen--Puttkammer
+\cite{CP22}, Carstensen--Zhai--Zhang \cite{CZZ20}, and the lower-energy
+viewpoint of Carstensen--Dond--Maity--Nataraj \cite{CDMN26}) supplies the
+template of projecting through a nonconforming interpolant and absorbing
+errors by Young inequalities; our Theorem~G1 specializes this template
+to the weighted hyperbolic forms and the pencil structure of the
+exclusion criterion.  Third, verified numerical linear algebra in the
+sense of Rump \cite{Rump06} converts a floating-point Cholesky run into
+a rigorous positive-definiteness proof under IEEE-754 semantics.
+
+Paper~II \cite{PaperII} applies the same engine to the Hecke congruence
+quotients $\Gamma_0(\mathfrak{p})$ for Gaussian primes of norms $5$,
+$9$, and $13$---statements unreachable by trace-formula positivity.
+Paper~III \cite{PaperIII} treats the Eisenstein--Picard group
+$\PSL(2,\ZZ[\omega])$ at level one and its first congruence rung
+$\Gamma_0(1-\omega)$.  The present paper is the method paper: reviewer
+burden is deliberately confined to (i)~the continuous-to-discrete
+reduction, (ii)~the guaranteed FEM bounds, and (iii)~the interval
+arithmetic.  All group-theoretic and combinatorial content is deferred.
+
+A complete list of external mathematical inputs appears in
+Section~\ref{sec:deps}.  Reproducibility commands are collected there as
+well.  The certified run of Theorem~\ref{thm:main} is dated 2026-07-10.
 
 % ---------------------------------------------------------------------
 \section{The exclusion criterion}\label{sec:criterion}
-\note{Source: DESIGN.md \S\S0--2 (all proofs there); citations pinned in
-DESIGN.md ``Spectral facts''.  Reviewer job (i): this section.}
-\begin{itemize}
-\item Setup: upper half-space model, Humbert fundamental domain,
-  weighted forms $Q, M$; truncation height $Y>1$; core $K$ and cusp.
-\item Lemma (Shimizu): precise invariance of $\{y>Y\}$, one-line proof.
-\item Spectral preliminaries (cited): decomposition for cofinite
-  Kleinian groups [Friedman, Thm 3.8.1; EGM \S6.2]; Eisenstein
-  eigenvalue $1+t^2$ $\Rightarrow$ spectrum in $[0,1)$ atomic;
-  real-analyticity (Morrey--Nirenberg) for unique continuation.
-\item Cusp Fourier analysis: nonzero modes nonnegative (Lemma 1); exact
-  zero-mode profile $c\,(y/Y)^{1-s}$ and its defect (Lemma 2);
-  orthogonality constraint $\mathcal{L}_s$ (Lemma 3).
-\item The criterion (positivity of $\mathcal{A}_s$ on
-  $\{\mathcal{L}_s=0\}$) and the unconstrained pencil form $(P_s)$
-  with the free parameter $\rho$ (Lemma P).
-\item Remark: the relaxation philosophy — testing over all of $H^1(K)$
-  drops the orbifold identifications; validity is one line, and it is
-  what makes the discrete stage clean.
-\end{itemize}
+
+\subsection{Setup}
+
+Work in the upper half-space model
+\[
+  \HH = \bigl\{ P=(z,y):\; z=x_1+ix_2\in\CC,\; y>0\bigr\},
+\]
+with Riemannian metric $(|dz|^2+dy^2)/y^2$ and volume form
+$dV=y^{-3}\,dx_1\,dx_2\,dy$.  For real $u$ the weighted Dirichlet and mass
+forms are
+\begin{align*}
+  Q(u) &= \int |\nabla u|^2_{\mathrm{hyp}}\,dV
+        = \int |\nabla_{\mathrm{euc}} u|^2\, y^{-1}\,dx\,dy,\\
+  M(u) &= \int u^2\,dV.
+\end{align*}
+Let $\Gamma=\PSL(2,\ZZ[i])$.  The Humbert fundamental domain is
+\[
+  F=\bigl\{(z,y):\; x_1\in[-\tfrac12,\tfrac12],\;
+  x_2\in[0,\tfrac12],\; |z|^2+y^2\ge 1\bigr\}.
+\]
+The cusp stabilizer is $\Gamma_\infty\cong\ZZ[i]\rtimes\langle z\mapsto -z\rangle$;
+the cusp cross-section orbifold $T$ is the coordinate rectangle
+$x_1\in[-\tfrac12,\tfrac12]$, $x_2\in[0,\tfrac12]$, of Euclidean area
+$|T|=\tfrac12$.
+
+Fix a truncation height $Y>1$ (we take $Y=1.25$; the strict inequality
+avoids the mesh degeneracy where the unit sphere touches $y=1$ at $z=0$).
+Split
+\begin{align*}
+  K &= F\cap\{y\le Y\}
+    &&\text{(compact core: $y_f(z)\le y\le Y$, $y_f=\sqrt{1-|z|^2}$),}\\
+  C &= F\cap\{y>Y\}
+    &&\text{(cusp: $T\times(Y,\infty)$).}
+\end{align*}
+
+\begin{lemma}[Precisely invariant horoball; Shimizu]\label{lem:shimizu}
+For $\gamma=\bigl(\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\bigr)\in\Gamma$
+with $c\neq 0$,
+\[
+  y(\gamma P)=\frac{y}{|cz+d|^2+|c|^2 y^2}\le\frac{1}{|c|^2 y}\le\frac{1}{y},
+\]
+since $|c|^2\ge 1$ for $0\neq c\in\ZZ[i]$.  Hence $\{y>Y\}$ with $Y\ge 1$
+meets its $\Gamma$-translates only through $\Gamma_\infty$, and the cusp
+Fourier analysis below is legitimate on the quotient.
+\end{lemma}
+
+The one-line proof above is self-contained (cf.\ Shimizu \cite{Shimizu63},
+Leutbecher \cite{Leutbecher67}).
+
+\subsection{Spectral preliminaries}
+
+The spectral decomposition of $L^2(\Gamma\backslash\HH)$ for cofinite
+Kleinian groups is recorded in Friedman \cite[Thm.~3.8.1]{Friedman}
+(underlying eigenpacket theory: Elstrodt--Grunewald--Mennicke
+\cite[§6.2]{EGM98}).  Every $f$ in the domain expands into discrete
+eigenfunctions plus Eisenstein integrals $E_\alpha(\cdot,it)$.  Since
+$E_\alpha(\cdot,it)$ has Laplace eigenvalue $1+t^2\ge 1$, the spectral
+measure on $[0,1)$ is purely atomic, supported on the discrete
+eigenvalues: \textbf{any spectral point in $(0,1)$ is an $L^2$
+eigenvalue.}  Eigenfunctions are real-analytic (elliptic operator with
+real-analytic coefficients; Morrey--Nirenberg), which also supplies unique
+continuation.  The eigenvalue $\lambda=0$ has eigenspace equal to the
+constants: $\Delta u=0$ with $u\in L^2$ on a connected finite-volume
+quotient forces $\int|\nabla u|^2=0$.  Eigenfunctions with $\lambda\neq 0$
+are orthogonal to constants by self-adjointness.
+
+\subsection{Cusp Fourier analysis}
+
+Let $u$ be a real eigenfunction, $\Delta u=\lambda u$, $\lambda=1-s^2$,
+$s\in(0,1)$, $\|u\|=1$.  Work on the double cover of the cusp,
+$\widetilde C=(\RR^2/\ZZ^2)\times(Y,\infty)$ (orbifold integrals equal
+half the cover integrals).  Write Fourier modes $\hat u_\mu(y)$,
+$\mu=(m,n)\in\ZZ^2$.
+
+\begin{lemma}[Nonzero modes are harmless]\label{lem:nonzero}
+For $\mu\neq 0$, the mode's contribution to $Q_C-\lambda M_C$ is
+\begin{align*}
+  &\tfrac12\int_Y^\infty\bigl(\hat u_\mu'^2+4\pi^2|\mu|^2\hat u_\mu^2\bigr)
+    y^{-1}\,dy
+  -\tfrac12\lambda\int_Y^\infty\hat u_\mu^2 y^{-3}\,dy\\
+  &\qquad\ge\tfrac12\bigl(4\pi^2 Y^2-\lambda\bigr)
+    \int_Y^\infty\hat u_\mu^2 y^{-3}\,dy\ge 0,
+\end{align*}
+using $\int\hat u^2 y^{-1}\ge Y^2\int\hat u^2 y^{-3}$ and
+$4\pi^2 Y^2>1>\lambda$.  No boundary condition at $y=Y$ is needed.
+\end{lemma}
+
+\begin{lemma}[Exact zero-mode profile and defect]\label{lem:zero}
+The zero mode $\hat u_0$ satisfies $y^2 f''-yf'+\lambda f=0$ on $(Y,\infty)$;
+the solutions are $y^{1\pm s}$, and $L^2(y^{-3}\,dy)$ forces
+$\hat u_0(y)=c\,(y/Y)^{1-s}$ with
+$c=\hat u_0(Y)=(1/|T|)\int_T u(\cdot,Y)\,dx$.  Integration by parts with
+the ODE gives \emph{exactly}
+\[
+  \int_Y^\infty\bigl(\hat u_0'^2-\lambda\hat u_0^2 y^{-2}\bigr)y^{-1}\,dy
+  =-\hat u_0(Y)\hat u_0'(Y)/Y=-(1-s)c^2/Y^2,
+\]
+so the zero mode contributes $-(1-s)c^2/(2Y^2)$ to $Q_C-\lambda M_C$
+(the factor $1/2$ from the cover).
+\end{lemma}
+
+\begin{lemma}[Orthogonality constraint]\label{lem:ortho}
+From $\langle u,1\rangle=0$ and
+$\int_Y^\infty(y/Y)^{1-s}y^{-3}\,dy=Y^{-2}/(1+s)$ one obtains
+\[
+  \int_K u\,dV+\frac{c}{2(1+s)Y^2}=0.
+\]
+\end{lemma}
+
+\subsection{The criterion}
+
+For $v\in H^1(K)$ define the Euclidean top-face integral
+$t(v)=\int_T v(\cdot,Y)\,dx_1\,dx_2$ (so $c=2t$ on the cover), and for
+$s\in(0,1)$, $\lambda=1-s^2$:
+\begin{align*}
+  \mathcal{A}_s(v)
+    &= Q_K(v)-\lambda M_K(v)-2(1-s)\,t(v)^2/Y^2,\\
+  \mathcal{L}_s(v)
+    &= \int_K v\,dV+t(v)/\bigl((1+s)Y^2\bigr).
+\end{align*}
+
+\begin{theorem}[Exclusion criterion]\label{thm:criterion}
+If for every $s\in(0,1)$,
+\[
+  \mathcal{A}_s(v)>0
+  \quad\text{for all $0\neq v\in H^1(K)$ with $\mathcal{L}_s(v)=0$,}
+\]
+then $\Gamma\backslash\HH$ has no eigenvalue in $(0,1)$; i.e.\
+$\lambda_1\ge 1$.
+\end{theorem}
+
+\begin{proof}
+Let $u$ be an eigenfunction with $\lambda=1-s^2\in(0,1)$ and $\|u\|=1$.
+Then
+\[
+  0=Q(u)-\lambda M(u)
+  =[Q_K-\lambda M_K](u)+(\text{zero mode})+(\mu\neq 0\text{ modes})
+  \ge\mathcal{A}_s(u|_K)
+\]
+by Lemmas~\ref{lem:nonzero}--\ref{lem:zero}, so $\mathcal{A}_s(u|_K)\le 0$.
+Lemma~\ref{lem:ortho} gives $\mathcal{L}_s(u|_K)=0$.  Real-analyticity
+(unique continuation) gives $u|_K\neq 0$.  Contradiction.
+\end{proof}
+
+\begin{remark}[Relaxation philosophy]
+Testing over \emph{all} of $H^1(K)$ is a relaxation: no side or floor
+identifications, no orbifold structure, plain Neumann-type free
+boundaries.  If positivity survives this enlargement of the test space,
+the certified computation never has to implement the face gluings.  The
+criterion sees every $L^2$ eigenfunction---cuspidal or residual---exactly
+as a $B<1$ positivity argument does.  Constants sanity check:
+$v\equiv 1$ has $\mathcal{A}_s<0$ but $\mathcal{L}_s(1)\neq 0$, so the
+constraint is what excludes the $\lambda=0$ eigenfunction, as it must.
+For fixed $v$, $\mathcal{A}_s(v)$ is decreasing in $\lambda$, so a finite
+$\lambda$-grid checked at right endpoints controls each window; the
+$s$-dependence of the constraint is handled by the interval-$\kappa$
+reduction of Section~\ref{sec:G1}.
+\end{remark}
+
+\subsection{Pencil form}
+
+The constrained positivity of Theorem~\ref{thm:criterion} is equivalent
+to an unconstrained pencil inequality, which is the natural container for
+nonconforming lower bounds.
+
+\begin{lemma}[Pencil criterion]\label{lem:P}
+Fix $\rho>0$ and $\varepsilon_0>0$.  If for every $s\in(0,1)$
+\begin{equation}\label{eq:Ps}
+  Q(v)+\rho\,\mathcal{L}_s(v)^2
+  \ge(1+\varepsilon_0)\bigl[\lambda M(v)+\beta(s)\,t(v)^2\bigr]
+  \qquad\text{for all $v\in H^1(K)$,}
+\end{equation}
+where $\lambda=1-s^2$ and $\beta(s)=2(1-s)/Y^2$, then the criterion of
+Theorem~\ref{thm:criterion} holds (with strict positivity), hence
+$\lambda_1\ge 1$.
+\end{lemma}
+
+\begin{proof}
+Let $v\neq 0$ with $\mathcal{L}_s(v)=0$.  Then \eqref{eq:Ps} gives
+$\mathcal{A}_s(v)=Q-\lambda M-\beta t^2
+\ge\varepsilon_0(\lambda M(v)+\beta t(v)^2)\ge\varepsilon_0\lambda M(v)>0$.
+\end{proof}
+
+The free parameter $\rho$ never affects correctness; it only affects the
+numerical margin of the discrete checks.
 
 % ---------------------------------------------------------------------
 \section{Geometry: the inner polyhedral mesh}\label{sec:mesh}
-\note{Source: lower\_bound\_theory.md \S1 (Lemma G).}
-\begin{itemize}
-\item Floor-lifted inner mesh $K_h\subset K$; concavity/sag Lemma G
-  with the barycentric-variance constant $d^2/8$; sliver $\Sigma$.
-\item Mesh-split-agnostic statement (the level-one certificate uses a
-  Kuhn split; Paper II uses the symmetric 24-split; the theory below
-  does not care).  Per-tet data and sandwiched weights
-  $w_T^Q, w_T^M$.
-\end{itemize}
+
+Start from a mapped hexahedral grid of $N_1\times N_2\times N_3$ cells over
+$(\xi_1,\xi_2,\xi_3)\in[-\tfrac12,\tfrac12]\times[0,\tfrac12]\times[0,1]$,
+with vertical coordinate $y=y_f(1-\xi_3)+Y\xi_3$.  \textbf{Floor lift:}
+every node with $\xi_3=0$ is placed at $y=y_f(z)+\ell$ instead of $y_f(z)$,
+with the lift
+\[
+  \ell:=\tfrac12\cdot\max_{\mathrm{cell}}|D^2 y_f|\cdot
+  (\text{cell diameter in $z$})^2,\qquad
+  |D^2 y_f|\le y_f^{-3}\le 2^{3/2},
+\]
+evaluated per floor cell.  Each (possibly non-planar) hexahedral cell is
+split into six tetrahedra by the Kuhn triangulation with globally
+consistent diagonals; all tet faces are planar and the mesh is
+face-to-face.  Write $K_h$ for the union of the tets, $\Gamma_h$ for its
+floor (a piecewise-linear graph $\hat y(z)$ over the rectangle
+$R=[-\tfrac12,\tfrac12]\times[0,\tfrac12]$), and
+$\Sigma:=K\setminus K_h$ for the sliver between the polyhedral floor and
+the sphere.  Set $\delta(z):=\hat y-y_f\ge 0$.
+
+\begin{lemma}[Inclusion]\label{lem:G}
+The function $y_f$ is concave on $R$.  On a floor triangle with longest
+$z$-edge $d$, the chord interpolant lies below $y_f$ by at most the sag
+$(\max|D^2 y_f|)\cdot d^2/8$.  With the per-cell lift
+$\ell:=(\max_{\mathrm{cell}} y_f^{-3})\cdot d^2/8$ assigned to nodes as
+the maximum over adjacent cells, one has $\hat y\ge y_f$ pointwise, i.e.\
+$K_h\subset K$, and $\delta(z)\le\max$ vertex lift.
+\end{lemma}
+
+\begin{proof}[Sketch]
+Taylor with concavity: the chord at $z=\sum\theta_i z_i$ satisfies
+$\mathrm{chord}(z)\ge y_f(z)-\tfrac12\max|D^2 y_f|\sum\theta_i|z_i-z|^2$.
+The barycentric variance $\sum\theta_i|z_i-z|^2$ is at most $d^2/4$
+(maximized at an edge midpoint of the longest edge).  Adding the lifts
+raises the chord by at least the sag.  Since $\mathrm{chord}\le y_f$
+without lift, also $\delta\le\max$ vertex lift.
+\end{proof}
+
+\begin{remark}[Mesh-split agnosticism]
+The level-one certificate of Theorem~\ref{thm:main} uses a Kuhn split.
+Paper~II uses the symmetric $24$-split (body centre plus face centres),
+required for mirror-compatible gluing at congruence level.  Lemmas~G, E,
+S, I1 and Theorem~G1 below do not depend on the split.
+\end{remark}
+
+Per-tet data (all computed by code): diameter $h_T$, volume $|T|$, face
+areas; $y$-range $[y_T^-,y_T^+]$ over $T$ (min/max over the four vertices,
+valid since $y$ is affine on $T$); sandwiched weights
+\[
+  w_T^Q:=(y_T^+)^{-1}\quad\text{(stiffness, from below),}\qquad
+  w_T^M:=(y_T^-)^{-3}\quad\text{(mass, from above),}
+\]
+so that $Q(v)\ge Q_{\mathrm{pc}}(v):=\sum_T w_T^Q\|\nabla v\|_{L^2(T)}^2$ and
+$M|_{K_h}(v)\le M_{\mathrm{pc}}(v):=\sum_T w_T^M\|v\|_{L^2(T)}^2$ for every
+$v\in H^1(K_h)$.
 
 % ---------------------------------------------------------------------
 \section{The guaranteed lower bound}\label{sec:G1}
-\note{Source: lower\_bound\_theory.md (Theorem G1 + lemmas), incl.\ the
-$\tau_h=0$ remark and the exact-main-term refinement from
-CONGRUENCE.md \S7 — PRESENT BOTH AS THE PRIMARY ROUTE here (cleaner
-than the historical slab route; keep the slab bound as a remark).
-Reviewer job (ii): this section.}
-\begin{itemize}
-\item CR space and interpolation: (I2) projection property;
-  \textbf{Lemma I1} (self-contained interpolation constant
-  $\kappa=\sqrt{1/\pi^2+1/15}$ on \emph{arbitrary} tetrahedra; inputs:
-  Payne--Weinberger 1960 / Bebendorf 2003 only).  Remark: sharper
-  published $\sqrt{1/\pi^2+1/120}$ (CZZ20) optional, not load-bearing.
-\item \textbf{Lemma D0} (exact trace reproduction): the cusp
-  cross-section is tiled by mesh faces and $I_{CR}$ matches face means,
-  so $t(v-I_{CR}v)=0$ — no trace error terms, uninflated boundary
-  blocks.  [[Historically discovered late; expositionally it goes
-  first.]]
-\item Exact main terms / sandwiched error terms: $M_{ex}$, $Q_{rem}$,
-  $\rho_w$, the $\theta_4$ split; error lemmas (E-M), (E-a); trace
-  identity Lemma T (used for the sliver and as a tool).
-\item Sliver absorption Lemma S (column means, per-face heights).
-\item Window sweep: worst-case $(\lambda^+,\beta^+,\Delta\kappa)$ per
-  $s$-window; monotonicity.
-\item \textbf{Theorem G1} (master): the criterion follows from, per
-  window, two scalar inequalities and one matrix inequality
-  $N_h-D_h\succeq 0$ on the CR space.  Full proof.
-\item Efficiency remark: all corrections are $O(h)$ or $O(h^2)$; the
-  discrete pencil converges to the (relaxed) continuum problem.
-\end{itemize}
+
+This section turns the infinite-dimensional positivity of
+Lemma~\ref{lem:P} into a finite, verified computation.  Every constant is
+explicit and interval-computable.
+
+\subsection{Crouzeix--Raviart interpolation}
+
+Let $V_h:=\mathrm{CR}^1(\mathcal{T})$ be the space of piecewise affine
+functions continuous at face barycentres (equivalently: matching face
+means), with \emph{no} boundary conditions.  The face-mean interpolant
+$I=I_{\mathrm{CR}}:H^1(K_h)\to V_h$ satisfies, on each tet $T$, with
+$e:=v-Iv$:
+\begin{align*}
+  \text{(I2)}\quad
+  &\nabla(Iv)|_T=\Pi_0(\nabla v|_T)
+  \;\Rightarrow\;
+  \int_T\nabla e\cdot\nabla w_h=0\text{ for }w_h\in V_h,\\
+  &\text{hence }
+  \|\nabla v\|_T^2=\|\nabla Iv\|_T^2+\|\nabla e\|_T^2
+  \text{ and }
+  Q_{\mathrm{pc}}(v)=Q_{\mathrm{pc}}(Iv)+Q_{\mathrm{pc}}(e);\\
+  \text{(I1)}\quad
+  &\|e\|_{L^2(T)}\le\kappa\, h_T\|\nabla e\|_{L^2(T)}.
+\end{align*}
+Property (I2) is immediate from the face-mean property
+($\int_T\nabla e=\sum_F\nu_F\int_F e=0$ and $\nabla Iv$ is constant).  For
+(I1) we use a self-contained constant.
+
+\begin{lemma}[CR interpolation on arbitrary tetrahedra]\label{lem:I1}
+Inequality (I1) holds with
+\[
+  \kappa_{\mathrm{sc}}:=\sqrt{\frac1{\pi^2}+\frac1{15}}\le 0.40988.
+\]
+\end{lemma}
+
+\begin{proof}[Sketch]
+The error $e=v-I_{\mathrm{CR}}v$ has vanishing face means.  Split
+$e=(e-\bar e_T)+\bar e_T$, orthogonal in $L^2(T)$.  Payne--Weinberger for
+the convex domain $T$ \cite{PW60,Bebendorf03} gives
+$\|e-\bar e_T\|\le(h_T/\pi)\|\nabla e\|$.  For the mean, pick a vertex $P$
+with opposite face $F$: the divergence identity
+$\operatorname{div}((x-P)e)=3e+(x-P)\cdot\nabla e$ and the face-mean
+vanishing yield $3|T|\bar e_T=-\int_T(x-P)\cdot\nabla e$; Cauchy--Schwarz
+and the barycentric second-moment bound $m_2\le(3/5)h_T^2$ give
+$|T|\bar e_T^2\le(h_T^2/15)\|\nabla e\|^2$.  Combining,
+$\kappa^2\le 1/\pi^2+1/15$.
+\end{proof}
+
+\begin{remark}
+The sharper published constant
+$\kappa_1:=\sqrt{1/\pi^2+1/120}\le 0.33115$ of Carstensen--Puttkammer
+\cite[§2.4]{CP22} (sourced to Carstensen--Zhai--Zhang \cite{CZZ20}) is
+available as an optional sharpening.  The certificate runs with
+$\kappa_{\mathrm{sc}}$ by default; nothing below depends on which is
+chosen, since $\kappa$ enters only scalar constants.
+\end{remark}
+
+\begin{lemma}[Exact trace reproduction]\label{lem:D0}
+The top plane $\{y=Y\}$ is exactly tiled by boundary faces of the mesh,
+and $I_{\mathrm{CR}}$ matches the mean of $v$ on every mesh face.  Hence
+$t(e)=0$ identically: the trace functional is exactly reproduced, no
+slab bound is needed, and the Young split of $t(v)^2$ in the proof of
+Theorem~\ref{thm:G1} can be skipped (boundary term uninflated in $D_h$).
+\end{lemma}
+
+\begin{remark}
+Historically the level-one certificate used a positive slab constant
+$\tau_h>0$, which is valid but lossier; the certified run therefore
+stands a fortiori under Lemma~\ref{lem:D0}.  The exact-reproduction
+viewpoint became load-bearing in Paper~II, where multi-cusp boundary
+blocks must remain uninflated.
+\end{remark}
+
+\subsection{Error and sliver lemmas}
+
+Write $a(v)=\int_K v\,y^{-3}\,dx\,dy$ and
+$\kappa_c(s)=1/((1+s)Y^2)$, so
+$\mathcal{L}_s(v)=a(v)+\kappa_c(s)\,t(v)$.
+
+\begin{lemma}[Functional errors]\label{lem:E}
+For any $v\in H^1(K_h)$ and $e=v-I_{\mathrm{CR}}v$:
+\begin{align*}
+  \text{(E-M)}\quad
+  &M_{\mathrm{pc}}(e)\le\gamma^2 Q_{\mathrm{pc}}(e),
+  \quad\gamma:=\kappa\cdot\max_T h_T\sqrt{w_T^M/w_T^Q};\\
+  \text{(E-a)}\quad
+  &|a(e)|\le\alpha_h\sqrt{Q_{\mathrm{pc}}(e)},
+  \quad\alpha_h:=\kappa\Bigl(\sum_T(w_T^M)^2|T|h_T^2/w_T^Q\Bigr)^{1/2};\\
+  \text{(E-$\mathcal{L}$)}\quad
+  &|\mathcal{L}_{s_0}(e)|\le\sigma_h\sqrt{Q_{\mathrm{pc}}(e)},
+  \quad\sigma_h:=\alpha_h+\kappa_c(s_0)\,\tau_h,
+\end{align*}
+where $\tau_h=0$ under Lemma~\ref{lem:D0}, and otherwise $\tau_h$ is the
+slab-mean constant of the historical route (any slab height
+$0<H_t\le Y-\max\hat y$).
+\end{lemma}
+
+\begin{lemma}[Sliver via first-layer column means]\label{lem:S}
+Fix a column height $H_s\in(0,Y-\max\hat y]$.  For each floor face $F$
+let $\pi(F)\subset R$ be its $z$-projection and $\hat\delta_F$ the max
+vertex lift among its vertices.  The columns
+$\mathrm{col}(F):=\{(z,y):z\in\pi(F),\;\hat y(z)\le y\le\hat y(z)+H_s\}$
+are disjoint subsets of $K_h$.  Then for every $v\in H^1(K)$,
+\begin{align*}
+  M_\Sigma(v)&:=\int_\Sigma v^2 y^{-3}
+  \le S_M M_{K_h}(v)+S_Q Q_{K_h}(v)+S_\Sigma Q_\Sigma(v),\\
+  |a_\Sigma(v)|&:=\bigl|\int_\Sigma v\,y^{-3}\bigr|
+  \le\sqrt{V_\Sigma}\sqrt{M_\Sigma(v)},
+\end{align*}
+with explicit constants $S_M,S_Q,S_\Sigma,V_\Sigma$ computed from per-face
+heights and $y$-ranges (formulas in the companion theory note; all are
+$O(h)$ or $O(h^2)$).
+\end{lemma}
+
+\subsection{Exact main terms}
+
+The Young split $v=Iv+e$ is pointwise, so the \emph{main} terms need no
+weight freezing---only the error steps (E-M) and (E-a), which convert
+$\|e\|$-type norms to $\|\nabla e\|$, use sandwiched weights.  Define per
+tet the nonnegative stiffness remainder
+\[
+  Q_{\mathrm{rem}}:=\sum_T\Bigl(\int_T y^{-1}-w_T^Q|T|\Bigr)\nabla\varphi\nabla\varphi^T
+  \succeq 0
+\]
+(with $\int_T y^{-1}$ Taylor-enclosed), the exact-weight mass $M_{\mathrm{ex}}$
+(entries $\int_T\varphi_a\varphi_b y^{-3}$, Taylor-enclosed like $\ell_0$),
+and $\rho_w:=\max_T(y_T^+/y_T^--1)$.  Then for any $\theta_4\in(0,1)$:
+\begin{align*}
+  Q(v)&\ge\bigl[Q_{\mathrm{pc}}+(1-\theta_4)Q_{\mathrm{rem}}\bigr](Iv)
+    +\bigl(1-(1/\theta_4-1)\rho_w\bigr)Q_{\mathrm{pc}}(e),\\
+  M(v)&\le(1+\alpha)M_{\mathrm{ex}}(Iv)+(1+1/\alpha)\gamma^2 Q_{\mathrm{pc}}(e).
+\end{align*}
+(The pure pc-sandwich alone costs roughly $38\%$ mass inflation on the
+level-one mesh; the exact-main-term refinement recovers this.)
+
+\subsection{Master theorem}
+
+Fix a window $W=[s^-,s^+]\subseteq[0,1]$ and a reference $s_0\in W$.
+Worst-case data:
+\[
+  \lambda^+:=1-(s^-)^2,\qquad
+  \beta^+:=2(1-s^-)/Y^2,\qquad
+  \Delta\kappa:=\max\bigl(|\kappa_c(s^-)-\kappa_c(s_0)|,\,
+  |\kappa_c(s^+)-\kappa_c(s_0)|\bigr).
+\]
+Choose Young parameters $\theta,\theta_2,\theta',\alpha\in(0,1)$, a target
+$\nu^*=1+\varepsilon_0$, and $\rho>0$.  Define, in this order (all
+computable from mesh data):
+\begin{align*}
+  \omega&:=2\rho(1/\theta_2-1)V_\Sigma,\\
+  c_Q&:=1-(\omega+\nu^*\lambda^+)S_Q,\\
+  c_\Sigma&:=1-(\omega+\nu^*\lambda^+)S_\Sigma
+    \quad\text{(must be $\ge 0$; then $Q_\Sigma$ is dropped),}\\
+  \tilde\lambda&:=\nu^*\lambda^+(1+S_M)+\omega S_M,\\
+  \tilde\beta&:=\nu^*\beta^++2\rho(1/\theta_2-1)\Delta\kappa^2,\\
+  \tilde\rho&:=\rho(1-\theta_2),\\
+  c_e&:=c_Q\bigl(1-(1/\theta_4-1)\rho_w\bigr)
+    -\tilde\rho(1/\theta-1)\sigma_h^2,\\
+  d_e&:=\tilde\lambda(1+1/\alpha)\gamma^2
+    +\tilde\beta(1+1/\theta')\tau_h^2.
+\end{align*}
+(Under Lemma~\ref{lem:D0} one has $\tau_h=0$ and the second summand of
+$d_e$ vanishes; the historical level-one run retained $\tau_h>0$.)
+Discrete check: with the CR matrices $Q_{\mathrm{pc}}$, $M_{\mathrm{pc}}$
+(or $M_{\mathrm{ex}}$), vectors $\ell_0$ (for
+$\mathcal{L}_{s_0}(v_h)=a(v_h)+\kappa_c(s_0)t(v_h)$) and $t$,
+\begin{align*}
+  N_h&:=c_Q\bigl[Q_{\mathrm{pc}}+(1-\theta_4)Q_{\mathrm{rem}}\bigr]
+    +\tilde\rho(1-\theta)\,\ell_0\ell_0^T,\\
+  D_h&:=\tilde\lambda(1+\alpha)M_{\mathrm{ex}}
+    +\tilde\beta(1+\theta')\,tt^T.
+\end{align*}
+
+\begin{theorem}[Master lower bound]\label{thm:G1}
+Suppose $c_\Sigma\ge 0$, $c_e>0$, and
+\begin{enumerate}
+\item[(a)] $N_h-D_h\succeq 0$ (positive semidefinite on the CR space),
+\item[(b)] $c_e/d_e\ge 1$.
+\end{enumerate}
+Then the pencil inequality \eqref{eq:Ps} holds with $1+\varepsilon_0=\nu^*$
+for every $s\in W$.  If (a) and (b) hold for a family of windows covering
+$(0,1)$, then by Lemma~\ref{lem:P} one has $\lambda_1\ge 1$.
+\end{theorem}
+
+\begin{proof}[Outline]
+Let $v\in H^1(K)$ and $s\in W$.  Write $N:=Q(v)+\rho\mathcal{L}_s(v)^2$ and
+$D:=\lambda M(v)+\beta(s)t(v)^2$.  Since $\lambda\le\lambda^+$ and
+$\beta(s)\le\beta^+$, one has $D\le\lambda^+ M(v)+\beta^+ t(v)^2$.
+
+\emph{Step 1} (window shift + sliver in $\mathcal{L}$).
+$\mathcal{L}_s(v)=\mathcal{L}_{s_0}(v)|_{K_h}+a_\Sigma(v)
++(\kappa_c(s)-\kappa_c(s_0))t(v)$; Young and Lemma~\ref{lem:S} absorb the
+error into $\omega$ and $\tilde\beta$.
+
+\emph{Step 2} (sliver in $M$).  $M(v)=M_{K_h}(v)+M_\Sigma(v)$ and
+Lemma~\ref{lem:S} produce the effective mass coefficient $\tilde\lambda$
+and the nonnegativity condition $c_\Sigma\ge 0$ that drops $Q_\Sigma$.
+
+\emph{Step 3} (pc sandwich and exact main terms).
+$Q_{K_h}\ge Q_{\mathrm{pc}}+(1-\theta_4)Q_{\mathrm{rem}}$ on the main term
+and $M_{K_h}\le M_{\mathrm{ex}}$ (or $M_{\mathrm{pc}}$) reduce the continuum
+comparison to discrete data.
+
+\emph{Step 4} (CR projection).  Split $v=Iv+e$.  By (I2),
+$Q_{\mathrm{pc}}(v)=Q_{\mathrm{pc}}(Iv)+Q_{\mathrm{pc}}(e)$.  Lemma~\ref{lem:E}
+and Young give
+\begin{align*}
+  \mathcal{L}_0(v)^2&\ge(1-\theta)\mathcal{L}_0(Iv)^2
+    -(1/\theta-1)\sigma_h^2 Q_{\mathrm{pc}}(e),\\
+  M(v)&\le(1+\alpha)M_{\mathrm{ex}}(Iv)
+    +(1+1/\alpha)\gamma^2 Q_{\mathrm{pc}}(e),\\
+  t(v)^2&\le(1+\theta')t(Iv)^2+(1+1/\theta')\tau_h^2 Q_{\mathrm{pc}}(e).
+\end{align*}
+The bracketed main terms satisfy the discrete comparison by (a); the
+error terms satisfy $c_e Q_{\mathrm{pc}}(e)\ge d_e Q_{\mathrm{pc}}(e)$ by
+(b).  Adding proves the continuum inequality on $K_h$, hence on $K$.
+\end{proof}
+
+\begin{remark}[Efficiency]
+All corrections are $O(h)$ or $O(h^2)$: $\gamma,\alpha_h=O(h)$,
+$\delta,S_*,V_\Sigma=O(h^2)$.  Hence $c_e/d_e=O(h^{-2})\to\infty$ and
+$N_h-D_h$ tends to the unperturbed discrete pencil.  The theorem is not
+just true but efficient: the $h$-dependence enters only through small
+multiplicative and additive corrections.  What the code must certify per
+window is $c_\Sigma\ge 0$, $c_e>d_e$, and $N_h-D_h\succeq 0$---no eigenvalue
+\emph{solve} is part of the certificate, only positive-definiteness
+checks.
+\end{remark}
 
 % ---------------------------------------------------------------------
 \section{The verified certificate}\label{sec:cert}
-\note{Sources: m3\_certify.py; lower\_bound\_theory.md \S5; Rump BIT 46
-(2006) in refs/.  Reviewer job (iii): this section.  INCLUDE the two
-refinements that Paper II stress-tested into existence: they are
-machinery and belong to the Hammer.}
+
+\subsection{Exactness conventions}
+
+Mesh coordinates are IEEE doubles representing exact dyadic rationals
+from the mapped grid.  Geometry admissibility (Lemma~\ref{lem:G}:
+$\hat y\ge y_f$ on every floor face) is re-verified in ball arithmetic.
+Per-tet data and sandwiched weights are interval-enclosed.  The only
+curved-weight objects requiring nontrivial enclosures are the vector
+$\ell_0$ (entries $\int_T\varphi_F y^{-3}$) and the exact-weight mass and
+stiffness-remainder moments.
+
+\subsection{Interval enclosures}
+
+Integrals of the form $\int_T\varphi_a y^{-3}\,dx$ are enclosed by a
+degree-$p$ Taylor expansion of $y^{-3}$ about the tet mean $\bar y$: the
+moments $\int_T\varphi_a(y-\bar y)^k$ are exact barycentric-monomial
+integrals
+$\bigl(\int_T\prod\lambda_i^{\alpha_i}=6|T|\prod\alpha_i!/(|\alpha|+3)!\bigr)$,
+and the remainder is a ball controlled by
+$y_T^{-(4+p)}\Delta^{p+1}$.  With $p=5$ the vector radius is of order
+$10^{-7}$ against eigenvalue margins of order $10^{-4}$.  Consistency
+checks include row sums of $M_{\mathrm{ex}}$ against $\ell$ and the
+identity $1^TM1=\vol(K)$ up to the $O(h^2)$ sliver.
+
+\begin{lemma}[Factored interval rank-one reduction]\label{lem:R}
+Let $\ell\in\RR^n$ lie componentwise in $[\hat\ell\pm r]$.  Then
+\[
+  \ell\ell^T\succeq\hat\ell\hat\ell^T-2\|\hat\ell\|_2\|r\|_2\cdot I
+  \quad\text{and}\quad
+  \ell\ell^T\preceq\hat\ell\hat\ell^T+(2\|\hat\ell\|\|r\|+\|r\|^2)\cdot I.
+\]
+\end{lemma}
+
+\begin{proof}
+Write $\ell=\hat\ell+\delta$ with $|\delta^Tx|\le\|r\|\|x\|$ and
+$|\hat\ell^Tx|\le\|\hat\ell\|\|x\|$.
+\end{proof}
+
+\subsection{Rump's certificate}
+
+The matrix check $N_h-D_h\succeq 0$ for all interval data reduces, by
+Lemma~\ref{lem:R} and entrywise radius domination, to
+$\lambda_{\min}(\hat A)>\varepsilon_{\mathrm{tot}}$ for a float midpoint
+matrix $\hat A$ and an explicit total shift $\varepsilon_{\mathrm{tot}}$.
+This is certified by a literal implementation of Rump
+\cite{Rump06}, Theorems~2.3, Corollary~2.4, and Lemma~2.5:
+
 \begin{itemize}
-\item Exactness conventions: mesh coordinates are IEEE doubles (exact
-  rationals); geometry admissibility re-verified in ball arithmetic.
-\item Interval enclosures: Taylor-moment enclosures for the weighted
-  functionals ($\ell_0$, $M_{ex}$, $\int_T y^{-1}$) with rigorous
-  remainder balls; consistency checks (row sums of $M_{ex}$ vs
-  $\ell$).
-\item \textbf{Lemma R} (factored interval rank-one reduction).
-\item Rump's certificate, implemented literally: Thm 2.3 ($\Delta(A)$,
-  $\gamma_{s(i,j)+2}$, underflow term), Cor 2.4, Lemma 2.5
-  ($\varphi$-trick); ``any library routine can be used''.
-\item \textbf{Refinement 1: error-free diagonal congruence.}  Scaling
-  $A\mapsto SAS$ with $s_i=2^{\mathrm{round}(-\log_2 a_{ii}/2)}$ is
-  exact in IEEE-754, preserves definiteness, equilibrates the diagonal;
-  it removes the mismatch between Rump's stiffness-scale shift and the
-  mass-scale eigenvalue floor.
-\item \textbf{Refinement 2: per-row radius absorption.}  For symmetric
-  $|E|\le R$ entrywise, $E\succeq-\mathrm{diag}(r)$, $r_i=\sum_j
-  R_{ij}$ — replaces the uniform max-row-sum shift.  One-line proof
-  ($2|x_ix_j|\le x_i^2+x_j^2$).
-\item The frozen certificate for Theorem~\ref{thm:main}: parameter
-  table (mesh, $Y$, $\nu^*$, Young parameters, $\rho$, precision),
-  per-window results, runtimes; the parameter-search/rigorous-freeze
-  discipline (floats choose, arb verifies).
+\item \emph{Theorem 2.3.}  If the floating-point Cholesky factorization of
+  a symmetric $A\in\mathbb{F}^{n\times n}$ runs to completion, then
+  $\lambda_{\min}(A)>-\|\Delta(A)\|_2$, where $\Delta(A)_{ij}$ is built from
+  $\gamma_{s(i,j)+2}$, the diagonal scaling $d_j$, and the underflow term
+  $M\cdot\eta$ (IEEE-754 double: $\varepsilon=2^{-53}$, $\eta=2^{-1074}$).
+\item \emph{Corollary 2.4 + Lemma 2.5.}  With $c\ge\|\Delta(A)\|_2
+  +\varepsilon_{\mathrm{tot}}$ in $\mathbb{F}$, form the $\varphi$-trick
+  diagonal $\tilde a_{ii}=\mathrm{fl}(d_i'-\varphi|d_i'|)$ guaranteeing
+  $\tilde a_{ii}\le a_{ii}-c$ without directed rounding.  If floating
+  Cholesky of $\tilde A$ runs to completion, then
+  $\lambda_{\min}(A)\ge\varepsilon_{\mathrm{tot}}$.
+\item Library routine: Rump notes that ``any library routine can be used'';
+  the code calls LAPACK \texttt{dpotrf} (as in INTLAB \texttt{isspd}).
 \end{itemize}
+
+\subsection{Two refinements (machinery of the Hammer)}
+
+Two refinements, stress-tested into existence by the $N\mathfrak{p}=13$
+certificate of Paper~II and belonging to the method rather than any single
+theorem, are recorded here.
+
+\begin{proposition}[Error-free diagonal congruence]\label{prop:SAS}
+The scaling $A\mapsto SAS$ with
+$s_i=2^{\mathrm{round}(-\frac12\log_2 a_{ii})}$ is exact in IEEE-754
+(powers of two), preserves definiteness, and equilibrates the diagonal.
+It removes the mismatch between Rump's stiffness-scale shift and the
+mass-scale eigenvalue floor.
+\end{proposition}
+
+\begin{proposition}[Per-row radius absorption]\label{prop:perrow}
+For symmetric $|E|\le R$ entrywise,
+$E\succeq-\mathrm{diag}(r)$ with $r_i=\sum_j R_{ij}$.  This replaces the
+uniform max-row-sum shift.  Proof: $2|x_i x_j|\le x_i^2+x_j^2$.
+\end{proposition}
+
+At the level-one size ($n\approx 5\cdot 10^3$) the unscaled Rump path
+already succeeds; at $n\approx 3\cdot 10^4$ (Paper~II, $N\mathfrak{p}=13$)
+the uniform shift exceeds $\lambda_{\min}(A)\sim 10^{-5}$ while the matrix
+is still SPD, and the two refinements restore the certificate.
+
+\subsection{Frozen certificate for Theorem~\ref{thm:main}}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{@{}ll@{}}
+\toprule
+Parameter & Value \\
+\midrule
+Mesh & $12\times 6\times 6$ mapped hex cells $\to$ $2592$ tets, $5544$ CR dofs \\
+$Y$ & $1.25$ \\
+$(\rho,\theta,\theta_2,\theta',\alpha)$ & $(55,\,0.7,\,0.5,\,0.5,\,0.5)$ \\
+$\nu^*$ & $1.05$ \\
+$s$-grid & $8$ uniform windows covering $[0,1]$ \\
+$\ell_0$ Taylor order & $p=5$ \\
+Arb precision & $128$ bits \\
+$\kappa$ & $\kappa_{\mathrm{sc}}=\sqrt{1/\pi^2+1/15}$ (also passes with CZZ) \\
+\bottomrule
+\end{tabular}
+\caption{Frozen certificate parameters for Theorem~\ref{thm:main}.}
+\label{tab:frozen1}
+\end{table}
+
+Certified run (2026-07-10), abridged: geometry admissible
+(Lemma~\ref{lem:G}, arb-verified); constants (arb, upper bounds)
+$\gamma\approx 0.09847$, $\tau\approx 0.29085$, $\alpha_h\approx 0.02240$,
+$S_M\approx 1.34\cdot 10^{-1}$, $S_Q\approx 7.45\cdot 10^{-3}$,
+$S_\Sigma\approx 5.71\cdot 10^{-3}$, $V_\Sigma\approx 6.94\cdot 10^{-3}$;
+radii $\|\ell_{\mathrm{rad}}\|\approx 6.6\cdot 10^{-8}$,
+$\|Q_r\|\approx 2.5\cdot 10^{-13}$; all eight windows:
+$c_e>d_e$ true, PSD true (Rump shift $c\approx 2\cdot 10^{-8}$, float
+diagnostic margins $\approx 10^{-4}$).
+
+The parameter-search discipline is: floating-point experiments choose
+mesh, Young parameters, and $\rho$; the frozen tuple is then verified in
+arb.  Floats choose; arb verifies.  Correctness never depends on the
+search path.
 
 % ---------------------------------------------------------------------
 \section{Validation and diagnostics}\label{sec:valid}
-\note{Sources: fem\_prototype.py, cr\_prototype.py runs recorded in
-DESIGN.md/lower\_bound\_theory.md.}
-\begin{itemize}
-\item Float margin study ($\mu(\lambda)\approx 7.3$), mesh convergence,
-  Neumann box model (GLB $\le$ exact $\le$ conforming), negative
-  controls (constraint load-bearing), robustness under both $\kappa$'s.
-\item Comparison with the trace-formula value of the gap (parent
-  project): two disjoint proofs of the same statement.
-\end{itemize}
+
+A conforming Q1 prototype on the mapped box
+(trilinear elements, dense assembly of $S$, $M$, $a$, $t$) measures the
+margin
+\[
+  \mu(\lambda):=\min\bigl\{\mathcal{A}_s(v):\;\mathcal{L}_s(v)=0,\;
+  M(v)=1\bigr\}
+\]
+as a constrained generalized eigenvalue.  With $Y=1.25$ on meshes
+$16\times 8\times 6$ and $24\times 12\times 9$ (agreeing to three digits):
+\[
+  \mu(\lambda)\text{ decreases from }\approx 8.23\ (\lambda=0.05)
+  \text{ to }\approx 7.28\ (\lambda=0.999);\quad
+  \min\mu\approx 7.3.
+\]
+The minimizer is the first nonconstant Neumann mode of the core
+($\lambda_2^N\approx 8.28$), which has $t(v)\approx 0$ and mean $\approx 0$
+by parity, so $\mu(\lambda)\approx\lambda_2^N-\lambda$.  Consequences:
+the Neumann relaxation is comfortably enough; the certification target
+is modest (any guaranteed lower bound $\ge\lambda+\varepsilon$ for the
+constrained problem suffices, with roughly seven units of headroom for CR
+constants, weight sandwiching, and interval slop); without the
+constraint the near-constant direction gives $\approx-3.4$, confirming
+that the boundary term and constraint are load-bearing and correctly
+signed.
+
+A Neumann box model (exact first eigenvalue known) validates the
+guaranteed-lower-bound pipeline: the discrete GLB sits below the exact
+value, which sits below the conforming Galerkin upper bound.  The CR
+float pipeline passes all eight $s$-windows at $\nu^*=1.05$ on the
+$12\times 6\times 6$ mesh, with $c_e/d_e\ge 1.88$.  Robustness holds under
+both $\kappa_{\mathrm{sc}}$ and the sharper CZZ constant.
+
+The parent repository certifies $B(\ZZ[i])\le 0.3199<1$ via the trace
+formula, hence the same conclusion $\lambda_1\ge 1$.  The two proofs share
+only the fundamental domain.  Agreement of two disjoint methods on the
+level-one statement is the independent validation that motivated the
+present architecture---and the architecture is reusable at congruence
+levels where the statement is new (Paper~II).
 
 % ---------------------------------------------------------------------
 \section{Dependencies and reproducibility}\label{sec:deps}
-\note{Source: PROOF.md \S4 — reproduce the complete external-input list
-verbatim (Humbert domain; Shimizu (self-proved); Friedman Thm 3.8.1;
-Morrey--Nirenberg; Payne--Weinberger/Bebendorf; Rump; IEEE-754), and
-the explicitly-not-used list (trace formula, test functions,
-scattering, torsion inventories, computed spectra).  Software manifest,
-commands, runtimes.}
+
+\subsection{External mathematical inputs}
+
+\begin{enumerate}
+\item \textbf{Humbert fundamental domain} for $\PSL(2,\ZZ[i])$
+  (classical; the only input shared with the companion
+  trace-formula engine).
+\item \textbf{Shimizu's lemma} (precisely invariant horoball)---one-line
+  self-contained proof as Lemma~\ref{lem:shimizu}
+  (cf.\ \cite{Shimizu63,Leutbecher67}).
+\item \textbf{Spectral decomposition of cofinite Kleinian groups}---
+  Friedman \cite[Thm.~3.8.1]{Friedman}, resting on
+  \cite[§6.2]{EGM98}.  Used only for: (i)~spectrum $\cap[0,1)$ is atomic
+  (Eisenstein part has eigenvalue $1+t^2\ge 1$); (ii)~the $\lambda_1\ge 1$
+  phrasing.  The core statement ``no $L^2$ eigenvalues in $(0,1)$'' needs
+  neither.
+\item \textbf{Real-analyticity of eigenfunctions} (Morrey--Nirenberg;
+  supplies unique continuation).
+\item \textbf{Payne--Weinberger inequality} for convex domains
+  \cite{PW60,Bebendorf03}---the only external input to Lemma~\ref{lem:I1}.
+\item \textbf{Rump, verification of positive definiteness}
+  \cite{Rump06}---Thm.~2.3, Cor.~2.4, Lemma~2.5.  Requires IEEE-754
+  semantics of the floating Cholesky; ``any library routine can be used''.
+\end{enumerate}
+
+Everything else---cusp Fourier analysis, Hardy/ODE lemmas, the trace
+identity, Lemmas~G, S, E, I1, R, and Theorem~G1---is proved from scratch
+in the companion theory notes and sketched above.
+
+\subsection{Explicitly not used}
+
+The Selberg trace formula; any test function $h$; the scattering matrix
+or Dedekind zeta; the torsion or conjugacy-class inventories; Then's
+computed spectrum; and every result file of the companion trace-formula
+engine.
+
+\subsection{Software}
+
+Correctness-critical: python-flint (Arb ball arithmetic).  Covered by
+Rump's theorem: NumPy/SciPy/LAPACK \texttt{dpotrf}.  Everything else is
+diagnostic.  IEEE-754 double arithmetic is assumed throughout the Rump
+path.
+
+\subsection{Reproduce}
+
+From the directory \texttt{independent\_exclusion/}:
+\begin{verbatim}
+python cr_prototype.py     # float pipeline + box-model validation
+python m3_certify.py       # the certificate (both kappa modes)
+\end{verbatim}
+Both $\kappa$ modes (Lemma~I1 default and optional CZZ) pass all eight
+windows.
 
 % ---------------------------------------------------------------------
 \section{Outlook}
-\note{One page: congruence levels (Paper II announcement with the
-margin ladder 7.3/4.4/2.4/1.45); other Bianchi fields ($\ZZ[\omega]$);
-interval-Hejhal as the complementary existence tool.}
 
+The measured float margin $\mu\approx 7.3$ at level one leaves comfortable
+headroom for the discrete checks.  Paper~II climbs the congruence ladder
+$\Gamma_0(\mathfrak{p})$ for Gaussian primes of norms $5$, $9$, and $13$,
+with measured margins $\mu\approx 4.4$, $2.4$, and $1.45$ respectively---
+sublinear degradation against volume, in contrast to the linear
+degradation of the trace-formula constant $B$.  Those theorems are new:
+trace-formula positivity already fails at $N\mathfrak{p}=5$ ($B\approx 1.9$).
+Paper~III carries the method to $\PSL(2,\ZZ[\omega])$ at level one and to
+$\Gamma_0(1-\omega)$.
+
+Complementary existence tools (interval-Hejhal, rigorous Maass
+computations) remain the right instruments for producing eigenvalues
+above the gap; the present work produces rigorous absences below it.
+The combination---certified exclusion on $(0,1)$ together with certified
+existence of the first Maass form---gives a complete rigorous picture of
+the bottom of the spectrum for the quotients within reach of both
+methods.
+
+% ---------------------------------------------------------------------
 \appendix
-\section{Deferred proofs}
-\note{Lemma T; Lemma S details; the slab-form (E-t) remark for the
-historical record.}
+\section{Deferred proof details}
+
+\subsection*{Trace identity}
+
+\begin{lemma}[Trace identity]\label{lem:T}
+Let $T$ be a tetrahedron, $F$ a face, and $P$ the opposite vertex.  For
+any $w\in H^1(T)$:
+\[
+  \int_F w^2\,d\sigma
+  =\frac{|F|}{|T|}\int_T\Bigl[w^2+\tfrac23 w(x-P)\cdot\nabla w\Bigr]dx
+  \le\frac{|F|}{|T|}\bigl(\|w\|_T^2+\tfrac23 h_T\|w\|_T\|\nabla w\|_T\bigr).
+\]
+\end{lemma}
+
+\begin{proof}
+$\operatorname{div}((x-P)w^2)=3w^2+2w(x-P)\cdot\nabla w$; integrate over
+$T$.  On the three faces containing $P$, $(x-P)\cdot\nu=0$; on $F$,
+$(x-P)\cdot\nu=\operatorname{dist}(P,\mathrm{aff}\,F)=3|T|/|F|$.
+Cauchy--Schwarz and $|x-P|\le h_T$ finish the bound.
+\end{proof}
+
+This identity is used in the historical per-face route to $\tau_h$ and as
+a tool inside Lemma~\ref{lem:I1}.
+
+\subsection*{Historical slab form of (E-t)}
+
+For the record: before Lemma~\ref{lem:D0} was recognized, the trace error
+was controlled by a slab-mean identity.  For a.e.\ $z\in R$ and
+$w\in H^1$,
+\[
+  w(z,Y)=\frac1{H_t}\int_{Y-H_t}^Y w\,dy
+  +\frac1{H_t}\int_{Y-H_t}^Y(y-Y+H_t)\partial_y w\,dy,
+\]
+valid whenever the slab $\{Y-H_t\le y\le Y\}\subset K_h$.  Cauchy--Schwarz
+and the CR estimate on the slab tets produce
+\[
+  |t(e)|\le\tau_h\sqrt{Q_{\mathrm{pc}}(e)},\qquad
+  \tau_h=\sqrt{\frac{|R|}{H_t}}\,\kappa\cdot\max_{T\cap\mathrm{slab}}
+  \frac{h_T}{\sqrt{w_T^Q}}
+  +\sqrt{\frac{H_t|R|Y}{3}},
+\]
+with $|R|=\tfrac12$.  Any $H_t$ is admissible; the code optimizes $H_t$
+numerically (correctness-free).  The certified level-one run used this
+bound and therefore stands a fortiori under $\tau_h=0$.
+
 \section{Certificate tables}
-\note{All frozen constants; per-window numbers; arb radii summary.}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{@{}lcc@{}}
+\toprule
+Quantity & Arb upper bound & Role \\
+\midrule
+$\gamma$ & $0.09847$ & mass-error / stiffness \\
+$\tau$ & $0.29085$ & historical slab trace error \\
+$\alpha_h$ & $0.02240$ & volume-functional error \\
+$S_M$ & $1.34\cdot 10^{-1}$ & sliver mass \\
+$S_Q$ & $7.45\cdot 10^{-3}$ & sliver stiffness \\
+$S_\Sigma$ & $5.71\cdot 10^{-3}$ & sliver floor stiffness \\
+$V_\Sigma$ & $6.94\cdot 10^{-3}$ & sliver weighted volume \\
+$\|\ell_{\mathrm{rad}}\|$ & $6.6\cdot 10^{-8}$ & $\ell_0$ enclosure radius \\
+$\|Q_r\|$ & $2.5\cdot 10^{-13}$ & stiffness radius \\
+Rump shift $c$ & $\approx 2\cdot 10^{-8}$ & PSD certificate \\
+Float margin & $\approx 10^{-4}$ & diagnostic only \\
+\bottomrule
+\end{tabular}
+\caption{Abridged certificate constants for Theorem~\ref{thm:main}
+(2026-07-10).  All eight $s$-windows: $c_e>d_e$ and Rump PSD true.}
+\label{tab:cert1}
+\end{table}
+
+\begin{thebibliography}{99}
+
+\bibitem{BB11}
+V.~Blomer and F.~Brumley,
+\emph{On the Ramanujan conjecture over number fields},
+Ann.\ of Math.\ (2) \textbf{174} (2011), 581--605.
+
+\bibitem{BSV06}
+A.~R.~Booker, A.~Str\"ombergsson, and A.~Venkatesh,
+\emph{Effective computation of Maass cusp forms},
+Int.\ Math.\ Res.\ Not.\ 2006, Art.\ ID 71281.
+
+\bibitem{Bebendorf03}
+M.~Bebendorf,
+\emph{A note on the Poincar\'e inequality for convex domains},
+Z.\ Anal.\ Anwend.\ \textbf{22} (2003), 751--756.
+
+\bibitem{CG14}
+C.~Carstensen and J.~Gedicke,
+\emph{Guaranteed lower bounds for eigenvalues},
+Math.\ Comp.\ \textbf{83} (2014), 2605--2629.
+
+\bibitem{CDMN26}
+C.~Carstensen, A.~Dond, N.~Maity, and N.~Nataraj,
+\emph{Lower energy bounds for the Stokes eigenvalue problem},
+Comput.\ Math.\ Appl.\ \textbf{214} (2026), 27--50.
+
+\bibitem{CP22}
+C.~Carstensen and S.~Puttkammer,
+\emph{Adaptive guaranteed lower eigenvalue bounds with optimal
+convergence rates},
+arXiv:2203.01028.
+
+\bibitem{CZZ20}
+C.~Carstensen, Z.~Zhai, and S.~Zhang,
+\emph{A framework for the error analysis of discontinuous finite element
+methods for elliptic eigenvalue problems and applications},
+SIAM J.\ Numer.\ Anal.\ \textbf{58} (2020), 109--124.
+
+\bibitem{EGM98}
+J.~Elstrodt, F.~Grunewald, and J.~Mennicke,
+\emph{Groups Acting on Hyperbolic Space},
+Springer, 1998.
+
+\bibitem{Friedman}
+J.~Friedman,
+\emph{The Selberg trace formula for $\mathrm{PSL}(2,O_K)$},
+arXiv:math/0612807.
+
+\bibitem{Leutbecher67}
+A.~Leutbecher,
+\emph{\"Uber die Heckeschen Gruppen $G(\lambda)$},
+Math.\ Z.\ \textbf{100} (1967), 183--200.
+
+\bibitem{PaperII}
+\emph{Exceptional eigenvalues of Bianchi orbifolds by verified finite
+elements.  II: Congruence levels of the Picard group},
+companion paper (this series).
+
+\bibitem{PaperIII}
+\emph{Exceptional eigenvalues of Bianchi orbifolds by verified finite
+elements.  III: The Eisenstein--Picard orbifold and its first
+congruence cover},
+companion paper (this series).
+
+\bibitem{PW60}
+L.~E.~Payne and H.~F.~Weinberger,
+\emph{An optimal Poincar\'e inequality for convex domains},
+Arch.\ Rational Mech.\ Anal.\ \textbf{5} (1960), 286--292.
+
+\bibitem{Rump06}
+S.~M.~Rump,
+\emph{Verification of positive definiteness},
+BIT Numer.\ Math.\ \textbf{46} (2006), 433--452.
+
+\bibitem{Shimizu63}
+H.~Shimizu,
+\emph{On discontinuous groups operating on the product of the upper
+half planes},
+Ann.\ of Math.\ (2) \textbf{77} (1963), 33--71.
+
+\end{thebibliography}
 
 \end{document}

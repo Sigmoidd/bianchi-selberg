@@ -87,7 +87,8 @@ Last known: B(Q(ω)) ∈ [0.525, 0.544] &lt; 1. Load-bearing math for paper CE:
 | Theorem | Claim | Reproduce |
 |---------|--------|-----------|
 | **A** | λ₁(PSL(2,ℤ[ω])\ℍ³) ≥ 1 | `python -u cert_omega.py 6 3` |
-| **B** | no eigenvalue in (0,1) on Γ₀(1−ω)\ℍ³ | `python -u cert_omega_p.py 3 6 3` |
+| **B₁** | no eigenvalue in (0,1) on Γ₀(1−ω)\ℍ³ | `python -u cert_omega_p.py 3 6 3` |
+| **B₂** | no eigenvalue in (0,1) on Γ₀(π\|7)\ℍ³ | `python -u cert_omega_p.py 7 6 3` |
 
 Writeup: [`PROOF.md`](PROOF.md). Pairing matrices: [`PAIRING_MATRICES.md`](PAIRING_MATRICES.md)
 (`python -u pairing_matrices.py`). Live checklist: [`PROGRESS.md`](PROGRESS.md).
@@ -101,7 +102,7 @@ Writeup: [`PROOF.md`](PROOF.md). Pairing matrices: [`PAIRING_MATRICES.md`](PAIRI
 
 ## Remaining work
 
-1. Ladder rungs N=7, 13 (float then cert).
+1. Ladder rung N=13 (float then cert).
 
 ---
 

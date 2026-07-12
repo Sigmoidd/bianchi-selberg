@@ -80,7 +80,7 @@ Pairing matrices: **`PAIRING_MATRICES.md`** + `pairing_matrices.py` **PASS**.
 |------|---|---|-------|--------|
 | 0 | full Γ | 1 | 1 | **certified** |
 | 1 | (1−ω) | 3 | 4 | **CERTIFIED** (`cert_omega_p.py` 8/8 Rump) |
-| 2 | π\|7 | 7 | 8 | combinatorics only |
+| 2 | π\|7 | 7 | 8 | **CERTIFIED** (`cert_omega_p.py 7 6 3` 8/8) |
 | 3 | π\|13 | 13 | 14 | combinatorics only |
 
 ### Open
@@ -91,7 +91,8 @@ Pairing matrices: **`PAIRING_MATRICES.md`** + `pairing_matrices.py` **PASS**.
 | 2 | ~~EGM wall-pairing dictionary~~ **done** — `face_pairings_p3.py` |
 | 3 | ~~cert_omega_p research + implement~~ **CERTIFIED N=3** |
 | 4 | ~~Pairing matrices g∈Γ~~ **done** — `PAIRING_MATRICES.md` |
-| 5 | Float + cert N=7,13 |
+| 5 | ~~Float + cert N=7~~ **done** (float 4×2; cert 6×3) |
+| 5b | Float + cert N=13 |
 | 6 | 𝔽₄ inert / CRT composites |
 | 7 | ~~Non-Neumann FE space + κ=CZZ~~ **done** — `non_neumann_omega.py` 8/8 float |
 | 8 | ~~Journal draft~~ **done** — `papers/paper3_eisenstein.tex` |
@@ -108,7 +109,7 @@ Pairing matrices: **`PAIRING_MATRICES.md`** + `pairing_matrices.py` **PASS**.
 
 ## D. Next actions (ordered)
 
-1. Ladder: float/cert N=7 then N=13.
+1. Ladder: float/cert N=13.
 2. Optional: interval cert on the non-Neumann space (implied by Neumann cert).
 
 ---

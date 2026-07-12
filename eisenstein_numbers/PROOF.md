@@ -26,22 +26,28 @@ python -u cert_omega.py 6 3
 
 ---
 
-## Theorem B (congruence rung 1)
+## Theorem B (congruence rungs N=3 and N=7)
 
-Let O = ℤ[ω], 𝔭 = (1−ω) (so N(𝔭) = 3), and
+Let O = ℤ[ω] and
 
 ```text
 Γ₀(𝔭) = { [a b; c d] ∈ PSL(2,O) : c ∈ 𝔭 }.
 ```
 
-Then [Γ : Γ₀(𝔭)] = N(𝔭)+1 = 4, the quotient Γ₀(𝔭)\ℍ³ has exactly two
-cusps (∞ and 0), and the Laplacian on L²(Γ₀(𝔭)\ℍ³) has **no eigenvalue in
-(0, 1)**.
+**B₁.** For 𝔭 = (1−ω), N(𝔭) = 3, index 4: the Laplacian on
+L²(Γ₀(𝔭)\ℍ³) has **no eigenvalue in (0, 1)**.
+
+**B₂.** For 𝔭 | 7 with N(𝔭) = 7, index 8: the Laplacian on
+L²(Γ₀(𝔭)\ℍ³) has **no eigenvalue in (0, 1)**.
+
+In both cases the quotient has exactly two cusps (∞ and 0) with
+|T_∞| = √3/6 and |T_0| = N(𝔭)·|T_∞| (`T0_AREA.md`).
 
 **Reproduce:**
 
 ```text
 python -u cert_omega_p.py 3 6 3
+python -u cert_omega_p.py 7 6 3
 ```
 
 ---
@@ -167,7 +173,7 @@ all 8 windows: c_e>d_e True, Rump PSD True
 ==> P_3 / PSL(2,Z[omega]) M3 CERTIFIED (all windows): True
 ```
 
-### 3.2 Theorem B (Γ₀(1−ω))
+### 3.2 Theorem B₁ (Γ₀(1−ω), N=3)
 
 ```text
 mesh:      same P_3 6×3 reference; NC = 4 copies
@@ -177,15 +183,27 @@ s-grid:    8 windows; Taylor p = 5; arb prec 128
 n ≈ 5404 dofs
 ```
 
+Certified run (2026-07-12): Rump PSD **8/8**.  
+Float: `congruence_omega_proto.py 3 6 3` (min μ ≈ 1.12 > 0).
+
+### 3.3 Theorem B₂ (Γ₀(π|7), N=7)
+
+```text
+mesh:      same P_3 6×3 reference; NC = 8 copies
+Y = 1.25,  θ = 0.3,  θ₂ = 0.85,  α = 0.1,  θ₄ = 0.3,  ρ̃ = 1,  ν* = 1.001
+s-grid:    8 windows; σ_h = √8 · α_h^ref
+n ≈ 10533 dofs  (~888 MB dense A)
+```
+
 Certified run (2026-07-12), abridged:
 
 ```text
-Lemma G arb: OK; t_∞(1)=|T_∞|, t_0(1)=|T_0|
-min c_e/d_e ≳ 11; Rump PSD 8/8
-==> Γ₀(1−ω) CERTIFIED (all windows): True
+t_∞(1)=|T_∞|, t_0(1)=7·|T_∞|; scalar c_e>d_e 8/8; Rump PSD 8/8
+==> Γ₀(N=7) CERTIFIED (all windows): True
 ```
 
-Float precursor: `congruence_omega_proto.py 3 6 3` (min μ ≈ 1.12 > 0).
+Float precursor: `congruence_omega_proto.py 7 4 2` (min μ ≈ 1.12 > 0;
+sparse LOBPCG available for 6×3).
 
 ---
 
@@ -228,7 +246,8 @@ The spectral decomposition upgrades “no eigenvalues in (0,1)” to
 | **Theorem A** | **PSL(2,ℤ[ω]) level 1** | **this file / `cert_omega.py`** |
 | **Theorem B** | **Γ₀(1−ω) ≤ PSL(2,ℤ[ω])** | **this file / `cert_omega_p.py`** |
 | STF / CE gate B&lt;1 for ω | same group (trace-formula path) | `framework.py`, `AUDIT.md` |
-| Ladder rungs N=7,13 | Γ₀(π) over ℤ[ω] | combinatorics only |
+| **Theorem B₂** | **Γ₀(π\|7), N=7** | **this file / `cert_omega_p.py 7 6 3`** |
+| Ladder N=13 | Γ₀(π\|13) over ℤ[ω] | combinatorics + float open |
 
 The STF/CE path and the FEM path are **independent** checks of the same
 level-1 spectral bound. Theorem B has no STF counterpart in this repo.
@@ -285,7 +304,7 @@ Theorems A–B, geometry, pairings, criterion, G1/G1𝔭, certificates).
 
 ## 9. What is *not* claimed
 
-- No claim for Γ₀(𝔭) at N(𝔭) ∈ {7,13} (combinatorics only so far).
+- No claim for Γ₀(𝔭) at N(𝔭) = 13 (combinatorics only so far).
 - No re-proof of Theorems 1–4 on ℤ[i].
 - Congruence multi-copy glues cross-copy faces via the frozen dictionary
   + residue action; self-IDs remain Neumann.

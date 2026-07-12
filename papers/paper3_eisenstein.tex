@@ -1,28 +1,29 @@
 % =====================================================================
 % PAPER III — Eisenstein–Picard by verified finite elements
-% Level-1 gap for PSL(2,Z[omega]) and first congruence rung Gamma_0(1-omega)
+% Level-1 gap for PSL(2,Z[omega]) and congruence rungs N=3,7
 % ---------------------------------------------------------------------
-% Sources in-repo:
-%   eisenstein_numbers/PROOF.md, PAIRING_MATRICES.md, T0_AREA.md,
-%   GEOMETRY.md, CERT_OMEGA_P.md, cert_omega.py, cert_omega_p.py,
-%   pairing_matrices.py, non_neumann_omega.py
+% Sources: eisenstein_numbers/{PROOF,PAIRING_MATRICES,T0_AREA,GEOMETRY,
+%          CERT_OMEGA_P}.md; cert_omega.py, cert_omega_p.py
 % Parallel method paper: papers/paper1_hammer.tex (Picard level 1)
 % =====================================================================
 \documentclass[11pt]{amsart}
-\usepackage{amsmath,amssymb,amsthm}
+\usepackage{amsmath,amssymb,amsthm,booktabs}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{remark}[theorem]{Remark}
+\newtheorem{corollary}[theorem]{Corollary}
 \newcommand{\HH}{\mathbb{H}^3}
 \newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb{R}}
 \newcommand{\CC}{\mathbb{C}}
 \newcommand{\PSL}{\mathrm{PSL}}
-\newcommand{\note}[1]{\par\smallskip\noindent\textbf{[[#1]]}\par\smallskip}
+\newcommand{\vol}{\mathrm{vol}}
+\newcommand{\p}{\mathfrak{p}}
 
 \title[Verified exclusion for the Eisenstein--Picard orbifold]{Exceptional
 eigenvalues of Bianchi orbifolds by verified finite elements.\\
-III: The Eisenstein--Picard orbifold and its first congruence cover}
+III: The Eisenstein--Picard orbifold and congruence covers}
 \author{}
 \date{Draft, 2026-07-12}
 
@@ -35,145 +36,711 @@ elements on a truncated core, ball-arithmetic enclosures, and Rump's
 positive-definiteness certificate, we prove that
 $L^2(\Gamma\backslash\HH)$ has no Laplace eigenvalue in $(0,1)$.  The same
 architecture, with multi-copy reference cells and two-cusp weights, yields
-the first congruence rung: $\Gamma_0(1-\omega)\backslash\HH$ likewise has no
-eigenvalue in $(0,1)$.  The method is independent of the Selberg trace
-formula.
+the first congruence rungs: $\Gamma_0(\p)\backslash\HH$ for
+$N(\p)\in\{3,7\}$ likewise has no eigenvalue in $(0,1)$.  The method is
+independent of the Selberg trace formula.  All certificates are
+deterministic and reproducible.
 \end{abstract}
 \maketitle
 
+% ---------------------------------------------------------------------
 \section{Introduction}
-\note{PROOF.md Theorems A--B; parent README context.}
-\begin{itemize}
-\item Bianchi groups for $d=-3$; comparison with Picard $d=-1$ (Paper~I)
-  and the Gaussian congruence ladder (Paper~II / in-repo Thms~1--4).
-\item Main theorems (level~1 and $\Gamma_0(1-\omega)$).
-\item Independence from the trace formula; relation to the in-repo
-  STF/CE gate $B(\mathbb{Q}(\omega))<1$.
-\item Reproducibility: \texttt{eisenstein\_numbers/cert\_omega.py},
-  \texttt{cert\_omega\_p.py}.
-\end{itemize}
+
+Bianchi groups $\PSL(2,\mathcal{O}_K)$ for imaginary quadratic
+$\mathcal{O}_K$ are the natural $\mathrm{GL}(2)$ arithmetic subgroups
+acting on hyperbolic $3$-space.  Papers~I and~II of this series treated
+the Gaussian case $K=\mathbb{Q}(i)$: Paper~I developed the verified
+finite-element exclusion method and proved $\lambda_1\ge 1$ for the Picard
+orbifold; Paper~II climbed the congruence ladder
+$\Gamma_0(\p)$ for Gaussian primes of norms $5$, $9$, and $13$.  The
+present paper carries the same architecture to the Eisenstein integers
+$\mathcal{O}=\ZZ[\omega]$, $\omega=e^{2\pi i/3}$, the ring of integers of
+$K=\mathbb{Q}(\sqrt{-3})$.
+
+The Eisenstein--Picard group $\Gamma=\PSL(2,\ZZ[\omega])$ is, like the
+Picard group, a class-number-one Bianchi group with a single cusp.  Its
+fundamental domain is smaller (covolume $\approx 0.169$ versus
+$\approx 0.305$), the cusp stabilizer includes a rotation of order $3$
+rather than $2$, and the planar cross-section is the EGM domain $P_3$ of
+area $\sqrt{3}/6$ rather than the Humbert rectangle of area $1/2$.  These
+are geometric differences; the analytic criterion, the guaranteed FEM
+lower bound (Theorem~G1), and the Rump certificate transfer verbatim once
+the fundamental domain, the cross-section area, and the pairing dictionary
+are correctly installed.
 
 \begin{theorem}[Level 1]\label{thm:A}
 The Laplace--Beltrami operator on
 $L^2(\PSL(2,\ZZ[\omega])\backslash\HH)$ has no eigenvalue in $(0,1)$.
-Combined with the spectral decomposition of cofinite Kleinian groups,
-$\lambda_1\ge 1$.
+Combined with the spectral decomposition of cofinite Kleinian groups
+\cite[Thm.~3.8.1]{Friedman}, $\lambda_1\ge 1$.
 \end{theorem}
 
-\begin{theorem}[First congruence rung]\label{thm:B}
-Let $\mathfrak{p}=(1-\omega)\subset\ZZ[\omega]$ and
-$\Gamma_0(\mathfrak{p})\subset\PSL(2,\ZZ[\omega])$.  Then
-$L^2(\Gamma_0(\mathfrak{p})\backslash\HH)$ has no Laplace eigenvalue in
+\begin{theorem}[Congruence rung $N=3$]\label{thm:B}
+Let $\p=(1-\omega)\subset\ZZ[\omega]$ (so $N(\p)=3$) and
+\[
+  \Gamma_0(\p)
+  =\Bigl\{\begin{pmatrix}a&b\\c&d\end{pmatrix}\in\PSL(2,\ZZ[\omega])
+  :\;c\in\p\Bigr\}.
+\]
+Then $[\Gamma:\Gamma_0(\p)]=N(\p)+1=4$, the quotient
+$\Gamma_0(\p)\backslash\HH$ has exactly two cusps ($\infty$ and $0$), and
+the Laplacian on $L^2(\Gamma_0(\p)\backslash\HH)$ has no eigenvalue in
 $(0,1)$.
 \end{theorem}
 
-\section{Geometry}
-\note{GEOMETRY.md, geometry\_fund.py, EGM98 §7.3, DP20 §2.3.}
-Fundamental domain $F_3=B_3\cap(P_3\times\mathbb{R}_{>0})$,
-$|T|=\mathrm{area}(P_3)=\sqrt3/6$, truncated core
-$K_Y=F_3\cap\{t\le Y\}$ with $Y=1.25$.
-\begin{equation*}
-  \mathrm{vol}(K_Y)=\mathrm{vol}(F)-|T|/(2Y^2).
-\end{equation*}
+\begin{theorem}[Congruence rung $N=7$]\label{thm:Btwo}
+Let $\p\subset\ZZ[\omega]$ be a prime ideal of norm $N(\p)=7$ (so
+$\mathcal{O}/\p\cong\mathbb{F}_7$).  Then $[\Gamma:\Gamma_0(\p)]=8$,
+the quotient has two cusps with $|T_\infty|=\sqrt{3}/6$ and
+$|T_0|=7\cdot|T_\infty|$, and the Laplacian on
+$L^2(\Gamma_0(\p)\backslash\HH)$ has no eigenvalue in $(0,1)$.
+\end{theorem}
 
-\subsection*{Pairing matrices}
-\note{PAIRING\_MATRICES.md, GENERATOR\_CYCLES.md.}
-Generators in $\mathrm{SL}(2,\ZZ[\omega])$:
+These theorems are independent of the Selberg trace formula.  The companion
+repository also certifies a trace-formula bound $B(\mathbb{Q}(\omega))<1$
+at level one, by a completely disjoint method sharing only the fundamental
+domain; Theorem~\ref{thm:A} is therefore an independent cross-check of the
+level-one spectral gap.  Theorems~\ref{thm:B}--\ref{thm:Btwo} have no
+trace-formula counterpart in the repository: as in Paper~II, the
+$B$-constant degrades with volume and the FEM path is the one that reaches
+congruence level.
+
+\begin{remark}[What is not claimed]
+No statement is made for $N(\p)=13$ over $\ZZ[\omega]$ beyond
+combinatorics (residue arithmetic and gluing tables exist; interval
+certificates do not).  No re-proof of the Gaussian ladder
+(Paper~II, Theorems for $N\p=5,9,13$) is attempted.  The certificates
+below do not use the Selberg trace formula, any test function, the
+scattering matrix, or the torsion inventory.
+\end{remark}
+
+Reproduce (from \texttt{eisenstein\_numbers/}):
+\begin{verbatim}
+python -u cert_omega.py 6 3         # Theorem A
+python -u cert_omega_p.py 3 6 3     # Theorem B (N=3)
+python -u cert_omega_p.py 7 6 3     # Theorem B2 (N=7)
+\end{verbatim}
+
+% ---------------------------------------------------------------------
+\section{Geometry}\label{sec:geom}
+
+\subsection{Group and fundamental domain}
+
+Let $\omega=e^{2\pi i/3}=-\tfrac12+i\sqrt{3}/2$, so
+$\mathcal{O}=\ZZ[\omega]=\ZZ\oplus\ZZ\omega$ with covolume
+$\mathrm{covol}_{\RR^2}(\mathcal{O})=\sqrt{3}/2$ and unit group
+$\mathcal{O}^\times=\{\pm 1,\pm\omega,\pm\omega^2\}$ of order $6$.  In
+$\PSL$, $-I$ is trivial, so the image of $\mathcal{O}^\times$ in the cusp
+stabilizer acts on $\CC$ by rotations of order $3$.  Write
+$U=\langle z\mapsto\omega z\rangle\subset\mathrm{Isom}(\CC)$, $|U|=3$.
+The parabolic stabilizer is the semidirect product
+$\Gamma_\infty\cong\mathcal{O}\rtimes U$.
+
+The fundamental polyhedron is that of Elstrodt--Grunewald--Mennicke
+\cite[§7.2--7.3]{EGM98} (restated as \cite[Thm.~2.3]{DP20}):
+\[
+  F_3=\bigl\{(z,t)\in B_3:\;z\in P_3\bigr\},
+\]
+where $B_3$ is the Ford region (for $d=3$, the only exterior sphere cutting
+the prism $P_3\times\RR_{>0}$ is the unit hemisphere) and $P_3$ is the
+planar domain
+\begin{align*}
+  P_3&=T_{\mathrm{up}}\cup T_{\mathrm{low}},\\
+  T_{\mathrm{up}}
+  &=\bigl\{x+iy:\;0\le x,\; x/\sqrt{3}\le y\le(1-x)/\sqrt{3}\bigr\}
+  \quad(x\le\tfrac12),\\
+  T_{\mathrm{low}}
+  &=\bigl\{x+iy:\;0\le x\le\tfrac12,\; -x/\sqrt{3}\le y\le x/\sqrt{3}\bigr\}.
+\end{align*}
+Euclidean area: $\mathrm{area}(P_3)=1/(2\sqrt{3})=\sqrt{3}/6$.  Since
+$\max_{P_3}|z|=1/\sqrt{3}<1$,
+\[
+  F_3=\bigl\{(z,t):\;z\in P_3,\; t\ge\sqrt{1-|z|^2}\bigr\}.
+\]
+The orbifold cusp cross-section has area
+\[
+  |T|=\frac{\mathrm{covol}(\mathcal{O})}{|U|}=\frac{\sqrt{3}/2}{3}=\frac{\sqrt{3}}{6}.
+\]
+
+\subsection{Truncated core and volume}
+
+Fix truncation height $Y>1$ (default $Y=1.25$).  The compact core is
+\[
+  K_Y=F_3\cap\{t\le Y\}
+  =\bigl\{(z,y):\;z\in P_3,\; y_f(z)\le y\le Y\bigr\},
+  \qquad y_f=\sqrt{1-|z|^2}.
+\]
+The Humbert volume formula gives
+\[
+  \vol(F)=\frac{|D|^{3/2}\zeta_K(2)}{4\pi^2}
+  =\frac{3\sqrt{3}\,\zeta_K(2)}{4\pi^2}
+  \approx 0.169156934402
+\]
+($D=-3$, $\zeta_K(2)=\zeta(2)L(2,\chi_{-3})$).  The cusp tail has product
+structure $F\cap\{t>Y\}\cong P_3\times(Y,\infty)$ with hyperbolic measure
+$t^{-3}\,dt\,dx\,dy$, so
+\[
+  \vol(F\cap\{t>Y\})=\frac{|T|}{2Y^2},\qquad
+  \vol(K_Y)=\vol(F)-\frac{|T|}{2Y^2}.
+\]
+At $Y=1.25$: tail $\approx 0.092376$, $\vol(K_Y)\approx 0.076781$.
+
+\subsection{Pairing matrices}
+
+Generators in $\mathrm{SL}(2,\ZZ[\omega])$, descending to $\Gamma$:
 \begin{align*}
   T_1&=\begin{pmatrix}1&1\\0&1\end{pmatrix},&
   T_\omega&=\begin{pmatrix}1&\omega\\0&1\end{pmatrix},\\
   U&=\begin{pmatrix}\omega^2&0\\0&\omega\end{pmatrix},&
   S&=\begin{pmatrix}0&-1\\1&0\end{pmatrix}.
 \end{align*}
-Reference face maps on $P_3$: $T_1$ pairs RIGHT$\leftrightarrow$LEFT,
-$T_\omega$ pairs LOW$\leftrightarrow$UP, $U$ acts by $z\mapsto\omega z$ on
-vertical walls, $S$ self-pairs the floor.  Ideal-vertex cycles of inverses
-are recorded and machine-checked against a fixed $\Gamma_\infty$-section.
+Orders in $\PSL$: $T_1,T_\omega$ parabolic; $U$ of order $3$; $S$ of order
+$2$.  Inverses: $T_1^{-1}=\bigl(\begin{smallmatrix}1&-1\\0&1\end{smallmatrix}\bigr)$,
+$T_\omega^{-1}=\bigl(\begin{smallmatrix}1&-\omega\\0&1\end{smallmatrix}\bigr)$,
+$U^{-1}=\bigl(\begin{smallmatrix}\omega&0\\0&\omega^2\end{smallmatrix}\bigr)$,
+$S^{-1}=S$.
 
-\begin{remark}[Neumann vs non-Neumann]
-The certified level-1 FE space uses Neumann free $H^1(K)$ (relaxation:
-larger space).  The optional module \texttt{non\_neumann\_omega.py}
-imposes the pairing dictionary on CR face dofs; positivity there is
+Reference face maps on the computational cell over $P_3$:
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Generator $\delta$ & Edges / faces paired & Reference map \\
+\midrule
+$T_1$ & RIGHT ($x=\tfrac12$) $\leftrightarrow$ LEFT ($x=0$)
+  & height-matched opposite sides \\
+$T_\omega$ & LOW $\leftrightarrow$ UP (slanted sides)
+  & height-matched opposite slants \\
+$U$ & vertical $\leftrightarrow$ vertical
+  & $\varphi_U(z,t)=(\omega z,t)$ \\
+$S$ & FLOOR $\leftrightarrow$ FLOOR
+  & full $\HH$ action (sphere inversion) \\
+--- & TOP ($t=Y$) & free (cusp ODE / Lemma~D0) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Ideal-vertex cycles of the inverses (polyhedron section; machine-checked
+against a fixed $\Gamma_\infty$-section):
+\begin{align*}
+  T_1^{-1}&:\;(\infty)(0\ 1)(\omega\ \omega^2),\\
+  T_\omega^{-1}&:\;(\infty)(0\ \omega)(1\ \omega^2),\\
+  U^{-1}&:\;(\infty)(0)(1\ \omega\ \omega^2)
+  \quad\text{(equals forward $U$ as a cycle; same $\langle U\rangle$)},\\
+  S^{-1}&:\;(\infty\ 0)(1)(\omega\ \omega^2).
+\end{align*}
+
+\begin{lemma}[Pairing matrices]\label{lem:pair}
+\begin{enumerate}
+\item The four matrices above lie in $\mathrm{SL}(2,\mathcal{O})$ and
+  represent elements of $\Gamma$.
+\item For every floor face $f$ in the certified mesh dictionary, $S(f)$
+  lands on the dictionary partner (within mesh tolerance); $S^2=\mathrm{id}$.
+\item For every vertical dictionary pair labelled $U$, the image of the
+  source centre under $z\mapsto\omega z$ matches the partner centre up to
+  mesh tolerance.
+\item $T_1$ and $T_\omega$, together with $U$, generate the cusp
+  stabilizer $\Gamma_\infty$; the $P_3$ edge dictionary is the
+  combinatorial section used for residue gluing.
+\item Residue right action by $\delta^{-1}$ on $\mathbb{P}^1(\mathcal{O}/\p)$
+  is bijective, with $S^2=U^3=\mathrm{id}$ (checked for
+  $N\in\{3,7,13\}$ at the combinatorial level).
+\end{enumerate}
+Parts (1)--(3) and (5) are machine-checked; part (4) records the EGM/Swan
+section convention.
+\end{lemma}
+
+\begin{remark}[Neumann versus non-Neumann]
+The certified level-one FE space uses Neumann free $H^1(K)$ (relaxation:
+larger space).  As in Paper~I, positivity on free $H^1(K)$ implies the
+same on the subspace of functions that descend to the quotient.  An
+optional module imposes the pairing dictionary on CR face dofs (raw
+$1440\to$ paired $1342$ dofs at the certified mesh); positivity there is
 implied by the Neumann certificate and is checked in floating point for
-both $\kappa_{\mathrm{sc}}$ (Lemma~I1) and the sharper CZZ constant.
+both $\kappa_{\mathrm{sc}}$ (Lemma~I1 of Paper~I) and the sharper CZZ
+constant, with $\min c_e/d_e\approx 1.53$ (I1) and $\approx 2.09$ (CZZ).
+This optional run is a geometric check, not a second interval
+certificate.
 \end{remark}
 
-\section{Analytic criterion}
-\note{DESIGN.md (Picard) with $|T|=\sqrt3/6$; T0\_AREA.md for two cusps.}
-Lax--Phillips reduction on the truncated core; single-cusp weight
-$\beta(s)=(1-s)/(|T|Y^2)$ at level~1.  For $\Gamma_0(\mathfrak{p})$ with
-$N(\mathfrak{p})=q$ prime (field residue), two cusps $\infty,0$ with
-\begin{equation*}
-  |T_\infty|=\sqrt3/6,\qquad |T_0|=q\cdot|T_\infty|,
-\end{equation*}
-and
-\begin{equation*}
+\subsection{Shimizu for $\ZZ[\omega]$}
+
+The precisely-invariant-horoball argument is identical to Paper~I once one
+notes that the minimal nonzero ideal norm in $\mathcal{O}$ is $1$: for
+$\gamma\in\Gamma$ with bottom-left entry $c\neq 0$,
+$N(c)\ge 1$, so $y(\gamma P)\le 1/(|c|^2 y)\le 1/y$.  Hence $\{y>Y\}$ with
+$Y\ge 1$ meets its $\Gamma$-translates only through $\Gamma_\infty$.
+
+% ---------------------------------------------------------------------
+\section{Analytic criterion}\label{sec:crit}
+
+\subsection{Level one}
+
+The Lax--Phillips analysis of Paper~I, Sections~2--3, applies with the
+single change $|T|=\sqrt{3}/6$ in place of $|T|=1/2$.  For
+$v\in H^1(K_Y)$ and $s\in(0,1)$, $\lambda=1-s^2$:
+\begin{align*}
+  \mathcal{A}_s(v)
+  &=Q_{K_Y}(v)-\lambda M_{K_Y}(v)-\beta(s)\,t(v)^2,\\
+  \mathcal{L}_s(v)
+  &=a(v)+\kappa_c(s)\,t(v),
+\end{align*}
+where $t(v)=\int_{P_3}v(\cdot,Y)\,dx\,dy$ (Euclidean),
+$a(v)=\int_{K_Y}v\,y^{-3}\,dV$, and
+\begin{equation}\label{eq:beta1}
+  \beta(s)=\frac{1-s}{|T|Y^2},\qquad
+  \kappa_c(s)=\frac{1}{(1+s)Y^2}.
+\end{equation}
+(The factor $1/|T|$ in $\beta$, rather than Paper~I's factor $2$ coming
+from $|T|=1/2$ and a double-cover convention, is the natural single-cusp
+normalization with cross-section area $|T|$.)  Nonzero Fourier modes in
+the cusp are nonnegative: the dual lattice $\Lambda^*$ has minimal length
+$2/\sqrt{3}$, so $4\pi^2 Y^2/|\mu|_{\min}^2\gg 1$ at $Y=1.25$.  The
+zero-mode ODE and orthogonality constraint are as in Paper~I.  The
+exclusion criterion and pencil form (Paper~I, Theorem on the criterion
+and Lemma~P) transfer verbatim.
+
+\begin{theorem}[Level-one criterion]\label{thm:critA}
+If for every $s\in(0,1)$ the form $\mathcal{A}_s$ is positive on
+$\{\mathcal{L}_s=0\}\subset H^1(K_Y)$, then
+$\PSL(2,\ZZ[\omega])\backslash\HH$ has no eigenvalue in $(0,1)$.
+\end{theorem}
+
+Testing over all of $H^1(K_Y)$ is a relaxation (no side/floor
+identifications).  Continuous spectrum of cofinite Kleinian groups starts
+at $1$ \cite[Thm.~3.8.1]{Friedman}; atoms in $(0,1)$ are $L^2$
+eigenvalues.
+
+\subsection{Congruence: two cusps}
+
+For $\p$ a prime ideal with $N(\p)=q$ and $\mathcal{O}/\p$ a field, the
+quotient $\Gamma_0(\p)\backslash\HH$ has exactly two cusps $\infty$ and
+$0$, with coset multiplicities $(1,q)$ under the identification
+$\Gamma_0(\p)\backslash\Gamma\cong\mathbb{P}^1(\mathcal{O}/\p)$.
+
+\begin{proposition}[Cusp cross-section areas]\label{prop:T0}
+For $\p$ prime with $N(\p)=q$ and $\mathcal{O}/\p$ a field,
+\[
+  |T_\infty|=\frac{\sqrt{3}}{6},\qquad
+  |T_0|=q\cdot|T_\infty|=\frac{q\sqrt{3}}{6}.
+\]
+In particular, for $\p=(1-\omega)$ one has $q=3$ and $|T_0|=\sqrt{3}/2$.
+\end{proposition}
+
+\begin{proof}[Sketch]
+Cusp $\infty$: $\Gamma_\infty\cap\Gamma_0(\p)=\Gamma_\infty$, so the
+cross-section equals the level-one section $|T|=\sqrt{3}/6$.  Cusp $0$:
+the conjugated lattice is $\p$ (as an ideal), of covolume
+$q\cdot\mathrm{covol}(\mathcal{O})$; after the order-$3$ unit fold the
+orbifold area is $q\cdot|T|$.  Full writeup: companion note on $T_0$ areas.
+\end{proof}
+
+The multi-cusp zero-mode weights are therefore
+\begin{equation}\label{eq:beta2}
   \beta_\infty(s)=\frac{1-s}{|T_\infty|Y^2},\qquad
-  \beta_0(s)=\frac{1-s}{|T_0|Y^2}.
-\end{equation*}
+  \beta_0(s)=\frac{1-s}{|T_0|Y^2}
+  =\frac{1-s}{N(\p)|T_\infty|Y^2},
+\end{equation}
+with the same $\kappa_c(s)=1/((1+s)Y^2)$ for both cusps (equal truncation
+heights).  The multi-cusp criterion is the natural analogue of Paper~II:
+positivity of
+$Q-\lambda M-\beta_\infty t_\infty^2-\beta_0 t_0^2$ on
+$\{\mathcal{L}_s=0\}$ for all $s\in(0,1)$.
 
-\section{Guaranteed FEM lower bound}
-\note{lower\_bound\_theory.md Theorem G1; CERT\_OMEGA\_P.md Theorem G1p.}
-Crouzeix--Raviart on a polyhedral inner mesh of $K_Y$ (Lemma~G floor lift).
-Finite checks per $s$-window: $c_e>d_e$ and $N_h-D_h\succeq 0$.
-Congruence: Reference-Cell Principle with
-$\mathrm{NC}=N(\mathfrak{p})+1$ isometric copies; Lemma~D0
-($\sigma_h=\sqrt{\mathrm{index}}\,\alpha_h^{\mathrm{ref}}$) when multi-copy
-tops remain free.
+% ---------------------------------------------------------------------
+\section{Guaranteed FEM lower bound}\label{sec:G1}
 
-\section{Verified certificate}
-\note{cert\_omega.py, cert\_omega\_p.py, Rump BIT 46.}
+\subsection{Level one: Theorem G1}
+
+The computational mesh is a tetrahedral mesh of $K_Y$ over the planar
+domain $P_3$ (\texttt{build\_P3\_cell}): prism extrusion of a triangulation
+of $P_3$, with base vertices ordered by index for conformity of shared
+faces.  Floor lift (Lemma~G of Paper~I) produces an inner polyhedral mesh
+$K_h\subset K_Y$; the sliver is absorbed by Lemma~S.  Crouzeix--Raviart
+elements, the self-contained interpolation constant
+$\kappa_{\mathrm{sc}}=\sqrt{1/\pi^2+1/15}$ (Lemma~I1 of Paper~I; inputs
+Payne--Weinberger / Bebendorf only), and the exact-main-term refinement
+are as in Paper~I.
+
+\begin{theorem}[G1, level 1]\label{thm:G1}
+On each $s$-window $W$, the continuum pencil inequality follows from
+three finite checks: $c_\Sigma\ge 0$, $c_e>d_e$, and
+$N_h-D_h\succeq 0$ on the CR space.  If these hold for a family of
+windows covering $(0,1)$, then Theorem~\ref{thm:A} follows.
+\end{theorem}
+
+Full proofs of the coefficient formulas are in Paper~I (master theorem)
+and the companion theory note; nothing in the chain is special to
+$\ZZ[i]$ beyond the fundamental domain and $|T|$.
+
+\subsection{Congruence: Theorem G1$\p$ and the reference-cell principle}
+
+As in Paper~II, the congruence quotient is tiled by
+$\mathrm{NC}=N(\p)+1$ isometric copies of the level-one reference cell,
+glued by exact arithmetic over $\mathcal{O}/\p$.  Multi-copy rule:
+\begin{quote}
+copy $c$, $\delta$-source face
+\;$\xrightarrow{\mathrm{glue}}$\;
+copy $j=c\cdot\delta^{-1}$, $\delta$-target face,
+\end{quote}
+via the reference map $\varphi_\delta$ in pulled-back cell coordinates.
+If $j=c$ the identification is internal and is relaxed (Neumann); if
+$j\neq c$ the interface is interior and must be conforming.
+
+\begin{lemma}[D0, tops free]\label{lem:D0}
+When multi-copy top faces at $y=Y$ remain free (not in the pairing
+dictionary), the CR interpolant reproduces both cusp trace functionals
+exactly: $t_\infty(e)=t_0(e)=0$.  Consequently
+\[
+  \sigma_h=\sqrt{\mathrm{NC}}\,\alpha_h^{\mathrm{ref}}
+\]
+and the boundary blocks in $D_h$ are uninflated.
+\end{lemma}
+
+\begin{theorem}[G1$\p$]\label{thm:G1p}
+With the multi-cusp criterion, the reference-cell assembly of
+$\mathrm{NC}$ copies, Lemma~\ref{lem:D0}, and the coefficient list of
+Paper~II (with $|T_\infty|=\sqrt{3}/6$ and $|T_0|=N(\p)|T_\infty|$ in the
+$\beta$-weights), the finite checks $c_\Sigma\ge 0$, $c_e>d_e$, and
+$N_h-D_h\succeq 0$ on a covering family of windows imply
+Theorem~\ref{thm:B}.
+\end{theorem}
+
+\subsection{$N=3$ specialities}
+
+For $\p=(1-\omega)$ one has $\mathcal{O}/\p\cong\mathbb{F}_3$ and
+$\omega\equiv 1$ in $\mathbb{F}_3$.  Consequently $T_1\equiv T_\omega$ as
+residue translations, and $U\equiv\mathrm{id}$ on $\mathbb{P}^1(\mathbb{F}_3)$.
+Cross-copy glue uses $T_1/T_\omega$ and $S$; geometric $U$-maps remain
+internal or residue-trivial.  Coset count: $|\mathbb{P}^1(\mathbb{F}_3)|=4$.
+These simplifications are used by the production gluing code; they do not
+affect the continuum criterion.
+
+% ---------------------------------------------------------------------
+\section{Verified certificate}\label{sec:cert}
+
+\subsection{Arithmetic stack}
+
+Both theorems use the same verification standard as Paper~I:
 \begin{itemize}
-\item Geometry and element matrices in Arb (python-flint, 128-bit).
+\item Geometry and element matrices in Arb (python-flint, $128$-bit).
 \item Scalar window inequalities by rigorous ball comparison.
-\item Matrix positive-semidefiniteness by Rump (BIT~46, 2006) with
-  power-of-two diagonal equilibration and per-row radii.
+\item Matrix positive-semidefiniteness by Rump \cite{Rump06}
+  (Thm.~2.3, Cor.~2.4, Lemma~2.5), with power-of-two diagonal
+  equilibration and per-row radii (Paper~I, Propositions on SAS and
+  per-row absorption).
+\item Element moments $Q$, $M$, $a$, $t$ by Taylor enclosures of order
+  $p=5$ (weighted-moments routine shared with the Gaussian
+  congruence certifier).
 \end{itemize}
 
-\subsection*{Frozen parameters (Theorem~\ref{thm:A})}
-Mesh $P_3$, $N_{\mathrm{tri}}=6$, $N_3=3$ (648 tets, 1440 CR dofs);
-$Y=1.25$, $\rho=55$, $\theta=0.7$, $\theta_2=\theta'=\alpha=0.5$,
-$\nu^*=1.05$; eight uniform windows on $[0,1]$;
-$\kappa_{\mathrm{sc}}=\sqrt{1/\pi^2+1/15}$.
+\subsection{Frozen parameters (Theorem~\ref{thm:A})}
 
-\subsection*{Frozen parameters (Theorem~\ref{thm:B})}
-Same reference mesh; $\mathrm{NC}=4$; $\theta=0.5$, $\theta_2=0.9$,
-$\alpha=0.2$, $\theta_4=0.5$, $\tilde\rho=9$; $n\approx 5404$ dofs.
+\begin{table}[ht]
+\centering
+\begin{tabular}{@{}ll@{}}
+\toprule
+Parameter & Value \\
+\midrule
+Mesh & $P_3$, $N_{\mathrm{tri}}=6$, $N_3=3$
+  $\to$ $648$ tets, $1440$ CR dofs \\
+$Y$ & $1.25$ \\
+$(\rho,\theta,\theta_2,\theta',\alpha)$ & $(55,\,0.7,\,0.5,\,0.5,\,0.5)$ \\
+$\nu^*$ & $1.05$ \\
+$s$-grid & $8$ uniform windows covering $[0,1]$ \\
+Taylor $p$ / arb prec & $5$ / $128$ \\
+$\kappa$ & $\kappa_{\mathrm{sc}}=\sqrt{1/\pi^2+1/15}$ \\
+\bottomrule
+\end{tabular}
+\caption{Frozen certificate for Theorem~\ref{thm:A} (level 1).}
+\label{tab:A}
+\end{table}
 
-\section{Reproduce}
-\begin{verbatim}
-cd eisenstein_numbers
-python -u geometry_fund.py
-python -u pairing_matrices.py
-python -u check_generators.py
-python -u non_neumann_omega.py      # optional paired FE space
-python -u cert_omega.py 6 3         # Theorem A
-python -u cert_omega_p.py 3 6 3     # Theorem B
-\end{verbatim}
+Certified run (2026-07-11), abridged: Lemma~G admissible
+($72$ floor faces); $1^TM_{\mathrm{mid}}1\approx 0.076661$
+(matches $\vol(K_Y)$ up to the $O(h^2)$ sliver);
+$t(\mathbf{1})=\sqrt{3}/6$; all eight windows: $c_e>d_e$ true, Rump PSD
+true.  Conclusion: $P_3$/$\PSL(2,\ZZ[\omega])$ certified.
 
-\section{External citations (not re-proved)}
+\subsection{Frozen parameters (Theorem~\ref{thm:B}, $N=3$)}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{@{}ll@{}}
+\toprule
+Parameter & Value \\
+\midrule
+Reference mesh & same $P_3$ $6\times 3$ \\
+Copies $\mathrm{NC}$ & $4$ \\
+$Y$ & $1.25$ \\
+$(\theta,\theta_2,\alpha,\theta_4,\tilde\rho)$
+  & $(0.5,\,0.9,\,0.2,\,0.5,\,9)$ \\
+$\nu^*$ & $1.05$ \\
+$s$-grid & $8$ windows \\
+$\sigma_h$ & $\sqrt{4}\,\alpha_h^{\mathrm{ref}}$ (Lemma~D0) \\
+Global dofs & $n\approx 5404$ \\
+Taylor $p$ / arb prec & $5$ / $128$ \\
+\bottomrule
+\end{tabular}
+\caption{Frozen certificate for Theorem~\ref{thm:B}
+($\Gamma_0(1-\omega)$).}
+\label{tab:B}
+\end{table}
+
+Certified run (2026-07-12), abridged: Lemma~G arb OK;
+$t_\infty(\mathbf{1})=|T_\infty|$, $t_0(\mathbf{1})=|T_0|$;
+$\min c_e/d_e\gtrsim 11$; Rump PSD $8/8$.  Conclusion:
+$\Gamma_0(1-\omega)$ certified.  Float precursor: min constrained
+Rayleigh quotient $\mu\approx 1.12>0$.
+
+\subsection{Frozen parameters (Theorem~\ref{thm:Btwo}, $N=7$)}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{@{}ll@{}}
+\toprule
+Parameter & Value \\
+\midrule
+Reference mesh & same $P_3$ $6\times 3$ \\
+Copies $\mathrm{NC}$ & $8$ \\
+$Y$ & $1.25$ \\
+$(\theta,\theta_2,\alpha,\theta_4,\tilde\rho)$
+  & $(0.3,\,0.85,\,0.1,\,0.3,\,1)$ \\
+$\nu^*$ & $1.001$ \\
+$s$-grid & $8$ windows \\
+$\sigma_h$ & $\sqrt{8}\,\alpha_h^{\mathrm{ref}}$ (Lemma~D0) \\
+Global dofs & $n\approx 10533$ ($\sim 888$\,MB dense $A$) \\
+Taylor $p$ / arb prec & $5$ / $128$ \\
+\bottomrule
+\end{tabular}
+\caption{Frozen certificate for Theorem~\ref{thm:Btwo}
+($\Gamma_0(\pi\mid 7)$).}
+\label{tab:Btwo}
+\end{table}
+
+Certified run (2026-07-12): $t_\infty(\mathbf{1})=|T_\infty|$,
+$t_0(\mathbf{1})=7\cdot|T_\infty|$; scalar $c_e>d_e$ $8/8$; Rump PSD
+$8/8$.  Conclusion: $\Gamma_0(N=7)$ certified.  Float precursor on a
+coarser mesh ($4\times 2$): $\min\mu\approx 1.12>0$.  Parameter search
+used a float pencil LOBPCG screen (generalized $\min\mathrm{eig}(N_h,D_h)>1$)
+before Rump, in the spirit of Paper~II.
+
+\subsection{Congruence ingredients (checklist)}
+
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Ingredient & Artifact & Status \\
+\midrule
+Cosets $\cong\mathbb{P}^1(\mathcal{O}/\p)$
+  & residue module & exact; $N=3$ has $4$ points \\
+Gluing permutations (right action by $\delta^{-1}$)
+  & same & $S^2=\mathrm{id}$, $U^3=\mathrm{id}$, round-trips \\
+Cusp areas $|T_\infty|$, $|T_0|$
+  & Prop.~\ref{prop:T0} & proved \\
+Face dictionary on $P_3$
+  & face-pairing module & RIGHT$\leftrightarrow$LEFT, etc. \\
+Pairing matrices $g\in\Gamma$
+  & Lemma~\ref{lem:pair} & frozen SL$(2,\mathcal{O})$ + checks \\
+Lemma~D0 (tops free)
+  & face dict excludes TOP & verified in cert \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+% ---------------------------------------------------------------------
+\section{Why each check suffices}
+
+An eigenfunction $u$ with eigenvalue $\lambda=1-s^2\in(0,1)$ is $L^2$ and
+real-analytic.  Cusp zero modes are exactly of the form $c(y/Y)^{1-s}$
+(per cusp).  The Lax--Phillips reduction turns $Q(u)-\lambda M(u)=0$ into
+$\mathcal{A}_s(u|_K)\le 0$ with $\mathcal{L}_s(u|_K)=0$, while
+$u|_K\neq 0$ by unique continuation.  The pencil inequality, verified for
+all $s$ through the finite window checks of Theorem~G1 / G1$\p$, gives
+$\mathcal{A}_s>0$ on $\{\mathcal{L}_s=0\}$---contradiction.  The spectral
+decomposition upgrades ``no eigenvalues in $(0,1)$'' to ``no spectrum in
+$(0,1)$''.
+
+% ---------------------------------------------------------------------
+\section{Relation to other results in this series}
+
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Result & Group & Status \\
+\midrule
+Paper~I, main thm
+  & $\PSL(2,\ZZ[i])$ level 1 & certified \\
+Paper~II, Thms $N\p=5,9,13$
+  & $\Gamma_0(\p)\le\PSL(2,\ZZ[i])$ & certified \\
+\textbf{Theorem~\ref{thm:A}}
+  & $\PSL(2,\ZZ[\omega])$ level 1 & \textbf{this paper} \\
+\textbf{Theorem~\ref{thm:B}}
+  & $\Gamma_0(1-\omega)$, $N=3$ & \textbf{this paper} \\
+\textbf{Theorem~\ref{thm:Btwo}}
+  & $\Gamma_0(\pi\mid 7)$, $N=7$ & \textbf{this paper} \\
+STF / CE gate $B<1$ for $\omega$
+  & same group, TF path & companion repo \\
+Ladder rung $N=13$ over $\omega$
+  & $\Gamma_0(\pi)$ & combinatorics only \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The STF/CE path and the FEM path are independent checks of the same
+level-one spectral bound for $\PSL(2,\ZZ[\omega])$.
+Theorems~\ref{thm:B}--\ref{thm:Btwo} have no STF counterpart in the
+repository.
+
+% ---------------------------------------------------------------------
+\section{Dependencies and reproducibility}\label{sec:deps}
+
+\subsection{External mathematical inputs}
+
 \begin{enumerate}
-\item Friedman, arXiv:math/0612807, Thm~3.8.1 (spectral decomposition).
-\item Elstrodt--Grunewald--Mennicke, \emph{Groups Acting on Hyperbolic Space},
-  §7.2--7.3; planar domain $P_3$.
-\item Shimizu / Leutbecher (precisely invariant horoball).
-\item Morrey--Nirenberg (analyticity / unique continuation).
-\item Rump, BIT Numer.\ Math.\ 46 (2006).
-\item Payne--Weinberger / Bebendorf (CR constant; optional CZZ20/CP22).
+\item \textbf{Spectral decomposition / continuous spectrum $\ge 1$}---
+  Friedman \cite[Thm.~3.8.1]{Friedman} (cf.\ \cite[§6.2]{EGM98}).  Used
+  for the $\lambda_1\ge 1$ phrasing; ``no $L^2$ eigenvalues in $(0,1)$''
+  is the machine-certified core.
+\item \textbf{EGM fundamental domain $F_d$}---
+  Elstrodt--Grunewald--Mennicke \cite[§7.2--7.3]{EGM98}; planar domain
+  $P_3$ as in \cite[§2.3]{DP20} (or equivalent Swan/EGM presentation).
+\item \textbf{Shimizu horoball / precisely invariant cusp}---self-contained
+  as in Paper~I (Shimizu \cite{Shimizu63}; Leutbecher \cite{Leutbecher67});
+  same argument with $N(c)\ge 1$ for $\mathcal{O}=\ZZ[\omega]$.
+\item \textbf{Real-analyticity of eigenfunctions / unique continuation}
+  (Morrey--Nirenberg; elliptic regularity).
+\item \textbf{Rump \cite{Rump06}}---Thm.~2.3 / Cor.~2.4 / Lemma~2.5.
+\item \textbf{CR interpolation constant}---Lemma~I1 of Paper~I
+  (Payne--Weinberger \cite{PW60} / Bebendorf \cite{Bebendorf03}); optional
+  CZZ/CP sharpening not load-bearing.
+\item \textbf{Side-pairing generators of $\Gamma$}---Swan; EGM Ch.~7;
+  matrices and mesh dictionary frozen and machine-checked
+  (Lemma~\ref{lem:pair}).
 \end{enumerate}
 
-\section{What is not claimed}
-No statement for $N(\mathfrak{p})\in\{7,13\}$ beyond combinatorics;
-no re-proof of the Gaussian ladder; no use of the Selberg trace formula
-in the certificates above.
+Software correctness-critical stack: python-flint (Arb); IEEE-754 double
+for Rump's floating Cholesky (as permitted by Rump: any LAPACK
+\texttt{dpotrf}).
 
-\begin{thebibliography}{9}
-\bibitem{EGM98} J.~Elstrodt, F.~Grunewald, J.~Mennicke,
-  \emph{Groups Acting on Hyperbolic Space}, Springer, 1998.
-\bibitem{Rump06} S.M.~Rump, Verification of positive definiteness,
-  BIT Numer.\ Math.\ 46 (2006), 433--452.
-\bibitem{Friedman} J.~Friedman, The Selberg trace formula for
-  $\mathrm{PSL}(2,O_K)$, arXiv:math/0612807.
+\subsection{Explicitly not used}
+
+The Selberg trace formula; any test function; the scattering matrix or
+Dedekind zeta of $K$; the torsion or conjugacy-class inventories; Then's
+spectrum; the Gaussian ladder certificates of Paper~II (cited for method
+only); and every result file of the companion trace-formula engine.
+
+\subsection{Reproduce}
+
+From \texttt{eisenstein\_numbers/}:
+\begin{verbatim}
+# Geometry freeze
+python -u geometry_fund.py
+python -u check_generators.py
+python -u pairing_matrices.py
+python -u non_neumann_omega.py 6 3   # optional paired FE
+
+# Level 1 (Theorem A)
+python -u cr_omega.py
+python -u cert_omega.py 6 3
+
+# Congruence rungs (Theorems B, B2)
+python -u residue_omega.py
+python -u cusps_omega.py
+python -u face_pairings_p3.py
+python -u congruence_omega_proto.py 3 6 3
+python -u congruence_omega_proto.py 7 4 2
+python -u cert_omega_p.py 3 6 3
+python -u cert_omega_p.py 7 6 3
+\end{verbatim}
+
+% ---------------------------------------------------------------------
+\section{What is not claimed}
+
+\begin{itemize}
+\item No claim for $\Gamma_0(\p)$ at $N(\p)=13$ (combinatorics
+  only so far: residue rings, gluing permutations, and cusp-class
+  partitions exist; interval certificates do not).
+\item No re-proof of Theorems for $N\p=5,9,13$ on $\ZZ[i]$ (Paper~II).
+\item Congruence multi-copy glues cross-copy faces via the frozen
+  dictionary plus residue action; self-identifications remain Neumann.
+\item The STF constant $B(\mathbb{Q}(\omega))$ is a separate software
+  gate; the certificates of
+  Theorems~\ref{thm:A}--\ref{thm:Btwo} do not use
+  the trace formula or conjugacy-class inventory.
+\end{itemize}
+
+% ---------------------------------------------------------------------
+\section{Outlook}
+
+The natural next rung over $\ZZ[\omega]$ is the prime of norm $13$
+(field residue $\mathbb{F}_{13}$), where the combinatorial infrastructure
+already exists.  Certificate cost at $\mathrm{NC}=N+1$ copies grows as
+$n\sim 10^4$ already at $N=7$; the Gaussian $N\p=13$ run of Paper~II
+shows the same stack remains viable at $n\sim 3\cdot 10^4$ with tighter
+$\nu^*$ and more $s$-windows.  The mode-bound ceiling and the
+reference-cell principle are field-independent once $|T|$ and the
+pairing dictionary are installed.
+
+Together with Papers~I and~II, the series establishes a uniform
+architecture---reduction, guaranteed FEM lower bound, verified
+certificate---for excluding exceptional eigenvalues on Bianchi orbifolds
+and their first congruence covers, for both class-number-one fields of
+discriminants $-4$ and $-3$, by a method that never touches the Selberg
+trace formula.
+
+\begin{thebibliography}{99}
+
+\bibitem{Bebendorf03}
+M.~Bebendorf,
+\emph{A note on the Poincar\'e inequality for convex domains},
+Z.\ Anal.\ Anwend.\ \textbf{22} (2003), 751--756.
+
+\bibitem{DP20}
+C.~D\'oria and M.~Paula,
+\emph{Height estimates for Bianchi groups},
+arXiv:1910.03148.
+
+\bibitem{EGM98}
+J.~Elstrodt, F.~Grunewald, and J.~Mennicke,
+\emph{Groups Acting on Hyperbolic Space},
+Springer, 1998.
+
+\bibitem{Friedman}
+J.~Friedman,
+\emph{The Selberg trace formula for $\mathrm{PSL}(2,O_K)$},
+arXiv:math/0612807.
+
+\bibitem{Leutbecher67}
+A.~Leutbecher,
+\emph{\"Uber die Heckeschen Gruppen $G(\lambda)$},
+Math.\ Z.\ \textbf{100} (1967), 183--200.
+
+\bibitem{PaperI}
+\emph{Exceptional eigenvalues of Bianchi orbifolds by verified finite
+elements.  I: The method, and the spectral gap of the Picard orbifold},
+companion paper (this series).
+
+\bibitem{PaperII}
+\emph{Exceptional eigenvalues of Bianchi orbifolds by verified finite
+elements.  II: Congruence levels of the Picard group},
+companion paper (this series).
+
+\bibitem{PW60}
+L.~E.~Payne and H.~F.~Weinberger,
+\emph{An optimal Poincar\'e inequality for convex domains},
+Arch.\ Rational Mech.\ Anal.\ \textbf{5} (1960), 286--292.
+
+\bibitem{Rump06}
+S.~M.~Rump,
+\emph{Verification of positive definiteness},
+BIT Numer.\ Math.\ \textbf{46} (2006), 433--452.
+
+\bibitem{Shimizu63}
+H.~Shimizu,
+\emph{On discontinuous groups operating on the product of the upper
+half planes},
+Ann.\ of Math.\ (2) \textbf{77} (1963), 33--71.
+
 \end{thebibliography}
 
 \end{document}

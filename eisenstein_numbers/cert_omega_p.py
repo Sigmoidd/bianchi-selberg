@@ -55,26 +55,34 @@ Y = Y_DEFAULT
 NU_STAR = 1.05
 NWIN = 8
 
-# Frozen G1p params (certified 2026-07-12, N=3 mesh 6×3)
-THETA = 0.5
-THETA2 = 0.9
-ALPHA = 0.2
-TH4 = 0.5
-RHO_T = 9.0  # ρ̃
+# Frozen G1p params by level (mesh P3 6×3)
+# N=3 (2026-07-12): θ=0.5, θ₂=0.9, α=0.2, θ₄=0.5, ρ̃=9, ν*=1.05
+# N=7 (2026-07-12): θ=0.3, θ₂=0.85, α=0.1, θ₄=0.3, ρ̃=1, ν*=1.001
+FROZEN = {
+    3: dict(th=0.5, th2=0.9, al=0.2, th4=0.5, rt=9.0, nu_star=1.05),
+    7: dict(th=0.3, th2=0.85, al=0.1, th4=0.3, rt=1.0, nu_star=1.001),
+}
+THETA = FROZEN[3]["th"]
+THETA2 = FROZEN[3]["th2"]
+ALPHA = FROZEN[3]["al"]
+TH4 = FROZEN[3]["th4"]
+RHO_T = FROZEN[3]["rt"]
 
 CHECKLIST = [
     ("research_note", True, "CERT_OMEGA_P.md"),
     ("T0_areas_proved", True, "T0_AREA.md"),
     ("lemma_D0_applies", True, "tops at y=Y; no TOP in side glue"),
-    ("float_mu_positive", True, "proto 3 6 3 min μ≈1.12"),
+    ("float_mu_positive", True, "N=3 proto 6×3 μ≈1.12; N=7 proto 4×2 μ≈1.12"),
     ("face_dictionary", True, "face_pairings_p3"),
     ("ref_arb_p3", True, "Q_pc/rem M_ex constants"),
-    ("global_scatter", True, "4-copy mid/rad + t_α"),
+    ("global_scatter", True, "multi-copy mid/rad + t_α"),
     ("window_coeffs_p", True, "c_e≥d_e arb 8/8"),
-    ("rump_8of8", True,
-     "Rump PSD 8/8 @ θ=0.5,θ₂=0.9,α=0.2,θ₄=0.5,ρ̃=9 (2026-07-12)"),
+    ("rump_N3", True,
+     "Rump PSD 8/8 N=3 @ θ=0.5,θ₂=0.9,α=0.2,θ₄=0.5,ρ̃=9"),
+    ("rump_N7", True,
+     "Rump PSD 8/8 N=7 @ θ=0.3,θ₂=0.85,α=0.1,θ₄=0.3,ρ̃=1,ν*=1.001"),
     ("pairing_lemma", True,
-     "PAIRING_MATRICES.md + pairing_matrices.py PASS (SL(2,O); S/U maps; T1/Tw section)"),
+     "PAIRING_MATRICES.md + pairing_matrices.py PASS"),
 ]
 
 
@@ -587,25 +595,31 @@ def main(argv=None):
         if len(argv) >= 3:
             N3 = int(argv[2])
 
-    # Frozen first, then fallbacks
+    # Level-specific freeze first, then shared fallbacks
+    fz = FROZEN.get(q, FROZEN[3])
     param_grid = [
-        (THETA, THETA2, ALPHA, TH4, RHO_T),  # certified freeze
-        (0.5, 0.9, 0.2, 0.5, 9.0),
-        (0.4, 0.9, 0.2, 0.3, 12.0),
-        (0.6, 0.9, 0.2, 0.85, 9.0),
-        (0.5, 0.85, 0.15, 0.4, 15.0),
+        (fz["th"], fz["th2"], fz["al"], fz["th4"], fz["rt"], fz["nu_star"]),
+        (0.5, 0.9, 0.2, 0.5, 9.0, 1.05),
+        (0.3, 0.85, 0.1, 0.3, 1.0, 1.001),  # N=7 freeze
+        (0.4, 0.9, 0.2, 0.3, 12.0, 1.05),
+        (0.5, 0.9, 0.15, 0.8, 1.5, 1.02),
     ]
     ok = False
     ref = glob = None
-    for th, th2, al, th4, rt in param_grid:
-        print(f"\n  === trial θ={th} θ₂={th2} α={al} θ₄={th4} ρ̃={rt} ===")
+    for th, th2, al, th4, rt, nu in param_grid:
+        print(
+            f"\n  === trial θ={th} θ₂={th2} α={al} θ₄={th4} ρ̃={rt} ν*={nu} ==="
+        )
         ok, ref, glob = certify(
             q=q, N_tri=N_tri, N3=N3,
-            th=th, th2=th2, al=al, th4=th4, rt=rt,
+            th=th, th2=th2, al=al, th4=th4, rt=rt, nu_star=nu,
             ref=ref, glob=glob,
         )
         if ok:
-            print(f"\n  FROZEN params: θ={th} θ₂={th2} α={al} θ₄={th4} ρ̃={rt}")
+            print(
+                f"\n  FROZEN params: θ={th} θ₂={th2} α={al} θ₄={th4} "
+                f"ρ̃={rt} ν*={nu}"
+            )
             break
     print()
     status()

@@ -257,6 +257,50 @@ def constrained_mu_two_cusp(Q, M, a, t_inf, t_0, ct, Y, lam):
     return float(vals[0]), float(vals[1])
 
 
+def constrained_mu_two_cusp_sparse(Q, M, a, t_inf, t_0, ct, Y, lam, k=1):
+    """LOBPCG estimate of min μ on L=0 (large dof). Returns mu1 only."""
+    from scipy.sparse.linalg import LinearOperator, lobpcg
+
+    s = math.sqrt(1.0 - lam)
+    b_inf = ct.beta_inf(s, Y)
+    b_0 = ct.beta_0(s, Y)
+    kap = 1.0 / ((1.0 + s) * Y * Y)
+    n = Q.shape[0]
+    ell = a + kap * (t_inf + t_0)
+    # Householder reflector to enforce L=0: work in (n-1) dims
+    v = ell.copy()
+    v[0] += np.sign(ell[0] if ell[0] != 0 else 1.0) * np.linalg.norm(ell)
+    beta = 2.0 / (v @ v)
+
+    def apply_H(x_full):
+        return x_full - beta * v * (v @ x_full)
+
+    def matvec_A(x_red):
+        # x_red in R^{n-1} → pad, apply H, apply A, apply H, drop first
+        z = np.zeros(n)
+        z[1:] = x_red
+        z = apply_H(z)
+        y = Q @ z - lam * (M @ z)
+        y = y - b_inf * t_inf * (t_inf @ z) - b_0 * t_0 * (t_0 @ z)
+        y = apply_H(y)
+        return y[1:]
+
+    def matvec_M(x_red):
+        z = np.zeros(n)
+        z[1:] = x_red
+        z = apply_H(z)
+        y = M @ z
+        y = apply_H(y)
+        return y[1:]
+
+    Aop = LinearOperator((n - 1, n - 1), matvec=matvec_A)
+    Mop = LinearOperator((n - 1, n - 1), matvec=matvec_M)
+    rng = np.random.default_rng(0)
+    X0 = rng.standard_normal((n - 1, k))
+    vals, _ = lobpcg(Aop, X0, B=Mop, largest=False, maxiter=80, tol=1e-5)
+    return float(np.min(vals))
+
+
 def run(q=3, N_tri=4, N3=2, Y=Y_DEFAULT):
     print("Eisenstein Γ₀ float prototype (Stage 8)")
     print("=" * 60)
@@ -266,19 +310,26 @@ def run(q=3, N_tri=4, N3=2, Y=Y_DEFAULT):
           f"modes OK={ct.ok_modes(Y)}")
     data = assemble_level(q=q, N_tri=N_tri, N3=N3, Y=Y)
     ng = data["ng"]
-    if ng > 8000:
-        print("  skip dense mu (dofs too large)")
-        return data, []
     print("\n  two-cusp constrained μ:")
     print(f"  {'lambda':>8} {'s':>7} {'mu1':>10} {'mu2':>10}")
     lams = [0.05, 0.5, 0.9, 0.99]
     mus = []
+    use_sparse = ng > 4500
+    if use_sparse:
+        print(f"  (ng={ng}: sparse LOBPCG μ estimate)")
     for lam in lams:
         s = math.sqrt(1 - lam)
-        m1, m2 = constrained_mu_two_cusp(
-            data["Q"], data["M"], data["a"],
-            data["t_inf"], data["t_0"], data["ct"], Y, lam,
-        )
+        if use_sparse:
+            m1 = constrained_mu_two_cusp_sparse(
+                data["Q"], data["M"], data["a"],
+                data["t_inf"], data["t_0"], data["ct"], Y, lam,
+            )
+            m2 = float("nan")
+        else:
+            m1, m2 = constrained_mu_two_cusp(
+                data["Q"], data["M"], data["a"],
+                data["t_inf"], data["t_0"], data["ct"], Y, lam,
+            )
         mus.append(m1)
         print(f"  {lam:8.3f} {s:7.4f} {m1:10.5f} {m2:10.5f}")
     mmin = min(mus)
