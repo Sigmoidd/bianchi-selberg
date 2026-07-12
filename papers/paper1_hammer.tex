@@ -1,0 +1,214 @@
+% =====================================================================
+% PAPER I ("The Hammer")
+% Exceptional eigenvalues of Bianchi orbifolds by verified finite
+% elements. I: The method, and the spectral gap of the Picard orbifold
+% ---------------------------------------------------------------------
+% OUTLINE (compilable skeleton).  Content notes in [[double brackets]]
+% map each section to its source in the repository:
+%   DESIGN.md, lower_bound_theory.md, PROOF.md, m3_certify.py, refs/.
+% Reviewer burden by design: (i) the continuous-to-discrete reduction,
+% (ii) the guaranteed FEM bounds, (iii) the interval arithmetic.
+% Nothing else.  All group-theoretic/combinatorial content is deferred
+% to Paper II.
+% =====================================================================
+\documentclass[11pt]{amsart}
+\usepackage{amsmath,amssymb,amsthm}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\HH}{\mathbb{H}^3}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\note}[1]{\par\smallskip\noindent\textbf{[[#1]]}\par\smallskip}
+
+\title[Verified exclusion of exceptional eigenvalues, I]{Exceptional
+eigenvalues of Bianchi orbifolds by verified finite elements.\\
+I: The method, and the spectral gap of the Picard orbifold}
+\author{}
+\date{Draft outline, 2026-07-11}
+
+\begin{document}
+\begin{abstract}
+We develop a machine-verified method for excluding Laplace eigenvalues
+in $(0,1)$ on cusped hyperbolic $3$-orbifolds, combining a
+Lax--Phillips cusp reduction, guaranteed Crouzeix--Raviart
+finite-element lower bounds with fully explicit constants, and a
+floating-point positive-definiteness certificate in the sense of Rump.
+The method makes no use of the Selberg trace formula.  As a first
+application we prove: the Picard orbifold
+$\mathrm{PSL}(2,\ZZ[i])\backslash\HH^3$ has no Laplace eigenvalue in
+$(0,1)$; equivalently $\lambda_1\ge 1$.  Every analytic constant is
+enclosed in ball arithmetic and the final certificate is a
+deterministic, reproducible computation.
+\note{Abstract: stress (a) exclusion vs.\ existence — certified Maass
+computations (BSV) prove existence; exclusion needs a different
+architecture; (b) independence from the trace formula; (c) the
+machinery is the point — Paper II applies it where the statement is
+new.}
+\end{abstract}
+\maketitle
+
+% ---------------------------------------------------------------------
+\section{Introduction}
+\note{Sources: PROOF.md (master), parent README for context.}
+\begin{itemize}
+\item The Selberg eigenvalue problem for Bianchi groups; state of the
+  art ($\lambda_1 \ge 975/1024$ Blomer--Brumley; trace-formula
+  positivity proofs at level one).  Position: level-one Picard is a
+  validation target (believed classically known); the \emph{method} is
+  the contribution.
+\item Main theorem (= Theorem~\ref{thm:main}) and the two-line
+  architecture: criterion $\to$ guaranteed lower bound $\to$ verified
+  certificate.
+\item Related work, three strands: (1) rigorous Maass computations
+  (Booker--Str\"ombergsson--Venkatesh; Child; Seymour-Howell) — existence
+  tools, complementary; (2) guaranteed FEM eigenvalue bounds
+  (Carstensen--Gedicke; Liu; Carstensen--Puttkammer;
+  Carstensen--Dond--Maity--Nataraj CAMWA 2026 for the lower-energy-bound
+  viewpoint); (3) verified numerical linear algebra (Rump).
+\item Independence statement: the proof shares only the fundamental
+  domain with trace-formula treatments.  Complete list of external
+  inputs (one paragraph; full list in \S\ref{sec:deps}).
+\item Reading guide + reproducibility pointer.
+\end{itemize}
+
+\begin{theorem}\label{thm:main}
+The Laplace--Beltrami operator on
+$L^2(\mathrm{PSL}(2,\ZZ[i])\backslash \HH^3)$ has no eigenvalue in
+$(0,1)$.  Combined with the spectral decomposition, its spectrum in
+$(0,1)$ is empty: $\lambda_1\ge 1$.
+\end{theorem}
+
+% ---------------------------------------------------------------------
+\section{The exclusion criterion}\label{sec:criterion}
+\note{Source: DESIGN.md \S\S0--2 (all proofs there); citations pinned in
+DESIGN.md ``Spectral facts''.  Reviewer job (i): this section.}
+\begin{itemize}
+\item Setup: upper half-space model, Humbert fundamental domain,
+  weighted forms $Q, M$; truncation height $Y>1$; core $K$ and cusp.
+\item Lemma (Shimizu): precise invariance of $\{y>Y\}$, one-line proof.
+\item Spectral preliminaries (cited): decomposition for cofinite
+  Kleinian groups [Friedman, Thm 3.8.1; EGM \S6.2]; Eisenstein
+  eigenvalue $1+t^2$ $\Rightarrow$ spectrum in $[0,1)$ atomic;
+  real-analyticity (Morrey--Nirenberg) for unique continuation.
+\item Cusp Fourier analysis: nonzero modes nonnegative (Lemma 1); exact
+  zero-mode profile $c\,(y/Y)^{1-s}$ and its defect (Lemma 2);
+  orthogonality constraint $\mathcal{L}_s$ (Lemma 3).
+\item The criterion (positivity of $\mathcal{A}_s$ on
+  $\{\mathcal{L}_s=0\}$) and the unconstrained pencil form $(P_s)$
+  with the free parameter $\rho$ (Lemma P).
+\item Remark: the relaxation philosophy — testing over all of $H^1(K)$
+  drops the orbifold identifications; validity is one line, and it is
+  what makes the discrete stage clean.
+\end{itemize}
+
+% ---------------------------------------------------------------------
+\section{Geometry: the inner polyhedral mesh}\label{sec:mesh}
+\note{Source: lower\_bound\_theory.md \S1 (Lemma G).}
+\begin{itemize}
+\item Floor-lifted inner mesh $K_h\subset K$; concavity/sag Lemma G
+  with the barycentric-variance constant $d^2/8$; sliver $\Sigma$.
+\item Mesh-split-agnostic statement (the level-one certificate uses a
+  Kuhn split; Paper II uses the symmetric 24-split; the theory below
+  does not care).  Per-tet data and sandwiched weights
+  $w_T^Q, w_T^M$.
+\end{itemize}
+
+% ---------------------------------------------------------------------
+\section{The guaranteed lower bound}\label{sec:G1}
+\note{Source: lower\_bound\_theory.md (Theorem G1 + lemmas), incl.\ the
+$\tau_h=0$ remark and the exact-main-term refinement from
+CONGRUENCE.md \S7 — PRESENT BOTH AS THE PRIMARY ROUTE here (cleaner
+than the historical slab route; keep the slab bound as a remark).
+Reviewer job (ii): this section.}
+\begin{itemize}
+\item CR space and interpolation: (I2) projection property;
+  \textbf{Lemma I1} (self-contained interpolation constant
+  $\kappa=\sqrt{1/\pi^2+1/15}$ on \emph{arbitrary} tetrahedra; inputs:
+  Payne--Weinberger 1960 / Bebendorf 2003 only).  Remark: sharper
+  published $\sqrt{1/\pi^2+1/120}$ (CZZ20) optional, not load-bearing.
+\item \textbf{Lemma D0} (exact trace reproduction): the cusp
+  cross-section is tiled by mesh faces and $I_{CR}$ matches face means,
+  so $t(v-I_{CR}v)=0$ — no trace error terms, uninflated boundary
+  blocks.  [[Historically discovered late; expositionally it goes
+  first.]]
+\item Exact main terms / sandwiched error terms: $M_{ex}$, $Q_{rem}$,
+  $\rho_w$, the $\theta_4$ split; error lemmas (E-M), (E-a); trace
+  identity Lemma T (used for the sliver and as a tool).
+\item Sliver absorption Lemma S (column means, per-face heights).
+\item Window sweep: worst-case $(\lambda^+,\beta^+,\Delta\kappa)$ per
+  $s$-window; monotonicity.
+\item \textbf{Theorem G1} (master): the criterion follows from, per
+  window, two scalar inequalities and one matrix inequality
+  $N_h-D_h\succeq 0$ on the CR space.  Full proof.
+\item Efficiency remark: all corrections are $O(h)$ or $O(h^2)$; the
+  discrete pencil converges to the (relaxed) continuum problem.
+\end{itemize}
+
+% ---------------------------------------------------------------------
+\section{The verified certificate}\label{sec:cert}
+\note{Sources: m3\_certify.py; lower\_bound\_theory.md \S5; Rump BIT 46
+(2006) in refs/.  Reviewer job (iii): this section.  INCLUDE the two
+refinements that Paper II stress-tested into existence: they are
+machinery and belong to the Hammer.}
+\begin{itemize}
+\item Exactness conventions: mesh coordinates are IEEE doubles (exact
+  rationals); geometry admissibility re-verified in ball arithmetic.
+\item Interval enclosures: Taylor-moment enclosures for the weighted
+  functionals ($\ell_0$, $M_{ex}$, $\int_T y^{-1}$) with rigorous
+  remainder balls; consistency checks (row sums of $M_{ex}$ vs
+  $\ell$).
+\item \textbf{Lemma R} (factored interval rank-one reduction).
+\item Rump's certificate, implemented literally: Thm 2.3 ($\Delta(A)$,
+  $\gamma_{s(i,j)+2}$, underflow term), Cor 2.4, Lemma 2.5
+  ($\varphi$-trick); ``any library routine can be used''.
+\item \textbf{Refinement 1: error-free diagonal congruence.}  Scaling
+  $A\mapsto SAS$ with $s_i=2^{\mathrm{round}(-\log_2 a_{ii}/2)}$ is
+  exact in IEEE-754, preserves definiteness, equilibrates the diagonal;
+  it removes the mismatch between Rump's stiffness-scale shift and the
+  mass-scale eigenvalue floor.
+\item \textbf{Refinement 2: per-row radius absorption.}  For symmetric
+  $|E|\le R$ entrywise, $E\succeq-\mathrm{diag}(r)$, $r_i=\sum_j
+  R_{ij}$ — replaces the uniform max-row-sum shift.  One-line proof
+  ($2|x_ix_j|\le x_i^2+x_j^2$).
+\item The frozen certificate for Theorem~\ref{thm:main}: parameter
+  table (mesh, $Y$, $\nu^*$, Young parameters, $\rho$, precision),
+  per-window results, runtimes; the parameter-search/rigorous-freeze
+  discipline (floats choose, arb verifies).
+\end{itemize}
+
+% ---------------------------------------------------------------------
+\section{Validation and diagnostics}\label{sec:valid}
+\note{Sources: fem\_prototype.py, cr\_prototype.py runs recorded in
+DESIGN.md/lower\_bound\_theory.md.}
+\begin{itemize}
+\item Float margin study ($\mu(\lambda)\approx 7.3$), mesh convergence,
+  Neumann box model (GLB $\le$ exact $\le$ conforming), negative
+  controls (constraint load-bearing), robustness under both $\kappa$'s.
+\item Comparison with the trace-formula value of the gap (parent
+  project): two disjoint proofs of the same statement.
+\end{itemize}
+
+% ---------------------------------------------------------------------
+\section{Dependencies and reproducibility}\label{sec:deps}
+\note{Source: PROOF.md \S4 — reproduce the complete external-input list
+verbatim (Humbert domain; Shimizu (self-proved); Friedman Thm 3.8.1;
+Morrey--Nirenberg; Payne--Weinberger/Bebendorf; Rump; IEEE-754), and
+the explicitly-not-used list (trace formula, test functions,
+scattering, torsion inventories, computed spectra).  Software manifest,
+commands, runtimes.}
+
+% ---------------------------------------------------------------------
+\section{Outlook}
+\note{One page: congruence levels (Paper II announcement with the
+margin ladder 7.3/4.4/2.4/1.45); other Bianchi fields ($\ZZ[\omega]$);
+interval-Hejhal as the complementary existence tool.}
+
+\appendix
+\section{Deferred proofs}
+\note{Lemma T; Lemma S details; the slab-form (E-t) remark for the
+historical record.}
+\section{Certificate tables}
+\note{All frozen constants; per-window numbers; arb radii summary.}
+
+\end{document}

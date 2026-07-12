@@ -1,0 +1,224 @@
+% =====================================================================
+% PAPER II ("The Strike")
+% Exceptional eigenvalues of Bianchi orbifolds by verified finite
+% elements. II: Congruence levels of the Picard group
+% ---------------------------------------------------------------------
+% OUTLINE (compilable skeleton).  Content notes in [[double brackets]]
+% map to repository sources: CONGRUENCE.md, 0cuspchecks.md,
+% congruence_prototype.py, m3p_certify.py (worktree np9 versions),
+% theorem4postmortem.md.
+% Reviewer burden by design: the computational engine is Paper I's and
+% is cited, not re-derived.  Reviewers here evaluate (i) the
+% reference-cell principle, (ii) the exact coset gluing, (iii) the new
+% multi-cusp geometry.  Nothing numerical-analytic is new except the
+% per-cusp bookkeeping of Theorem G1p.
+% =====================================================================
+\documentclass[11pt]{amsart}
+\usepackage{amsmath,amssymb,amsthm,booktabs}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\HH}{\mathbb{H}^3}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\p}{\mathfrak{p}}
+\newcommand{\note}[1]{\par\smallskip\noindent\textbf{[[#1]]}\par\smallskip}
+
+\title[Verified exclusion of exceptional eigenvalues, II]{Exceptional
+eigenvalues of Bianchi orbifolds by verified finite elements.\\
+II: Congruence levels of the Picard group}
+\author{}
+\date{Draft outline, 2026-07-11}
+
+\begin{document}
+\begin{abstract}
+Using the verified finite-element exclusion machinery of Paper I, we
+prove that the Hecke congruence quotients
+$\Gamma_0(\p)\backslash\HH^3$ of the Picard group, for the Gaussian
+primes $\p$ of norm $5$, $9$ and $13$, have no Laplace eigenvalue in
+$(0,1)$.  These quotients lie beyond the reach of trace-formula
+positivity, whose margin degrades linearly with volume.  The key
+structural input is a reference-cell principle: the congruence quotient
+is tiled by exactly $N\p+1$ isometric copies of the level-one cell,
+glued by exact arithmetic over $\ZZ[i]/\p$, with both cusp collars
+assembling as products at the same truncation height --- so every
+interval-arithmetic error bound is inherited from level one unchanged,
+and only the size of the final verified linear algebra grows with the
+index.
+\note{Abstract: lead with the theorems and the ``unreachable by B<1''
+point; then the principle; end with reproducibility.}
+\end{abstract}
+\maketitle
+
+% ---------------------------------------------------------------------
+\section{Introduction}
+\note{Sources: CONGRUENCE.md header + \S8; parent README roadmap.}
+\begin{itemize}
+\item The Selberg-type problem at congruence level over $\mathbb{Q}(i)$;
+  why level one is validation and $\Gamma_0(\p)$ is open territory.
+\item The volume obstruction to trace-formula positivity ($B\sim$
+  vol-linear; $B\approx 1.9$ already at $N\p=5$) vs.\ this method's
+  margin, which tracks the spectral gap: the measured ladder
+  $\mu \approx 7.3,\ 4.4,\ 2.4,\ 1.45$ for $N\p = 1, 5, 9, 13$
+  (sublinear).  [[Table.]]
+\item Main theorems (below); method summary in one paragraph with all
+  engine citations to Paper I.
+\item What is genuinely new here: Facts A--B (exact tiling and collar
+  assembly), the conforming/relaxed gluing dichotomy, the multi-cusp
+  criterion, Theorem G1p, and the two Rump refinements that the
+  $N\p=13$ certificate forced (stated in Paper I, stress-tested here).
+\end{itemize}
+
+\begin{theorem}[$N\p=5$]\label{thm:5}
+$\Gamma_0((2+i))\backslash\HH^3$ has no Laplace eigenvalue in $(0,1)$.
+\end{theorem}
+\begin{theorem}[$N\p=9$]\label{thm:9}
+$\Gamma_0((3))\backslash\HH^3$ has no Laplace eigenvalue in $(0,1)$.
+\end{theorem}
+\begin{theorem}[$N\p=13$]\label{thm:13}
+$\Gamma_0((3+2i))\backslash\HH^3$ has no Laplace eigenvalue in $(0,1)$.
+\end{theorem}
+
+% ---------------------------------------------------------------------
+\section{The multi-cusp criterion}\label{sec:crit}
+\note{Sources: CONGRUENCE.md \S2; 0cuspchecks.md C1, C4, C5, C6.}
+\begin{itemize}
+\item Cusps of $\Gamma_0(\p)$ (prime level: $\infty$ and $0$); scaling
+  matrices $\sigma_\alpha\in\Gamma$; conjugated stabilizers (C1:
+  $\sigma_0^{-1}(a,0;c,d)\sigma_0=(d,-c;0,a)$, lattice $\Lambda_0=\p$,
+  fold present).
+\item Per-cusp data table: $\Lambda_\alpha$, $|T_\alpha|$
+  ($=1/2,\ N\p/2$), shortest dual vector ($1,\ 1/\sqrt{N\p}$), mode
+  bounds $4\pi^2Y^2/N\p$ (valid for $N\p<4\pi^2Y^2\approx 61.7$).
+\item Zero-mode defects and the constraint: $\beta_\infty$,
+  $\beta_0=2(1-s)/(N\p\,Y^2)$; equal truncation heights $\Rightarrow$
+  shared $\kappa_c$ and a rank-one constraint in $t_\infty+t_0$.
+\item Precise invariance of both collars inherited from level one via
+  $\sigma_\alpha\in\Gamma$ (C6) — nothing about $\Gamma_0(\p)$ used
+  beyond inclusion.
+\item Criterion theorem (multi-cusp) and pencil form; proof by the
+  per-cusp copies of Paper I's Lemmas 1--3.
+\end{itemize}
+
+% ---------------------------------------------------------------------
+\section{The reference-cell principle}\label{sec:refcell}
+\note{Sources: CONGRUENCE.md \S1; 0cuspchecks.md C2, C3.  This is the
+conceptual heart of the paper; give it room.}
+\begin{itemize}
+\item \textbf{Fact A} (exact tiling): right cosets
+  $\Gamma_0(\p)\backslash\Gamma\cong\mathbb{P}^1(\ZZ[i]/\p)$;
+  $D=\bigcup\gamma_i F$ with all copies isometric to the reference
+  cell; per-copy element data equals reference data in pulled-back
+  coordinates.
+\item \textbf{Fact B} (collar assembly): representatives
+  $\gamma_k=(0,-1;1,k)$; the computation
+  $\sigma_0^{-1}\gamma_k=(1,k;0,1)$ is height-preserving, so the
+  cusp-$0$ chimneys assemble to $T_0\times(Y,\infty)$ at the
+  \emph{same} height $Y$.  Fold-compatibility of the tiling
+  $T_0=\bigsqcup_k(T+k)$: the coset identity $k\equiv\varepsilon\lambda
+  \pmod\p$ (C2) — the one step that is not automatic in the semidirect
+  product.
+\item \textbf{The Principle}: every interval-enclosed quantity is a
+  level-one per-cell quantity or exact integer combinatorics; error
+  radii are independent of the index; only the verified linear algebra
+  grows.  [[State as a proposition about the certificate, with the
+  volume identity $(N\p+1)\,\mathrm{vol}(K)+\sum|T_\alpha|/(2Y^2)=
+  (N\p+1)\,\mathrm{vol}(F)$ as the sanity check.]]
+\end{itemize}
+
+% ---------------------------------------------------------------------
+\section{Exact gluing and the symmetric mesh}\label{sec:glue}
+\note{Sources: CONGRUENCE.md \S\S3--4; congruence\_prototype.py
+(GaussianResidueRing); 0cuspchecks.md C7.}
+\begin{itemize}
+\item Side pairings of the reference cell and their face maps; the
+  right action on $\mathbb{P}^1(\ZZ[i]/\p)$; gluing rule
+  $j=(c{:}d)\cdot\delta^{-1}$ with derivation.
+\item The dichotomy: self-identifications are relaxed (valid, enlarges
+  the test space); interfaces between distinct copies are interior and
+  must be conforming — relaxing them would hand each copy its own
+  constant (the criterion would correctly fail).
+\item The 24-split mesh: invariance under all face maps (mirror maps
+  rule out Kuhn diagonals); Lemma G on quarter-triangles.
+\item Residue arithmetic: $\mathbb{F}_5$ ($i\mapsto 3$),
+  $\mathbb{F}_9$ (pairs mod $3$ — not a prime field),
+  $\mathbb{F}_{13}$ ($i\mapsto 8$); the assert suite (permutations,
+  round-trip, class sizes $\{1,N\p\}$, connectivity,
+  $t_0(\mathbf 1)=N\p/2$, volumes) as the combinatorial error net;
+  bit-match regression of the generalized $\mathbb{F}_5$ path.
+\end{itemize}
+
+% ---------------------------------------------------------------------
+\section{The guaranteed lower bound at level $\p$}\label{sec:G1p}
+\note{Source: CONGRUENCE.md \S7 (Theorem G1p).  Keep short: state the
+deltas vs Paper I's Theorem G1 and prove only what is new.}
+\begin{itemize}
+\item Lemma D0 per cusp (exact trace reproduction; cross-sections tiled
+  by mesh faces per copy) $\Rightarrow$ uninflated rank-two boundary
+  block, $\sigma_h=\sqrt{N\p+1}\,\alpha_h^{\mathrm{ref}}$ (disjoint
+  copies).
+\item Multi-sliver absorption (per-copy reference constants); window
+  data; the coefficient list; Theorem G1p statement + proof-by-delta.
+\end{itemize}
+
+% ---------------------------------------------------------------------
+\section{Certificates and results}\label{sec:results}
+\note{Sources: CONGRUENCE.md \S\S6, 8 status blocks;
+theorem4postmortem.md (worktree).  One frozen-certificate table per
+theorem; the $N\p=13$ subsection tells the stress-test story.}
+\begin{itemize}
+\item Frozen certificates (booktabs table): mesh, dofs, $\nu^*$,
+  windows, $(\theta,\theta_2,\alpha,\theta_4,\tilde\rho)$, runtime,
+  per-window $c_e$ vs $d_e$ ranges.
+  [[$N5$: 8$\times$4$\times$3, 28{,}400 dofs, $\nu^*{=}1.02$, 8 windows,
+  $(0.6,0.9,0.2,0.85,9.0)$.
+  $N9$: 6$\times$3$\times$3, 26{,}532 dofs, $\nu^*{=}1.02$, 8 windows,
+  $(0.5,0.9,0.15,0.8,1.5)$, $\sim$38 min.
+  $N13$: 8$\times$3$\times$2, $\nu^*{=}1.001$, 16 windows,
+  $(0.3,0.98,0.1,0.85,0.5)$, $\sim$93 min, 16/16.]]
+\item Margin ladder and scaling discussion: $\mu$ vs volume
+  (sublinear); the $\tilde\rho$ demand shrinking with $N\p$; the
+  parameter-search methodology (scalar conditions + constant-direction
+  heuristic + float pencil filter; floats choose, arb verifies; the
+  scalar-slack/pencil anti-correlation through $\tilde\rho$).
+\item The $N\p=13$ stress test: margin collapse to $\mu\approx 1.45$
+  (mesh-converged); why the unscaled certificate fails while the matrix
+  is SPD (stiffness-scale Rump shift vs mass-scale eigenvalue floor);
+  resolution by Paper I's two refinements (error-free diagonal
+  congruence + per-row radius absorption).  [[This subsection is the
+  strongest evidence that the certificate, not the spectrum, was the
+  binding constraint — and that the machinery scales.]]
+\end{itemize}
+
+% ---------------------------------------------------------------------
+\section{Discussion and outlook}
+\note{Source: CONGRUENCE.md \S8 ``beyond the ladder''.}
+\begin{itemize}
+\item Where the ladder ends as-is: the mode bound $N\p<4\pi^2Y^2$
+  ($\approx 61$), certificate cost growth, and what each would take
+  (taller $Y$/more windows; out-of-core verified Cholesky).
+\item Composite levels ($>2$ cusps; general width bookkeeping);
+  other Bianchi fields ($\ZZ[\omega]$, where the companion
+  trace-formula engine of the parent project already has level-one
+  data); torsion-free $\Gamma(\mathfrak n)$ covers.
+\item Relation to the classical program: what certified gaps at small
+  level do and do not say about the Selberg-type conjecture over
+  $\mathbb{Q}(i)$.
+\end{itemize}
+
+% ---------------------------------------------------------------------
+\section{Dependencies and reproducibility}
+\note{Dependency delta vs Paper I: NONE (state and mean it — all new
+ingredients are proved here or in Paper I).  Commands, runtimes,
+software manifest; worktree/commit hashes for the certified runs.}
+
+\appendix
+\section{The cusp-$0$ audit}
+\note{Import 0cuspchecks.md C1--C9 as a verification appendix ---
+referee-friendly: every cusp-$0$ claim with its one-paragraph proof and
+the numerical cross-checks that would catch each error class.}
+\section{Gluing tables}
+\note{The $\mathbb{P}^1(\ZZ[i]/\p)$ actions for all four generators at
+$N\p=5,9,13$; cusp-class partitions.}
+
+\end{document}
