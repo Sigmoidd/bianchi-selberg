@@ -203,7 +203,8 @@ Paper formulas (named contributions; **no** magic factor 4; **no** extra \((1+C_
 A_{\mathrm{met}}
 &=C_{\mathrm{met}},\\
 A_{\mathrm{bdry}}
-&=C_{\mathrm{trace}}\,C_{\mathrm{Sob}}\,A_{\mathrm{met}}\,(1+\sqrt{\lambda}),\\
+&=C_{\mathrm{trace}}\,C_{\mathrm{Sob}}\,A_{\mathrm{met}}
+\quad\text{(λ-free; §1.6 rewrite)},\\
 A_{\mathrm{ell}}
 &=1+\lambda,\\
 A_{\mathrm{res}}

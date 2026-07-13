@@ -799,7 +799,7 @@ def C1_C2_constants(
     sharp_geom: bool = True,
     U_norm: float = 1.0,
     trace_factor: Optional[float] = None,
-    bdry_sqrt_lam: bool = True,
+    bdry_sqrt_lam: bool = False,
 ) -> Dict[str, Number]:
     """
     Evaluate named constants for Theorem D(K).
@@ -820,9 +820,9 @@ def C1_C2_constants(
         η₀ = min( 1/(4(1+A_bdry)²),  U_norm²/(4 C1²) )
         so the spectral pigeonhole is not forced to unit L² when ‖U‖ is known.
     bdry_sqrt_lam : bool
-        If True (default, theorem as written): A_bdry includes (1+√λ).
-        If False: drop (1+√λ) — **audit / hypothetical only** (morningbrief §1.6);
-        not the production default until the proof is rewritten without double count.
+        If False (default, theorem_DK §1.6 rewrite): A_bdry = C_tr C_Sob A_met
+        is λ-free; all λ-dependence lives in A_ell=1+λ ⊂ A_res.
+        If True: legacy double-count A_bdry *= (1+√λ) for regression only.
     """
     if field in ("i", "Zi", "Z[i]", "gaussian"):
         T_abs = 0.5

@@ -1005,15 +1005,17 @@ cutoff; see Step~5.)  Moreover,
   C_1
   =
   O_{K,Y_0}\!\Bigl(
-    (1+r)\,
+    (1+r^{2})\,
     C_{\mathrm{met}}\,
     C_{\mathrm{trace}}\,
     C_{\mathrm{Sob}}
   \Bigr),
 \end{equation}
-with no hidden $N\mathfrak{p}$ or gluing dependence.  (With the sharp
-$C_K=1$ there is no $e^{\pi r/2}$ factor in $C_1$; the classical looser
-$C_K^{\mathrm{cl}}$ reintroduces it only inside $A_{\mathrm{cusp}}$.)
+with no hidden $N\mathfrak{p}$ or gluing dependence.  (The factor $1+r^{2}$
+comes from $A_{\mathrm{ell}}=1+\lambda$ in Step~2; the $H^1$ corrector
+constant of Step~1 is $\lambda$-free.  With the sharp $C_K=1$ there is no
+$e^{\pi r/2}$ factor in $C_1$; the classical looser $C_K^{\mathrm{cl}}$
+reintroduces it only inside $A_{\mathrm{cusp}}$.)
 \end{theorem}
 
 \subsection{Named intermediate constants and formulas for $C_1$, $C_2$}
@@ -1032,8 +1034,7 @@ analytic constants (no dependence on $\eta$ or on $C_1$ itself).
   &:=
   C_{\mathrm{trace}}(K,Y)\,
   C_{\mathrm{Sob}}(K,Y)\,
-  A_{\mathrm{met}}\,
-  \bigl(1+\sqrt{\lambda}\bigr),
+  A_{\mathrm{met}},
   \label{eq:Abdry}\\
   A_{\mathrm{ell}}
   &:=
@@ -1180,13 +1181,17 @@ Convert to hyperbolic norms by Lemma~\ref{lem:metric}:
   C_{\mathrm{trace}}\,
   C_{\mathrm{Sob}}\,
   \delta_{\mathrm{aut}}
-  \le
-  A_{\mathrm{bdry}}\,\delta_{\mathrm{aut}},
+  =
+  A_{\mathrm{bdry}}\,\delta_{\mathrm{aut}}.
   \tag{1}
 \end{equation}
-where the factor $(1+\sqrt{\lambda})$ inside $A_{\mathrm{bdry}}$ is reserved
-for the $H^2$/elliptic control of Step~2 (it majorizes the passage from
-$H^1$ to the graph norm of $\Delta-\lambda$ on the compact core).
+In particular $A_{\mathrm{bdry}}$ is \emph{independent of $\lambda$}: it is
+purely the product of the Euclidean trace/Sobolev constants with the
+metric comparison on $\{y\ge y_{\min}\}$.  (Earlier drafts inserted an
+extra $(1+\sqrt{\lambda})$ into $A_{\mathrm{bdry}}$ ``for elliptic
+control''; that factor is already accounted for once in
+$A_{\mathrm{ell}}=1+\lambda$ of Step~2, so keeping it in both places was
+a double count; see Remark~\ref{rem:no-double-sqrt}.)
 
 \paragraph{Step 2: residual and approximate eigenfunction.}
 Set $u:=\widetilde f-e_{\mathrm{bdry}}$ on $F_Y$.  By construction the
@@ -1244,27 +1249,30 @@ scaling gives
   \delta_{\mathrm{aut}},
   \tag{2d}
 \end{equation}
-using $h_{\min}=0.25$.  Combining~\eqref{eq:step2c},~\eqref{eq:step2d},
-Lemma~\ref{lem:metric}, and $\norm{\Delta e}_{L^2_{\mathrm{hyp}}}
-\le A_{\mathrm{met}}\,C_{\Delta}\,\norm{e}_{H^2_{\mathrm{euc}}}$, we obtain
+using $h_{\min}=0.25$ (or the sharp geometric $h_{\min}$).  Combining
+\eqref{eq:step2c},~\eqref{eq:step2d}, Lemma~\ref{lem:metric}, and
+$\norm{\Delta e}_{L^2_{\mathrm{hyp}}}
+\le A_{\mathrm{met}}\,C_{\Delta}\,\norm{e}_{H^2_{\mathrm{euc}}}$, and
+writing $\norm{\lambda e}_{L^2}\le\lambda\norm{e}_{H^1}$, we obtain
 \begin{equation}
 \label{eq:step2e}
   \norm{(\Delta-\lambda)e_{\mathrm{bdry}}}_{L^2_{\mathrm{hyp}}}
   \le
+  A_{\mathrm{ell}}\,
+  \bigl(1+C_{\mathrm{Poincar\'e}}A_{\mathrm{met}}\bigr)\,
+  \norm{e_{\mathrm{bdry}}}_{H^1_{\mathrm{hyp}}}
+  =
   A_{\mathrm{res}}\,
   A_{\mathrm{bdry}}\,
-  \delta_{\mathrm{aut}}
-  /
-  \bigl(C_{\mathrm{trace}}C_{\mathrm{Sob}}A_{\mathrm{met}}(1+\sqrt{\lambda})\bigr)
-  \cdot
-  A_{\mathrm{bdry}}
-  \le
-  A_{\mathrm{res}}\,A_{\mathrm{bdry}}\,\delta_{\mathrm{aut}},
+  \delta_{\mathrm{aut}},
   \tag{2e}
 \end{equation}
-after inserting $A_{\mathrm{ell}}=1+\lambda\ge C_{\Delta}(1+\lambda^{1/2})$ as a
-convenient majorant of the elliptic/scaling constants on $K_Y$ (the factor
-$1+\lambda$ absorbs both $\Delta e$ and $\lambda e$).  Therefore
+where $A_{\mathrm{ell}}=1+\lambda$ is a convenient majorant of the
+elliptic/scaling constants on $K_Y$ (it absorbs both $\Delta e$ via the
+$H^2\hookrightarrow H^1$ scale $h_{\min}^{-1}\le C$ and the zero-order
+term $\lambda e$; equivalently $1+\lambda\ge C_{\Delta}(1+\lambda^{1/2})$
+on $\lambda\ge 0$).  All $\lambda$-dependence of the corrector residual
+lives here in $A_{\mathrm{res}}$, not in $A_{\mathrm{bdry}}$.  Therefore
 \begin{equation}
 \label{eq:step2}
   \norm{(\Delta-\lambda)u}_{L^2_{\mathrm{hyp}}(K_Y)}
@@ -1276,6 +1284,17 @@ $1+\lambda$ absorbs both $\Delta e$ and $\lambda e$).  Therefore
   A_{\mathrm{bdry}}A_{\mathrm{res}}\,\eta.
   \tag{2}
 \end{equation}
+
+\begin{remark}[No double count of $(1+\sqrt{\lambda})$]
+\label{rem:no-double-sqrt}
+The product $C_1\propto A_{\mathrm{bdry}}A_{\mathrm{res}}$ must not contain
+both $(1+\sqrt{\lambda})$ and $(1+\lambda)$ for the same elliptic passage.
+Step~1 controls only $\norm{e_{\mathrm{bdry}}}_{H^1}$ and is $\lambda$-free;
+Step~2 lifts $H^1\to\norm{(\Delta-\lambda)e}$ and uses $A_{\mathrm{ell}}=1+\lambda$
+once.  Dropping the spurious $(1+\sqrt{\lambda})$ from $A_{\mathrm{bdry}}$
+improves $C_1$ by exactly the factor $1+\sqrt{\lambda}$ (at $r=6$:
+$1+\sqrt{37}\approx 7.083$) without weakening any estimate in the proof.
+\end{remark}
 
 \paragraph{Step 3: collar / nonzero modes by Lemma~K.}
 Extend $u$ into the collar $C_{Y_0}$ by the truncated Fourier expansion of

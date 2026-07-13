@@ -16,13 +16,25 @@ def main() -> int:
     print(f"scan residual eta = {eta_scan:.6e}\n")
     rows = []
     for label, kw in [
-        ("cons r=6 Y0=0.8", dict(sharp_geom=False, r=6.0, Y0=0.8)),
-        # Pre-1.1/1.2 sharp freeze (y_min=1/2, D_Y=3) for quote continuity
+        ("cons r=6 Y0=0.8", dict(sharp_geom=False, r=6.0, Y0=0.8, bdry_sqrt_lam=True)),
+        # Pre-1.1/1.2 + pre-1.6 freeze for quote continuity
         (
             "sharp_legacy r=6 Y0=0.8",
-            dict(sharp_geom=True, r=6.0, Y0=0.8, y_min=0.5, D_Y=3.0),
+            dict(
+                sharp_geom=True,
+                r=6.0,
+                Y0=0.8,
+                y_min=0.5,
+                D_Y=3.0,
+                bdry_sqrt_lam=True,
+            ),
         ),
-        # Current default: y_min=1/√2 + box D_Y (morningbrief 1.1–1.2)
+        # Post 1.1+1.2, still with legacy (1+√λ) double count
+        (
+            "sharp_11_12_old16 r=6",
+            dict(sharp_geom=True, r=6.0, Y0=0.8, bdry_sqrt_lam=True),
+        ),
+        # Current default: 1.1+1.2+1.6 (λ-free A_bdry)
         ("sharp r=6 Y0=0.8", dict(sharp_geom=True, r=6.0, Y0=0.8)),
         ("sharp r=6 Y0=1.5", dict(sharp_geom=True, r=6.0, Y0=1.5)),
         ("sharp U=2 Y0=1.5", dict(sharp_geom=True, r=6.0, Y0=1.5, U_norm=2.0)),
@@ -54,15 +66,18 @@ def main() -> int:
     # User: before sharp C1 1.02e6 eta0 2.4e-13; after C1 7.3e4 eta0 4.6e-11
     c0, e0c = rows[0][1], rows[0][3]
     c_leg, e_leg = rows[1][1], rows[1][3]
-    c1, e01 = rows[2][1], rows[2][3]
+    c_112, e_112 = rows[2][1], rows[2][3]
+    c1, e01 = rows[3][1], rows[3][3]
     print(f"conservative C1={c0:.4e} (user ~1.02e6) rel={c0/1.02e6:.3f}")
     print(f"conservative eta0={e0c:.4e} (user ~2.4e-13) rel={e0c/2.4e-13:.3f}")
     print(f"sharp_legacy C1={c_leg:.4e} (user ~7.3e4) rel={c_leg/7.3e4:.3f}")
     print(f"sharp_legacy eta0={e_leg:.4e} (user ~4.6e-11) rel={e_leg/4.6e-11:.3f}")
-    print(f"sharp_default (1.1+1.2) C1={c1:.4e}  eta0={e01:.4e}")
+    print(f"sharp 1.1+1.2 old16 C1={c_112:.4e}  eta0={e_112:.4e}")
+    print(f"sharp_default (1.1+1.2+1.6) C1={c1:.4e}  eta0={e01:.4e}")
     print(
         f"  factor vs legacy C1 = {c_leg/c1:.2f}×  "
-        f"orders gap now={rows[2][5]:.2f} (was {rows[1][5]:.2f})"
+        f"factor 1.6 only = {c_112/c1:.2f}×  "
+        f"orders now={rows[3][5]:.2f} (legacy {rows[1][5]:.2f})"
     )
     print(f"gap cons orders={rows[0][5]:.2f} (user ~9)")
     print(f"gap legacy sharp orders={rows[1][5]:.2f} (user ~7)")

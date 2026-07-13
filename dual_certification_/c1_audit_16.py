@@ -12,13 +12,13 @@ from lemma_K import C1_C2_constants, ball_mid  # noqa: E402
 
 def main() -> int:
     eta = 5.04e-4
-    print("=== C1 audit §1.6 (bdry_sqrt_lam) ===")
-    print("Production default keeps bdry_sqrt_lam=True.\n")
+    print("=== C1 §1.6 (bdry_sqrt_lam) — production default False ===")
+    print("theorem_DK rewrite: A_bdry is λ-free; λ lives in A_res only.\n")
     rows = []
     for label, kw in [
-        ("default sharp", dict(sharp_geom=True, r=6.0, Y0=1.5, bdry_sqrt_lam=True)),
-        ("audit no (1+√λ)", dict(sharp_geom=True, r=6.0, Y0=1.5, bdry_sqrt_lam=False)),
-        ("legacy y=1/2 D_Y=3", dict(sharp_geom=True, r=6.0, Y0=1.5, y_min=0.5, D_Y=3.0)),
+        ("production (no 1+√λ)", dict(sharp_geom=True, r=6.0, Y0=1.5, bdry_sqrt_lam=False)),
+        ("legacy double-count", dict(sharp_geom=True, r=6.0, Y0=1.5, bdry_sqrt_lam=True)),
+        ("legacy y=1/2 D_Y=3 +sqrt", dict(sharp_geom=True, r=6.0, Y0=1.5, y_min=0.5, D_Y=3.0, bdry_sqrt_lam=True)),
     ]:
         d = C1_C2_constants(field="i", **kw)
         C1 = ball_mid(d["C1"])
@@ -30,10 +30,10 @@ def main() -> int:
         print(f"  A_bdry={ball_mid(d['A_bdry']):.6e}  A_ell={ball_mid(d['A_ell']):.6e}")
         print(f"  bdry_sqrt_lam={d.get('bdry_sqrt_lam')}")
         print()
-    c_def, c_aud = rows[0][1], rows[1][1]
-    print(f"factor default/audit C1 = {c_def/c_aud:.3f}×")
+    c_prod, c_leg = rows[0][1], rows[1][1]
+    print(f"factor legacy/production C1 = {c_leg/c_prod:.3f}×")
     print(f"1+√37 = {1+math.sqrt(37):.6f}  (expected ≈ factor)")
-    print("See C1_AUDIT_1_6.md — do not flip hard map / production eta0.")
+    print("See C1_AUDIT_1_6.md — production default is no double-count.")
     return 0
 
 
