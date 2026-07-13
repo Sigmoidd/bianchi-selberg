@@ -51,8 +51,9 @@ Copied from the source of truth; marks and notes reflect the **prototype scaffol
 
 [ ] The artificial-boundary error is itself enclosed by an Arb ball (or by a
     comparison with a larger domain).
-    note: RED — OPEN unless proved. Comparing Y vs Y' or collar spectral estimates
-    is future work. Do not treat float λ on K_Y as eigenvalues of the full quotient.
+    note: RED — OPEN unless proved. Scaffold formulae now in
+    route_A_counting.truncation_constants_scaffold() (collar floor + strip
+    Poincaré proxy). Comparing Y vs Y' certified still future work.
 
 [ ] Final counting function enclosure N(λ) is an integer interval; for the target
     λ it must be [0,0] on (1,λ₁).

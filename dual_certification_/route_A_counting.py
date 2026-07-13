@@ -367,6 +367,69 @@ def diagnostic_glb_lower(lam_h: float, h_max: float) -> float:
     return float(lam_h / den)
 
 
+def truncation_constants_scaffold(
+    Y: float = DEFAULT_Y,
+    Y_prime: float = 1.5,
+    r_target: float = 6.0,
+    T_abs: float = 0.5,
+) -> Dict[str, Any]:
+    """
+    Explicit *scaffold* formulae for artificial-boundary / collar truncation.
+
+    These are the constants Route A must eventually enclose in Arb to upgrade
+    bracketing_proved and artificial_boundary from RED → GREEN. They are
+    **not** certificates — only closed-form targets for the missing proof.
+
+    Collar model (cuspidal product region y ≥ Y):
+      - Continuous spectrum / Eisenstein contribution controlled by
+          E_collar ≲ C_cut · exp(−2π Y)   (cf. Theorem D(K) C2 term)
+      - Difference between spectra on K_Y and K_{Y'} controlled by the
+        annular region Y ≤ y ≤ Y' with volume ≲ |T|·(1/Y² − 1/Y'²) and
+        Poincaré constant ~ (Y'−Y).
+
+    Returns named floats for documentation + future Arb hooks.
+    """
+    import math
+
+    # A_cut-style collar floor (matches lemma_K spirit; field Z[i] defaults)
+    C_Sob_proxy = 1.0 + 3.0 / math.pi  # crude; replace by true C_Sob
+    A_met_proxy = (0.5) ** (-1.5)  # y_min=1/2 conservative
+    A_cut = 2.0 * T_abs * (1.0 / Y) * (1.0 + C_Sob_proxy) * A_met_proxy
+    collar_floor = A_cut * math.exp(-2.0 * math.pi * Y)
+    collar_floor_Yp = A_cut * math.exp(-2.0 * math.pi * Y_prime)
+    # Euclidean height strip length
+    strip = max(Y_prime - Y, 0.0)
+    # Model truncation shift for eigenvalues when domain grows K_Y → K_{Y'}
+    # (engineering: O(exp(−2π Y)) + O(strip^{-2}) Poincaré remainder placeholder)
+    poincare_strip = (math.pi / max(strip, 1e-6)) ** 2 if strip > 0 else float("inf")
+    # Target: prove |λ_k(K_Y) − λ_k(Γ\H³)| ≤ Δ_trunc(Y) with
+    delta_trunc_model = collar_floor + (
+        0.0 if strip == 0 else 1.0 / poincare_strip
+    )
+    return dict(
+        language=(
+            "Scaffold only — not a proved truncation theorem. "
+            "Needed to close Route A bracketing_proved + artificial_boundary."
+        ),
+        Y=Y,
+        Y_prime=Y_prime,
+        r_target=r_target,
+        A_cut_proxy=A_cut,
+        collar_floor_Y=collar_floor,
+        collar_floor_Yp=collar_floor_Yp,
+        strip_height=strip,
+        poincare_strip_proxy=poincare_strip,
+        delta_trunc_model=delta_trunc_model,
+        proof_obligations=[
+            "Enclose A_cut / C_Sob / A_met in Arb on the true core geometry",
+            "Prove |Spec(K_Y)−Spec(Γ\\H³)| ≤ Δ_trunc with explicit Δ_trunc",
+            "Or: compare certified D/N spectra on K_Y and K_{Y'} and take limit",
+            "Feed Δ_trunc into N(λ) integer interval enclosure",
+        ],
+        status="RED_OPEN",
+    )
+
+
 # ---------------------------------------------------------------------------
 # Driver
 # ---------------------------------------------------------------------------

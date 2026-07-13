@@ -799,6 +799,7 @@ def C1_C2_constants(
     sharp_geom: bool = True,
     U_norm: float = 1.0,
     trace_factor: Optional[float] = None,
+    bdry_sqrt_lam: bool = True,
 ) -> Dict[str, Number]:
     """
     Evaluate named constants for Theorem D(K).
@@ -818,6 +819,10 @@ def C1_C2_constants(
         Explicit ‖U‖₂ of the periodized trial (default 1). Relaxes
         η₀ = min( 1/(4(1+A_bdry)²),  U_norm²/(4 C1²) )
         so the spectral pigeonhole is not forced to unit L² when ‖U‖ is known.
+    bdry_sqrt_lam : bool
+        If True (default, theorem as written): A_bdry includes (1+√λ).
+        If False: drop (1+√λ) — **audit / hypothetical only** (morningbrief §1.6);
+        not the production default until the proof is rewritten without double count.
     """
     if field in ("i", "Zi", "Z[i]", "gaussian"):
         T_abs = 0.5
@@ -877,7 +882,8 @@ def C1_C2_constants(
     C_met = max(C_met_0, C_met_1, C_met_0_inv, C_met_1_inv)
 
     A_met = C_met
-    A_bdry = C_trace * C_Sob * A_met * (1.0 + sqrt_lam)
+    bdry_ell = (1.0 + sqrt_lam) if bdry_sqrt_lam else 1.0
+    A_bdry = C_trace * C_Sob * A_met * bdry_ell
     A_ell = 1.0 + lam
     A_res = A_ell * (1.0 + C_Poincare * A_met)
 
@@ -949,6 +955,7 @@ def C1_C2_constants(
         "D_Y": to_ball(D_Y),
         "h_min": to_ball(h_min),
         "sharp_geom": sharp_geom,
+        "bdry_sqrt_lam": bdry_sqrt_lam,
         "backend": "python-flint Arb" if HAS_FLINT else "float (NON-CERTIFYING)",
         "classical_CK": classical_CK,
     }
