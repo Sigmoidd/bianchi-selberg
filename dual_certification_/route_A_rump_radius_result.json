@@ -1,0 +1,102 @@
+{
+  "language": "Rump PSD with extra \u2265 ||Q_rad|+|t|M_rad||_F so the whole interval matrix hull is PSD when successful. Taylor Arb mid/rad. Not certified counting.",
+  "mesh": {
+    "N1": 4,
+    "N2": 2,
+    "N3": 2,
+    "Y": 1.25
+  },
+  "taylor_p": 4,
+  "n_dofs": 232,
+  "n_dirichlet": 216,
+  "worst_I1_rel": 0.0007396496993080148,
+  "worst_I3_rel": 0.023304438922971325,
+  "Q_rad_fro": 0.0030897037256113276,
+  "M_rad_fro": 0.00010644663703334867,
+  "lam_N": [
+    -5.588975194525222e-13,
+    8.377814606760072,
+    32.569028219813596,
+    35.86921152483172,
+    39.72029274884752,
+    64.83312328604248
+  ],
+  "lam_D": [
+    18.611209511851477,
+    22.42887652283015,
+    50.46294072749318,
+    51.528457398708426,
+    53.68947430300199
+  ],
+  "first_positive_N": 8.377814606760072,
+  "first_D": 18.611209511851477,
+  "glb_sketch": 7.205371203862015,
+  "rump_with_radius": [
+    {
+      "rump_ok": true,
+      "rump_c": 0.0030890622400648127,
+      "rho_F": 0.003089062235586686,
+      "rho_2_est": 0.002634744894845652,
+      "extra": 0.003089062235586686,
+      "float_lam_min": 0.01384773278240578,
+      "margin": 0.010758670546819095,
+      "t": 0.0,
+      "label": "dirichlet"
+    },
+    {
+      "rump_ok": true,
+      "rump_c": 0.0031732389836266113,
+      "rho_F": 0.0031732389791533163,
+      "rho_2_est": 0.0026894929848860776,
+      "extra": 0.0031732389791533163,
+      "float_lam_min": 0.013135896400994475,
+      "margin": 0.009962657421841159,
+      "t": 1.0,
+      "label": "dirichlet"
+    },
+    {
+      "rump_ok": true,
+      "rump_c": 0.003914502555802044,
+      "rho_F": 0.003914502551368879,
+      "rho_2_est": 0.0031474458905109692,
+      "extra": 0.003914502551368879,
+      "float_lam_min": 0.007085058840186139,
+      "margin": 0.0031705562888172606,
+      "t": 9.305604755925739,
+      "label": "dirichlet"
+    },
+    {
+      "rump_ok": false,
+      "rump_c": 0.004621788734027308,
+      "rho_F": 0.0046217887296301115,
+      "rho_2_est": 0.0035620584134019593,
+      "extra": 0.0046217887296301115,
+      "float_lam_min": 0.0014436936764819026,
+      "margin": -0.0031780950531482086,
+      "t": 16.75008856066633,
+      "label": "dirichlet"
+    }
+  ],
+  "rump_mid_only_t0": {
+    "rump_ok": true,
+    "rump_c": 4.478124087098693e-12,
+    "rho_F": 0.0,
+    "rho_2_est": 0.0,
+    "extra": 0.0,
+    "float_lam_min": 0.01384773278240578,
+    "margin": 0.01384773278240578,
+    "t": 0.0,
+    "label": "dirichlet_mid_only"
+  },
+  "rump_radius_any": true,
+  "interval_residual_first_D": {
+    "mid_norm": 3.5552645482520014e-14,
+    "rad_norm": 0.03641582047604386,
+    "encl_norm": 0.03641582047605086,
+    "max_component_encl": 0.024907205939729567
+  },
+  "KAPPA1": 0.3311412341821403,
+  "seconds": 0.6419425010681152,
+  "status": "YELLOW",
+  "hard_map_note": "counting_certified remains false"
+}

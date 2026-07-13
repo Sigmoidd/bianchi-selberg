@@ -35,6 +35,8 @@ flavor), self-faces free:
 |----------|------------------------------:|--------|
 | first positive discrete Neumann \(\lambda_h^+\) | **≈ 6.825** | **upper-flavor** for the *CR discrete* operator (Rayleigh) |
 | CR GLB sketch \(\lambda_h^+/(1+\kappa_1^2 h_{\max}^2\lambda_h^+)\) | **≈ 6.451** | **lower-flavor** for continuum *if* full CR hypotheses hold on this space |
+| Arb reference tet volumes (multi-copy mesh) | **384/384 GREEN** | `multi_copy_cr_arb_glb.py` |
+| multi-copy κ₁ theory | **YELLOW** | not re-proved on glued space |
 | \(J_h^{\mathrm{cross}}\) | **0** | by construction on \(V_h^{P1,\mathrm{per}}\) |
 
 **Do not write:** “certified \(\lambda_1\in[6.45,6.83]\).”  

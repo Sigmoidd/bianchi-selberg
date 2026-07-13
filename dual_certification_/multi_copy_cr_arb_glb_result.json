@@ -1,0 +1,102 @@
+{
+  "language": "Arb-certified reference tet volumes + h_max^U; float multi-copy V_h^{P1,per} spectrum; GLB sketch with that h_max. Multi-copy CR \u03ba\u2081 theory and continuum GLB NOT certified. See dual_glb_language.md.",
+  "level": "(2+i)",
+  "NP": 5,
+  "INDEX": 6,
+  "mesh": {
+    "N1": 4,
+    "N2": 2,
+    "N3": 2
+  },
+  "n_dofs": 4816,
+  "n_copies": 6,
+  "reference_arb": {
+    "n_tets": 384,
+    "n_vol_positive": 384,
+    "n_flipped": 192,
+    "all_vol_positive": true,
+    "h_max_upper": 0.27820147383531985,
+    "h_max_mid": 0.2501287269959457,
+    "vol_sum_mid": 0.15570313350204187,
+    "n_boundary_tags": {
+      "x1m": 16,
+      "x1p": 16,
+      "x2m": 32,
+      "x2p": 32,
+      "floor": 32,
+      "top": 32
+    }
+  },
+  "KAPPA1": 0.3311412341821403,
+  "h_max_upper_arb": 0.27820147383531985,
+  "rows": [
+    {
+      "k": 1,
+      "lam_N": -2.6029184254340395e-14,
+      "lam_D": 19.583635343715162,
+      "glb_N": 0.0,
+      "glb_D": 16.792647943105088
+    },
+    {
+      "k": 2,
+      "lam_N": 6.825181118380314,
+      "lam_D": 25.79200144371829,
+      "glb_N": 6.451484459326041,
+      "glb_D": 21.160197743114452
+    },
+    {
+      "k": 3,
+      "lam_N": 12.071719161570769,
+      "lam_D": 34.1052150418285,
+      "glb_N": 10.949895778757826,
+      "glb_D": 26.449529010895912
+    },
+    {
+      "k": 4,
+      "lam_N": 17.67262370889046,
+      "lam_D": 41.63458659847363,
+      "glb_N": 15.367705869565073,
+      "glb_D": 30.764194966886933
+    },
+    {
+      "k": 5,
+      "lam_N": 21.090544091301883,
+      "lam_D": 42.54895738582445,
+      "glb_N": 17.88862644310948,
+      "glb_D": 31.260583567224895
+    },
+    {
+      "k": 6,
+      "lam_N": 30.138044995956054,
+      "lam_D": 53.26492741186829,
+      "glb_N": 23.999531445634315,
+      "glb_D": 36.68256468970114
+    }
+  ],
+  "first_positive": {
+    "k": 2,
+    "lam_N": 6.825181118380314,
+    "lam_D": 25.79200144371829,
+    "glb_N": 6.451484459326041,
+    "glb_D": 21.160197743114452
+  },
+  "checks": {
+    "ref_all_vol_positive": true,
+    "multi_copy_Q1_near_zero": true,
+    "cusp_areas_t_inf": true,
+    "cusp_areas_t_0": true,
+    "first_pos_exists": true,
+    "glb_below_rayleigh": true,
+    "multi_copy_kappa_certified": false,
+    "continuum_glb_certified": false
+  },
+  "theory_status": {
+    "ref_geometry": "GREEN (Arb vol>0, h_max^U)",
+    "multi_copy_assembly": "GREEN float (Q1, cusp areas)",
+    "multi_copy_CR_interpolation": "YELLOW \u2014 \u03ba\u2081 not re-proved on glued space",
+    "continuum_GLB": "RED \u2014 do not claim \u03bb\u2081 \u2265 GLB certified",
+    "dual_interval": "RED \u2014 only FEM \u03bb\u2081\u22651 is certified lower"
+  },
+  "seconds": 0.7760848999023438,
+  "hard_map_note": "rung4_certified remains false"
+}

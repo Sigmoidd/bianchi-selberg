@@ -1,6 +1,6 @@
 # Morning brief — Rung 4 residual path
 
-**Updated:** larger Poincaré + conforming residual; Taylor+Rump Route A; dual GLB language  
+**Updated:** Hejhal iterate, Rump-with-radius, multi-copy Arb/GLB  
 **Hard map:** `pipeline_ok=true`, `rung4_certified=false` (unchanged).
 
 ---
@@ -9,100 +9,87 @@
 
 | Item | Result |
 |------|--------|
-| C1 1.1+1.2+1.6 | C1≈1.98e3, η₀≈6.4e-8, gap ~3.9 orders |
-| **Larger Poincaré** | H-only best **δ≈0.055**; bigger word groups **worse** |
-| **Conforming \(V_h^{P1,\mathrm{per}}\)** | λ₊=**6.825**, GLB=**6.451**, \(J_h^{\mathrm{cross}}=0\) |
-| **Taylor Arb weights** | I1 rel rad **7e-4** (was 0.17 min/max) |
-| **Rump Dirichlet** | **PSD PASS** for t up to ~first D (~18.6) |
-| Dual language | **`dual_glb_language.md`** — no false [6.45,6.83] cert |
+| C1 production | ~1.98e3, η₀~6.4e-8, gap ~3.9 orders |
+| **Hejhal iterate** | best **δ≈0.036**, η≈0.037 (M=28, periodize+reproject) |
+| **Rump+radius** | Dirichlet **PASS** for t≲0.5 λ₁^D; fails near λ₁^D |
+| **Multi-copy Arb GLB** | 384/384 vol>0; λ_h=6.825, GLB=**6.451** |
+| Dual language | `dual_glb_language.md` — no false cert interval |
 
 ---
 
-## 1. Larger Poincaré + conforming residual
+## 1. Production Hejhal iterate
 
-**Code:** `larger_poincare_residual.py`
+**Code:** `hejhal_iterate.py`  
+Outer loop: golden r-refine on collocation rel → two-cusp near-kernel → optional periodize L² reproject → PAIRINGS δ_aut.
 
-### Poincaré group size (M=32, hybrid multi, periodize)
+| iter | r | δ_aut | η |
+|-----:|--:|------:|--:|
+| 0 | 6.74 | **0.0361** | **0.0369** |
+| 1 | 7.26 | 0.0361 | 0.0370 |
+| 2 | 7.63 | 0.0361 | 0.0370 |
 
-| group | \|F\| | δ_aut | vs H-only |
-|-------|------:|------:|----------:|
-| **H_only** (id,T1±,R,TiR) | 5 | **0.055** | 1× |
-| words ≤1 (+S) | 6 | 0.46 | 0.12× worse |
-| words ≤2 | 23 | 5.5 | much worse |
-
-**Conclusion:** naive larger finite Poincaré (without group closure / height control) **hurts**. Best remains short horizontal periodization. Residual still ~0.05 ≫ η₀~6e-8.
-
-### Conforming CR trial
-
-| quantity | value |
-|----------|------:|
-| first pos λ_h | **6.825** |
-| Rayleigh check | 6.825 |
-| GLB sketch | **6.451** |
-| \(J_h^{\mathrm{cross}}\) | **0** |
-
-Correct dual **upper-flavor** discrete trial space (not free Neumann).
+**Best η ≈ 0.037** (was ~0.16 two-cusp single shot, ~0.055 H-only periodize).  
+Still **~5.8 orders** above η₀~6e-8. Iterate improves vs static residual but plateaus.
 
 ```bash
-python larger_poincare_residual.py --M 32
+python hejhal_iterate.py --M 28 --iters 3 --r0 6.0 --periodize
 ```
 
 ---
 
-## 2. Taylor-moment Arb + Rump (Route A)
+## 2. Rump-with-radius (fold Q_rad)
 
-**Code:** `route_A_rump.py`
+**Code:** `route_A_rump_radius.py`  
+Extra = ‖R_Q + |t| R_M‖_F; Rump certifies λ_min(A_mid) > extra ⇒ interval hull PSD.
 
-| | min/max height (old) | **Taylor p=4** |
-|--|---------------------:|---------------:|
-| worst rel I1 | 0.17 | **7.4e-4** |
-| worst rel I3 | 0.48 | **2.3e-2** |
-| ‖Q_rad‖_F | 1.63 | **3.1e-3** |
+| Dirichlet t | rump+radius | margin |
+|------------:|:-----------:|-------:|
+| 0 | **PASS** | 1.1e-2 |
+| 1 | **PASS** | 1.0e-2 |
+| 0.5 λ₁^D | **PASS** | 3.2e-3 |
+| 0.9 λ₁^D | **FAIL** | −3e-3 |
 
-**Rump PSD (BIT 46):**
-
-| pencil | t | rump |
-|--------|--:|:----:|
-| Neumann Q | 0 | FAIL (constant null — expected) |
-| Dirichlet Q | 0 | **PASS** |
-| Dirichlet Q−tM | up to ~λ₁^D | **PASS** |
-
-Dirichlet Rump succeeds near the first Dirichlet eigenvalue on the float mid matrix. Still **YELLOW**: radii not folded into interval eigenproof; truncation Δ open; **not** counting_certified.
+Taylor I1 rel ~7e-4. Interval residual on first D mode dominated by radius (~0.036).  
+**YELLOW:** not counting_certified; near-eigenvalue Rump still open.
 
 ```bash
-python route_A_rump.py --N1 4 --N2 2 --N3 2 --taylor-p 4
+python route_A_rump_radius.py --N1 4 --N2 2 --N3 2 --taylor-p 4
 ```
 
 ---
 
-## 3. Dual language around GLB ≈ 6.45
+## 3. Multi-copy CR Arb + GLB (Γ₀)
 
-**Doc:** `dual_glb_language.md`
+**Code:** `multi_copy_cr_arb_glb.py`
 
-| Allowed | Forbidden |
-|---------|-----------|
-| FEM: λ₁ ≥ 1 certified | “certified λ₁ ∈ [6.45, 6.83]” |
-| engineering λ_h⁺ ≈ 6.83 | “GLB proves continuum lower 6.45” |
-| GLB sketch 6.45 under CR hypotheses | free Neumann as dual upper bound |
-| rung4_certified=false | flipping hard flags |
+| check | status |
+|-------|--------|
+| Reference tet vol>0 (Arb, oriented) | **384/384 GREEN** |
+| h_max^U Arb | 0.278 |
+| Multi-copy Q1, cusp areas | **GREEN float** |
+| first pos λ_h / GLB | **6.825 / 6.451** |
+| multi-copy κ₁ theory | **YELLOW** |
+| continuum GLB as λ₁ lower | **RED** (only FEM ≥1 certified) |
+
+```bash
+python multi_copy_cr_arb_glb.py --N1 4 --N2 2 --N3 2
+```
 
 ---
 
 ## 4. Checklist
 
 ### Done
-- [x] C1 + residual APIs + V_h spectrum / J_h / GLB
-- [x] Eigen-r drive (flat)
-- [x] **Larger Poincaré compare** (H-only wins)
-- [x] **Conforming residual language**
-- [x] **Taylor weights + Rump Dirichlet PASS**
-- [x] **dual_glb_language.md**
+- [x] Hejhal outer iterate (δ~0.036)
+- [x] Rump-with-radius on Dirichlet pencils
+- [x] Multi-copy Arb geometry + GLB sketch + theory labels
+- [x] dual_glb_language.md
 
 ### Open (dual GREEN)
-- [ ] η ≲ 6e-8 (best δ still ~0.05)
-- [ ] Interval eigen / Rump with radii + Δ_trunc
-- [ ] counting_certified
-- [ ] rung4_certified
+- [ ] η ≲ 6e-8 (best still ~0.037)
+- [ ] Rump+radius near spectral edge / full interval eigen
+- [ ] multi-copy CR κ certified → continuum GLB
+- [ ] counting_certified, rung4_certified
 
 ---
 
@@ -110,9 +97,9 @@ python route_A_rump.py --N1 4 --N2 2 --N3 2 --taylor-p 4
 
 | Pri | Action |
 |----:|--------|
-| 1 | Production Hejhal iterate (not finite Poincaré toys) |
-| 2 | Fold Q_rad into interval residual + Rump-with-radius |
-| 3 | Multi-copy CR Arb checks (m3p style) for GLB on Γ₀ |
+| 1 | Deeper Hejhal (true pullback S, larger M, multi-start r) |
+| 2 | Radius-aware eigenvalue enclosures (not just PSD) |
+| 3 | m3p-style Arb κ on multi-copy (long) |
 | 4 | Keep hard map |
 
 ---
@@ -121,19 +108,15 @@ python route_A_rump.py --N1 4 --N2 2 --N3 2 --taylor-p 4
 
 ```bash
 cd dual_certification_
-python larger_poincare_residual.py --M 32
-python route_A_rump.py --N1 4 --N2 2 --N3 2 --taylor-p 4
-# dual language: dual_glb_language.md
-python lemma_K.py --test
+python hejhal_iterate.py --M 28 --iters 3
+python route_A_rump_radius.py --N1 4 --N2 2 --N3 2
+python multi_copy_cr_arb_glb.py --N1 4 --N2 2 --N3 2
 ```
 
 ---
 
 ## 7. Bottom line
 
-**Poincaré:** short horizontal group best (δ~0.055); larger words worse.  
-**Conforming space:** λ_h=6.825, GLB sketch=6.451, jumps 0 — dual language frozen.  
-**Route A:** Taylor weights ~200× tighter radii; **Dirichlet Rump PSD passes**.  
-Still **not dual-certified** (η, full interval spectrum, counting). Hard map unchanged.
+**Iterate** cut residual to **δ~0.036** (still far from η₀). **Rump+radius** certifies Dirichlet PSD well below λ₁^D. **Multi-copy Arb** greens reference geometry; GLB 6.45 stays engineering. Dual not certified. Hard map unchanged.
 
 *Path: `dual_certification_/morningbrief.md`*
