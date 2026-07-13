@@ -1,54 +1,274 @@
 {
-  "M": 48,
-  "r": 6.0,
-  "Y0": 0.8,
-  "theta": 0.5,
-  "y_min": 0.7071067811865475,
-  "mode": "multi",
-  "use_true_height": true,
-  "scale": 1.788311123739356e-13,
   "collocation": {
-    "kind": "hybrid_collocation_multi",
-    "sigma_min": 0.40382050450604373,
-    "sigma_max": 21.77508513510866,
-    "rel": 0.018545071213290052,
-    "tau_disc": 1.7346483594996226e-11,
-    "n_modes": 144.0,
-    "n_pts": 260.0,
-    "n_col": 196.0,
-    "n_jump": 64.0,
-    "kappa_eq": 53.922683202389905,
-    "jump_weight": 5.0
+    "M": 48,
+    "r": 6.0,
+    "Y0": 0.8,
+    "theta": 0.5,
+    "y_min": 0.7071067811865475,
+    "mode": "collocation",
+    "use_true_height": true,
+    "scale": 8.56279178869727e-14,
+    "collocation": {
+      "kind": "collocation",
+      "sigma_min": 0.6309867586948986,
+      "sigma_max": 16.070685682441574,
+      "rel": 0.03926321322955739,
+      "tau_disc": 2.0800365007726483e-14,
+      "n_modes": 144.0,
+      "n_pts": 196.0,
+      "kappa_eq": 25.469133006342915,
+      "height_mismatch": 0.0
+    },
+    "per_generator": {
+      "T1": {
+        "n_samples": 16,
+        "delta_max": 2.9980753509019143e-14,
+        "delta_rms": 1.0494885962416592e-14,
+        "jump_max_abs": 2.5671894996598597e-27
+      },
+      "R": {
+        "n_samples": 16,
+        "delta_max": 3.3860083861393253,
+        "delta_rms": 1.3476075725748151,
+        "jump_max_abs": 2.899368480529391e-13
+      },
+      "TiR": {
+        "n_samples": 16,
+        "delta_max": 3.3860083861393275,
+        "delta_rms": 1.3476075725748162,
+        "jump_max_abs": 2.899368480529393e-13
+      },
+      "S": {
+        "n_samples": 16,
+        "delta_max": 0.43196670408801013,
+        "delta_rms": 0.18595629978837314,
+        "jump_max_abs": 3.6988409467554367e-14
+      }
+    },
+    "delta_aut": 3.3860083861393275,
+    "tau_proxy": 0.23882880225186104,
+    "eta_production_proxy": 3.6248371883911887,
+    "language": "mode=collocation: \u03b4_aut = max_\u03b3 max_face |f\u2212f\u2218\u03b3|/\u2016f\u2016 on PAIRINGS faces; true H\u00b3 pullback. Not certified Maass form. Not for hard-map flip.",
+    "seconds": 0.4254133701324463
   },
-  "per_generator": {
-    "T1": {
-      "n_samples": 16,
-      "delta_max": 7.059341307261172e-15,
-      "delta_rms": 2.5445128056780574e-15,
-      "jump_max_abs": 1.262429858604788e-27
+  "multi": {
+    "M": 48,
+    "r": 6.0,
+    "Y0": 0.8,
+    "theta": 0.5,
+    "y_min": 0.7071067811865475,
+    "mode": "multi",
+    "use_true_height": true,
+    "scale": 1.7883111237393545e-13,
+    "collocation": {
+      "kind": "hybrid_collocation_multi",
+      "sigma_min": 0.40382050450604345,
+      "sigma_max": 21.775085135108682,
+      "rel": 0.01854507121329002,
+      "tau_disc": 1.3628684034553448e-11,
+      "n_modes": 144.0,
+      "n_pts": 260.0,
+      "n_col": 196.0,
+      "n_jump": 64.0,
+      "kappa_eq": 53.92268320239,
+      "jump_weight": 2.0,
+      "height_mismatch": 0.0
     },
-    "R": {
-      "n_samples": 16,
-      "delta_max": 0.44309811349733585,
-      "delta_rms": 0.14785661610024795,
-      "jump_max_abs": 7.923972852752094e-14
+    "per_generator": {
+      "T1": {
+        "n_samples": 16,
+        "delta_max": 5.67450538079252e-15,
+        "delta_rms": 2.2257147130160842e-15,
+        "jump_max_abs": 1.0147781094190084e-27
+      },
+      "R": {
+        "n_samples": 16,
+        "delta_max": 0.44309811349734035,
+        "delta_rms": 0.147856616100249,
+        "jump_max_abs": 7.923972852752167e-14
+      },
+      "TiR": {
+        "n_samples": 16,
+        "delta_max": 0.4430981134973416,
+        "delta_rms": 0.14785661610024928,
+        "jump_max_abs": 7.92397285275219e-14
+      },
+      "S": {
+        "n_samples": 16,
+        "delta_max": 0.023009575385455307,
+        "delta_rms": 0.008247903268181426,
+        "jump_max_abs": 4.1148279614328974e-15
+      }
     },
-    "TiR": {
-      "n_samples": 16,
-      "delta_max": 0.44309811349733796,
-      "delta_rms": 0.1478566161002483,
-      "jump_max_abs": 7.923972852752132e-14
-    },
-    "S": {
-      "n_samples": 16,
-      "delta_max": 0.023009575385454867,
-      "delta_rms": 0.008247903268181447,
-      "jump_max_abs": 4.114827961432822e-15
-    }
+    "delta_aut": 0.4430981134973416,
+    "tau_proxy": 0.11280526429791267,
+    "eta_production_proxy": 0.5559033777952542,
+    "language": "mode=multi: \u03b4_aut = max_\u03b3 max_face |f\u2212f\u2218\u03b3|/\u2016f\u2016 on PAIRINGS faces; true H\u00b3 pullback. Not certified Maass form. Not for hard-map flip.",
+    "seconds": 0.8973510265350342
   },
-  "delta_aut": 0.44309811349733796,
-  "tau_proxy": 0.11280526429791286,
-  "eta_production_proxy": 0.5559033777952508,
-  "language": "mode=multi: \u03b4_aut = max_\u03b3 max_face |f\u2212f\u2218\u03b3|/\u2016f\u2016 on PAIRINGS faces; true H\u00b3 pullback. Not certified Maass form. Not for hard-map flip.",
-  "seconds": 1.467315435409546
+  "periodize": {
+    "M": 48,
+    "r": 6.0,
+    "Y0": 0.8,
+    "theta": 0.5,
+    "y_min": 0.7071067811865475,
+    "mode": "periodize",
+    "use_true_height": true,
+    "scale": 1.793012328898445e-13,
+    "collocation": {
+      "kind": "hybrid_collocation_multi",
+      "sigma_min": 0.40382050450604345,
+      "sigma_max": 21.775085135108682,
+      "rel": 0.01854507121329002,
+      "tau_disc": 1.3628684034553448e-11,
+      "n_modes": 144.0,
+      "n_pts": 260.0,
+      "n_col": 196.0,
+      "n_jump": 64.0,
+      "kappa_eq": 53.92268320239,
+      "jump_weight": 2.0,
+      "height_mismatch": 0.0
+    },
+    "per_generator": {
+      "T1": {
+        "n_samples": 16,
+        "delta_max": 1.9919938694736652e-15,
+        "delta_rms": 8.944536672466365e-16,
+        "jump_max_abs": 3.5716695670564017e-28
+      },
+      "R": {
+        "n_samples": 16,
+        "delta_max": 0.08838726566504562,
+        "delta_rms": 0.029493788417281577,
+        "jump_max_abs": 1.5847945705504902e-14
+      },
+      "TiR": {
+        "n_samples": 16,
+        "delta_max": 0.08838726566504296,
+        "delta_rms": 0.02949378841728109,
+        "jump_max_abs": 1.5847945705504423e-14
+      },
+      "S": {
+        "n_samples": 16,
+        "delta_max": 0.011262553307163768,
+        "delta_rms": 0.003434903395328979,
+        "jump_max_abs": 2.019389693462059e-15
+      }
+    },
+    "delta_aut": 0.08838726566504562,
+    "tau_proxy": 0.11280526429791267,
+    "eta_production_proxy": 0.20119252996295828,
+    "language": "mode=periodize: \u03b4_aut = max_\u03b3 max_face |f\u2212f\u2218\u03b3|/\u2016f\u2016 on PAIRINGS faces; true H\u00b3 pullback. Not certified Maass form. Not for hard-map flip.",
+    "seconds": 2.4628348350524902
+  },
+  "sigma0": {
+    "M": 48,
+    "r": 6.0,
+    "Y0": 0.8,
+    "theta": 0.5,
+    "y_min": 0.7071067811865475,
+    "mode": "sigma0",
+    "use_true_height": true,
+    "scale": 3.154015084056922e-14,
+    "collocation": {
+      "kind": "hybrid_true_height_multi",
+      "sigma_min": 1.9353713085294484,
+      "sigma_max": 22.274459332645684,
+      "rel": 0.08688746512885939,
+      "tau_disc": 8.861328411773263e-12,
+      "n_modes": 144.0,
+      "n_pts": 260.0,
+      "n_col": 196.0,
+      "n_jump": 64.0,
+      "kappa_eq": 11.509139995244876,
+      "jump_weight": 2.0,
+      "height_mismatch": 1.0
+    },
+    "per_generator": {
+      "T1": {
+        "n_samples": 16,
+        "delta_max": 4.707234677870514e-14,
+        "delta_rms": 2.258957298691605e-14,
+        "jump_max_abs": 1.4846689178199425e-27
+      },
+      "R": {
+        "n_samples": 16,
+        "delta_max": 0.3416334505901101,
+        "delta_rms": 0.10508412506203718,
+        "jump_max_abs": 1.0775170563796224e-14
+      },
+      "TiR": {
+        "n_samples": 16,
+        "delta_max": 0.3416334505901555,
+        "delta_rms": 0.10508412506204845,
+        "jump_max_abs": 1.0775170563797655e-14
+      },
+      "S": {
+        "n_samples": 16,
+        "delta_max": 0.08519679074995871,
+        "delta_rms": 0.023075366488982688,
+        "jump_max_abs": 2.68711963138611e-15
+      }
+    },
+    "delta_aut": 0.3416334505901555,
+    "tau_proxy": 0.528515817238419,
+    "eta_production_proxy": 0.8701492678285745,
+    "language": "mode=sigma0: \u03b4_aut = max_\u03b3 max_face |f\u2212f\u2218\u03b3|/\u2016f\u2016 on PAIRINGS faces; true H\u00b3 pullback. Not certified Maass form. Not for hard-map flip.",
+    "seconds": 1.3382806777954102
+  },
+  "sigma0_per": {
+    "M": 48,
+    "r": 6.0,
+    "Y0": 0.8,
+    "theta": 0.5,
+    "y_min": 0.7071067811865475,
+    "mode": "sigma0_per",
+    "use_true_height": true,
+    "scale": 5.438054980139643e-15,
+    "collocation": {
+      "kind": "hybrid_true_height_multi",
+      "sigma_min": 1.9353713085294484,
+      "sigma_max": 22.274459332645684,
+      "rel": 0.08688746512885939,
+      "tau_disc": 8.861328411773263e-12,
+      "n_modes": 144.0,
+      "n_pts": 260.0,
+      "n_col": 196.0,
+      "n_jump": 64.0,
+      "kappa_eq": 11.509139995244876,
+      "jump_weight": 2.0,
+      "height_mismatch": 1.0
+    },
+    "per_generator": {
+      "T1": {
+        "n_samples": 16,
+        "delta_max": 1.312553797458001e-13,
+        "delta_rms": 4.366027730878859e-14,
+        "jump_max_abs": 7.137739714967683e-28
+      },
+      "R": {
+        "n_samples": 16,
+        "delta_max": 0.39628766546675687,
+        "delta_rms": 0.12189538971233665,
+        "jump_max_abs": 2.15503411275941e-15
+      },
+      "TiR": {
+        "n_samples": 16,
+        "delta_max": 0.396287665466785,
+        "delta_rms": 0.1218953897123413,
+        "jump_max_abs": 2.155034112759563e-15
+      },
+      "S": {
+        "n_samples": 16,
+        "delta_max": 0.6701510342058884,
+        "delta_rms": 0.1711028204136696,
+        "jump_max_abs": 3.644318169009064e-15
+      }
+    },
+    "delta_aut": 0.6701510342058884,
+    "tau_proxy": 0.528515817238419,
+    "eta_production_proxy": 1.1986668514443073,
+    "language": "mode=sigma0_per: \u03b4_aut = max_\u03b3 max_face |f\u2212f\u2218\u03b3|/\u2016f\u2016 on PAIRINGS faces; true H\u00b3 pullback. Not certified Maass form. Not for hard-map flip.",
+    "seconds": 3.141115427017212
+  }
 }

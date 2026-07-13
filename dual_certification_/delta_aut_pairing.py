@@ -239,9 +239,16 @@ def near_kernel_collocation(
     r: float,
     Y0: float,
     theta: float = 0.5,
+    height_mismatch: float = 0.0,
 ) -> Tuple[np.ndarray, List[Tuple[int, int, int]], Dict[str, float]]:
-    """Right singular vector of single-cusp collocation (baseline)."""
-    V, amps, modes = build_single_cusp_V(M, Y0=Y0, r=r, theta=theta)
+    """Right singular vector of single-cusp collocation (baseline).
+
+    height_mismatch=0: height-matched σ0 model (conditioning path).
+    height_mismatch=1: true-height pullback weights (production-shaped σ0).
+    """
+    V, amps, modes = build_single_cusp_V(
+        M, Y0=Y0, r=r, theta=theta, height_mismatch=height_mismatch
+    )
     F = V / np.maximum(amps[None, :], 1e-300)
     Feq = equilibrate(F, n_iter=6)
     _u, s, vh = np.linalg.svd(Feq, full_matrices=False)
@@ -250,8 +257,9 @@ def near_kernel_collocation(
     u = vh[-1, :].conj()
     a = u / np.maximum(amps, 1e-300)
     a = a / max(np.linalg.norm(a), 1e-300)
+    kind = "collocation_true_height" if height_mismatch > 0 else "collocation"
     return a.astype(np.complex128), modes, dict(
-        kind="collocation",
+        kind=kind,
         sigma_min=sig_min,
         sigma_max=sig_max,
         rel=sig_min / max(sig_max, 1e-300),
@@ -259,6 +267,7 @@ def near_kernel_collocation(
         n_modes=float(len(modes)),
         n_pts=float(V.shape[0]),
         kappa_eq=float(sig_max / max(sig_min, 1e-300)),
+        height_mismatch=float(height_mismatch),
     )
 
 
@@ -313,6 +322,7 @@ def near_kernel_multi(
     n_face: int = 16,
     y_min: float = 1.0 / math.sqrt(2.0),
     jump_weight: float = 1.0,
+    height_mismatch: float = 0.0,
 ) -> Tuple[np.ndarray, List[Tuple[int, int, int]], Dict[str, float]]:
     """
     Hybrid near-kernel: stack single-cusp collocation with multi-pairing jumps.
@@ -320,8 +330,12 @@ def near_kernel_multi(
     Pure jump-only operators are wide (n_face·#gens ≪ n_modes) and have a huge
     null space → garbage δ_aut. Hybrid pins the trial with the Hejhal-like
     collocation residual while penalizing R/TiR/S/T1 face jumps.
+
+    height_mismatch>0: use true-height σ0 collocation pin (production-shaped).
     """
-    V_col, amps, modes = build_single_cusp_V(M, Y0=Y0, r=r, theta=theta)
+    V_col, amps, modes = build_single_cusp_V(
+        M, Y0=Y0, r=r, theta=theta, height_mismatch=height_mismatch
+    )
     V_jump, amps_j, modes_j = build_multi_pairing_V(
         M, r, Y0, theta=theta, n_face=n_face, y_min=y_min
     )
@@ -338,8 +352,13 @@ def near_kernel_multi(
     u = vh[-1, :].conj()
     a = u / amps
     a = a / max(np.linalg.norm(a), 1e-300)
+    kind = (
+        "hybrid_true_height_multi"
+        if height_mismatch > 0
+        else "hybrid_collocation_multi"
+    )
     return a.astype(np.complex128), modes, dict(
-        kind="hybrid_collocation_multi",
+        kind=kind,
         sigma_min=sig_min,
         sigma_max=sig_max,
         rel=sig_min / max(sig_max, 1e-300),
@@ -350,6 +369,7 @@ def near_kernel_multi(
         n_jump=float(V_jump.shape[0]),
         kappa_eq=float(sig_max / max(sig_min, 1e-300)),
         jump_weight=float(jump_weight),
+        height_mismatch=float(height_mismatch),
     )
 
 
@@ -422,11 +442,14 @@ def delta_aut_on_pairings(
       collocation — single-cusp near-kernel (baseline, R/TiR often O(1))
       multi       — hybrid collocation + multi-pairing near-kernel
       periodize   — multi near-kernel + finite Poincaré evaluation
+      sigma0      — hybrid with true-height σ0 collocation pin + jumps
+      sigma0_per  — sigma0 hybrid + Poincaré evaluation
     """
     t0 = time.time()
     mode = mode.lower().strip()
-    periodize = mode == "periodize"
-    if mode in ("multi", "periodize"):
+    periodize = mode in ("periodize", "sigma0_per")
+    true_h = 1.0 if mode in ("sigma0", "sigma0_per") else 0.0
+    if mode in ("multi", "periodize", "sigma0", "sigma0_per"):
         coeffs, modes, meta = near_kernel_multi(
             M,
             r,
@@ -435,6 +458,7 @@ def delta_aut_on_pairings(
             n_face=n_face,
             y_min=y_min,
             jump_weight=jump_weight,
+            height_mismatch=true_h,
         )
     else:
         coeffs, modes, meta = near_kernel_collocation(M, r, Y0, theta=theta)
@@ -476,8 +500,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         "--mode",
         type=str,
         default="multi",
-        choices=("collocation", "multi", "periodize"),
-        help="trial coefficient / evaluation mode (default multi = hybrid)",
+        choices=("collocation", "multi", "periodize", "sigma0", "sigma0_per"),
+        help="trial mode (default multi; sigma0 = true-height hybrid)",
     )
     p.add_argument(
         "--jump-weight",
@@ -495,7 +519,9 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     args = p.parse_args(argv)
 
     modes_run = (
-        ["collocation", "multi", "periodize"] if args.compare else [args.mode]
+        ["collocation", "multi", "periodize", "sigma0", "sigma0_per"]
+        if args.compare
+        else [args.mode]
     )
     results: Dict[str, Any] = {}
     print("=== δ_aut on PAIRINGS faces (production-path residual) ===")
