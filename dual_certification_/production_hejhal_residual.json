@@ -1,0 +1,84 @@
+{
+  "M": 40,
+  "r": 6.0,
+  "Y0": 0.8,
+  "periodize": true,
+  "two_cusp": {
+    "M": 40,
+    "r": 6.0,
+    "Y0": 0.8,
+    "theta": 0.5,
+    "n_modes_per_cusp": 128,
+    "sigma_min": 0.003435355593600639,
+    "sigma_max": 21.768055578640073,
+    "rel": 0.00015781637368528152,
+    "kappa_eq": 6336.478127384974,
+    "reg": 1.0005642989444614e-08,
+    "language": "Two-cusp collocation near-kernel (model S + height-matched automorphy blocks). reg on V diagonals is present in assembly."
+  },
+  "cusp_inf": {
+    "delta_aut": 0.17302688809390668,
+    "scale": 0.0021369297664851506,
+    "per_generator": {
+      "T1": {
+        "n_samples": 16,
+        "delta_max": 4.0905028807853053e-16,
+        "delta_rms": 1.2049905429921703e-16,
+        "jump_max_abs": 8.741117365843378e-19
+      },
+      "R": {
+        "n_samples": 16,
+        "delta_max": 0.17302688809390668,
+        "delta_rms": 0.11563982382312842,
+        "jump_max_abs": 0.0003697463075701643
+      },
+      "TiR": {
+        "n_samples": 16,
+        "delta_max": 0.17302688809390668,
+        "delta_rms": 0.11563982382312842,
+        "jump_max_abs": 0.0003697463075701643
+      },
+      "S": {
+        "n_samples": 16,
+        "delta_max": 0.07577885506063435,
+        "delta_rms": 0.03586333839141535,
+        "jump_max_abs": 0.00016193409104923345
+      }
+    },
+    "a_norm": 0.7119856155287083
+  },
+  "cusp_0": {
+    "delta_aut": 0.13101051613954695,
+    "per_generator": {
+      "T1": {
+        "n_samples": 16,
+        "delta_max": 9.286918688523038e-16,
+        "delta_rms": 2.533910138379305e-16,
+        "jump_max_abs": 1.7360464604707315e-18
+      },
+      "R": {
+        "n_samples": 16,
+        "delta_max": 0.13101051613954684,
+        "delta_rms": 0.08746490509796706,
+        "jump_max_abs": 0.0002449039885635903
+      },
+      "TiR": {
+        "n_samples": 16,
+        "delta_max": 0.13101051613954695,
+        "delta_rms": 0.087464905097967,
+        "jump_max_abs": 0.0002449039885635905
+      },
+      "S": {
+        "n_samples": 16,
+        "delta_max": 0.047021270544939035,
+        "delta_rms": 0.026939830523706867,
+        "jump_max_abs": 8.789902553713478e-05
+      }
+    },
+    "a_norm": 0.7021940495904294
+  },
+  "tau_proxy": 0.0009599595245203724,
+  "eta_proxy": 0.17398684761842706,
+  "seconds": 3.5562171936035156,
+  "language": "Production-shaped residual: two-cusp near-kernel + true H\u00b3 PAIRINGS \u03b4_aut. Model Fourier, not certified Maass. Hard map unchanged."
+}

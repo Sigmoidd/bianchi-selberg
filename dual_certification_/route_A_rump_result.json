@@ -1,0 +1,100 @@
+{
+  "language": "Taylor-moment Arb integrals for y^{-1}, y^{-3} on Picard tets; float CR mid matrices; Rump PSD on Dirichlet Q-tM and on Neumann Q+\u03b5M. Neumann t=0 fails by design (constant null). Not certified N(\u03bb).",
+  "mesh": {
+    "N1": 4,
+    "N2": 2,
+    "N3": 2,
+    "Y": 1.25
+  },
+  "taylor_p": 4,
+  "n_dofs": 232,
+  "n_tets": 96,
+  "n_vol_ok": 96,
+  "h_max_upper": 0.4208614314328509,
+  "worst_I1_rel": 0.0007396496993080148,
+  "worst_I3_rel": 0.023304438922971325,
+  "lam_N": [
+    -5.588975194525222e-13,
+    8.377814606760072,
+    32.569028219813596,
+    35.86921152483172,
+    39.72029274884752,
+    64.83312328604248
+  ],
+  "lam_D": [
+    18.611209511851477,
+    22.42887652283015,
+    50.46294072749318,
+    51.528457398708426,
+    53.68947430300199
+  ],
+  "first_positive_N": 8.377814606760072,
+  "first_D": 18.611209511851477,
+  "glb_sketch": 7.205371203862015,
+  "KAPPA1": 0.3311412341821403,
+  "rump_scan": [
+    {
+      "label": "neumann",
+      "t": 0.0,
+      "rump_psd": false,
+      "rump_c": 5.039611276873453e-12,
+      "float_lam_min": 2.9999084872044894e-16
+    },
+    {
+      "label": "neumann_plus_epsM",
+      "t": 0.0,
+      "rump_psd": false,
+      "rump_c": 5.0396112768739855e-12,
+      "float_lam_min": 5.560123417227031e-14
+    },
+    {
+      "label": "dirichlet",
+      "t": 0.0,
+      "rump_psd": true,
+      "rump_c": 4.478124087098693e-12,
+      "float_lam_min": 0.01384773278240578
+    },
+    {
+      "label": "dirichlet",
+      "t": 1.0,
+      "rump_psd": true,
+      "rump_c": 4.473292337924418e-12,
+      "float_lam_min": 0.013135896400994475
+    },
+    {
+      "label": "dirichlet",
+      "t": 4.652802377962869,
+      "rump_psd": true,
+      "rump_c": 4.455642913050905e-12,
+      "float_lam_min": 0.010505525014263419
+    },
+    {
+      "label": "dirichlet",
+      "t": 9.305604755925739,
+      "rump_psd": true,
+      "rump_c": 4.4331617390031175e-12,
+      "float_lam_min": 0.007085058840186139
+    },
+    {
+      "label": "dirichlet",
+      "t": 16.75008856066633,
+      "rump_psd": true,
+      "rump_c": 4.397191860526657e-12,
+      "float_lam_min": 0.0014436936764819026
+    },
+    {
+      "label": "dirichlet",
+      "t": 18.610209511851476,
+      "rump_psd": true,
+      "rump_c": 4.388204222656715e-12,
+      "float_lam_min": 7.793577131925604e-07
+    }
+  ],
+  "rump_dirichlet_t0": true,
+  "rump_any_dirichlet_positive_t": true,
+  "Q_rad_fro": 0.0030897037256113276,
+  "M_rad_fro": 0.00010644663703334867,
+  "seconds": 0.5192365646362305,
+  "status": "YELLOW",
+  "hard_map_note": "counting_certified remains false"
+}

@@ -1,0 +1,124 @@
+{
+  "level": "(2+i)",
+  "NP": 5,
+  "INDEX": 6,
+  "mesh": {
+    "N1": 4,
+    "N2": 2,
+    "N3": 2,
+    "nfr": 848,
+    "nt": 384
+  },
+  "identification": {
+    "n_raw": 5088,
+    "n_per": 4816,
+    "n_merged_edges": 464,
+    "n_self_relaxed": 208,
+    "reduction_ratio": 1.0564784053156147,
+    "language": "V_h^{P1,per} \u2245 CR face-means modulo cross-copy PAIRINGS gluing; self-faces free (Neumann). Subspace of multi-copy CR, not of free single-cell Neumann for dual upper bounds."
+  },
+  "J_h_constant": {
+    "J_h_max": 0.0,
+    "J_h_cross": 0.0,
+    "J_h_self": 0.0,
+    "J_h_rms": 0.0,
+    "per_generator": {
+      "T1": 0.0,
+      "R": 0.0,
+      "TiR": 0.0,
+      "S": 0.0
+    },
+    "n_terms": 672,
+    "n_cross": 464,
+    "n_self": 208
+  },
+  "J_h_free_neumann": {
+    "J_h_max": 5.900163894817582,
+    "J_h_cross": 5.900163894817582,
+    "J_h_self": 3.974912198062276,
+    "J_h_rms": 0.17323685253234036,
+    "per_generator": {
+      "T1": 3.6706720837247326,
+      "R": 3.932105974785146,
+      "TiR": 5.900163894817582,
+      "S": 3.815259002682007
+    },
+    "n_terms": 672,
+    "n_cross": 464,
+    "n_self": 208
+  },
+  "J_h_free_cross_only": {
+    "J_h_max": 5.900163894817582,
+    "J_h_cross": 5.900163894817582,
+    "J_h_self": 0.0,
+    "J_h_rms": 0.17186602056141637,
+    "per_generator": {
+      "T1": 3.6706720837247326,
+      "R": 3.25336726898566,
+      "TiR": 5.900163894817582,
+      "S": 3.815259002682007
+    },
+    "n_terms": 464,
+    "n_cross": 464,
+    "n_self": 0
+  },
+  "J_h_periodic_lift_all": {
+    "J_h_max": 3.963312284138426,
+    "J_h_cross": 0.0,
+    "J_h_self": 3.963312284138426,
+    "J_h_rms": 0.09535052267950574,
+    "per_generator": {
+      "T1": 3.8251547530592265,
+      "R": 3.7007329178217994,
+      "TiR": 3.963312284138426,
+      "S": 2.4452747886662847
+    },
+    "n_terms": 672,
+    "n_cross": 464,
+    "n_self": 208
+  },
+  "J_h_periodic_cross_only": {
+    "J_h_max": 0.0,
+    "J_h_cross": 0.0,
+    "J_h_self": 0.0,
+    "J_h_rms": 0.0,
+    "per_generator": {
+      "T1": 0.0,
+      "R": 0.0,
+      "TiR": 0.0,
+      "S": 0.0
+    },
+    "n_terms": 464,
+    "n_cross": 464,
+    "n_self": 0
+  },
+  "J_h_projected_cross_only": {
+    "J_h_max": 0.0,
+    "J_h_cross": 0.0,
+    "J_h_self": 0.0,
+    "J_h_rms": 0.0,
+    "per_generator": {
+      "T1": 0.0,
+      "R": 0.0,
+      "TiR": 0.0,
+      "S": 0.0
+    },
+    "n_terms": 464,
+    "n_cross": 464,
+    "n_self": 0
+  },
+  "free_to_periodic_L2_defect": 0.2418491856713691,
+  "warnings": [
+    "Free Neumann Rayleigh is NOT an upper bound for Spec(\u0393\\H\u00b3).",
+    "V_h^{P1,per} kills only cross-copy jumps; self-faces stay Neumann.",
+    "J_h_cross is the companion defect of a free trial vs periodic space.",
+    "This scaffold does not assemble Q/M on V_h^{P1,per} for dual cert."
+  ],
+  "checks": {
+    "constant_J_near_zero": true,
+    "periodic_cross_J_near_zero": true,
+    "projected_cross_J_near_zero": true,
+    "free_cross_J_positive": true
+  },
+  "seconds": 0.3540639877319336
+}

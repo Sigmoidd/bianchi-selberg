@@ -1,0 +1,64 @@
+{
+  "language": "CR GLB sketch \u03bb \u2265 \u03bb_h/(1+\u03ba\u2081\u00b2 h_max\u00b2 \u03bb_h) on V_h^{P1,per} float spectrum. Engineering \u2014 full multi-copy CR theory not re-certified here. Hard map unchanged.",
+  "KAPPA1": 0.3311412341821403,
+  "h_max": 0.27820147383531707,
+  "mesh": {
+    "N1": 4,
+    "N2": 2,
+    "N3": 2
+  },
+  "n_dofs": 4816,
+  "rows": [
+    {
+      "k": 1,
+      "lam_N": -2.6029184254340386e-14,
+      "lam_D": 19.583635343715194,
+      "glb_N": 0.0,
+      "glb_D": 16.792647943105163
+    },
+    {
+      "k": 2,
+      "lam_N": 6.825181118380314,
+      "lam_D": 25.79200144371831,
+      "glb_N": 6.451484459326048,
+      "glb_D": 21.16019774311454
+    },
+    {
+      "k": 3,
+      "lam_N": 12.071719161570769,
+      "lam_D": 34.10521504182846,
+      "glb_N": 10.949895778757847,
+      "glb_D": 26.449529010896004
+    },
+    {
+      "k": 4,
+      "lam_N": 17.67262370889045,
+      "lam_D": 41.634586598473675,
+      "glb_N": 15.367705869565105,
+      "glb_D": 30.764194966887118
+    },
+    {
+      "k": 5,
+      "lam_N": 21.09054409130189,
+      "lam_D": 42.54895738582445,
+      "glb_N": 17.888626443109537,
+      "glb_D": 31.26058356722506
+    },
+    {
+      "k": 6,
+      "lam_N": 30.138044995956104,
+      "lam_D": 53.26492741186825,
+      "glb_N": 23.999531445634442,
+      "glb_D": 36.682564689701344
+    }
+  ],
+  "first_positive_Neumann": 6.825181118380314,
+  "first_positive_GLB": 6.451484459326048,
+  "glb_factor": 0.9452473637589052,
+  "seconds": 0.5062642097473145,
+  "warnings": [
+    "GLB requires CR interpolation hypotheses on this mesh/space.",
+    "Not a dual upper bound; first positive N is upper-flavor discrete.",
+    "Do not set counting_certified or rung4_certified from this alone."
+  ]
+}

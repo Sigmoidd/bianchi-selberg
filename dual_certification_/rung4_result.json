@@ -1,0 +1,202 @@
+{
+  "hard": {
+    "F5_gluing": true,
+    "FEM_exclusion_01": true,
+    "two_cusp_hejhal_scan": true,
+    "defect_bound_applied": true,
+    "eta_le_eta0": false,
+    "overlap_nonempty_disjoint_unit": false,
+    "width_lt_tol": false,
+    "counting_certified": false
+  },
+  "pipeline_ok": true,
+  "rung4_certified": false,
+  "fem": {
+    "level": "(2+i)",
+    "NP": 5,
+    "index": 6,
+    "claim": "no eigenvalue in (0,1)",
+    "source": "independent_exclusion/PROOF.md Theorem 2; m3p_certify.py",
+    "frozen": {
+      "mesh": "8x4x3 24-split",
+      "n_dofs": 28400,
+      "Y": 1.25,
+      "params": "(\u03b8,\u03b82,\u03b1,\u03b84,\u03c1\u0303)=(0.6,0.9,0.2,0.85,9.0)",
+      "nu_star": 1.02,
+      "float_pencil_min_eig": 1.44,
+      "certified_date": "2026-07-10"
+    },
+    "fem_lower_open": 1.0,
+    "fem_upper_engineering": null,
+    "language": "FEM certifies exclusion of (0,1) only. Any upper bound near the first eigenvalue remains an engineering target until a conforming Rayleigh certificate exists.",
+    "status": "GREEN",
+    "gluing_reverified": true,
+    "glue_generators": {
+      "T1": [
+        0,
+        5,
+        1,
+        2,
+        3,
+        4
+      ],
+      "R": [
+        0,
+        1,
+        5,
+        4,
+        3,
+        2
+      ],
+      "TiR": [
+        0,
+        3,
+        2,
+        1,
+        5,
+        4
+      ],
+      "S": [
+        1,
+        0,
+        5,
+        3,
+        4,
+        2
+      ]
+    }
+  },
+  "hejhal_scan_best": {
+    "r": 6.0007677514902,
+    "sigma_min": 0.0007038390719126812,
+    "delta": 0.00013620545872215767,
+    "tau": 0.0008286086100456351,
+    "eta": 0.0009648140687677927
+  },
+  "hejhal_defect": {
+    "r_candidate": 6.0007677514902,
+    "lambda_candidate": 37.009213607324746,
+    "delta": 0.00013620545872215767,
+    "tau": 0.0008286086100456351,
+    "eta": 0.0009648140687677927,
+    "lambda_error_bound": 983.8128649796789,
+    "r_error_bound": 81.97391614892643,
+    "collar_floor": 0.0009464450661160688,
+    "L2_error_bound": 31673.07766817138,
+    "eta0": 2.404379989157855e-13,
+    "eta_le_eta0": false,
+    "C1": 1019690.6848498626,
+    "C2": 11.728013928850753,
+    "assumptions": [
+      "H(K,\u03b8): Hecke growth |a_\u03b2| \u2264 C_H(\u03b5) N(\u03b2)^{\u03b8+\u03b5}",
+      "A: analyticity / unique continuation on the compact core",
+      "S: spectral decomposition (Friedman Thm 3.8.1 / EGM)"
+    ],
+    "hejhal_interval_lambda": [
+      -946.8036513723541,
+      1020.8220785870037
+    ],
+    "hejhal_interval_r": [
+      -75.97314839743623,
+      87.97468390041664
+    ],
+    "Y0_used": 1.5
+  },
+  "dual": {
+    "fem_lower": 1.0,
+    "hejhal_interval": [
+      -946.8036513723541,
+      1020.8220785870037
+    ],
+    "hejhal_width": 1967.6257299593578,
+    "overlap": [
+      1.0,
+      1020.8220785870037
+    ],
+    "nonempty": true,
+    "width": 1019.8220785870037,
+    "width_tol": 0.1,
+    "width_ok": false,
+    "disjoint_from_unit_interval": false,
+    "eta_le_eta0": false,
+    "collar_floor": 0.0009464450661160688,
+    "counting": {
+      "status": "YELLOW",
+      "note": "Route A prototype (route_A_counting.py) addresses the counting gap but is not yet a certified N(\u03bb)=[0,0] on (1,\u03bb1)."
+    },
+    "dual_interval_status": "YELLOW",
+    "language": "FEM gives certified \u03bb\u22651. Hejhal+D(K) gives a conditional existence interval under H,A,S. Full \u00a713 first-eigenvalue cert needs counting + \u03b7\u2264\u03b70 + width<tol + reproducibility."
+  },
+  "dual_demo_tight_eta": {
+    "demo": true,
+    "hej": {
+      "r_candidate": 7.0,
+      "lambda_candidate": 50.0,
+      "delta": 5e-11,
+      "tau": 5e-11,
+      "eta": 1e-10,
+      "lambda_error_bound": 0.001102339864764085,
+      "r_error_bound": 7.87385617688632e-05,
+      "collar_floor": 0.0009464450661160688,
+      "L2_error_bound": 15.589479864801648,
+      "eta0": 1.0286716190260861e-13,
+      "eta_le_eta0": false,
+      "C1": 1558947.986480165,
+      "C2": 11.728013928850753,
+      "assumptions": [
+        "H(K,\u03b8): Hecke growth |a_\u03b2| \u2264 C_H(\u03b5) N(\u03b2)^{\u03b8+\u03b5}",
+        "A: analyticity / unique continuation on the compact core",
+        "S: spectral decomposition (Friedman Thm 3.8.1 / EGM)"
+      ],
+      "hejhal_interval_lambda": [
+        49.998897660135235,
+        50.001102339864765
+      ],
+      "hejhal_interval_r": [
+        6.999921261438232,
+        7.000078738561768
+      ],
+      "Y0_used": 1.5
+    },
+    "dual": {
+      "fem_lower": 1.0,
+      "hejhal_interval": [
+        49.998897660135235,
+        50.001102339864765
+      ],
+      "hejhal_width": 0.002204679729530312,
+      "overlap": [
+        49.998897660135235,
+        50.001102339864765
+      ],
+      "nonempty": true,
+      "width": 0.002204679729530312,
+      "width_tol": 0.1,
+      "width_ok": true,
+      "disjoint_from_unit_interval": true,
+      "eta_le_eta0": false,
+      "collar_floor": 0.0009464450661160688,
+      "counting": {
+        "status": "YELLOW",
+        "note": "Route A prototype (route_A_counting.py) addresses the counting gap but is not yet a certified N(\u03bb)=[0,0] on (1,\u03bb1)."
+      },
+      "dual_interval_status": "YELLOW",
+      "language": "FEM gives certified \u03bb\u22651. Hejhal+D(K) gives a conditional existence interval under H,A,S. Full \u00a713 first-eigenvalue cert needs counting + \u03b7\u2264\u03b70 + width<tol + reproducibility."
+    },
+    "target_eta": 1e-10,
+    "Y0_defect": 1.5
+  },
+  "assumptions": [
+    "H",
+    "A",
+    "S"
+  ],
+  "level": "(2+i)",
+  "NP": 5,
+  "blockers": [
+    "eta_le_eta0",
+    "overlap_nonempty_disjoint_unit",
+    "width_lt_tol",
+    "counting_certified"
+  ]
+}
