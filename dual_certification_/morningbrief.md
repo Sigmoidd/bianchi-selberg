@@ -1,6 +1,6 @@
 # Morning brief — Rung 4 residual path
 
-**Updated:** \(V_h^{P1,\mathrm{per}}\) / \(J_h\) bridge + true-height σ₀ hybrid modes  
+**Updated:** next three steps — \(V_h^{P1,\mathrm{per}}\) spectrum, production two-cusp residual, Route A Arb scaffold  
 **Hard map (do not change):**  
 `F5_gluing=true, FEM_exclusion_01=true, two_cusp_hejhal_scan=true, defect_bound_applied=true,`  
 `eta_le_eta0=false, width_lt_tol=false, counting_certified=false`  
@@ -10,111 +10,129 @@
 
 ## 0. Snapshot
 
-| Shipped | Note |
-|---------|------|
-| C1 1.0–1.2+**1.6 proved** | C1≈**1.98e3**, η₀≈**6.4e-8**, gap **~3.9** orders @ η=5e-4 |
-| Hybrid multi + periodize | best δ≈**0.088** (M=48); larger M worsens absolute δ |
-| **`p1_per_jh_bridge.py`** | \(V_h^{P1,\mathrm{per}}\) + \(J_h\) cross-copy defect (**PASS**) |
-| **sigma0 hybrid modes** | true-height σ₀ pin; ~10× vs col, not better than periodize |
+| Item | Status |
+|------|--------|
+| C1 1.1+1.2+1.6 | **C1≈1.98e3**, η₀≈6.4e-8, gap **~3.9** orders |
+| Hybrid Fourier δ | best ~0.09 (periodize M=48) |
+| \(J_h\) / periodic ID | PASS |
+| **Q/M on \(V_h^{P1,\mathrm{per}}\)** | **shipped** — first pos Neumann ~**6.83** |
+| **Production two-cusp residual** | **shipped** — δ_∞~0.17, rel~1.6e-4 (M=40) |
+| **Route A Arb scaffold** | **shipped** — N(1) candidate **[0,1]** YELLOW |
 
 ---
 
-## 1. C1 (closed 1.0–1.2, 1.6)
+## 1. \(V_h^{P1,\mathrm{per}}\) spectrum (step 1)
 
-\(A_{\mathrm{bdry}}=C_{\mathrm{tr}}C_{\mathrm{Sob}}A_{\mathrm{met}}\) (λ-free).  
-Open: 1.3–1.5 mesh / directional / Sobolev (~1.2–4× each).
+**Code:** `v_h_p1_per_spectrum.py`  
+Reuses `assemble_level_p` (cross-copy pairings, free self/top).
 
----
+| mesh | dofs | λ₁^N | first pos N | λ₁^D |
+|------|-----:|-----:|------------:|-----:|
+| 4×2×2, 6 copies | 4816 | ~0 | **6.825** | 19.58 |
 
-## 2. δ_aut residual path
+Checks: |Q1|~0, t∞(1)=1/2, t0(1)=5/2, connected.  
+**Language:** engineering CR spectrum on conforming-periodic space — **not** certified dual upper bound (needs CR GLB / residual / counting).
 
-| mode (M=48, jw=2) | δ_aut | fac vs col |
-|-------------------|------:|-----------:|
-| collocation | 3.39 | 1× |
-| multi hybrid | 0.443 | 7.6× |
-| **periodize** | **0.088** | **38×** |
-| sigma0 (true height) | 0.342 | 9.9× |
-| sigma0_per | 0.670 | 5.1× |
-
-True-height σ₀ hybrid is honest production shape but **does not beat** height-matched periodize on absolute δ. Larger M still worsens δ (see `hybrid_scan_M.md`).
+```bash
+python v_h_p1_per_spectrum.py --N1 4 --N2 2 --N3 2
+```
 
 ---
 
-## 2b. \(V_h^{P1,\mathrm{per}}\) / \(J_h\) bridge (**new**)
+## 2. Production two-cusp residual (step 2)
 
-**Code:** `p1_per_jh_bridge.py`  
-**Level:** Γ₀(2+i), 6 copies, PAIRINGS T1/R/TiR/S from congruence.
+**Code:** `production_hejhal_residual.py`  
+Two-cusp near-kernel + true H³ PAIRINGS δ_aut (+ optional Poincaré).
 
-| Quantity | Result |
-|----------|--------|
-| raw CR face dofs (4×2×2 mesh) | 5088 |
-| periodic dofs | 4816 (~1.06× reduction) |
-| cross-copy merges | 464 edges |
-| self-relaxed (Neumann) | 208 |
-| \(J_h^{\mathrm{cross}}\)(constant) | 0 |
-| \(J_h^{\mathrm{cross}}\)(free Neumann random) | O(1) (~5.9) |
-| \(J_h^{\mathrm{cross}}\)(\(V_h^{P1,\mathrm{per}}\) lift) | **0** (by construction) |
-| free→periodic L² defect | ~0.24 |
+| quantity (M=40, r=6, Y0=0.8, periodize) | value |
+|----------------------------------------|------:|
+| two-cusp rel σ_min/σ_max | 1.58e-4 |
+| κ_eq | ~6e3 (ill-conditioned; model) |
+| δ_aut(∞) | **0.173** |
+| δ_aut(0) | 0.131 |
+| τ_proxy | 9.6e-4 |
+| η_proxy | ~0.174 |
 
-**Semantics (do not violate):**
-- Free Neumann Rayleigh is **lower-bound flavor**, not dual upper bound.
-- \(V_h^{P1,\mathrm{per}}\) = CR face-means modulo **cross-copy** gluing only.
-- Self-faces stay free (Neumann); \(J_h^{\mathrm{self}}\) need not vanish.
-- Companion \(J_h^{\mathrm{cross}}(u)\) measures defect of a free trial vs periodic space.
-- **Not yet:** Q/M assembly + Rayleigh on \(V_h^{P1,\mathrm{per}}\) for dual cert.
+vs single-cusp periodize M=48 (δ~0.09): two-cusp model residual is **same order**, slightly worse δ, much better collocation rel. Still **~6 orders** short of η₀~6e-8.
 
-Reproduce: `python p1_per_jh_bridge.py`
+```bash
+python production_hejhal_residual.py --M 40 --r 6.0
+# optional: --r-scan 5.5:7.0:7
+```
 
 ---
 
-## 3–4. τ / η₀ / Route A
+## 3. Route A Arb / D–N scaffold (step 3)
 
-Unchanged: residual M-scan; U_norm API; Route A trunc RED.
+**Code:** `route_A_arb_scaffold.py`
+
+| deliverable | status |
+|-------------|--------|
+| Float Picard D/N | done |
+| Relative mid/rad on Q,M | done (placeholder for Arb) |
+| Interval matvec residual | done (~1e-10 on first pos mode) |
+| KAPPA1 GLB sketch | done |
+| Candidate N(λ) integer interval shape | **YELLOW** e.g. N(1)=**[0,1]** |
+| Truncation Δ constants | scaffold only |
+| Certified counting | **still false** |
+
+```bash
+python route_A_arb_scaffold.py --N1 6 --N2 3 --N3 3
+```
 
 ---
 
-## 5. Checklist
+## 4. Master checklist
 
 ### Done
-- [x] Hard map honest
-- [x] C1 1.1+1.2+1.6 → C1 1.98e3
+- [x] C1 geometry + §1.6 rewrite
 - [x] Hybrid multi / periodize / hybrid_scan_M
-- [x] **\(V_h^{P1,\mathrm{per}}\) identification + \(J_h\) bridge PASS**
-- [x] True-height σ₀ hybrid modes (engineering)
+- [x] \(J_h\) + \(V_h^{P1,\mathrm{per}}\) identification
+- [x] **Spectrum on \(V_h^{P1,\mathrm{per}}\)**
+- [x] **Production two-cusp residual API**
+- [x] **Route A Arb/D–N scaffold + candidate N(λ)**
 
-### Open
-- [ ] Assemble Q/M on \(V_h^{P1,\mathrm{per}}\) + engineering Rayleigh (not dual upper yet without cert)
-- [ ] True two-cusp production Hejhal iterate (δ≪0.09)
-- [ ] counting_certified / eta_le_eta0 / width_lt_tol / rung4_certified
+### Open (dual GREEN blockers)
+- [ ] η ≲ η₀ (~6e-8) — residual still ~0.1
+- [ ] width &lt; 0.1 with production residual
+- [ ] counting_certified (Arb D/N + proved Δ_trunc → N=[0,0] on (1,λ₁))
+- [ ] CR GLB / Rump for continuum-safe bounds
+- [ ] rung4_certified
 
 ---
 
-## 6. Next
+## 5. Next priorities
 
 | Pri | Action |
 |----:|--------|
-| 1 | Q/M on \(V_h^{P1,\mathrm{per}}\) (reuse congruence assemble_level_p reduction) |
-| 2 | Production two-cusp Hejhal residual at eigen-r |
-| 3 | Route A Arb D/N |
+| 1 | Drive residual: true Hejhal iterate / denser periodization / eigen-r search |
+| 2 | CR GLB on \(V_h^{P1,\mathrm{per}}\) first positive mode |
+| 3 | Arb tet assembly for Route A (replace relative mid/rad) |
 | 4 | Keep hard map |
 
 ---
 
-## 7. Reproduce
+## 6. Reproduce
 
 ```bash
 cd dual_certification_
+python v_h_p1_per_spectrum.py --N1 4 --N2 2 --N3 2
+python production_hejhal_residual.py --M 40 --r 6.0
+python route_A_arb_scaffold.py --N1 6 --N2 3 --N3 3
 python p1_per_jh_bridge.py
-python delta_aut_pairing.py --M 48 --compare --jump-weight 2
-python c1_audit_16.py
 python validate_gap_numbers.py
 python lemma_K.py --test
 ```
 
 ---
 
-## 8. Bottom line
+## 7. Bottom line
 
-Production C1 **~2e3**, gap **~3.9 orders**. Best Fourier residual still **δ~0.09** (periodize M=48). New **periodic CR identification** is correct and tested: cross-copy \(J_h=0\) on \(V_h^{P1,\mathrm{per}}\), free Neumann has \(J_h^{\mathrm{cross}}=O(1)\). Next engineering step is variational spectrum on that space — still not dual GREEN without residual + counting. Hard map unchanged.
+All three next steps landed as **engineering infrastructure**:
+1. Conforming-periodic CR spectrum (λ₊≈6.83)  
+2. Two-cusp production-shaped residual (δ~0.17, still far from η₀)  
+3. Route A candidate counting enclosure shape (N(1)=[0,1] YELLOW)  
+
+Dual remains **not certified**. Hard map unchanged.
 
 *Path: `dual_certification_/morningbrief.md`*

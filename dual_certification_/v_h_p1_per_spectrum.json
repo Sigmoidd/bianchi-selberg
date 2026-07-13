@@ -1,0 +1,71 @@
+{
+  "language": "Float CR spectrum on multi-copy pairing-conforming space V_h^{P1,per} for \u0393\u2080(2+i). Engineering diagnostic only \u2014 not certified dual upper bound; not free-Neumann lower-bound flavor. Hard map unchanged.",
+  "level": "(2+i)",
+  "NP": 5,
+  "INDEX": 6,
+  "mesh": {
+    "N1": 4,
+    "N2": 2,
+    "N3": 2
+  },
+  "n_dofs": 4816,
+  "n_top": 192,
+  "vol_check": 0.7608230441739238,
+  "Q1_norm": 6.661338147750939e-16,
+  "t_inf_sum": 0.5,
+  "t_0_sum": 2.5,
+  "lam_N": [
+    -2.602918425434039e-14,
+    6.825181118380323,
+    12.071719161570785,
+    17.67262370889042,
+    21.09054409130191,
+    30.138044995956065
+  ],
+  "lam_D": [
+    19.583635343715184,
+    25.79200144371831,
+    34.10521504182851,
+    41.63458659847364,
+    42.548957385824394,
+    53.264927411868264
+  ],
+  "brackets": [
+    [
+      1,
+      -2.602918425434039e-14,
+      19.583635343715184
+    ],
+    [
+      2,
+      6.825181118380323,
+      25.79200144371831
+    ],
+    [
+      3,
+      12.071719161570785,
+      34.10521504182851
+    ],
+    [
+      4,
+      17.67262370889042,
+      41.63458659847364
+    ],
+    [
+      5,
+      21.09054409130191,
+      42.548957385824394
+    ],
+    [
+      6,
+      30.138044995956065,
+      53.264927411868264
+    ]
+  ],
+  "first_positive_Neumann": 6.825181118380323,
+  "seconds": 0.9887659549713135,
+  "warnings": [
+    "CR is nonconforming; continuum upper bound needs CR theory / GLB.",
+    "Do not claim certified \u03bb1 or dual GREEN from this spectrum alone."
+  ]
+}

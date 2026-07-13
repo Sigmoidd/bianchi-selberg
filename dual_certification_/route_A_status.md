@@ -38,27 +38,24 @@ Copied from the source of truth; marks and notes reflect the **prototype scaffol
 
 [ ] Dirichlet and Neumann eigenvalue problems are both solved with guaranteed
     bounds (CR or Morley + post-processing).
-    note: RED. Float CR generalized eigenpairs Qv=λMv only (Neumann free top;
-    Dirichlet zero top-face dofs). No Arb assembly, no Rump, no CR GLB
-    post-processing applied as a certificate. Hooks documented in
-    route_A_counting.arb_upgrade_placeholder().
+    note: RED / partial. Float D/N + relative mid/rad on Q,M and interval
+    residual diagnostics in route_A_arb_scaffold.py. Still no true Arb assembly
+    of hyperbolic weights, no Rump, no certified CR GLB. KAPPA1 GLB sketch only.
 
 [ ] The bracketing inequality λ_k^{N,K_h} ≤ λ_k ≤ λ_k^{D,K_h} is proved with
     explicit constants that account for the truncation error.
-    note: RED. Candidate float intervals [λ_k^N, λ_k^D] are printed as diagnostics.
-    Classical D–N bracketing on a *fixed compact* domain does not automatically
-    control Spec(Γ\H³). Truncation-error constants: not proved here.
+    note: RED. Candidate float intervals [λ_k^N, λ_k^D] printed. Truncation
+    constants scaffolded (truncation_constants_scaffold) but not proved.
 
 [ ] The artificial-boundary error is itself enclosed by an Arb ball (or by a
     comparison with a larger domain).
-    note: RED — OPEN unless proved. Scaffold formulae now in
-    route_A_counting.truncation_constants_scaffold() (collar floor + strip
-    Poincaré proxy). Comparing Y vs Y' certified still future work.
+    note: RED — OPEN. Scaffold collar/strip formulae present. No proved Δ_trunc.
 
 [ ] Final counting function enclosure N(λ) is an integer interval; for the target
     λ it must be [0,0] on (1,λ₁).
-    note: RED. No integer-interval N(λ). Do not claim N(λ)=0 or certified first
-    eigenvalue. Status remains: addresses counting gap, not certified.
+    note: YELLOW candidate only. route_A_arb_scaffold produces
+    N(λ)∈[# {k:λ_k^D≤λ}, # {k:λ_k^N≤λ}] from float brackets (e.g. N(1)=[0,1]
+    includes Neumann null). Not Arb/Rump; not dual-certified.
 ```
 
 ### Green vs red summary

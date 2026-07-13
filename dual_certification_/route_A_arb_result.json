@@ -1,0 +1,145 @@
+{
+  "language": "Route A Arb scaffold: float D/N + relative mid/rad + GLB sketch + candidate N(\u03bb) shape + truncation formulae. Addresses counting gap; not certified.",
+  "mesh": {
+    "N1": 6,
+    "N2": 3,
+    "N3": 3,
+    "Y": 1.25,
+    "n_dofs": 738,
+    "h_max": 0.29345221827187856
+  },
+  "KAPPA1": 0.3311412341821403,
+  "rel_rad": 1e-12,
+  "lam_N": [
+    4.2751562014276796e-13,
+    6.236879547190206,
+    24.136403735926095,
+    28.746082418271193,
+    29.989776096781142
+  ],
+  "lam_D": [
+    12.146452452261041,
+    14.47160863896891,
+    35.17860159548507,
+    37.90996796825119,
+    39.90258996284931
+  ],
+  "glb_sketch_N": [
+    4.2751562014276624e-13,
+    5.889996019132101,
+    19.656404312376882,
+    22.609006842708478,
+    23.371307024106276
+  ],
+  "glb_sketch_D": [
+    10.896643795345915,
+    12.731777253814558,
+    26.40669587820652,
+    27.916508800402827,
+    28.982280228657814
+  ],
+  "brackets": [
+    [
+      1,
+      4.2751562014276796e-13,
+      12.146452452261041
+    ],
+    [
+      2,
+      6.236879547190206,
+      14.47160863896891
+    ],
+    [
+      3,
+      24.136403735926095,
+      35.17860159548507
+    ],
+    [
+      4,
+      28.746082418271193,
+      37.90996796825119
+    ],
+    [
+      5,
+      29.989776096781142,
+      39.90258996284931
+    ]
+  ],
+  "interval_residual_mode": {
+    "residual_mid_norm": 5.245533498613854e-14,
+    "residual_rad_norm": 3.5624457088541593e-10,
+    "residual_encl_norm": 3.562770528240508e-10,
+    "max_rad": 2.464724674747405e-11
+  },
+  "N_lambda_candidates": {
+    "at_1": {
+      "lambda_target": 1.0,
+      "N_lower_candidate": 0,
+      "N_upper_candidate": 1,
+      "enclosure": [
+        0,
+        1
+      ],
+      "status": "YELLOW",
+      "note": "Candidate integer interval from float D/N on K_Y only. Not Arb/Rump; truncation to \u0393\\H\u00b3 not enclosed. Do not claim N(\u03bb)=[0,0] for dual cert."
+    },
+    "at_first_D": {
+      "lambda_target": 12.146452452261041,
+      "N_lower_candidate": 1,
+      "N_upper_candidate": 2,
+      "enclosure": [
+        1,
+        2
+      ],
+      "status": "YELLOW",
+      "note": "Candidate integer interval from float D/N on K_Y only. Not Arb/Rump; truncation to \u0393\\H\u00b3 not enclosed. Do not claim N(\u03bb)=[0,0] for dual cert."
+    }
+  },
+  "truncation": {
+    "language": "Scaffold only \u2014 not a proved truncation theorem. Needed to close Route A bracketing_proved + artificial_boundary.",
+    "Y": 1.25,
+    "Y_prime": 1.5,
+    "r_target": 6.0,
+    "A_cut_proxy": 6.68624255837096,
+    "collar_floor_Y": 0.0025956207833911058,
+    "collar_floor_Yp": 0.0005395765488185759,
+    "strip_height": 0.25,
+    "poincare_strip_proxy": 157.91367041742973,
+    "delta_trunc_model": 0.008928194761037216,
+    "proof_obligations": [
+      "Enclose A_cut / C_Sob / A_met in Arb on the true core geometry",
+      "Prove |Spec(K_Y)\u2212Spec(\u0393\\H\u00b3)| \u2264 \u0394_trunc with explicit \u0394_trunc",
+      "Or: compare certified D/N spectra on K_Y and K_{Y'} and take limit",
+      "Feed \u0394_trunc into N(\u03bb) integer interval enclosure"
+    ],
+    "status": "RED_OPEN"
+  },
+  "checklist": {
+    "compact_core": [
+      true,
+      "Mesh built at engineering height Y=1.25 (product collar above Y is classical for Picard Humbert; Y itself is not Arb-certified as optimal)."
+    ],
+    "product_mesh": [
+      true,
+      "Picard mesh is product-like: (x1,x2)-grid extruded in height with floor lift (Lemma G). Top layer is flat y=Y \u2014 product collar ready. Non-product floor error handled by lift, not by Arb enclosure of collar mismatch."
+    ],
+    "dn_guaranteed": [
+      false,
+      "Float D/N + relative mid/rad on Q,M. Not Arb assembly; not Rump."
+    ],
+    "bracketing_proved": [
+      false,
+      "Discrete float [\u03bb_k^N, \u03bb_k^D] reported as candidate intervals only. No proof of bracketing with truncation-error constants."
+    ],
+    "artificial_boundary": [
+      false,
+      "Scaffold mid/rad + trunc constants present (route_A_arb_scaffold / truncation_constants_scaffold). Still no proved \u0394_trunc enclosure."
+    ],
+    "counting_enclosure": [
+      false,
+      "Candidate N(1.0)=[0, 1] from float brackets (YELLOW). Not certified integer interval."
+    ]
+  },
+  "seconds": 1.3301594257354736,
+  "hard_map_note": "counting_certified remains false"
+}
