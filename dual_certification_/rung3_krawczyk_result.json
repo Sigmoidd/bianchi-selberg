@@ -1,0 +1,110 @@
+[
+  {
+    "M": 32,
+    "r": 6.62212,
+    "Y0": 0.8,
+    "theta": 0.5,
+    "LEVEL": "(2+i)",
+    "NP": 5,
+    "n_modes": 100,
+    "kappa_raw": 483728261.45911986,
+    "kappa_precond": 27739980.041600924,
+    "S_radii": {
+      "S_rad_max": 5.889383611659731e-18,
+      "S_rad_mean": 1.4141718479992387e-20,
+      "S_rad_min": 1.3228603397385396e-25,
+      "S_rad_fro": 1.8460964166207812e-17,
+      "S_mid_fro": 0.011714855591306358,
+      "rel_fro": 1.575859302944184e-15
+    },
+    "krawczyk_success": true,
+    "krawczyk_history": [
+      {
+        "alpha": 4.1963416163009145e-08,
+        "contained": true,
+        "max_ratio": 0.00011505843540917494
+      }
+    ],
+    "krawczyk_cond": 36297.21516359621,
+    "lemma_K_tail": 6.56995459686127e-23,
+    "seconds": 1.8235821723937988,
+    "assumptions": [
+      "H",
+      "A",
+      "S"
+    ],
+    "language": "Krawczyk uniqueness for discrete pinned two-cusp collocation; NOT a certified Maass eigenvalue (Rung 4)."
+  },
+  {
+    "M": 48,
+    "r": 6.62212,
+    "Y0": 0.8,
+    "theta": 0.5,
+    "LEVEL": "(2+i)",
+    "NP": 5,
+    "n_modes": 144,
+    "kappa_raw": 432884913.29568756,
+    "kappa_precond": 2212013789.412003,
+    "S_radii": {
+      "S_rad_max": 5.889383611659731e-18,
+      "S_rad_mean": 7.081946931829877e-21,
+      "S_rad_min": 8.359962866201997e-27,
+      "S_rad_fro": 1.8461954311645855e-17,
+      "S_mid_fro": 0.011714855591321129,
+      "rel_fro": 1.575943823441005e-15
+    },
+    "krawczyk_success": true,
+    "krawczyk_history": [
+      {
+        "alpha": 1.2706406430946779e-08,
+        "contained": true,
+        "max_ratio": 0.0003658016324476084
+      }
+    ],
+    "krawczyk_cond": 10407.39140802903,
+    "lemma_K_tail": 4.363966979098679e-28,
+    "seconds": 3.132924795150757,
+    "assumptions": [
+      "H",
+      "A",
+      "S"
+    ],
+    "language": "Krawczyk uniqueness for discrete pinned two-cusp collocation; NOT a certified Maass eigenvalue (Rung 4)."
+  },
+  {
+    "M": 64,
+    "r": 6.62212,
+    "Y0": 0.8,
+    "theta": 0.5,
+    "LEVEL": "(2+i)",
+    "NP": 5,
+    "n_modes": 196,
+    "kappa_raw": 419321752.8657444,
+    "kappa_precond": 1260481950412.2188,
+    "S_radii": {
+      "S_rad_max": 5.889383611659731e-18,
+      "S_rad_mean": 3.9649821093976926e-21,
+      "S_rad_min": 2.8684883768312958e-28,
+      "S_rad_fro": 1.846280391730682e-17,
+      "S_mid_fro": 0.011714855591321148,
+      "rel_fro": 1.5760163472253837e-15
+    },
+    "krawczyk_success": true,
+    "krawczyk_history": [
+      {
+        "alpha": 1.9376108961686995e-08,
+        "contained": true,
+        "max_ratio": 0.0004965329266478428
+      }
+    ],
+    "krawczyk_cond": 8530.016632884035,
+    "lemma_K_tail": 1.6658676654002507e-32,
+    "seconds": 6.002353668212891,
+    "assumptions": [
+      "H",
+      "A",
+      "S"
+    ],
+    "language": "Krawczyk uniqueness for discrete pinned two-cusp collocation; NOT a certified Maass eigenvalue (Rung 4)."
+  }
+]

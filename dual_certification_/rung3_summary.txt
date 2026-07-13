@@ -1,0 +1,6 @@
+Rung3 two-cusp N=5 Krawczyk summary
+M=32 krawczyk=True kappa_pre=2.7740e+07 S_rad_max=5.8894e-18
+M=48 krawczyk=True kappa_pre=2.2120e+09 S_rad_max=5.8894e-18
+M=64 krawczyk=True kappa_pre=1.2605e+12 S_rad_max=5.8894e-18
+all_success=True
+rung3_krawczyk_item=YES

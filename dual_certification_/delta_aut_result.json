@@ -1,0 +1,49 @@
+{
+  "M": 32,
+  "r": 6.0,
+  "Y0": 0.8,
+  "theta": 0.5,
+  "y_min": 0.7071067811865475,
+  "use_true_height": true,
+  "scale": 4.279942437772497e-12,
+  "collocation": {
+    "sigma_min": 0.5619198324432749,
+    "sigma_max": 13.184504009037271,
+    "rel": 0.04261971721181995,
+    "tau_disc": 3.0719969576325588e-12,
+    "n_modes": 100.0,
+    "n_pts": 144.0,
+    "kappa_eq": 23.463318515934798
+  },
+  "per_generator": {
+    "T1": {
+      "n_samples": 16,
+      "delta_max": 2.2091374892035448e-14,
+      "delta_rms": 7.713117850821051e-15,
+      "jump_max_abs": 9.454981290916433e-26
+    },
+    "R": {
+      "n_samples": 16,
+      "delta_max": 17.048609828850527,
+      "delta_rms": 6.250025649943483,
+      "jump_max_abs": 7.296706871152268e-11
+    },
+    "TiR": {
+      "n_samples": 16,
+      "delta_max": 17.04860982885053,
+      "delta_rms": 6.250025649943484,
+      "jump_max_abs": 7.296706871152269e-11
+    },
+    "S": {
+      "n_samples": 16,
+      "delta_max": 1.2252193372563185,
+      "delta_rms": 0.6515554035445754,
+      "jump_max_abs": 5.2438682371028105e-12
+    }
+  },
+  "delta_aut": 17.04860982885053,
+  "tau_disc": 3.0719969576325588e-12,
+  "eta_production_proxy": 17.048609828853603,
+  "language": "\u03b4_aut = max_\u03b3 max_face |f\u2212f\u2218\u03b3|/||f||_horosphere from truncated Fourier near-kernel; \u03c4_disc = ||V a||\u2082 with ||a||\u2082=1. Model trial, not certified Maass form. Not for hard-map flip.",
+  "seconds": 0.34221506118774414
+}

@@ -1,0 +1,12 @@
+Hejhal conditioning diagnostic summary (NON-CERTIFYING)
+Y0=0.8 r=6.62212 theta=0.5
+M=[100, 200, 400, 800]
+b_diag_proxy=87.55205046025318
+b_raw_stable=44.336534659220085
+b_amp_right=0.560509429093483
+b_col_jacobi=0.5635670503324013
+b_amp_row=0.6298441196198578
+b_equilibrated=0.6259951860284031
+rung3_precond_b_lt_4=YES
+krawczyk_N5=NOT_RUN
+rung3_complete=NO

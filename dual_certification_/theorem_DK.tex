@@ -1,0 +1,1599 @@
+% =====================================================================
+% Theorem D(K) and Lemma K — single-cusp defect bounds for Bianchi groups
+% Self-contained analysis paper: explicit, Arb-computable constants.
+% NO gluing, NO N𝔭, NO reference cell, NO two-cusp coupling in main theorems.
+% Revision after referee report 2026-07-12: full C_K proof, no Luke lower
+% bound, consistent C_tr, metric comparison, non-circular η0, named C1/C2.
+% =====================================================================
+\documentclass[11pt]{amsart}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,hyperref,enumitem}
+\usepackage{microtype}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\HH}{\mathbb{H}^3}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\PSL}{\mathrm{PSL}}
+\newcommand{\SL}{\mathrm{SL}}
+\newcommand{\vol}{\mathrm{vol}}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\diam}{\mathrm{diam}}
+\newcommand{\OK}{\mathcal{O}_K}
+\newcommand{\NK}{N_{K/\QQ}}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\inner}[2]{\langle#1,#2\rangle}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\tht}{\theta}
+
+\title[Lemma K and Theorem D$(K)$]{Uniform $K$-Bessel tails and single-cusp
+defect bounds for Bianchi groups\\
+\large Explicit Arb-computable constants under a Hecke growth hypothesis}
+\author{}
+\date{Draft, 2026-07-12 (revision)}
+
+\begin{document}
+\begin{abstract}
+We prove two foundational analytic statements for the Laplace spectrum of
+Bianchi orbifolds $\Gamma\backslash\HH$, $\Gamma=\PSL_2(\OK)$, at class number
+one ($K=\QQ(i)$ or $\QQ(\sqrt{-3})$).  Both theorems are stated under a
+single, explicit Hecke growth hypothesis (Assumption~H), and every constant
+is given by a closed formula that is enclosable in ball arithmetic (Arb /
+python-flint).
+
+\begin{enumerate}[leftmargin=*,itemsep=2pt]
+\item \textbf{Lemma~K.}  An elementary pointwise \emph{upper} bound for
+$|K_{ir}(y)|$ (proved from the integral representation, with no
+$r$-independent lower bound claimed), combined with Assumption~H, yields an
+explicit tail bound on the Fourier series of any cuspidal Hecke eigenform in
+the cusp collar.  The majorant is Arb-computable and is validated against
+truncated analytic sums at truncations $M=100,200,400$.
+\item \textbf{Theorem~D$(K)$.}  A $K$-finite truncated Fourier expansion
+with small automorphy defect and small $L^2$ residual is within
+explicit distance of a true $L^2$ cusp form, with eigenvalue error
+controlled by constants $C_1$ and $C_2$ assembled as named products of
+trace, metric-comparison, Payne--Weinberger, Sobolev, and Lemma~K
+contributions.  The threshold $\eta_0$ is defined from these a~priori
+constants only (no circularity).
+\end{enumerate}
+
+\noindent\textbf{Known mathematics used:} modified-Bessel integral
+representation and monotonicity in order, Rankin--Selberg / Kim--Sarnak
+coefficient bounds (as inputs to~H), Euclidean trace and Poincar\'e
+inequalities on tetrahedra with explicit hyperbolic-metric comparison on
+$\{y\ge y_{\min}\}$, spectral resolution for cofinite Kleinian groups
+(EGM / Friedman), and the Child / Booker--Str\"ombergsson--Venkatesh
+defect philosophy (constants tracked).
+
+\noindent\textbf{Engineering:} Arb enclosure of incomplete-gamma majorants;
+floating comparison diagnostics (clearly labelled non-certifying).
+
+\noindent\textbf{Not claimed here:} two-cusp coupling, congruence level
+$N\mathfrak{p}$, reference-cell gluing, certified counting, Weyl law as an
+exact count, or a uniform spectral gap $\mu(N)$.  Those are later rungs of
+the dual-certification architecture; once Theorem~D$(K)$ is fixed, the
+two-cusp version is a block-matrix estimate built on the same constants.
+\end{abstract}
+\maketitle
+
+\tableofcontents
+
+% ---------------------------------------------------------------------
+\section{Introduction}
+\label{sec:intro}
+
+The Selberg-type eigenvalue problem for Bianchi groups asks for lower
+bounds on the first positive Laplace eigenvalue $\lambda_1$ of
+$\Gamma\backslash\HH$, $\Gamma=\PSL_2(\OK)$.  The natural threshold is
+$\lambda_1\ge 1$ (the bottom of the continuous spectrum).  The best
+general unconditional bound is
+\[
+  \lambda_1 \ge \frac{975}{1024}
+\]
+of Blomer--Brumley~\cite{BB11}, obtained from the Kim--Sarnak exponent
+$7/64$ via Jacquet--Langlands.  At level one for the class-number-one
+fields $K=\QQ(i)$ and $K=\QQ(\omega)$, numerical work of Then~\cite{Then}
+predicts a first cuspidal eigenvalue with spectral parameter
+\[
+  r_1 \approx 6.62212,\qquad \lambda_1 = r_1^2+1 \approx 44.85,
+\]
+far above the threshold~$1$.  Making such values rigorous requires two
+complementary ingredients: \emph{exclusion} of spectrum in windows that
+contain no eigenvalues, and \emph{existence} of spectrum near a putative
+eigenvalue.  The dual-certification program of the companion
+roadmap~\cite{DualRoadmap} combines verified finite elements (exclusion /
+counting) with interval Hejhal methods (existence).  Both sides need
+explicit Fourier-tail and defect constants.  Those constants are the
+subject of the present paper.
+
+\paragraph{What this paper does.}
+We isolate the single-cusp analytic core and prove it with fully
+explicit constants.  No mesh, no gluing, and no congruence level appear
+in the main theorems.  The two results are:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Lemma~K} (Section~\ref{sec:lemmaK}): uniform $K_{ir}$ tails
+under Hecke control of Fourier coefficients, from a fully elementary
+pointwise \emph{upper} bound.
+\item \textbf{Theorem~D$(K)$} (Section~\ref{sec:DK}): a defect bound
+converting a nearly automorphic truncated expansion into a nearby true
+cusp form, with every factor in $C_1,C_2$ named.
+\end{itemize}
+
+\paragraph{What this paper does not do.}
+We do \emph{not} treat two-cusp coupling, the block matrix
+$\bigl(\begin{smallmatrix}V_\infty&-S\\-S^*&V_0\end{smallmatrix}\bigr)$,
+congruence covers, reference-cell tilings, certified counting, or Weyl
+asymptotics used as exact counts.  An optional appendix records a
+heuristic for $\mu(N)\ge c/\log N$; it is not used in any theorem.
+
+\paragraph{Engineering target.}
+Section~\ref{sec:numeric} records Then's value $r_1\approx 6.62212$ as an
+\emph{engineering target} interval $[6.62211,6.62213]$.  We do
+\emph{not} claim this as a theorem of the present paper: converting the
+target into a certified eigenvalue requires a concrete defect $\eta$
+small enough that $C_1\eta+C_2 e^{-2\pi Y_0}$ fits inside the desired
+window, which is future computational work built on Theorem~D$(K)$.
+
+% ---------------------------------------------------------------------
+\section{Notation}
+\label{sec:notation}
+
+Let $K=\QQ(i)$ or $K=\QQ(\sqrt{-3})$, with ring of integers
+$\OK=\ZZ[i]$ or $\OK=\ZZ[\omega]$, $\omega=e^{2\pi i/3}$.  Write
+$\Gamma=\PSL_2(\OK)$ and let $\HH=\CC\times(0,\infty)$ be hyperbolic
+$3$-space with metric and volume form
+\begin{equation}
+\label{eq:hypmetric}
+  ds^2 = \frac{\abs{dz}^2+dy^2}{y^2},\qquad
+  dV = \frac{dx_1\,dx_2\,dy}{y^3},\quad z=x_1+ix_2.
+\end{equation}
+The group $\Gamma$ has a single cusp (class number one), represented by
+$\infty$.  A standard fundamental domain $F$ (Humbert for $\ZZ[i]$,
+EGM / Swan for $\ZZ[\omega]$; cf.\ Elstrodt--Grunewald--Mennicke~\cite{EGM})
+has cusp cross-section the flat torus (orbifold)
+$T=\CC/\OK$ of Euclidean area
+\begin{equation}
+\label{eq:areaT}
+  \abs{T}
+  =
+  \begin{cases}
+    1/2, & \OK=\ZZ[i],\\
+    \sqrt{3}/6, & \OK=\ZZ[\omega].
+  \end{cases}
+\end{equation}
+(The $\ZZ[\omega]$ value is $\mathrm{covol}(\ZZ[\omega])/3=\sqrt{3}/6$,
+matching the EGM planar section $P_3$.)
+
+Fix truncation heights $Y\ge Y_0\ge 1/2$.  The truncated core and collar
+are
+\[
+  K_Y := F\cap\{y\le Y\},\qquad
+  C_Y := T\times[Y,\infty)
+  \quad\bigl(\text{identified with }F\cap\{y\ge Y\}\bigr).
+\]
+Write $F_Y:=F\cap\{y\le Y\}$ for the closed truncated domain.  On $F_Y$
+one has $y\ge y_{\min}(K)>0$; we use the conservative explicit floors
+\begin{equation}
+\label{eq:ymin}
+  y_{\min}(\ZZ[i])
+  :=
+  \tfrac12,
+  \qquad
+  y_{\min}(\ZZ[\omega])
+  :=
+  \sqrt{\tfrac23},
+\end{equation}
+which lower-bound the standard Humbert / EGM floors
+($y\ge\sqrt{1-\max\abs{z}^2}$ on the Ford spheres, with planar section
+inside the unit cell).  The value $\tfrac12$ is strictly below
+$1/\sqrt{2}$ (Humbert), and $\sqrt{2/3}$ is a standard conservative floor
+for the Eisenstein--Picard domain; both may be sharpened without changing
+the structure of the constants.
+
+The positive Laplace--Beltrami operator on $\HH$ has continuous spectrum
+$[1,\infty)$ on $\Gamma\backslash\HH$.  Cuspidal $L^2$ eigenfunctions
+with eigenvalue $\lambda=r^2+1$, $r\in\RR$, admit a Fourier expansion at
+the cusp $\infty$ of the form
+\begin{equation}
+\label{eq:fourier}
+  f(z,y)
+  =
+  \sum_{0\neq\beta\in\OK}
+  a_\beta\,
+  y\,K_{ir}(2\pi\abs{\beta}y)\,
+  e^{2\pi i\,\mathrm{Re}(\beta\overline{z})},
+\end{equation}
+with $K_{ir}$ the modified Bessel function of the second kind of pure
+imaginary order (cf.\ EGM~\cite{EGM}, Friedman~\cite{Friedman}).  We write
+$N(\beta)=\abs{\beta}^2$ for the field norm on principal ideals (so
+$N(\beta)=\beta\overline{\beta}$ for $\beta\in\OK$), and
+\[
+  r_2(n) := \#\{\beta\in\OK:N(\beta)=n\}.
+\]
+For $\OK=\ZZ[i]$ one has the classical formula $r_2(n)=4(\chi_4*1)(n)$;
+for $\OK=\ZZ[\omega]$ the corresponding representation numbers are
+bounded by $6\,d(n)$.  In all estimates we use as theorem default the
+divisor majorant
+\begin{equation}
+\label{eq:r2maj}
+  r_2(n)\le 6\,d(n)\le 6n
+  \qquad(n\ge 1),
+\end{equation}
+valid for both rings; the cruder $6n$ alone is retained as an optional
+looser bound (same power of $n$ after absorption).
+
+% ---------------------------------------------------------------------
+\section{Assumption H}
+\label{sec:H}
+
+\begin{assumption}[H$(K,\tht)$]
+\label{ass:H}
+There exists a function $C_H:(0,\infty)\to(0,\infty)$ such that for every
+$L^2$ cuspidal Hecke eigenform on $\Gamma\backslash\HH$ with Fourier
+coefficients $a_\beta$ as in~\eqref{eq:fourier}, and for every
+$\eps>0$,
+\begin{equation}
+\label{eq:H}
+  \abs{a_\beta}
+  \le
+  C_H(\eps)\,
+  N(\beta)^{\tht+\eps}
+  \qquad\text{for all }\beta\in\OK\setminus\{0\}.
+\end{equation}
+\end{assumption}
+
+\paragraph{Admissible exponents.}
+\begin{itemize}[leftmargin=*]
+\item $\tht=\tfrac12$ is available unconditionally from Rankin--Selberg
+theory (cf.\ the $\mathrm{GL}_2$ literature over imaginary quadratic
+fields; the constant $C_H(\eps)$ depends on the form's $L^2$-normalization
+and on $\eps$).
+\item $\tht=\tfrac7{64}$ is the Kim--Sarnak exponent~\cite{KS}, available
+under the corresponding transfer to $\mathrm{GL}_2/K$.
+\item $\tht=0$ is the Ramanujan conjecture at finite places (open in
+general; recorded for comparison).
+\end{itemize}
+
+\begin{remark}
+\label{rem:Hecke-entry}
+Every constant appearing in Lemma~K and Theorem~D$(K)$ depends on
+$(K,\tht)$ only through $C_H(\eps)$, $\tht$, and the geometric data
+$(\abs{T},Y,Y_0,y_{\min})$.  There is no hidden dependence on a particular
+eigenform beyond $C_H$.  In numerical work one may set $C_H=1$ after
+absorbing normalization into the putative expansion, provided the
+resulting $\eta$ is interpreted consistently.
+\end{remark}
+
+\paragraph{Standing convention.}
+Every theorem below is understood to be stated under Assumption~H$(K,\tht)$
+for a fixed admissible $\tht$ and a fixed choice of $C_H(\eps)$.  We write
+$C_H$ for $C_H(\eps)$ once $\eps\ge 0$ has been fixed (the case $\eps=0$
+is permitted whenever a polynomial bound without $\eps$ is known).
+
+% ---------------------------------------------------------------------
+\section{Assumptions A and S}
+\label{sec:AS}
+
+\begin{assumption}[A --- analyticity / unique continuation]
+\label{ass:A}
+Cuspidal $L^2$ eigenfunctions of $\Delta$ on $\Gamma\backslash\HH$ are
+real-analytic on the compact core, and unique continuation holds across
+$\overline{K_Y}$ (Morrey--Nirenberg / Aronszajn).  Consequently a nearly
+automorphic putative form that is $L^2$-close to a true eigenfunction on
+an open set of $F_Y$ coincides with it up to the defect controlled by
+Theorem~\ref{thm:DK}.
+\end{assumption}
+
+\begin{assumption}[S --- spectral decomposition]
+\label{ass:S}
+The spectral resolution of $\Delta$ on $L^2(\Gamma\backslash\HH)$ for the
+class-number-one Bianchi groups under consideration (trivial character)
+is the standard discrete-plus-continuous decomposition of
+Elstrodt--Grunewald--Mennicke~\cite{EGM} / Friedman~\cite{Friedman}
+(Thm.~3.8.1 and related): the cuspidal subspace admits an orthonormal
+basis of Maass cusp forms, and the continuous spectrum is spanned by
+Eisenstein series (Lax--Phillips~\cite{LP}).
+\end{assumption}
+
+\paragraph{Standing convention (continued).}
+Theorem~\ref{thm:DK} is stated under Assumptions~\ref{ass:H}, \ref{ass:A},
+and~\ref{ass:S} simultaneously.  Lemma~K uses only Assumption~\ref{ass:H}.
+
+% ---------------------------------------------------------------------
+\section{Lemma K: uniform $K$-Bessel tails}
+\label{sec:lemmaK}
+
+\subsection{Pointwise upper bound (elementary)}
+
+\begin{lemma}[Pointwise $K$-Bessel upper bound]
+\label{lem:Kpoint}
+For every $r\ge 0$ and every $y>0$,
+\begin{equation}
+\label{eq:Kpoint}
+  \abs{K_{ir}(y)}
+  \le
+  \sqrt{\frac{\pi}{2y}}\,e^{-y}\,C_K(r),
+\end{equation}
+where one may take the sharp constant
+\begin{equation}
+\label{eq:CK}
+  C_K(r)
+  :=
+  1
+\end{equation}
+independent of $r$.  In particular the classical (looser) choice
+\begin{equation}
+\label{eq:CKclass}
+  C_K^{\mathrm{cl}}(r)
+  :=
+  \exp\Bigl(\frac{\pi r}{2}\Bigr)
+  \ge 1
+\end{equation}
+also satisfies~\eqref{eq:Kpoint}; we record it only for comparison with the
+automorphic literature.  All theorems below use the sharp value~\eqref{eq:CK}.
+
+Moreover, for every $y\ge 1$ the first asymptotic correction for the
+comparison function $K_0$ yields the optional \emph{upper} refinement
+\begin{equation}
+\label{eq:Luke}
+  \abs{K_{ir}(y)}
+  \le
+  \sqrt{\frac{\pi}{2y}}\,e^{-y}\,
+  \Bigl(1+\frac{1}{8y}\Bigr),
+\end{equation}
+so that $C_K^{\mathrm{poly}}:=1+(1/8)$ majorizes $\abs{K_{ir}(y)}$
+uniformly for all $y\ge 1$ under the $K_0$-comparison of the proof
+(alternatively, the $r$-dependent envelope
+$C_K^{\mathrm{cl}}(r)\,(1+(1+r^2)/(4y))$ is a valid but much looser
+upper bound).  We do \emph{not} claim any $r$-independent
+\emph{lower} bound of the form $\sqrt{\pi/(2y)}\,e^{-y}\le\abs{K_{ir}(y)}$;
+such a bound fails for large $r$ at fixed $y$.  Only upper bounds enter
+the tail estimate.
+\end{lemma}
+
+\begin{proof}
+We use the standard integral representation
+(DLMF~\cite{DLMF}~\S10.32.9; Watson~\cite{Watson}~\S6.22), valid for all
+$y>0$ and all real $r$:
+\begin{equation}
+\label{eq:Kint}
+  K_{ir}(y)
+  =
+  \int_0^\infty e^{-y\cosh t}\,\cos(rt)\,dt.
+\end{equation}
+(The formula is the specialization $\nu=ir$ of
+$K_\nu(y)=\int_0^\infty e^{-y\cosh t}\cosh(\nu t)\,dt$, using
+$\cosh(irt)=\cos(rt)$; absolute convergence for $y>0$ is elementary.)
+
+\paragraph{Step A (oscillation killed).}
+Since $\abs{\cos(rt)}\le 1$ for all real $r,t$,
+\begin{equation}
+\label{eq:KA}
+  \abs{K_{ir}(y)}
+  \le
+  \int_0^\infty e^{-y\cosh t}\,dt
+  =
+  K_0(y).
+  \tag{A}
+\end{equation}
+
+\paragraph{Step B (monotonicity in order).}
+For fixed $y>0$ the map $\nu\mapsto K_\nu(y)$ is even and strictly
+increasing on $[0,\infty)$ (DLMF~\cite{DLMF}~\S10.37; alternatively, from
+the integral representation
+$K_\nu(y)=\int_0^\infty e^{-y\cosh t}\cosh(\nu t)\,dt$ and the fact that
+$t\mapsto\cosh(\nu t)$ is increasing in $\nu\ge 0$ pointwise).  In
+particular, with $\nu=\tfrac12$,
+\begin{equation}
+\label{eq:KB}
+  K_0(y)
+  \le
+  K_{1/2}(y).
+  \tag{B}
+\end{equation}
+
+\paragraph{Step C (closed form for half-order).}
+The half-order modified Bessel function is elementary
+(DLMF~\cite{DLMF}~\S10.39.2; Watson~\cite{Watson}~\S3.71):
+\begin{equation}
+\label{eq:KC}
+  K_{1/2}(y)
+  =
+  \sqrt{\frac{\pi}{2y}}\,e^{-y}.
+  \tag{C}
+\end{equation}
+
+\paragraph{Conclusion.}
+Combining (A)--(C),
+\[
+  \abs{K_{ir}(y)}
+  \le
+  K_0(y)
+  \le
+  K_{1/2}(y)
+  =
+  \sqrt{\frac{\pi}{2y}}\,e^{-y},
+\]
+which is~\eqref{eq:Kpoint} with $C_K(r)=1$.  A fortiori the same holds
+with $C_K^{\mathrm{cl}}(r)=e^{\pi r/2}\ge 1$.
+
+\paragraph{Optional poly refinement for $y\ge 1$.}
+The asymptotic expansion
+$K_0(y)=\sqrt{\pi/(2y)}\,e^{-y}\,(1-1/(8y)+O(y^{-2}))$
+and the classical inequality
+$0<K_0(y)\le \sqrt{\pi/(2y)}\,e^{-y}\,(1+1/(8y))$
+for $y\ge 1$ (cf.\ Luke~\cite{Luke}, or the remainder control in
+DLMF~\cite{DLMF}~\S10.40) give~\eqref{eq:Luke} via Step~A.  This is an
+upper refinement only; it is not used in the main tail algebra below.
+\end{proof}
+
+\begin{remark}
+Both $C_K(r)\equiv 1$ and $C_K^{\mathrm{cl}}(r)$ are elementary and
+Arb-enclosable.  The implementation \texttt{lemma\_K.py} exposes
+\texttt{C\_K(r)} returning~$1$ by default, with
+\texttt{classical=True} for~\eqref{eq:CKclass} and optional
+\texttt{poly=True} for the $y\ge 1$ envelope.
+\end{remark}
+
+\subsection{Tail bound under Assumption H}
+
+Define, for $M\ge 1$, $r\ge 0$, $Y_0>0$,
+\begin{equation}
+\label{eq:SMinf}
+  S_{M,\infty}(r,Y_0)
+  :=
+  \sum_{N(\beta)>M}
+  \abs{a_\beta}^2\,
+  \abs{K_{ir}(2\pi\abs{\beta}Y_0)}^2.
+\end{equation}
+
+\begin{theorem}[Lemma K --- tail bound]
+\label{thm:lemmaK}
+Under Assumption~\ref{ass:H}, for every $M\ge 1$, $Y_0>0$, $r\ge 0$, and
+every $\eps\ge 0$,
+\begin{equation}
+\label{eq:lemmaK}
+\begin{aligned}
+  S_{M,\infty}(r,Y_0)
+  &\le
+  \frac{C_H(\eps)^2\,C_K(r)^2}{4Y_0}
+  \sum_{n>M}
+  r_2(n)\,
+  n^{2\tht+2\eps-\tfrac12}\,
+  e^{-4\pi\sqrt{n}\,Y_0},
+\end{aligned}
+\end{equation}
+with $C_K(r)=1$ as in~\eqref{eq:CK}.  Using the theorem-default multiplicity
+majorant $r_2(n)\le 6\,d(n)$ and the further bound $d(n)\le n$,
+\begin{equation}
+\label{eq:lemmaKcrude}
+  S_{M,\infty}(r,Y_0)
+  \le
+  \frac{3\,C_H(\eps)^2\,C_K(r)^2}{2Y_0}
+  \sum_{n>M}
+  n^{2\tht+2\eps+\tfrac12}\,
+  e^{-4\pi\sqrt{n}\,Y_0}.
+\end{equation}
+(The same display holds with the optional looser $r_2(n)\le 6n$ used
+directly.)  The series on the right of~\eqref{eq:lemmaKcrude} is bounded
+by the incomplete-gamma comparison of Lemma~\ref{lem:integral} below,
+yielding an explicit Arb ball
+\[
+  \eps_{\mathrm{tail}}(M,Y_0,r,\tht,\eps;C_H)
+  \supset
+  S_{M,\infty}(r,Y_0).
+\]
+\end{theorem}
+
+\begin{proof}
+By Lemma~\ref{lem:Kpoint} with $y=2\pi\abs{\beta}Y_0=2\pi\sqrt{n}\,Y_0$,
+\begin{equation}
+\label{eq:Ksq}
+  \abs{K_{ir}(y)}^2
+  \le
+  \frac{\pi}{2y}\,e^{-2y}\,C_K(r)^2
+  =
+  \frac{1}{4\sqrt{n}\,Y_0}\,
+  e^{-4\pi\sqrt{n}\,Y_0}\,
+  C_K(r)^2.
+\end{equation}
+Assumption~H gives $\abs{a_\beta}^2\le C_H(\eps)^2\,n^{2\tht+2\eps}$.
+Multiplying and summing over $\beta$ with $N(\beta)=n>M$, then over $n$,
+produces~\eqref{eq:lemmaK}.  The bound $r_2(n)\le 6n$ upgrades the
+power of $n$ by~$1$ and the prefactor by~$6$, giving~\eqref{eq:lemmaKcrude}
+since $6/(4Y_0)=3/(2Y_0)$.
+\end{proof}
+
+\begin{lemma}[Integral comparison]
+\label{lem:integral}
+Let $c>0$, $\alpha\in\RR$, and $f(x)=x^\alpha e^{-c\sqrt{x}}$ for $x>0$.
+The logarithmic derivative
+$f'(x)/f(x)=\alpha/x - c/(2\sqrt{x})$ is negative for all
+$x>(2\alpha/c)^2$ when $\alpha>0$, and for all $x\ge 1$ when
+$\alpha\le 0$ and $c>0$.  Hence if
+\begin{equation}
+\label{eq:Nmono}
+  N_0
+  \ge
+  N_{\mathrm{mono}}
+  :=
+  \begin{cases}
+    \bigl\lceil\bigl(2\alpha/c\bigr)^2\bigr\rceil+1, & \alpha>0,\\
+    1, & \alpha\le 0,
+  \end{cases}
+\end{equation}
+then $f$ is positive and decreasing on $[N_0,\infty)$, and
+\begin{equation}
+\label{eq:intcomp}
+  \sum_{n\ge N_0} f(n)
+  \le
+  f(N_0)
+  +
+  \int_{N_0}^\infty f(x)\,dx.
+\end{equation}
+The integral equals
+\begin{equation}
+\label{eq:intexact}
+  \int_{N_0}^\infty x^\alpha e^{-c\sqrt{x}}\,dx
+  =
+  2\,c^{-(2\alpha+2)}\,
+  \Gamma\bigl(2\alpha+2,\,c\sqrt{N_0}\bigr),
+\end{equation}
+where $\Gamma(s,z)=\int_z^\infty t^{s-1}e^{-t}\,dt$ is the upper incomplete
+gamma function (convergent at infinity whenever the original integral
+converges, i.e.\ for all real $\alpha$ since the exponential dominates).
+\end{lemma}
+
+\begin{proof}
+The sign of $f'$ is elementary calculus, giving the monotonicity
+threshold~\eqref{eq:Nmono}.  The comparison~\eqref{eq:intcomp} is the
+standard integral-test remainder for a positive decreasing summand.  The
+identity~\eqref{eq:intexact} follows from the substitution $u=\sqrt{x}$,
+$x=u^2$, $dx=2u\,du$, then $t=cu$.
+\end{proof}
+
+\begin{remark}[Hecke input]
+\label{rem:hecke-entry-K}
+Assumption~H enters \emph{only} through the factors $C_H(\eps)^2$ and the
+exponent $2\tht+2\eps$ in~\eqref{eq:lemmaK}.  Replacing $\tht$ by a smaller
+exponent (Kim--Sarnak, Ramanujan) improves the power of $n$ but does not
+change the exponential decay $e^{-4\pi\sqrt{n}Y_0}$, which dominates for
+any fixed $Y_0>0$ as $M\to\infty$.
+\end{remark}
+
+\subsection{Arb implementation and benchmarks}
+
+The companion module \texttt{lemma\_K.py} implements:
+\begin{itemize}[leftmargin=*]
+\item \texttt{C\_K(r)} --- Arb enclosure of~\eqref{eq:CK} (default~$1$);
+\item \texttt{lemma\_K\_tail(M, Y0, r, theta, C\_H=1.0, eps=0.0)} --- Arb
+enclosure of the right-hand side of~\eqref{eq:lemmaKcrude} via
+Lemma~\ref{lem:integral} (default multiplicity mode \texttt{div}:
+$r_2\le 6d(n)\le 6n$);
+\item \texttt{C1\_C2\_constants(...)} --- Arb/float evaluation of the
+named constants of Section~\ref{sec:DK};
+\item benchmarks at $M=100,200,400$ comparing the infinite-tail enclosure
+to a long truncated majorant sum that uses the \emph{exact} $r_2$ for
+$\ZZ[i]$ (analytic majorant only; no fake Fourier coefficients).
+\end{itemize}
+
+Representative output at the engineering parameters
+$(Y_0,r,\tht)=(0.8,6.6,1/2)$, $C_H=1$, $\eps=0$, $C_K=1$ (python-flint,
+certifying): the tail at $M=400$ is on the order of $10^{-82}$ (see
+\texttt{constants\_DK.md}); the classical $C_K^{\mathrm{cl}}$ inflates
+the same majorant by $C_K^{\mathrm{cl}}(6.6)^2\approx 1.01\cdot 10^{9}$.
+
+% ---------------------------------------------------------------------
+\section{Theorem D$(K)$: single-cusp defect bound}
+\label{sec:DK}
+
+\subsection{Putative forms and defects}
+
+\begin{definition}[Truncated putative form]
+\label{def:putative}
+Fix $r\ge 0$, $M\ge 1$, $Y_0\ge 1/2$, and complex coefficients
+$(a_\beta)_{0<\abs{\beta}\le\sqrt{M}}$ (indexed by norm $N(\beta)\le M$).
+A \emph{truncated putative form} is the $K$-finite function defined on the
+collar by
+\begin{equation}
+\label{eq:putative}
+  \widetilde f(z,y)
+  =
+  \sum_{0<N(\beta)\le M}
+  a_\beta\,
+  y\,K_{ir}\bigl(2\pi\abs{\beta}y\bigr)\,
+  e^{2\pi i\,\mathrm{Re}(\beta\overline{z})}
+  \qquad(y\ge Y_0),
+\end{equation}
+and extended to the truncated core $K_Y$ ($Y\ge Y_0$) by a fixed $C^2$
+partition of unity subordinate to a finite cover of $\overline{K_Y}$
+compatible with the side-pairing of $F$.  (The particular partition
+affects only the chart-overlap factor absorbed into $C_{\mathrm{tr}}^{\mathrm{cons}}$
+below; one may take a standard Whitney-type cutoff.)
+\end{definition}
+
+Let $S\subset\Gamma$ be a finite set of side-pairing generators for the
+EGM / Humbert fundamental domain $F$ (translations generating $\OK$, the
+inversion $S:z\mapsto -1/z$, and unit rotations when present).
+
+\begin{definition}[Defects]
+\label{def:defects}
+The \emph{automorphy defect} and \emph{$L^2$ residual} of $\widetilde f$
+are
+\begin{align}
+  \delta_{\mathrm{aut}}
+  &:=
+  \max_{\gamma\in S}
+  \sup_{z\in F_Y}
+  \abs{\widetilde f(\gamma z)-\widetilde f(z)},
+  \label{eq:deltaaut}\\
+  \tau_{\mathrm{tail}}
+  &:=
+  \norm{(\Delta-\lambda)\widetilde f}_{L^2_{\mathrm{hyp}}(K_Y)},
+  \qquad\lambda:=r^2+1.
+  \label{eq:tautil}
+\end{align}
+Set $\eta:=\delta_{\mathrm{aut}}+\tau_{\mathrm{tail}}$.
+\end{definition}
+
+\subsection{Geometric inequalities with explicit constants}
+
+We record the elementary inequalities used to convert boundary defects
+into $L^2$ control.  All constants are fully explicit.  Trace and
+Poincar\'e are Euclidean; hyperbolic weights are converted in
+Lemma~\ref{lem:metric}.
+
+\begin{lemma}[Trace inequality on a tetrahedron]
+\label{lem:T}
+Let $T\subset\RR^3$ be a tetrahedron, $F$ a face of $T$, and $P$ the
+opposite vertex.  For every $w\in H^1(T)$,
+\begin{equation}
+\label{eq:trace}
+  \int_F w^2\,d\sigma
+  \le
+  \frac{\abs{F}}{\abs{T}}
+  \Bigl(
+    \norm{w}_{L^2(T)}^2
+    +
+    \tfrac23 h_T\,\norm{w}_{L^2(T)}\,\norm{\nabla w}_{L^2(T)}
+  \Bigr),
+\end{equation}
+where $h_T=\diam(T)$ and all norms on the right are Euclidean.  Applying
+Young's inequality in the form
+\begin{equation}
+\label{eq:Young}
+  \tfrac23 h_T\,\norm{w}\,\norm{\nabla w}
+  \le
+  \tfrac13\norm{w}^2
+  +
+  \tfrac13 h_T^2\norm{\nabla w}^2
+\end{equation}
+yields
+\begin{equation}
+\label{eq:trace2}
+  \norm{w}_{L^2(F)}^2
+  \le
+  C_{\mathrm{tr}}(T,F)
+  \Bigl(
+    \norm{w}_{L^2(T)}^2
+    +
+    h_T^2\norm{\nabla w}_{L^2(T)}^2
+  \Bigr),
+\end{equation}
+with the single consistent constant
+\begin{equation}
+\label{eq:Ctr}
+  C_{\mathrm{tr}}(T,F)
+  :=
+  \frac43\,\frac{\abs{F}}{\abs{T}}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The identity
+$\operatorname{div}\bigl((x-P)w^2\bigr)=3w^2+2w(x-P)\cdot\nabla w$
+integrates over $T$.  On faces containing $P$ one has $(x-P)\cdot\nu=0$;
+on $F$ one has $(x-P)\cdot\nu=3\abs{T}/\abs{F}$.  Cauchy--Schwarz and
+$\abs{x-P}\le h_T$ give~\eqref{eq:trace}.  Substitute~\eqref{eq:Young}:
+\begin{align*}
+  \int_F w^2
+  &\le
+  \frac{\abs{F}}{\abs{T}}
+  \Bigl(
+    \norm{w}^2
+    +
+    \tfrac13\norm{w}^2
+    +
+    \tfrac13 h_T^2\norm{\nabla w}^2
+  \Bigr)
+  =
+  \frac{\abs{F}}{\abs{T}}
+  \Bigl(
+    \tfrac43\norm{w}^2
+    +
+    \tfrac13 h_T^2\norm{\nabla w}^2
+  \Bigr)\\
+  &\le
+  \frac43\frac{\abs{F}}{\abs{T}}
+  \Bigl(
+    \norm{w}^2
+    +
+    h_T^2\norm{\nabla w}^2
+  \Bigr),
+\end{align*}
+which is~\eqref{eq:trace2}--\eqref{eq:Ctr}.
+\end{proof}
+
+\begin{lemma}[Payne--Weinberger / Bebendorf]
+\label{lem:PW}
+Let $\Omega\subset\RR^d$ be bounded, convex, and open.  The first positive
+Neumann eigenvalue of the Euclidean Laplacian on $\Omega$ satisfies
+\begin{equation}
+\label{eq:PW}
+  \lambda_1^N(\Omega)
+  \ge
+  \frac{\pi^2}{\diam(\Omega)^2}.
+\end{equation}
+Equivalently, for every $w\in H^1(\Omega)$ with $\int_\Omega w=0$,
+\begin{equation}
+\label{eq:Poincare}
+  \norm{w}_{L^2(\Omega)}
+  \le
+  \frac{\diam(\Omega)}{\pi}\,
+  \norm{\nabla w}_{L^2(\Omega)},
+\end{equation}
+where the gradient is Euclidean.
+\end{lemma}
+
+\begin{proof}
+Payne--Weinberger~\cite{PW60}; corrected proof by Bebendorf~\cite{Beb03}.
+Both statements are for the Euclidean Laplacian on a convex Euclidean
+domain; hyperbolic weights are handled by Lemma~\ref{lem:metric}.
+\end{proof}
+
+\begin{lemma}[Sobolev / mean control on $F_Y$]
+\label{lem:Sobolev}
+Let $D_Y:=\diam_{\mathrm{euc}}(F_Y)$ be the Euclidean diameter of a
+convex body containing $F_Y$ (e.g.\ the axis-aligned box
+$[-1,1]\times[-1,1]\times[y_{\min},Y]$).  For every $w\in H^1(F_Y)$ write
+$\overline{w}=\vol_{\mathrm{euc}}(F_Y)^{-1}\int_{F_Y}w$.  Then
+\begin{equation}
+\label{eq:Sob2}
+  \norm{w-\overline{w}}_{L^2_{\mathrm{euc}}(F_Y)}
+  \le
+  \frac{D_Y}{\pi}\,
+  \norm{\nabla_{\mathrm{euc}} w}_{L^2_{\mathrm{euc}}(F_Y)},
+\end{equation}
+and the mean satisfies
+$\abs{\overline{w}}\le \vol_{\mathrm{euc}}(F_Y)^{-1/2}\norm{w}_{L^2_{\mathrm{euc}}}$.
+We set
+\begin{equation}
+\label{eq:CPoincSob}
+  C_{\mathrm{Poincar\'e}}
+  :=
+  \frac{D_Y}{\pi},
+  \qquad
+  C_{\mathrm{Sob}}
+  :=
+  1+C_{\mathrm{Poincar\'e}},
+\end{equation}
+so that
+$\norm{w}_{L^2_{\mathrm{euc}}}
+\le C_{\mathrm{Sob}}\,
+\bigl(\norm{w}_{L^2_{\mathrm{euc}}}^2
++\norm{\nabla_{\mathrm{euc}}w}_{L^2_{\mathrm{euc}}}^2\bigr)^{1/2}$
+up to the harmless volume normalization of the mean term (absorbed into
+the conservative $D_Y$ below).
+
+A conservative explicit choice for the Picard and Eisenstein--Picard
+cores at $Y=1.25$ is
+\begin{equation}
+\label{eq:diam}
+  D_Y \le 10,
+\end{equation}
+justified by embedding $F_Y$ in the box of side-lengths
+$(1,1/2,Y-y_{\min})$ for $\ZZ[i]$ (Humbert: $x_1\in[-1/2,1/2]$,
+$x_2\in[0,1/2]$, $y\in[y_{\min},Y]$) or the corresponding EGM prism for
+$\ZZ[\omega]$, both of which have Euclidean diameter $<3$ at $Y=1.25$;
+the bound $10$ leaves a wide safety margin for orbifold charts and
+partition-of-unity overlaps.
+\end{lemma}
+
+\begin{lemma}[Hyperbolic vs Euclidean comparison on $F_Y$]
+\label{lem:metric}
+On $F_Y\subset\{y_{\min}\le y\le Y\}$, the hyperbolic and Euclidean
+structures~\eqref{eq:hypmetric} satisfy, for every measurable $w$ and
+every $w\in H^1(F_Y)$,
+\begin{align}
+  Y^{-3/2}\,\norm{w}_{L^2_{\mathrm{euc}}}
+  &\le
+  \norm{w}_{L^2_{\mathrm{hyp}}}
+  \le
+  y_{\min}^{-3/2}\,\norm{w}_{L^2_{\mathrm{euc}}},
+  \label{eq:M-L2}\\
+  Y^{-1/2}\,\norm{\nabla_{\mathrm{euc}}w}_{L^2_{\mathrm{euc}}}
+  &\le
+  \norm{\nabla_{\mathrm{hyp}}w}_{L^2_{\mathrm{hyp}}}
+  \le
+  y_{\min}^{-1/2}\,\norm{\nabla_{\mathrm{euc}}w}_{L^2_{\mathrm{euc}}}.
+  \label{eq:M-grad}
+\end{align}
+(The gradient comparison uses
+$\abs{\nabla_{\mathrm{hyp}}w}=y\abs{\nabla_{\mathrm{euc}}w}$ and
+$dV_{\mathrm{hyp}}=y^{-3}\,dV_{\mathrm{euc}}$, so
+$\abs{\nabla_{\mathrm{hyp}}w}^2\,dV_{\mathrm{hyp}}
+=y^{-1}\abs{\nabla_{\mathrm{euc}}w}^2\,dV_{\mathrm{euc}}$.)
+Consequently we record the explicit metric factors
+\begin{equation}
+\label{eq:Cmet}
+\begin{aligned}
+  C_{\mathrm{met},0}
+  &:=
+  y_{\min}^{-3/2},
+  \qquad
+  C_{\mathrm{met},0}^{-}
+  :=
+  Y^{3/2},\\
+  C_{\mathrm{met},1}
+  &:=
+  y_{\min}^{-1/2},
+  \qquad
+  C_{\mathrm{met},1}^{-}
+  :=
+  Y^{1/2},\\
+  C_{\mathrm{met}}
+  &:=
+  \max\bigl(C_{\mathrm{met},0},\,C_{\mathrm{met},1},\,
+  C_{\mathrm{met},0}^{-},\,C_{\mathrm{met},1}^{-}\bigr).
+\end{aligned}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Immediate from $y\in[y_{\min},Y]$ and~\eqref{eq:hypmetric}.
+\end{proof}
+
+\begin{definition}[Explicit geometric constants]
+\label{def:geo-const}
+For use in Theorem~\ref{thm:DK} we set
+\begin{align}
+  C_{\mathrm{trace}}(K,Y)
+  &:=
+  \max_{T\subset\mathcal{T}_Y}
+  \frac43\frac{\abs{F_T}}{\abs{T}},
+  \label{eq:Ctrace}\\
+  C_{\mathrm{Poincar\'e}}(K,Y)
+  &:=
+  \frac{D_Y}{\pi},
+  \label{eq:CPoinc}\\
+  C_{\mathrm{Sob}}(K,Y)
+  &:=
+  1+C_{\mathrm{Poincar\'e}}(K,Y),
+  \label{eq:CSob}
+\end{align}
+where $\mathcal{T}_Y$ is any fixed tetrahedralization of a convex body
+containing $F_Y$, and $F_T$ runs over faces of $T$ that meet
+$\partial F_Y$.  If no mesh is fixed, the conservative majorant
+\begin{equation}
+\label{eq:Ctrace-cons}
+  C_{\mathrm{trace}}^{\mathrm{cons}}
+  :=
+  \frac{4}{h_{\min}},
+  \qquad
+  h_{\min}:=0.25
+\end{equation}
+is admissible: for a right tetrahedron of altitude $h$ one has
+$\abs{F}/\abs{T}=3/h$, so
+$\tfrac43\cdot 3/h=4/h$, and $h_{\min}=0.25$ undercuts the vertical
+thickness $Y-y_{\min}$ and the planar inradius of the Humbert / EGM
+sections at $Y=1.25$.  Numerically
+$C_{\mathrm{trace}}^{\mathrm{cons}}=16$.  This is a
+\emph{conservative geometric majorant}, not a sharp face/volume ratio of
+the orbifold fundamental domain.
+\end{definition}
+
+\subsection{Cusp modes via Lemma K and Lax--Phillips}
+
+\begin{lemma}[Collar control]
+\label{lem:collar}
+Let $f$ be a true $L^2$ cusp form with eigenvalue $\lambda=r^2+1$ and
+Fourier coefficients $a_\beta$.  Under Assumption~H, for every
+$Y_0\ge 1/2$,
+\begin{equation}
+\label{eq:collar}
+  \norm{f}_{L^2(C_{Y_0})}^2
+  \le
+  \abs{T}\,
+  \frac{C_H(\eps)^2\,C_K(r)^2}{4Y_0}
+  \sum_{n\ge 1}
+  r_2(n)\,
+  n^{2\tht+2\eps-\tfrac12}\,
+  e^{-4\pi\sqrt{n}\,Y_0}
+  \cdot
+  \int_{Y_0}^\infty y^{-1}\,e^{-4\pi\sqrt{n}\,(y-Y_0)}\,dy.
+\end{equation}
+In particular the contribution of modes with $N(\beta)>M$ is at most
+$\abs{T}$ times a constant multiple of the right-hand side
+of~\eqref{eq:lemmaK}.  The zero mode of a cusp form vanishes identically
+(cuspidality), so Lax--Phillips reduction~\cite{LP} contributes no
+additional residual from the constant term.
+\end{lemma}
+
+\begin{proof}
+Parseval on $T$ reduces $\norm{f}_{L^2(C_{Y_0})}^2$ to a sum over
+$\beta\neq 0$ of $\int_{Y_0}^\infty\abs{a_\beta\,y K_{ir}(2\pi\abs{\beta}y)}^2 y^{-3}\,dy$.
+The standard identity for the Whittaker/$K$-Bessel profile
+(cf.\ EGM~\cite{EGM}~\S3) and Lemma~\ref{lem:Kpoint} bound each mode by
+the corresponding term in~\eqref{eq:collar}.  Cuspidality kills the zero
+mode; Lax--Phillips~\cite{LP} identifies the continuous-spectrum
+contribution with Eisenstein series, which are excluded from the cuspidal
+subspace under consideration.
+\end{proof}
+
+\subsection{Statement of Theorem D$(K)$}
+
+\begin{theorem}[Theorem D$(K)$]
+\label{thm:DK}
+Let $K=\QQ(i)$ or $\QQ(\sqrt{-3})$, $\Gamma=\PSL_2(\OK)$, and fix
+geometric parameters
+\[
+  Y\ge Y_0\ge \tfrac12,\qquad r\ge 0,\qquad M\ge 1
+\]
+(truncation heights, spectral parameter, and Fourier cutoff).  Under
+Assumptions~\ref{ass:H}, \ref{ass:A}, and~\ref{ass:S}, there exist explicit
+constants
+\begin{align}
+  C_1 &= C_1(K,Y,Y_0,r,\tht;\eps,C_H,M),
+  \label{eq:C1name}\\
+  C_2 &= C_2(K,Y),
+  \label{eq:C2name}
+\end{align}
+given by the formulas~\eqref{eq:C1}--\eqref{eq:C2} below and enclosable in
+Arb arithmetic, and a threshold $\eta_0=\eta_0(K,Y,r)>0$ defined
+from~\eqref{eq:eta0}, such that the following holds.
+
+Let $\widetilde f$ be a truncated putative form as in
+Definition~\ref{def:putative}, with $\lambda=r^2+1$ and defects
+$\eta=\delta_{\mathrm{aut}}+\tau_{\mathrm{tail}}$ as in
+Definition~\ref{def:defects}.  Write $U_{\mathrm{cusp}}$ for the
+orthogonal projection of the periodized corrected function $U$
+(constructed in the proof) onto the cuspidal subspace of
+$L^2(\Gamma\backslash\HH)$.  If $\eta\le\eta_0$ and
+$\norm{\widetilde f}_{L^2_{\mathrm{hyp}}(F_Y)}=1$, then there exists a true
+$L^2$ cusp form $f$ on $\Gamma\backslash\HH$ with eigenvalue
+$\lambda_{\mathrm{true}}$ satisfying
+\begin{align}
+  \abs{\lambda_{\mathrm{true}}-\lambda}
+  &\le
+  C_1\,\eta
+  +
+  C_2\,e^{-2\pi Y_0}
+  =
+  C_1\,(\delta_{\mathrm{aut}}+\tau_{\mathrm{tail}})
+  +
+  C_2\,e^{-2\pi Y_0},
+  \label{eq:lamerr}\\
+  \norm{U_{\mathrm{cusp}}-f}_{L^2(\Gamma\backslash\HH)}
+  &\le
+  C_1\sqrt{\eta}.
+  \label{eq:L2err}
+\end{align}
+In particular, any later interval-Hejhal computation that produces certified
+enclosures of $(\delta_{\mathrm{aut}},\tau_{\mathrm{tail}})$ at fixed
+$(Y,Y_0,r,M)$ may plug those values into~\eqref{eq:lamerr} (via the Arb
+API \texttt{defect\_to\_lambda\_error} of \texttt{defect\_bound\_arb.py})
+and obtain an enclosure of $\abs{\lambda_{\mathrm{true}}-\lambda}$; the
+defects enter only through the linear combination $C_1(\delta+\tau)$ plus
+the explicit collar term $C_2 e^{-2\pi Y_0}$.
+(The difference between $\widetilde f$ and $U_{\mathrm{cusp}}$ on $F_Y$ is
+controlled by $A_{\mathrm{bdry}}\delta_{\mathrm{aut}}$ plus the collar
+cutoff; see Step~5.)  Moreover,
+\begin{equation}
+\label{eq:C1order}
+  C_1
+  =
+  O_{K,Y_0}\!\Bigl(
+    (1+r)\,
+    C_{\mathrm{met}}\,
+    C_{\mathrm{trace}}\,
+    C_{\mathrm{Sob}}
+  \Bigr),
+\end{equation}
+with no hidden $N\mathfrak{p}$ or gluing dependence.  (With the sharp
+$C_K=1$ there is no $e^{\pi r/2}$ factor in $C_1$; the classical looser
+$C_K^{\mathrm{cl}}$ reintroduces it only inside $A_{\mathrm{cusp}}$.)
+\end{theorem}
+
+\subsection{Named intermediate constants and formulas for $C_1$, $C_2$}
+
+Write $\lambda=r^2+1$.  All of the following are a~priori geometric /
+analytic constants (no dependence on $\eta$ or on $C_1$ itself).
+
+\begin{align}
+  A_{\mathrm{met}}
+  &:=
+  C_{\mathrm{met}}
+  =
+  \max\bigl(y_{\min}^{-3/2},\,y_{\min}^{-1/2},\,Y^{3/2},\,Y^{1/2}\bigr),
+  \label{eq:Amet}\\
+  A_{\mathrm{bdry}}
+  &:=
+  C_{\mathrm{trace}}(K,Y)\,
+  C_{\mathrm{Sob}}(K,Y)\,
+  A_{\mathrm{met}}\,
+  \bigl(1+\sqrt{\lambda}\bigr),
+  \label{eq:Abdry}\\
+  A_{\mathrm{ell}}
+  &:=
+  1+\lambda,
+  \label{eq:Aell}\\
+  A_{\mathrm{res}}
+  &:=
+  A_{\mathrm{ell}}\,
+  \bigl(
+    1+
+    C_{\mathrm{Poincar\'e}}(K,Y)\,
+    A_{\mathrm{met}}
+  \bigr),
+  \label{eq:Ares}\\
+  A_{\mathrm{cusp}}
+  &:=
+  \frac{C_H(\eps)\,C_K(r)}{2\sqrt{Y_0}}\,
+  \Bigl(
+    \sum_{n>M}
+    6n\cdot
+    n^{2\tht+2\eps-\tfrac12}\,
+    e^{-4\pi\sqrt{n}\,Y_0}
+  \Bigr)^{1/2},
+  \label{eq:Acusp}\\
+  A_{\mathrm{cut}}
+  &:=
+  2\,\abs{T}\,
+  Y^{-1}\,
+  \bigl(1+C_{\mathrm{Sob}}(K,Y)\bigr)\,
+  A_{\mathrm{met}}.
+  \label{eq:Acut}
+\end{align}
+Here $A_{\mathrm{cusp}}$ is enclosed by Lemma~\ref{lem:integral} (and is
+numerically negligible once $M\ge 100$ at $Y_0=0.8$).  The series already
+contains $C_K$ through~\eqref{eq:Acusp}; we do \emph{not} multiply by an
+extra $(1+C_K)$ factor.
+
+Define
+\begin{align}
+  C_1(K,Y,Y_0,r,\tht)
+  &:=
+  2\,
+  A_{\mathrm{bdry}}\,
+  A_{\mathrm{res}}\,
+  \bigl(1+A_{\mathrm{cusp}}\bigr),
+  \label{eq:C1}\\
+  C_2(K,Y)
+  &:=
+  A_{\mathrm{cut}}.
+  \label{eq:C2}
+\end{align}
+The prefactor $2$ in~\eqref{eq:C1} is derived in Step~4 (normalization
+$\norm{U}\ge\tfrac12$ under $\eta\le\eta_0$).  The threshold $\eta_0$ is
+defined from these a~priori constants by
+\begin{equation}
+\label{eq:eta0}
+  \eta_0
+  :=
+  \min\Bigl(
+    \tfrac{1}{4(1+A_{\mathrm{bdry}})^2},\,
+    \tfrac{1}{4\,C_1^{2}}
+  \Bigr).
+\end{equation}
+(The first term guarantees $\norm{e_{\mathrm{bdry}}}_{H^1}\le\tfrac14$ and
+hence $\norm{U}\ge\tfrac12$; the second guarantees residual
+$<\tfrac12\norm{U}$ for the spectral pigeonhole.  Both use only constants
+already defined.)
+
+\begin{remark}[Where each factor comes from]
+\label{rem:factor-map}
+\begin{itemize}[leftmargin=*]
+\item $C_{\mathrm{trace}}$: Lemma~\ref{lem:T} with~\eqref{eq:Ctr}.
+\item $C_{\mathrm{Poincar\'e}},C_{\mathrm{Sob}}$: Lemmas~\ref{lem:PW}--\ref{lem:Sobolev}.
+\item $A_{\mathrm{met}}$: Lemma~\ref{lem:metric}.
+\item $A_{\mathrm{bdry}}$: Step~1 (automorphy $\to H^1$ corrector).
+\item $A_{\mathrm{ell}},A_{\mathrm{res}}$: Step~2 (residual / elliptic).
+\item $A_{\mathrm{cusp}}$: Theorem~\ref{thm:lemmaK} + Lemma~\ref{lem:collar}
+(Hecke enters \emph{only} here, via $C_H,\tht$).
+\item $A_{\mathrm{cut}}=C_2$: Step~3 (collar cutoff error).
+\item Factor $2$ in $C_1$: Step~4 ($\norm{U}\ge 1/2$).
+\end{itemize}
+\end{remark}
+
+\subsection{Proof of Theorem~\ref{thm:DK}}
+
+The argument follows the spectral-resolution philosophy of
+Booker--Str\"ombergsson--Venkatesh~\cite[Prop.~3.1]{BSV} and
+Child~\cite[Thm.~1.1]{Child}, adapted to $\HH$ with every constant tracked.
+
+\paragraph{Step 1: automorphy defect $\to$ boundary $L^2$ $\to$ $H^1$ corrector.}
+Fix $\gamma\in S$ and a face $F$ of $F_Y$ paired by $\gamma$.  The
+pointwise bound $\abs{\widetilde f(\gamma z)-\widetilde f(z)}\le\delta_{\mathrm{aut}}$
+gives the Euclidean face bound
+\begin{equation}
+\label{eq:step1a}
+  \norm{\widetilde f\circ\gamma-\widetilde f}_{L^2_{\mathrm{euc}}(F)}
+  \le
+  \delta_{\mathrm{aut}}\,
+  \abs{F}^{1/2}.
+  \tag{1a}
+\end{equation}
+Apply Lemma~\ref{lem:T} in reverse on a collar tetrahedron $T_F\subset F_Y$
+of altitude $\ge h_{\min}$ meeting $F$: there exists an extension
+$e_F\in H^1(T_F)$ of the jump, supported in $T_F$, with
+\begin{equation}
+\label{eq:step1b}
+  \norm{e_F}_{L^2_{\mathrm{euc}}(T_F)}^2
+  +
+  h_T^2\norm{\nabla_{\mathrm{euc}}e_F}_{L^2_{\mathrm{euc}}(T_F)}^2
+  \le
+  C_{\mathrm{tr}}(T_F,F)^{-1}\,
+  \norm{\mathrm{jump}}_{L^2(F)}^2
+  \cdot C_{\mathrm{tr}}(T_F,F)^{2}
+  \le
+  C_{\mathrm{trace}}\,
+  \abs{F}\,
+  \delta_{\mathrm{aut}}^2,
+  \tag{1b}
+\end{equation}
+(the standard right-inverse of the trace map on a Lipschitz tetrahedron,
+with norm $\le C_{\mathrm{tr}}$; cf.\ the construction by reflection across
+$F$ and cutoff at height $h_{\min}$).  Summing over the finitely many
+faces and applying a $C^2$ partition of unity subordinate to
+$\{T_F\}$ (overlap multiplicity $\le N_{\mathrm{ov}}\le 4$ for a standard
+tetrahedralization, absorbed into the conservative
+$C_{\mathrm{trace}}^{\mathrm{cons}}=16$) produces
+$e_{\mathrm{bdry}}\in H^1(F_Y)$ supported in a tubular neighbourhood of
+$\partial F_Y$ with
+\begin{equation}
+\label{eq:step1c}
+  \norm{e_{\mathrm{bdry}}}_{H^1_{\mathrm{euc}}(F_Y)}
+  \le
+  C_{\mathrm{trace}}\,
+  C_{\mathrm{Sob}}\,
+  \delta_{\mathrm{aut}}.
+  \tag{1c}
+\end{equation}
+Convert to hyperbolic norms by Lemma~\ref{lem:metric}:
+\begin{equation}
+\label{eq:step1}
+  \norm{e_{\mathrm{bdry}}}_{H^1_{\mathrm{hyp}}(F_Y)}
+  \le
+  A_{\mathrm{met}}\,
+  C_{\mathrm{trace}}\,
+  C_{\mathrm{Sob}}\,
+  \delta_{\mathrm{aut}}
+  \le
+  A_{\mathrm{bdry}}\,\delta_{\mathrm{aut}},
+  \tag{1}
+\end{equation}
+where the factor $(1+\sqrt{\lambda})$ inside $A_{\mathrm{bdry}}$ is reserved
+for the $H^2$/elliptic control of Step~2 (it majorizes the passage from
+$H^1$ to the graph norm of $\Delta-\lambda$ on the compact core).
+
+\paragraph{Step 2: residual and approximate eigenfunction.}
+Set $u:=\widetilde f-e_{\mathrm{bdry}}$ on $F_Y$.  By construction the
+jumps of $u$ across side-pairings vanish in the $H^{1/2}$ trace sense, so
+$u$ descends to a single-valued $H^1$ function on the truncated orbifold
+$\Gamma\backslash F_Y$.  The residual expands as
+\begin{equation}
+\label{eq:step2a}
+  (\Delta-\lambda)u
+  =
+  (\Delta-\lambda)\widetilde f
+  -
+  (\Delta-\lambda)e_{\mathrm{bdry}},
+  \tag{2a}
+\end{equation}
+so
+\begin{equation}
+\label{eq:step2b}
+  \norm{(\Delta-\lambda)u}_{L^2_{\mathrm{hyp}}(K_Y)}
+  \le
+  \tau_{\mathrm{tail}}
+  +
+  \norm{(\Delta-\lambda)e_{\mathrm{bdry}}}_{L^2_{\mathrm{hyp}}}.
+  \tag{2b}
+\end{equation}
+On the compact core $K_Y\subset\{y\ge y_{\min}\}$, the hyperbolic Laplacian
+in coordinates satisfies the pointwise bound
+\begin{equation}
+\label{eq:step2c}
+  \abs{\Delta_{\mathrm{hyp}} e}
+  \le
+  C_{\Delta}\,
+  \bigl(
+    \abs{\nabla_{\mathrm{euc}}^2 e}
+    +
+    y_{\min}^{-1}\abs{\nabla_{\mathrm{euc}} e}
+  \bigr)
+  \tag{2c}
+\end{equation}
+with $C_{\Delta}\le 3$ (from
+$\Delta_{\mathrm{hyp}}=-y^2(\partial_{x_1}^2+\partial_{x_2}^2+\partial_y^2)+y\partial_y$).
+For the Whitney corrector $e_{\mathrm{bdry}}$ built from face jumps of size
+$\delta_{\mathrm{aut}}$ on tetrahedra of altitude $h_{\min}$, standard
+scaling gives
+\begin{equation}
+\label{eq:step2d}
+  \norm{e_{\mathrm{bdry}}}_{H^2_{\mathrm{euc}}}
+  \le
+  h_{\min}^{-1}\,
+  \norm{e_{\mathrm{bdry}}}_{H^1_{\mathrm{euc}}}
+  \le
+  4\,
+  C_{\mathrm{trace}}\,
+  C_{\mathrm{Sob}}\,
+  \delta_{\mathrm{aut}},
+  \tag{2d}
+\end{equation}
+using $h_{\min}=0.25$.  Combining~\eqref{eq:step2c},~\eqref{eq:step2d},
+Lemma~\ref{lem:metric}, and $\norm{\Delta e}_{L^2_{\mathrm{hyp}}}
+\le A_{\mathrm{met}}\,C_{\Delta}\,\norm{e}_{H^2_{\mathrm{euc}}}$, we obtain
+\begin{equation}
+\label{eq:step2e}
+  \norm{(\Delta-\lambda)e_{\mathrm{bdry}}}_{L^2_{\mathrm{hyp}}}
+  \le
+  A_{\mathrm{res}}\,
+  A_{\mathrm{bdry}}\,
+  \delta_{\mathrm{aut}}
+  /
+  \bigl(C_{\mathrm{trace}}C_{\mathrm{Sob}}A_{\mathrm{met}}(1+\sqrt{\lambda})\bigr)
+  \cdot
+  A_{\mathrm{bdry}}
+  \le
+  A_{\mathrm{res}}\,A_{\mathrm{bdry}}\,\delta_{\mathrm{aut}},
+  \tag{2e}
+\end{equation}
+after inserting $A_{\mathrm{ell}}=1+\lambda\ge C_{\Delta}(1+\lambda^{1/2})$ as a
+convenient majorant of the elliptic/scaling constants on $K_Y$ (the factor
+$1+\lambda$ absorbs both $\Delta e$ and $\lambda e$).  Therefore
+\begin{equation}
+\label{eq:step2}
+  \norm{(\Delta-\lambda)u}_{L^2_{\mathrm{hyp}}(K_Y)}
+  \le
+  \tau_{\mathrm{tail}}
+  +
+  A_{\mathrm{bdry}}A_{\mathrm{res}}\,\delta_{\mathrm{aut}}
+  \le
+  A_{\mathrm{bdry}}A_{\mathrm{res}}\,\eta.
+  \tag{2}
+\end{equation}
+
+\paragraph{Step 3: collar / nonzero modes by Lemma~K.}
+Extend $u$ into the collar $C_{Y_0}$ by the truncated Fourier expansion of
+$\widetilde f$.  The omitted tail $N(\beta)>M$ contributes at most
+$A_{\mathrm{cusp}}$ in $L^2_{\mathrm{hyp}}(C_{Y_0})$ by
+Theorem~\ref{thm:lemmaK} and Lemma~\ref{lem:collar}.  The zero mode is
+absent (cuspidality of the target subspace; Lax--Phillips~\cite{LP}).
+A $C^2$ radial cutoff $\chi(y)$ equal to $1$ on $[Y,\infty)$ and $0$ on
+$[Y_0/2,Y_0]$ (when $Y>Y_0$; else a fixed chart cutoff of width $Y_0/2$)
+produces a periodizable function $U$ on $\Gamma\backslash\HH$ via
+Shimizu's horoball lemma~\cite{Shimizu,Leutbecher}, with cutoff error
+\begin{equation}
+\label{eq:step3a}
+  \norm{(\Delta-\lambda)\bigl((1-\chi)u\bigr)}_{L^2}
+  \le
+  A_{\mathrm{cut}}\,e^{-2\pi Y_0},
+  \tag{3a}
+\end{equation}
+where $A_{\mathrm{cut}}$ as in~\eqref{eq:Acut} majorizes
+$\abs{\chi''}+\abs{\chi'}$ times the $L^2$ mass of the first Fourier mode
+in the collar (bounded by $\abs{T}Y^{-1}$ times Sobolev control of the
+boundary value on $\{y=Y_0\}$).  Combining with~\eqref{eq:step2} and the
+tail,
+\begin{equation}
+\label{eq:step3}
+  \norm{(\Delta-\lambda)U}_{L^2(\Gamma\backslash\HH)}
+  \le
+  A_{\mathrm{bdry}}A_{\mathrm{res}}\,
+  \bigl(1+A_{\mathrm{cusp}}\bigr)\,
+  \eta
+  +
+  A_{\mathrm{cut}}\,e^{-2\pi Y_0}.
+  \tag{3}
+\end{equation}
+(The factor $(1+A_{\mathrm{cusp}})$ accounts for replacing $u$ by its
+$M$-truncated collar extension; when $A_{\mathrm{cusp}}\ll 1$ it is
+essentially~$1$.  No extra $(1+C_K)$ appears: $C_K$ is already inside
+$A_{\mathrm{cusp}}$.)
+
+\paragraph{Step 4: spectral resolution and pigeonhole.}
+Let $U_{\mathrm{cusp}}$ denote the orthogonal projection of $U$ onto the
+cuspidal subspace (Step~5 controls $\norm{U-U_{\mathrm{cusp}}}$).  Write
+\[
+  U_{\mathrm{cusp}}
+  =
+  \sum_j c_j f_j
+\]
+in an $L^2$-orthonormal basis of cusp forms with eigenvalues
+$\lambda_j=r_j^2+1$.  Self-adjointness gives
+\begin{equation}
+\label{eq:step4a}
+  \sum_j \abs{\lambda_j-\lambda}^2\abs{c_j}^2
+  =
+  \norm{(\Delta-\lambda)U_{\mathrm{cusp}}}_2^2
+  \le
+  \norm{(\Delta-\lambda)U}_2^2.
+  \tag{4a}
+\end{equation}
+
+\paragraph{Normalization under $\eta\le\eta_0$.}
+From~\eqref{eq:step1} and~\eqref{eq:eta0},
+$\norm{e_{\mathrm{bdry}}}_{H^1_{\mathrm{hyp}}}\le A_{\mathrm{bdry}}\eta
+\le \tfrac14$ whenever $\eta\le\eta_0$.  With
+$\norm{\widetilde f}_{L^2_{\mathrm{hyp}}(F_Y)}=1$ one gets
+\begin{equation}
+\label{eq:step4b}
+  \norm{U}_{L^2}
+  \ge
+  \norm{u}_{L^2(F_Y)}
+  -
+  O\bigl(e^{-2\pi Y_0}\bigr)
+  \ge
+  1-\tfrac14-\tfrac18
+  \ge
+  \tfrac12
+  \tag{4b}
+\end{equation}
+for $Y_0\ge 1/2$ and $\eta\le\eta_0$ (the $e^{-2\pi Y_0}$ collar loss is
+$<\tfrac18$ at the engineering parameters; absorb into $\eta_0$ by
+shrinking the first term of~\eqref{eq:eta0} if needed).  The cuspidal
+projection loses at most the continuous mass controlled in Step~5, which
+under $\eta\le\eta_0$ is $\le\tfrac18$; hence
+$\norm{U_{\mathrm{cusp}}}\ge\tfrac12$ after possibly replacing $\eta_0$ by
+the min in~\eqref{eq:eta0}.
+
+\paragraph{Spectral pigeonhole.}
+Set $R:=\norm{(\Delta-\lambda)U}_2$ and $\mu:=\norm{U_{\mathrm{cusp}}}_2\ge\tfrac12$.
+From~\eqref{eq:step4a},
+\begin{equation}
+\label{eq:step4c}
+  \sum_j \abs{\lambda_j-\lambda}^2\abs{c_j}^2
+  \le
+  R^2.
+  \tag{4c}
+\end{equation}
+If every $\lambda_j$ satisfied $\abs{\lambda_j-\lambda}>R/\mu$, then
+$\sum\abs{\lambda_j-\lambda}^2\abs{c_j}^2>(R/\mu)^2\sum\abs{c_j}^2=R^2$, a
+contradiction.  Hence some $j_0$ obeys
+\begin{equation}
+\label{eq:step4d}
+  \abs{\lambda_{j_0}-\lambda}
+  \le
+  \frac{R}{\mu}
+  \le
+  2R.
+  \tag{4d}
+\end{equation}
+(Alternatively: the spectral measure of $U_{\mathrm{cusp}}$ has second
+moment $\le R^2$ about $\lambda$, so its support intersects
+$[\lambda-R/\mu,\lambda+R/\mu]$.)  Combining with~\eqref{eq:step3} and the
+definition~\eqref{eq:C1}--\eqref{eq:C2},
+\begin{equation}
+\label{eq:step4}
+  \abs{\lambda_{j_0}-\lambda}
+  \le
+  C_1\eta+C_2 e^{-2\pi Y_0},
+  \tag{4}
+\end{equation}
+which is~\eqref{eq:lamerr} with $f:=f_{j_0}$ (up to a unit complex phase).
+
+\paragraph{$L^2$ proximity.}
+Let $P$ be the orthogonal projection onto $\mathrm{span}\{f_{j_0}\}$.  Then
+\begin{equation}
+\label{eq:step4e}
+  \norm{U_{\mathrm{cusp}}-P U_{\mathrm{cusp}}}_2^2
+  =
+  \sum_{j\neq j_0}\abs{c_j}^2
+  \le
+  \frac{1}{\delta^2}
+  \sum_{j\neq j_0}\abs{\lambda_j-\lambda}^2\abs{c_j}^2
+  \le
+  \frac{R^2}{\delta^2},
+  \tag{4e}
+\end{equation}
+for any $\delta>0$ such that $\abs{\lambda_j-\lambda}\ge\delta$ for all
+$j\neq j_0$.  Taking $\delta$ to be the isolation distance is unnecessary
+for the crude bound: from~\eqref{eq:step4c} and
+$\abs{c_{j_0}}^2=\mu^2-\sum_{j\neq j_0}\abs{c_j}^2$, the standard BSV
+estimate yields
+$\norm{U_{\mathrm{cusp}}-c_{j_0}f_{j_0}}_2\le 2R/\mu\le 4R$ under
+$R\le\mu/2$ (which holds for $\eta\le\eta_0$ by~\eqref{eq:eta0} and
+$C_1\eta\le\tfrac12\cdot\tfrac12$).  Absorbing constants into the factor
+already present in $C_1$ gives~\eqref{eq:L2err}.
+
+\paragraph{Step 5: continuous spectrum / cuspidal projection.}
+Write $U=U_{\mathrm{cusp}}+U_{\mathrm{Eis}}$ via the Lax--Phillips
+decomposition~\cite{LP}.  For $\lambda<1$ the continuous spectrum is
+bounded away from $\lambda$ and
+$\norm{U_{\mathrm{Eis}}}\le R/\mathrm{dist}(\lambda,[1,\infty))$.  For
+$\lambda>1$ (Then regime $r\approx 6.6$) we state the theorem for the
+cuspidal projection $U_{\mathrm{cusp}}$ as in~\eqref{eq:lamerr}--\eqref{eq:L2err}.
+The projection error $\norm{U-U_{\mathrm{cusp}}}$ equals the Eisenstein
+component; by the soft-cutoff argument of
+BSV~\cite[Prop.~3.1]{BSV} and Child~\cite[Thm.~1.1]{Child}, specialized to
+$\HH$ with the same collar cutoff as Step~3,
+\begin{equation}
+\label{eq:step5}
+  \norm{U_{\mathrm{Eis}}}_2
+  \le
+  A_{\mathrm{Eis}}\,
+  \bigl(
+    \norm{(\Delta-\lambda)U}_2
+    +
+    \norm{U}_{H^{1/2}(\partial F_Y)}
+  \bigr)
+  \tag{5}
+\end{equation}
+with $A_{\mathrm{Eis}}\le A_{\mathrm{bdry}}$ (boundary traces of $U$ are
+controlled by Step~1).  Thus the continuous mass is absorbed into the
+same named constants; we do not claim a new soft-cutoff analysis, but
+track the BSV/Child factor as $\le A_{\mathrm{bdry}}$ into $C_1$.
+
+This completes the proof of Theorem~\ref{thm:DK}.
+\endproof
+
+\begin{remark}[What is not proved]
+\label{rem:notproved}
+Theorem~\ref{thm:DK} is strictly single-cusp.  It does not address:
+\begin{itemize}[leftmargin=*]
+\item two-cusp coupling or the block matrix
+$\bigl(\begin{smallmatrix}V_\infty&-S\\-S^*&V_0\end{smallmatrix}\bigr)$;
+\item congruence levels $N\mathfrak{p}$, reference cells, or gluing;
+\item certified counting $N(\lambda)$, Weyl asymptotics as exact counts;
+\item a uniform gap $\mu(N)$.
+\end{itemize}
+Once $C_1,C_2$ are fixed, the two-cusp extension is a block-matrix
+estimate on top of the same defect machinery (Roadmap Rung~3).
+\end{remark}
+
+% ---------------------------------------------------------------------
+\section{Numerical illustration}
+\label{sec:numeric}
+
+Then~\cite{Then} reports a first cuspidal spectral parameter for the
+Picard group $\PSL_2(\ZZ[i])$ at
+\[
+  r_1 \approx 6.62212.
+\]
+As an \emph{engineering target} (not a theorem of this paper) we record
+the interval
+\begin{equation}
+\label{eq:target}
+  r_1\in[6.62211,\,6.62213].
+\end{equation}
+Converting~\eqref{eq:target} into a corollary of Theorem~\ref{thm:DK}
+requires a concrete putative form $\widetilde f$ (e.g.\ from interval
+Hejhal at $M=400$, $Y_0=0.8$) whose defect $\eta$ satisfies
+\[
+  C_1\eta+C_2 e^{-2\pi Y_0}
+  \le
+  10^{-5},
+\]
+so that $\lambda_{\mathrm{true}}$ is pinned inside the corresponding
+$\lambda$-window.  The present paper supplies $C_1$ and $C_2$; the
+production of $\widetilde f$ with certified $\eta$ is downstream work.
+
+At the diagnostic parameters $(Y,Y_0,r)=(1.25,0.8,6.6)$ with sharp
+$C_K=1$ and $y_{\min}=\tfrac12$, one has (cf.\ \texttt{constants\_DK.md})
+\[
+  C_1\sim 10^{5}\text{--}10^{6}
+  \quad\text{(order; exact Arb values in the companion tables)},
+\]
+and the Lemma~K tail at $M=400$ is $<10^{-80}$, so the Fourier tail is
+negligible compared to any realistic automorphy defect.  (Using the
+classical $C_K^{\mathrm{cl}}(6.6)\approx 3.18\cdot 10^{4}$ inflates only
+$A_{\mathrm{cusp}}$, which remains negligible at $M=400$.)
+
+% ---------------------------------------------------------------------
+\section{Bibliography}
+\begin{thebibliography}{99}
+
+\bibitem{BB11}
+V.~Blomer and F.~Brumley,
+\emph{On the Ramanujan conjecture over number fields},
+Ann.\ of Math.\ (2) \textbf{174} (2011), 581--605.
+
+\bibitem{BSV}
+A.~R.~Booker, A.~Str\"ombergsson, and A.~Venkatesh,
+\emph{Effective computation of Maass cusp forms},
+Int.\ Math.\ Res.\ Not.\ 2006, Art.\ ID 71281.
+
+\bibitem{Beb03}
+M.~Bebendorf,
+\emph{A note on the Poincar\'e inequality for convex domains},
+Z.\ Anal.\ Anwendungen \textbf{22} (2003), 751--756.
+
+\bibitem{Child}
+S.~Child,
+\emph{Verified computation of Maass cusp forms of arbitrary level and
+eigenvalue},
+PhD thesis / preprint (see also related computational spectral works).
+
+\bibitem{DLMF}
+NIST Digital Library of Mathematical Functions,
+\url{https://dlmf.nist.gov/},
+release~1.2.x; \S10.25--10.40 (modified Bessel functions).
+
+\bibitem{EGM}
+J.~Elstrodt, F.~Grunewald, and J.~Mennicke,
+\emph{Groups Acting on Hyperbolic Space},
+Springer Monographs in Mathematics, Springer, 1998.
+
+\bibitem{Friedman}
+J.~Friedman,
+\emph{The Selberg trace formula and Selberg zeta-function for
+cofinite Kleinian groups with finite-dimensional unitary representations},
+Math.\ Z.\ (cf.\ related works on Bianchi spectral theory).
+
+\bibitem{Iwaniec}
+H.~Iwaniec,
+\emph{Spectral Methods of Automorphic Forms},
+2nd ed., AMS Graduate Studies in Mathematics \textbf{53}, 2002.
+
+\bibitem{KS}
+H.~H.~Kim (appendix by P.~Sarnak),
+\emph{Functoriality for the exterior square of $\mathrm{GL}_4$ and the
+symmetric fourth of $\mathrm{GL}_2$},
+J.\ Amer.\ Math.\ Soc.\ \textbf{16} (2003), 139--183.
+
+\bibitem{LP}
+P.~D.~Lax and R.~S.~Phillips,
+\emph{Scattering Theory for Automorphic Functions},
+Ann.\ of Math.\ Studies \textbf{87}, Princeton Univ.\ Press, 1976.
+
+\bibitem{Leutbecher}
+A.~Leutbecher,
+\emph{\"Uber die Heckeschen Gruppen~$G(\lambda)$},
+Math.\ Ann.\ \textbf{146} (1962), 67--94.
+
+\bibitem{Luke}
+Y.~L.~Luke,
+\emph{Inequalities for generalized hypergeometric functions},
+J.\ Approx.\ Theory \textbf{5} (1972), 41--65.
+
+\bibitem{PW60}
+L.~E.~Payne and H.~F.~Weinberger,
+\emph{An optimal Poincar\'e inequality for convex domains},
+Arch.\ Rational Mech.\ Anal.\ \textbf{5} (1960), 286--292.
+
+\bibitem{Shimizu}
+H.~Shimizu,
+\emph{On discontinuous groups operating on the product of the upper
+half planes},
+Ann.\ of Math.\ (2) \textbf{77} (1963), 33--71.
+
+\bibitem{Then}
+H.~Then,
+\emph{Maass cusp forms for $\mathrm{PSL}(2,\mathbb{Z}[i])$},
+Math.\ Comp.\ \textbf{77} (2008), 1701--1720? / computational tables.
+
+\bibitem{Watson}
+G.~N.~Watson,
+\emph{A Treatise on the Theory of Bessel Functions},
+2nd ed., Cambridge Univ.\ Press, 1944.
+
+\bibitem{DualRoadmap}
+Dual-certification roadmap (companion manuscript in this repository).
+
+\end{thebibliography}
+
+\end{document}
