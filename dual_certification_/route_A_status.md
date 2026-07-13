@@ -38,9 +38,10 @@ Copied from the source of truth; marks and notes reflect the **prototype scaffol
 
 [ ] Dirichlet and Neumann eigenvalue problems are both solved with guaranteed
     bounds (CR or Morley + post-processing).
-    note: RED / partial. route_A_arb_tet.py encloses tet vol/hT (Arb) and
-    y^{-1},y^{-3} integrals via min/max height; assembles Q/M mid+rad.
-    Still no Rump PSD, no certified eigensolver. GLB sketch only (κ₁).
+    note: YELLOW / partial. route_A_rump.py: Taylor-moment Arb y^{-1},y^{-3}
+    (rel rad I1~7e-4); Rump PSD PASS on Dirichlet Q-tM up to ~λ₁^D.
+    Neumann t=0 fails by constant null (expected). Not full interval
+    eigensolver; radii not yet in Rump; not counting_certified.
 
 [ ] The bracketing inequality λ_k^{N,K_h} ≤ λ_k ≤ λ_k^{D,K_h} is proved with
     explicit constants that account for the truncation error.

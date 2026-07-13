@@ -1,0 +1,54 @@
+{
+  "language": "larger Poincar\u00e9 + conforming residual",
+  "conforming": {
+    "language": "Conforming V_h^{P1,per} first-positive CR eigenmode: discrete Rayleigh is upper-flavor for the CR operator; GLB is lower-flavor under CR theory hypotheses. J_h^{cross}\u22610 by construction. NOT certified continuum \u03bb\u2081. Free Neumann is lower-bound flavor only.",
+    "mesh": {
+      "N1": 4,
+      "N2": 2,
+      "N3": 2
+    },
+    "n_dofs": 4816,
+    "h_max": 0.27820147383531707,
+    "KAPPA1": 0.3311412341821403,
+    "modes": [
+      {
+        "index": 0,
+        "lam_h": -2.602918425434039e-14,
+        "rayleigh": -3.079041126810284e-14,
+        "glb": 0.0,
+        "is_positive": false
+      },
+      {
+        "index": 1,
+        "lam_h": 6.825181118380314,
+        "rayleigh": 6.825181118380293,
+        "glb": 6.451484459326048,
+        "is_positive": true
+      },
+      {
+        "index": 2,
+        "lam_h": 12.071719161570776,
+        "rayleigh": 12.071719161570766,
+        "glb": 10.94989577875785,
+        "is_positive": true
+      },
+      {
+        "index": 3,
+        "lam_h": 17.67262370889045,
+        "rayleigh": 17.672623708890463,
+        "glb": 15.367705869565105,
+        "is_positive": true
+      }
+    ],
+    "first_positive": {
+      "index": 1,
+      "lam_h": 6.825181118380314,
+      "rayleigh": 6.825181118380293,
+      "glb": 6.451484459326048,
+      "is_positive": true
+    },
+    "J_h_cross_by_construction": 0.0,
+    "seconds": 0.42282915115356445,
+    "dual_language_pointer": "dual_glb_language.md"
+  }
+}
