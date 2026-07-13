@@ -38,9 +38,9 @@ Copied from the source of truth; marks and notes reflect the **prototype scaffol
 
 [ ] Dirichlet and Neumann eigenvalue problems are both solved with guaranteed
     bounds (CR or Morley + post-processing).
-    note: RED / partial. Float D/N + relative mid/rad on Q,M and interval
-    residual diagnostics in route_A_arb_scaffold.py. Still no true Arb assembly
-    of hyperbolic weights, no Rump, no certified CR GLB. KAPPA1 GLB sketch only.
+    note: RED / partial. route_A_arb_tet.py encloses tet vol/hT (Arb) and
+    y^{-1},y^{-3} integrals via min/max height; assembles Q/M mid+rad.
+    Still no Rump PSD, no certified eigensolver. GLB sketch only (κ₁).
 
 [ ] The bracketing inequality λ_k^{N,K_h} ≤ λ_k ≤ λ_k^{D,K_h} is proved with
     explicit constants that account for the truncation error.
