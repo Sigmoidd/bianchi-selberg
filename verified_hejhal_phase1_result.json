@@ -1,0 +1,186 @@
+{
+  "status": "diagnostic only; hard map unchanged",
+  "parameters": {
+    "M": 28,
+    "r": 6.7439020359331625,
+    "Y0": 0.8,
+    "bits": 160,
+    "n_face": 16
+  },
+  "backend": {
+    "name": "python-flint acb.bessel_k",
+    "fail_closed": true,
+    "mpmath_crosscheck": [
+      {
+        "r": 6.7439020359331625,
+        "x": 5.026548245743669,
+        "midpoint": 2.8917910552406476e-05,
+        "radius": 1.0501356163847379e-50,
+        "lower": 2.8917910552406476e-05,
+        "upper": 2.8917910552406476e-05,
+        "precision_bits": 160,
+        "mpmath": 2.8917910552406476e-05,
+        "mpmath_inside_arb_float_endpoints": true,
+        "midpoint_minus_mpmath": 0.0
+      },
+      {
+        "r": 6.7439020359331625,
+        "x": 7.108612701053386,
+        "midpoint": 1.526038164616743e-05,
+        "radius": 2.2803634986996475e-50,
+        "lower": 1.526038164616743e-05,
+        "upper": 1.526038164616743e-05,
+        "precision_bits": 160,
+        "mpmath": 1.526038164616743e-05,
+        "mpmath_inside_arb_float_endpoints": true,
+        "midpoint_minus_mpmath": 0.0
+      },
+      {
+        "r": 6.7439020359331625,
+        "x": 26.597993222611464,
+        "midpoint": 2.9232178631978773e-13,
+        "radius": 2.0753601055980684e-43,
+        "lower": 2.9232178631978773e-13,
+        "upper": 2.9232178631978773e-13,
+        "precision_bits": 160,
+        "mpmath": 2.9232178631978773e-13,
+        "mpmath_inside_arb_float_endpoints": true,
+        "midpoint_minus_mpmath": 0.0
+      }
+    ],
+    "repaired_model_relative_change_r6_to_r8": 0.9670681878836288
+  },
+  "solve": {
+    "physical": {
+      "shape": [
+        176,
+        176
+      ],
+      "sigma_max": 0.00011618671603784078,
+      "sigma_min": 7.089738358837852e-11,
+      "condition_2": 1638801.1821762922
+    },
+    "preconditioned": {
+      "shape": [
+        176,
+        176
+      ],
+      "sigma_max": 3200.266988782976,
+      "sigma_min": 0.004764479423994368,
+      "condition_2": 671692.8973742923
+    },
+    "column_normalized": {
+      "shape": [
+        176,
+        176
+      ],
+      "sigma_max": 7.045286278397269,
+      "sigma_min": 0.00110583986729716,
+      "condition_2": 6370.982351736888
+    },
+    "equilibrated": {
+      "shape": [
+        176,
+        176
+      ],
+      "sigma_max": 18.568396968594193,
+      "sigma_min": 0.008531127418771893,
+      "condition_2": 2176.5466692873783
+    },
+    "equilibration_ledger_relative_error": 1.3498092681716395e-16,
+    "weighted_svd_residual": 0.00853112741877162,
+    "physical_relative_residual": 1.4963662102079557e-06,
+    "interval_action_2norm_bound": 4.2578492117274415e-08,
+    "left_scale_range": [
+      1.024628733031461,
+      15.140457563329244
+    ],
+    "right_scale_range": [
+      0.9999999999999987,
+      1.1156770826326854
+    ],
+    "amplitude_scale_range": [
+      3.870722662784112e-12,
+      2.8917910552406476e-05
+    ],
+    "column_scale_range": [
+      1.8040122854517184,
+      2647.2356674456964
+    ],
+    "sigma_values_tail": [
+      0.10581513309952847,
+      0.08575131342433749,
+      0.0464569321551213,
+      0.03352537915025231,
+      0.008531127418771893
+    ]
+  },
+  "sampled_face_residual": {
+    "infinity": {
+      "delta_sampled": 3.2379520326295115,
+      "scale": 9.981940724233047e-09,
+      "per_pairing": {
+        "T1": {
+          "n_samples": 16,
+          "delta_max": 3.9914376792959516e-15,
+          "delta_rms": 2.4262256581555245e-15,
+          "jump_max_abs": 3.984229431920251e-23
+        },
+        "R": {
+          "n_samples": 16,
+          "delta_max": 3.2379520326295106,
+          "delta_rms": 2.174718392913423,
+          "jump_max_abs": 3.2321045257617686e-08
+        },
+        "TiR": {
+          "n_samples": 16,
+          "delta_max": 3.2379520326295115,
+          "delta_rms": 2.174718392913423,
+          "jump_max_abs": 3.232104525761769e-08
+        },
+        "S": {
+          "n_samples": 16,
+          "delta_max": 0.6745009294987745,
+          "delta_rms": 0.41759250034373413,
+          "jump_max_abs": 6.732828296696861e-09
+        }
+      }
+    },
+    "zero": {
+      "delta_sampled": 2.8608035236765983,
+      "scale": 9.030037587944925e-09,
+      "per_pairing": {
+        "T1": {
+          "n_samples": 16,
+          "delta_max": 5.511439875742624e-15,
+          "delta_rms": 2.9633990096593432e-15,
+          "jump_max_abs": 4.97685092416544e-23
+        },
+        "R": {
+          "n_samples": 16,
+          "delta_max": 2.860803523676598,
+          "delta_rms": 1.4366309152254915,
+          "jump_max_abs": 2.5833163350524967e-08
+        },
+        "TiR": {
+          "n_samples": 16,
+          "delta_max": 2.8608035236765983,
+          "delta_rms": 1.4366309152254912,
+          "jump_max_abs": 2.5833163350524974e-08
+        },
+        "S": {
+          "n_samples": 16,
+          "delta_max": 0.9683961523608446,
+          "delta_rms": 0.5645112016290407,
+          "jump_max_abs": 8.744653655839668e-09
+        }
+      }
+    }
+  },
+  "limitations": [
+    "The two-cusp scattering block remains the legacy model S.",
+    "The face residual is sampled, not a continuum interval norm.",
+    "The SVD is floating point although every K midpoint came from an Arb enclosure.",
+    "No value here is admissible as eta in Theorem D(K)."
+  ]
+}

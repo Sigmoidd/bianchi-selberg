@@ -1,0 +1,12 @@
+{
+  "status": "Track-B integration blocked",
+  "track_b_interval_certified": false,
+  "rung4_certified": false,
+  "legacy_eta0_applicable": false,
+  "reason": "partition certificate is not GREEN",
+  "inputs": {
+    "mass": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\track_b_projected_mass_arb_result.json",
+    "partition": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\track_b_partition_result.json",
+    "overlap": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\track_b_overlap_result.json"
+  }
+}

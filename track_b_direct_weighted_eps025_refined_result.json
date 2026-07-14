@@ -1,0 +1,140 @@
+{
+  "status": "certified embedded-cusp contribution; total Track-B residual incomplete",
+  "cusp_blend_contribution_certified": true,
+  "total_direct_weighted_residual_certified": false,
+  "rung4_certified": false,
+  "domain": "[-1/2,1/2] x [0,1/2] x [1.01,1.20]",
+  "measure": "dx1 dx2 dy / y^3",
+  "cutoff": "chi_B=10t^3-15t^4+6t^5, t=(y-1.01)/0.19",
+  "field_pair": "W_B=P_(Q,-)P_(-z,+)P_old F versus recorded six-copy F",
+  "target_R_upper": 0.010190340500424501,
+  "levels": [
+    {
+      "y_segments": 1,
+      "frequency_count": 128,
+      "radial_shell_count": 20,
+      "method": "exact rational-frequency half-torus Gram, exact shell collapse, Arb y boxes",
+      "requested_pointwise_weighted_norm_upper": 126839795.37555581,
+      "cancellation_preserving_commutator_norm_upper": 116784465.05658552,
+      "value_contribution_norm_upper": 51100101.52235372,
+      "gradient_contribution_norm_upper": 75739693.8532021,
+      "max_planar_d0_squared_upper": 117887574.93644257,
+      "max_planar_d1_squared_upper": 216620618582.89233,
+      "arb_balls": {
+        "requested": "[126839795.375555803952868624828731469733611447736620903015 +/- 1.37e-49]",
+        "actual": "[116784465.056585507369848964120961909429752267897129058838 +/- 1.10e-49]",
+        "value_part": "[51100101.5223537151661161032079050414722587447613477706909 +/- 1.80e-50]",
+        "gradient_part": "[75739693.8532020887867525216208264282613527029752731323242 +/- 1.88e-50]"
+      }
+    }
+  ],
+  "midpoint_diagnostic": {
+    "load_bearing": false,
+    "method": "Arb point evaluations with midpoint quadrature (convergence diagnostic only)",
+    "y_segments": 2,
+    "requested_estimate": 0.044993371942132536,
+    "commutator_estimate": 0.03455090286107106,
+    "value_estimate": 0.03253705343372561,
+    "gradient_estimate": 0.012456318508406925
+  },
+  "certified_central_obstruction": {
+    "certified": false,
+    "domain": "x1 in [-0.39,0.39], x2 in [0.11,0.39], y in [1.06,1.20]",
+    "gate_reason": "all four vertical distances exceed 0.1 and log(x1^2+x2^2+y^2)>0.1; therefore the candidate core product partition has one active chart",
+    "y_segments": 8,
+    "positive_segments": 0,
+    "commutator_norm_lower": -5e-324,
+    "commutator_norm_upper": 5694.056567522936,
+    "target_R_upper": 0.010190340500424501,
+    "exceeds_entire_target": false,
+    "operator_norm_upper": 5046.971961227225
+  },
+  "cutoff_mass_sweep": [],
+  "projected_core_face_diagnostic": {
+    "load_bearing": false,
+    "method": "Arb point evaluations; deterministic face/interior sample, no continuum fill-in",
+    "candidate": "W_B repeated in all six fibers on cusp and core charts",
+    "cusp_blend_defect": 0,
+    "relations": [
+      {
+        "relation": "T1",
+        "points": 81,
+        "six_vector_value_defect_max_upper": 3.9951556596027444e-51,
+        "six_vector_gradient_defect_max_upper": 8.04826098518616e-50
+      },
+      {
+        "relation": "R",
+        "points": 81,
+        "six_vector_value_defect_max_upper": 3.99515169007195e-51,
+        "six_vector_gradient_defect_max_upper": 8.048258767300344e-50
+      },
+      {
+        "relation": "TiR",
+        "points": 81,
+        "six_vector_value_defect_max_upper": 3.9951542140657803e-51,
+        "six_vector_gradient_defect_max_upper": 8.048260280047572e-50
+      },
+      {
+        "relation": "S",
+        "points": 81,
+        "six_vector_value_defect_max_upper": 8.62420955724629e-07,
+        "six_vector_gradient_defect_max_upper": 0.0017035286785748898
+      }
+    ]
+  },
+  "projected_floor_direct_diagnostic": [
+    {
+      "load_bearing": false,
+      "method": "Arb midpoint values in exact (x1,x2,log(r^2)) floor-shell coordinates",
+      "subdivision": [
+        12,
+        6,
+        12
+      ],
+      "epsilon": "0.250000000000000000000000000000000000000000000000000000000",
+      "requested_norm_estimate": 0.008563940264899482,
+      "commutator_norm_estimate": 0.004527288318523538,
+      "value_norm_estimate": 0.002049541005231271,
+      "gradient_norm_estimate": 0.007013583660159621,
+      "max_point_commutator_upper": 0.06547242673189889,
+      "target_R_upper": 0.010190340500424501,
+      "requested_to_target_ratio": 0.8403978517246536,
+      "commutator_to_target_ratio": 0.4442725263532602
+    }
+  ],
+  "independent_spatial_box_levels": [],
+  "final": {
+    "y_segments": 1,
+    "frequency_count": 128,
+    "radial_shell_count": 20,
+    "method": "exact rational-frequency half-torus Gram, exact shell collapse, Arb y boxes",
+    "requested_pointwise_weighted_norm_upper": 126839795.37555581,
+    "cancellation_preserving_commutator_norm_upper": 116784465.05658552,
+    "value_contribution_norm_upper": 51100101.52235372,
+    "gradient_contribution_norm_upper": 75739693.8532021,
+    "max_planar_d0_squared_upper": 117887574.93644257,
+    "max_planar_d1_squared_upper": 216620618582.89233,
+    "arb_balls": {
+      "requested": "[126839795.375555803952868624828731469733611447736620903015 +/- 1.37e-49]",
+      "actual": "[116784465.056585507369848964120961909429752267897129058838 +/- 1.10e-49]",
+      "value_part": "[51100101.5223537151661161032079050414722587447613477706909 +/- 1.80e-50]",
+      "gradient_part": "[75739693.8532020887867525216208264282613527029752731323242 +/- 1.88e-50]"
+    }
+  },
+  "cusp_requested_bound_below_total_target": false,
+  "cusp_exact_commutator_bound_below_total_target": false,
+  "remaining_terms": [
+    "core partition derivatives on complete Humbert face/edge/vertex overlaps",
+    "cross terms between (1-chi_B) and the normalized core partition",
+    "complete transition and elliptic-chart incidence inventory"
+  ],
+  "theorem_note": "The requested pointwise bound is certified for the cusp blend only. The cancellation-preserving commutator is a sharper application of the same Laplacian product rule and does not change Theorem D(K).",
+  "trial": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\six_copy_hejhal_balanced_coeffs.json",
+  "trial_sha256": "c77b711b500cae0442376eec1f9ba79f0fb66889e6c3fdd67dac6c6c5e7c733a",
+  "precision_bits": 192,
+  "r": "6.62208",
+  "bessel_evaluations": {
+    "direct_or_mean_value_K": 44132,
+    "shifted_order_cache_entries": 18900
+  }
+}

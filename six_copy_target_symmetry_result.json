@@ -1,0 +1,54 @@
+{
+  "status": "floating coefficient diagnostic; not a certificate",
+  "source": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\six_copy_hejhal_balanced_coeffs.json",
+  "r": 6.62208,
+  "M": 8,
+  "n_infinity_modes": 24,
+  "class_relations": {
+    "D": {
+      "rotation_relation_relative_l2": 1.9999995340854988,
+      "reflection_relation_relative_l2": 0.0012756048399031595,
+      "combined_root_sum_square": 1.9999999408774791
+    },
+    "G": {
+      "rotation_relation_relative_l2": 1.9999995340854988,
+      "reflection_relation_relative_l2": 1.999999593208032,
+      "combined_root_sum_square": 2.828426507649528
+    },
+    "C": {
+      "rotation_relation_relative_l2": 0.0013651585212483938,
+      "reflection_relation_relative_l2": 0.0012756048399031595,
+      "combined_root_sum_square": 0.0018683750950281549
+    },
+    "H": {
+      "rotation_relation_relative_l2": 0.0013651585212483938,
+      "reflection_relation_relative_l2": 1.999999593208032,
+      "combined_root_sum_square": 2.0000000591225198
+    }
+  },
+  "best_class": "C",
+  "published_target_class_from_Then_table": "C",
+  "agrees_with_published_class": true,
+  "quarter_turn_operator": {
+    "geometric_order_on_H3": 4,
+    "square_on_base": "z -> -z = diag(i,-i).z",
+    "diag_i_minus_i_is_in_PSL2_Zi": true,
+    "pullback_order_on_level_one_quotient": 2,
+    "I_minus_Q_over_2_is_exact_orthogonal_projector": true,
+    "eigenvalue_simplicity_required": false
+  },
+  "sampled_projector_mass": {
+    "status": "floating Q-invariant horosphere diagnostic; not a lower bound",
+    "height": 0.9,
+    "oldspace_mass_fraction": 0.9999998893423464,
+    "old_quarter_turn_odd_mass_fraction": 0.9999998893422118
+  },
+  "level_one_lift_diagnostic": {
+    "n_matched_integer_zero_cusp_modes": 24,
+    "zero_cusp_off_integer_lattice_fraction": 0.0005203606778640716,
+    "matched_coefficient_relative_mismatch_after_scalar": 0.0006076268822776275,
+    "best_scalar_real": 0.9999026143210988,
+    "best_scalar_imag": -7.9847498536522e-15
+  },
+  "hard_map_changed": false
+}

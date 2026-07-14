@@ -1,0 +1,539 @@
+% Working draft: does not alter theorem_DK.tex or any certification flag.
+\documentclass[11pt]{amsart}
+\usepackage{amsmath,amssymb,amsthm,mathtools,enumitem,hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\HH}{\mathbb H^3}
+\newcommand{\CC}{\mathbb C}
+\newcommand{\ZZ}{\mathbb Z}
+\newcommand{\G}{\Gamma}
+\newcommand{\Hsub}{\Gamma_0(2+i)}
+\newcommand{\norm}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\rhoind}{\rho_{\mathrm{ind}}}
+\newcommand{\D}{\Delta}
+\title{A six-copy/two-cusp defect theorem for $\Gamma_0(2+i)$}
+\author{}
+\date{Working draft, 2026-07-13}
+\begin{document}
+\begin{abstract}
+The corrected six-copy field is a rank-six induced permutation local
+system on the level-one Picard orbifold. We prove the finite-index
+identification and the two singular cusp channels, and formulate a
+quantitative smooth-gluing theorem whose inputs can be interval certified.
+The continuous spectrum is removed either by an exact oldspace,
+quarter-turn-odd projector for the present target or, in general, by a
+separately normalized Hecke cuspidalizer. The existing value-only defect is
+not yet an admissible theorem input.
+\end{abstract}
+\maketitle
+
+\section{Why the scalar proof cannot merely be multiplied by six}
+
+Two issues must be repaired. First, a value jump in $L^2$ has no bounded
+right inverse into $H^1$, whose trace lies in $H^{1/2}$; a patched
+Laplacian residual needs value and first-derivative overlap bounds. Second,
+at $\lambda>1$ a small full-space residual does not imply a discrete
+eigenvalue, because a continuous-spectrum wave packet is a counterexample.
+The construction below uses smooth local averaging and an explicit
+cuspidal projection.
+
+\section{Finite-index induction}
+
+Put $\G=\mathrm{PSL}_2(\ZZ[i])$ and $\Hsub\subset\G$. Let
+$C=\Hsub\backslash\G\simeq\mathbb P^1(\mathbb F_5)$, ordered as
+\[
+ (0:1),(1:0),(1:1),(1:2),(1:3),(1:4).
+\]
+For the right action on $C$, define the unitary permutation representation
+\begin{equation}\label{eq:rho}
+ (\rhoind(\gamma)v)_c=v_{c\cdot\gamma}.
+\end{equation}
+The computational arrays store
+$\pi_\gamma(c)=c\cdot\gamma^{-1}$. Thus
+\[
+ F_c(P)=F_{\pi_\gamma(c)}(\gamma P)
+ \quad\Longleftrightarrow\quad
+ F(\gamma P)=\rhoind(\gamma)F(P).
+\]
+
+\begin{theorem}[Unitary induction]\label{thm:induction}
+For right-coset representatives $g_c$, the map
+\[
+ (\mathcal Jf)_c(P)=f(g_cP)
+\]
+is a unitary isomorphism
+\[
+ L^2(\Hsub\backslash\HH)
+ \simeq L^2(\G\backslash\HH;\CC^6_{\rhoind}).
+\]
+It intertwines the self-adjoint Laplacians and maps the scalar cuspidal
+subspace onto the vector-valued cuspidal subspace.
+\end{theorem}
+
+\begin{proof}
+Write $g_c\gamma=h g_{c\cdot\gamma}$ with $h\in\Hsub$ to obtain
+\eqref{eq:rho}. If $F_1$ is a fundamental domain for $\G$, then
+$\bigsqcup_c g_cF_1$ is, up to its faces, a fundamental domain for
+$\Hsub$, so invariance of hyperbolic measure proves equality of norms.
+Every $g_c$ is an isometry, proving the domain and Laplacian statements.
+Finally, the double cosets $\Hsub\backslash\G/\G_\infty$ are the cusps of
+$\Hsub$. Averaging components over each parabolic orbit gives exactly the
+scalar constant term at that cusp, proving the cuspidal statement.
+\end{proof}
+
+\begin{proposition}[Two singular channels]\label{prop:channels}
+For the exact repository permutations, both the translation image and the
+full cusp-stabilizer image have orbits
+\[
+ \{0\},\qquad\{1,2,3,4,5\}.
+\]
+Hence the singular subspace is two-dimensional, with basis
+\[
+ u_\infty=e_0,\qquad
+ u_0=5^{-1/2}(e_1+\cdots+e_5),
+\]
+and projector
+\[
+ P_{\rm sing}=e_0e_0^*
+ +\frac15\begin{pmatrix}0&0\\0&\mathbf1_5\mathbf1_5^*\end{pmatrix}.
+\]
+The other four dimensions are regular parabolic character channels.
+\end{proposition}
+
+\begin{proof}
+Invert the stored glue maps to get the forward actions and derive
+$T_i$ from $T_iR=T_i\,R$. Exact permutation closure gives translation
+image order five and full parabolic image order ten, with the stated
+orbits. Fixed vectors of a permutation group are the vectors constant on
+its orbits. The integer/rational verification is
+\texttt{six\_copy\_DK\_algebra.py}.
+\end{proof}
+
+\begin{remark}[Why $T_iR$ is retained]
+Exact closure shows that the stored $T_iR$ permutation already lies in
+$\langle T_1,R\rangle$, so it does not enlarge the cusp-stabilizer image.
+It is retained because it is an actual repository face transition and gives
+an independent consistency check when deriving the $T_i$ action. As an
+ambient check, the four stored permutations generate a transitive group of
+order $60$ on the six cosets, as expected from
+$\mathrm{PSL}_2(\mathbb F_5)$.
+\end{remark}
+
+\begin{remark}
+There are two cusp channels, not six independent cusp tails. A factor
+$\sqrt6$ enters only when a componentwise maximum is converted to the
+Euclidean norm on $\CC^6$.
+\end{remark}
+
+\section{Smooth gluing from certified overlap defects}
+
+Let $X=\G\backslash\HH$ and let $E_{\rhoind}\to X$ be the induced flat
+bundle, with flat unitary connection $\nabla$. Fix a locally finite
+orbifold uniformizer cover $(\widetilde U_j,G_j)$ with only finitely many
+transition types: finitely many
+compact-core charts and one periodic cusp chart type. Choose fixed lifts and
+explicit unitary flat-bundle transitions $t_{kj}$ from the $j$-trivialization
+to the $k$-trivialization on $U_j\cap U_k$. Let
+$\psi_j\in C^2(X)$ be nonnegative, locally finite, subordinate to the
+cover, and $\sum_j\psi_j=1$. Require that every $\psi_jF_j$, initially
+defined on $U_j$, extends by zero to a $C^2$ global section. This holds, for
+example, when $\supp\psi_j\Subset U_j$. The periodic cusp version may instead
+be verified directly on one period and translated. The certificate must prove
+local finiteness, coverage, cusp periodicity, the extension property, and
+integrability of the derivative majorants.
+
+Let $W_j$ be the raw finite Whittaker field on $\widetilde U_j$, and let
+$\rho_j$ be the finite isotropy action on its bundle fiber. Define
+\begin{equation}\label{eq:isotropyaverage}
+ F_j(x)=\frac1{\abs{G_j}}\sum_{h\in G_j}\rho_j(h)^{-1}W_j(hx).
+\end{equation}
+Then $F_j(gx)=\rho_j(g)F_j(x)$, so $F_j$ is a genuine smooth local
+orbibundle section. Since every $h$ is an isometry and the fiber action is
+constant and unitary, isotropy averaging commutes with $\D$; in particular
+$(\D-\lambda)F_j=0$ whenever the finite Whittaker terms satisfy their local
+eigen-equation. At a regular chart $G_j$ is trivial. For a measurable choice
+of active anchor $k=k(x)$, put
+$F_j^{(k)}=t_{kj}F_j$ and
+\begin{align}
+ d_0(x)&=\max_{j:\psi_j(x)\ne0}
+   \abs{F_j^{(k)}(x)-F_k(x)}_{\CC^6},\\
+ d_1(x)&=\max_{j:\psi_j(x)\ne0}
+   \abs{\nabla F_j^{(k)}(x)-\nabla F_k(x)}_{T^*X\otimes\CC^6},\\
+ B_0(x)&=\sum_j\abs{\D\psi_j(x)},\qquad
+ B_1(x)=2\sum_j\abs{\nabla\psi_j(x)}.
+\end{align}
+
+\begin{lemma}[Certified automorphization]\label{lem:patch}
+The expression
+\[
+ U=\sum_j\psi_jF_j
+\]
+is an exactly equivariant global section. Let $F_*(x)=F_{k(x)}(x)$ in the
+chosen active-anchor trivialization and
+\[
+ \tau=\norm{\sum_j\psi_j(\D-\lambda)F_j}_2,
+\]
+where the displayed sum is formed in the common fiber. Assume
+$F_*\in L^2$, $d_0\in L^2$, and
+$\tau+\norm{B_0d_0+B_1d_1}_2<\infty$. Then $U\in\Dom(\D)$ and
+\begin{align}
+ \norm{U-F_*}_2&\le\norm{d_0}_2,\label{eq:normloss}\\
+ R:=\norm{(\D-\lambda)U}_2
+ &\le\tau+\norm{B_0d_0+B_1d_1}_2.\label{eq:patchres}
+\end{align}
+In particular, certified uniform bounds $d_i\le\delta_i$ give
+\begin{equation}\label{eq:patchsup}
+ R\le\tau+b_0\delta_0+b_1\delta_1,\qquad
+ b_i=\norm{B_i}_2.
+\end{equation}
+For the finite Whittaker field, $\tau=0$ termwise.
+\end{lemma}
+
+\begin{proof}
+Each $F_j$ is a local section and each weighted term has a $C^2$ extension
+by zero, so the locally finite partition sum is a global section. In the
+$k(x)$ trivialization, convexity of the weights gives
+\eqref{eq:normloss}. Apply the covariant Laplacian product rule in the same
+trivialization. Terms containing the common anchor $F_k$ and $\nabla F_k$
+cancel because $\sum_j\D\psi_j=0$ and
+$\sum_j\nabla\psi_j=0$. Unitarity and flatness of $t_{kj}$ make the
+remaining commutators bounded pointwise by $B_0d_0+B_1d_1$, proving
+\eqref{eq:patchres} distributionally. The hypotheses and
+\eqref{eq:normloss} give $U\in L^2$, while the right side of
+\eqref{eq:patchres} gives the distributional $\D U\in L^2$. On the complete
+finite-volume orbifold, the maximal $L^2$ domain of the flat unitary
+Laplacian is its self-adjoint
+domain~\cite[Remark~3.14]{BallmannPolymerakis}. Hence $U\in\Dom(\D)$.
+\end{proof}
+
+\begin{remark}[The current continuum number is not yet $\delta_0$]
+The current computation takes a maximum over scalar components and four
+generators on a rectangular core superset. Lemma~\ref{lem:patch} needs the
+vector norm on every transition active in the certified cover, including
+edge and vertex transition words. It also needs $d_1$ and the partition
+constants $b_0,b_1$. At elliptic charts the candidates must first be averaged
+as in \eqref{eq:isotropyaverage}; the resulting changes are included in the
+same value and covariant-gradient defects. A scalar component maximum costs
+at most $\sqrt6$ when converted to the vector norm.
+\end{remark}
+
+\section{Spectral enclosure and the continuous spectrum}
+
+\begin{lemma}[Cuspidal quasimode]\label{lem:quasimode}
+Let $P_{\rm cusp}$ be an orthogonal projection commuting with $\D$ and
+having cuspidal range. If
+\[
+ \norm{P_{\rm cusp}U}_2\ge\mu>0,
+\]
+then some cuspidal eigenvalue satisfies
+\begin{equation}\label{eq:eigbound}
+ \abs{\lambda_j-\lambda}\le R/\mu.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Expand $P_{\rm cusp}U$ in an orthonormal basis of the discrete cuspidal
+spectrum. If every eigenvalue were farther than $R/\mu$, its squared
+residual would exceed $R^2$. Projection contractivity and commutation with
+$\D$ finish the proof.
+\end{proof}
+
+\subsection{Track B: the unconditional old, quarter-turn-odd sector}
+
+The induced representation has the invariant line
+\[
+ V_{\rm old}=\CC u_{\rm old},\qquad
+ u_{\rm old}=6^{-1/2}(1,1,1,1,1,1)^t.
+\]
+Its orthogonal projector $P_{\rm old}=u_{\rm old}u_{\rm old}^*$ commutes
+with the representation and the Laplacian. Under
+Theorem~\ref{thm:induction}, this is exactly the level-one oldspace.
+
+Let $Q(z,y)=(iz,y)$. This isometry normalizes the Picard group and its
+parabolic subgroup, fixes its cusp and height, and commutes with the
+Laplacian. Although $Q$ has order four on $\HH$, its square is
+\[
+ Q^2(z,y)=(-z,y)=
+ \begin{pmatrix}i&0\\0&-i\end{pmatrix}(z,y),
+ \qquad
+ \begin{pmatrix}i&0\\0&-i\end{pmatrix}\in\G.
+\]
+Consequently the scalar pullback $\mathcal Qf=f\circ Q$ satisfies
+$\mathcal Q^2=I$. It is unitary and therefore self-adjoint, so
+$(I-\mathcal Q)/2$ is an orthogonal projector with no simplicity hypothesis.
+Let
+$I_{\rm old}f=u_{\rm old}f$ be the isometric identification with the
+six-copy oldspace and set
+\[
+ Q_{\rm old}=I_{\rm old}\mathcal QI_{\rm old}^*
+ \quad\hbox{on }\Ran P_{\rm old}.
+\]
+Extend it by the identity on $\Ran P_{\rm old}^{\perp}$, calling the result
+$\widehat Q$. Thus the oldspace reduces $\widehat Q$, and
+$P_{Q,-}=(I-\widehat Q)/2$ satisfies
+$P_{Q,-}^2=P_{Q,-}=P_{Q,-}^*$ and commutes with $P_{\rm old}$.
+
+\begin{proposition}[Quarter-turn-odd oldspace is cuspidal]\label{prop:odd}
+The range of
+\[
+ P_{\rm target}=P_{Q,-}P_{\rm old}
+\]
+is contained in the cuspidal subspace.
+\end{proposition}
+
+\begin{proof}
+The level-one Picard quotient has one singular cusp channel. Its Eisenstein
+family is induced from constant cusp data. The quarter-turn fixes that datum
+and reindexes the defining sum over $\G_\infty\backslash\G$, so the
+Eisenstein series is $Q$-even in its half-plane of convergence. Meromorphic
+continuation makes the entire Eisenstein family and all of its residues
+$Q$-even. Hence the $Q=-1$ level-one subspace is orthogonal to the full
+continuous and residual noncuspidal spectrum and is cuspidal. A level-one
+cusp form remains cuspidal at every subgroup cusp: each subgroup constant
+term maps to the constant term at the unique level-one cusp. The oldspace
+identification therefore transfers the conclusion to the six-copy local
+system. Since $P_{Q,-}$ and $P_{\rm old}$ are commuting orthogonal projections,
+$P_{\rm target}$ is itself the orthogonal projection required in
+Lemma~\ref{lem:quasimode}; by construction it also commutes with $\D$.
+\end{proof}
+
+\begin{corollary}[Track-B six-copy D$(K)$]\label{cor:target}
+If interval arithmetic proves
+\[
+ \norm{P_{\rm target}U}_2\ge\mu_{\rm target}>0,
+\]
+then a cusp form on $\Hsub\backslash\HH$ has an eigenvalue satisfying
+\begin{equation}\label{eq:targetbound}
+ \abs{\lambda_j-\lambda}
+ \le\frac{\tau+b_0\delta_0+b_1\delta_1}{\mu_{\rm target}}.
+\end{equation}
+No Hecke growth hypothesis or soft continuous-spectrum cutoff enters this
+bound.
+\end{corollary}
+
+\begin{proposition}[Certified Track-B cusp witness]\label{prop:trackBwitness}
+Let $\Omega_B\subset X$ be a measurable cusp slab and let $W_B$ be a
+certified local section there in the range of $P_{\rm target}$. If interval
+arithmetic proves
+\[
+ \norm{W_B}_{L^2(\Omega_B)}\ge m_B,
+ \qquad
+ \norm{(P_{\rm target}U)|_{\Omega_B}-W_B}_{L^2(\Omega_B)}
+ \le\varepsilon_B<m_B,
+\]
+then Corollary~\ref{cor:target} is valid with
+\begin{equation}\label{eq:trackBmass}
+ \mu_{\rm target}=m_B-\varepsilon_B>0.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Restriction can only decrease the global norm. The reverse triangle
+inequality on $\Omega_B$ gives
+\[
+ \norm{P_{\rm target}U}_{L^2(X)}
+ \ge \norm{P_{\rm target}U}_{L^2(\Omega_B)}
+ \ge m_B-\varepsilon_B.
+\]
+\end{proof}
+
+\begin{corollary}[Track-B plateau closes the mass input]
+\label{cor:trackBplateau}
+Let $\mathcal H_1$ be the level-one cusp chart $y>1$. Define the exact
+$C^2$ cutoff
+\[
+ \chi_B(y)=
+ \begin{cases}
+ 0,&y\le1.01,\\
+ 10t^3-15t^4+6t^5,&1.01<y<1.20,\\
+ 1,&y\ge1.20,
+ \end{cases}
+ \qquad t=\frac{y-1.01}{1.20-1.01}.
+\]
+Let $\{\phi_j\}$ be a normalized subordinate family for all other charts,
+with $\sum_j\phi_j=1$ wherever $1-\chi_B\ne0$. Use $W_B$ with weight
+$\chi_B$ and every other local candidate with weight
+$(1-\chi_B)\phi_j$. These weights still sum to one, and the glued section
+satisfies
+$U=W_B=P_{\rm target}U$ on
+\[
+ \Omega_B=[-1/2,1/2]\times[0,1/2]\times[1.20,1.45].
+\]
+Consequently $\varepsilon_B=0$ in
+Proposition~\ref{prop:trackBwitness}. For the fixed recorded trial, the Arb
+certificate gives the admissible mass input
+\begin{equation}\label{eq:trackBnumericmass}
+ \mu_{\rm target}>0.20380681000849094.
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+The horoball $y>1$ embeds modulo the Picard parabolic subgroup. Indeed, for
+$\gamma=\left(\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\right)$ with
+$c\ne0$,
+\[
+ y(\gamma P)=\frac{y}{\abs{cz+d}^2+\abs c^2y^2}
+ \le\frac1{\abs c^2y}<1
+ \quad(y>1),
+\]
+because $\abs c\ge1$. Thus the closure of $\supp\chi_B$ remains inside a
+valid cusp chart. The quintic and its first two derivatives match the
+adjacent constants, so extension by zero is $C^2$. The integer Fourier
+lattice, $-z$ average, and oldspace vector make $W_B$ a genuine cusp local
+section; its construction also gives $P_{\rm target}W_B=W_B$. On the plateau
+all other weights vanish, hence $U=W_B$ there. Since $Q$ preserves height, it
+also preserves the plateau, so applying $P_{\rm target}$ does not sample
+outside this identity region. The numerical lower bound is the 192-bit,
+512-height-segment Arb result recorded by
+\texttt{track\_b\_projected\_mass\_arb.py}.
+\end{proof}
+
+\begin{remark}[Rotation odd is sufficient, but is not a class label]
+In Then's four-sign notation, $P_{Q,-}$ contains the $C$ and $H$ sectors;
+the reflection sign distinguishes them. Corollary~\ref{cor:target} only
+asserts a nearby cuspidal eigenvalue and does not label its symmetry class.
+If a certified class-$C$ identification is later required, one may append
+the commuting reflection-even projector. It is unnecessary for removing the
+continuous spectrum.
+\end{remark}
+
+Then's table places the published
+$r=6.6221193402528\ldots$ Picard mode in class $C$, characterized by
+$f(iz,y)=-f(z,y)$ and $f(-\overline z,y)=f(z,y)$. The corrected six-copy
+coefficients are numerically a level-one lift.
+These facts motivate Corollary~\ref{cor:target}, but do not replace the
+certified projected-mass lower bound.
+
+For the fixed $M=8$ coefficient file, the non-certifying coefficient
+diagnostic gives relative defects $1.37\cdot10^{-3}$ for
+$a_{i\beta}=-a_\beta$ and $1.28\cdot10^{-3}$ for
+$a_{\overline\beta}=a_\beta$. The zero-cusp off-level-one fraction is
+$5.20\cdot10^{-4}$ and the matched-cusp coefficient mismatch is
+$6.08\cdot10^{-4}$. On a quarter-turn-invariant horosphere sample, the
+oldspace and old-class-$C$ projectors each retain $0.9999998893$ of the
+sampled mass. These diagnostics agree with, but are not used by, the
+certified Track-B mass bound \eqref{eq:trackBnumericmass}.
+
+\subsection{General two-cusp route}
+
+\begin{assumption}[HQ: normalized Hecke annihilation]\label{ass:HQ}
+For a Gaussian prime ideal $\mathfrak q\nmid(2+i)$ there is a bounded
+self-adjoint Hecke operator $T_{\mathfrak q}$ commuting with $\D$ and an
+explicit real $C^1$ function $h_{\mathfrak q}$ on $[0,\infty)$ such that
+\[
+ T_{\mathfrak q}=h_{\mathfrak q}(\D)
+\quad\text{on the full Eisenstein and residual spectrum.}
+\]
+Certified constants satisfy
+\[
+ \norm{h_{\mathfrak q}}_\infty\le M_h,\qquad
+ \norm{h'_{\mathfrak q}}_\infty\le L_h,\qquad
+ \norm{T_{\mathfrak q}}\le M_T.
+\]
+The function $h_{\mathfrak q}$ must be derived from the chosen Bianchi
+double-coset normalization; it must not be imported by analogy from
+$\mathrm{PSL}_2(\ZZ)$.
+\end{assumption}
+
+Under HQ,
+\[
+ \Diamond_{\mathfrak q}=h_{\mathfrak q}(\D)-T_{\mathfrak q}
+\]
+is self-adjoint, commutes with $\D$, and vanishes
+on the full continuous and residual subspace. Its range is therefore
+orthogonal to that subspace, hence cuspidal, and its norm is at most
+$M_h+M_T$. For a certified real number
+$a_{\mathfrak q}$ and Hecke defect
+\[
+ H_{\mathfrak q}=\norm{(T_{\mathfrak q}-a_{\mathfrak q})U}_2,
+\]
+functional calculus gives
+\begin{equation}\label{eq:heckemass}
+ \norm{\Diamond_{\mathfrak q}U}_2
+ \ge
+ \abs{h_{\mathfrak q}(\lambda)-a_{\mathfrak q}}\norm{U}_2
+ -L_hR-H_{\mathfrak q}.
+\end{equation}
+Moreover, commutation with $\D$ gives
+\[
+ \norm{(\D-\lambda)\Diamond_{\mathfrak q}U}_2
+ \le \norm{\Diamond_{\mathfrak q}}R
+ \le (M_h+M_T)R.
+\]
+
+\begin{corollary}[General conditional six-copy D$(K)$]\label{cor:general}
+Assume HQ and suppose the right side of \eqref{eq:heckemass} has certified
+positive lower bound $\mu_{\mathfrak q}$. Then
+\[
+ \abs{\lambda_j-\lambda}
+ \le
+ \frac{(M_h+M_T)(\tau+b_0\delta_0+b_1\delta_1)}
+ {\mu_{\mathfrak q}}
+\]
+for a cusp-form eigenvalue of $\Hsub$.
+\end{corollary}
+
+\section{Proof-producing certificate interface}
+
+The target branch requires the following interval-certified inputs:
+\begin{enumerate}[leftmargin=*]
+\item exact transition permutations, representation convention, finite
+isotropy groups and their fiber actions;
+\item a finite-type $C^2$ chart partition, coverage and local-finiteness
+proofs, cusp periodicity, and bounds $b_0,b_1$;
+\item vector overlap bounds $\delta_0,\delta_1$ for every active transition,
+after the exact stabilizer averages \eqref{eq:isotropyaverage};
+\item for Track B, the certified plateau witness of
+Corollary~\ref{cor:trackBplateau}; its projected-mass input is closed with
+$\varepsilon_B=0$;
+\item proofs, in the correctly scaled coordinates of both subgroup cusps,
+that every local expansion has zero constant Fourier coefficient and
+exponential $L^2$ decay after flat-bundle chart transport;
+\item periodicity/local finiteness of the cusp partition and an $L^2$
+majorant for $B_0d_0+B_1d_1$. The finite Whittaker identity already gives
+$\tau=0$ termwise.
+\end{enumerate}
+The general branch additionally requires HQ, a Hecke defect, and the
+non-resonance lower bound in \eqref{eq:heckemass}.
+
+The smallest next implementation is therefore not another SVD. It is an
+interval-certified extension of the fixed cusp cutoff to a $C^2$ partition
+on a thickened Humbert cell, enumeration of its finite transition set, and
+interval automatic differentiation of the Whittaker field through first
+order. The projected norm is already certified by
+Corollary~\ref{cor:trackBplateau}.
+
+\begin{thebibliography}{9}
+\bibitem{BSV}
+A.~R. Booker, A. Str\"ombergsson, and A. Venkatesh,
+\emph{Effective computation of Maass cusp forms},
+Int. Math. Res. Not. 2006, Art. ID 71281.
+
+\bibitem{BallmannPolymerakis}
+W.~Ballmann and P.~Polymerakis,
+\emph{On the differential form spectrum of geometrically finite orbifolds},
+MPIM Preprint 2020 (62), arXiv:2011.13304.
+
+\bibitem{Friedman}
+J.~S. Friedman,
+\emph{The Selberg trace formula and Selberg zeta-function for cofinite
+Kleinian groups with finite-dimensional unitary representations},
+Ph.D. thesis, 2005, Chapter~3.
+
+\bibitem{FriedmanArtin}
+J.~S. Friedman,
+\emph{Analogues of the Artin factorization formula for the automorphic
+scattering matrix and Selberg zeta-function associated to a Kleinian group},
+Proc. Amer. Math. Soc. 2008.
+
+\bibitem{Then}
+H.~Then, \emph{Arithmetic quantum chaos of Maass waveforms}, Picard-group
+tables and symmetry classes.
+\end{thebibliography}
+\end{document}

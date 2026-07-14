@@ -1,0 +1,59 @@
+{
+  "status": "Arb continuum box certificate for fixed six-copy finite trial",
+  "theorem_DK_admissible": false,
+  "theorem_blocker": "theorem_DK.tex is single-cusp PSL2(O_K); a proved two-cusp/six-copy extension and its constants are still required",
+  "trial": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\six_copy_hejhal_balanced_coeffs.json",
+  "trial_sha256": "c77b711b500cae0442376eec1f9ba79f0fb66889e6c3fdd67dac6c6c5e7c733a",
+  "parameters": {
+    "M_infinity": 8,
+    "M_zero": 40,
+    "r": "6.62208",
+    "precision_bits": 160
+  },
+  "domain_superset": "[-1/2,1/2]^2 x [1/sqrt(2),5/4]",
+  "coefficients": "exact decimal point balls from the recorded trial",
+  "normalization": {
+    "method": "piecewise Parseval on copy-infinity collar T x [1.001,1.249]",
+    "segments": 128,
+    "positive_mode_segment_contributions": 512,
+    "norm2_lower": 0.07750216352302959,
+    "norm_lower": 0.27839210391645375,
+    "norm2_ball": "[0.077502163523029594216495752334594726562500000 +/- 2.05e-46]"
+  },
+  "levels": [
+    {
+      "subdivision": 2,
+      "boxes": 8,
+      "relations_times_copies_times_boxes": 192,
+      "raw_delta_upper": 12129577.1875,
+      "per_relation_upper": {
+        "T1": 12129577.1875,
+        "R": 12129577.1875,
+        "TiR": 12129577.1875,
+        "S": 6095618.984375
+      },
+      "worst": {
+        "relation": "R",
+        "copy": 2,
+        "other": 5,
+        "box_index": [
+          0,
+          0,
+          1
+        ],
+        "defect_ball": "[+/- 8.58e+6] + [+/- 8.58e+6]j"
+      },
+      "normalized_delta_upper": 43570119.32759458
+    }
+  ],
+  "bessel_enclosures": {
+    "direct_arb": 3300,
+    "mean_value_fallback": 380,
+    "fallback_bound": "|d K_ir(x)/dx| <= K_1(x)"
+  },
+  "upper_bounds_monotone": true,
+  "tau_core": 0,
+  "tau_core_justification": "each finite y K_ir(2pi|mu|y) character solves (Delta-(1+r^2))f=0 analytically",
+  "eta_for_multi_copy_extension_upper": 43570119.32759458,
+  "hard_map_changed": false
+}

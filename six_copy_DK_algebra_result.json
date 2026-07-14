@@ -1,0 +1,184 @@
+{
+  "status": "exact finite permutation/rational verification",
+  "glue_convention": "pi_g(c)=c.g^{-1}",
+  "representation_convention": "(rho(g)v)_c=v_{c.g}=v_{pi_g^{-1}(c)}",
+  "forward_actions": {
+    "T1": [
+      0,
+      2,
+      3,
+      4,
+      5,
+      1
+    ],
+    "R": [
+      0,
+      1,
+      5,
+      4,
+      3,
+      2
+    ],
+    "TiR": [
+      0,
+      3,
+      2,
+      1,
+      5,
+      4
+    ],
+    "S": [
+      1,
+      0,
+      5,
+      3,
+      4,
+      2
+    ]
+  },
+  "Ti_forward_derived_from_TiR_R_inverse": [
+    0,
+    4,
+    5,
+    1,
+    2,
+    3
+  ],
+  "translation_group_order": 5,
+  "parabolic_group_order": 10,
+  "T1_R_group_order": 10,
+  "TiR_is_redundant_in_T1_R_group": true,
+  "full_group_order": 60,
+  "full_group_orbits": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  ],
+  "full_group_is_transitive": true,
+  "translation_orbits": [
+    [
+      0
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  ],
+  "parabolic_orbits": [
+    [
+      0
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  ],
+  "singular_degree": 2,
+  "singular_basis": [
+    [
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "1/sqrt(5)",
+      "1/sqrt(5)",
+      "1/sqrt(5)",
+      "1/sqrt(5)",
+      "1/sqrt(5)"
+    ]
+  ],
+  "singular_projector": [
+    [
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "1/5",
+      "1/5",
+      "1/5",
+      "1/5",
+      "1/5"
+    ],
+    [
+      "0",
+      "1/5",
+      "1/5",
+      "1/5",
+      "1/5",
+      "1/5"
+    ],
+    [
+      "0",
+      "1/5",
+      "1/5",
+      "1/5",
+      "1/5",
+      "1/5"
+    ],
+    [
+      "0",
+      "1/5",
+      "1/5",
+      "1/5",
+      "1/5",
+      "1/5"
+    ],
+    [
+      "0",
+      "1/5",
+      "1/5",
+      "1/5",
+      "1/5",
+      "1/5"
+    ]
+  ],
+  "regular_channel_dimension": 4,
+  "T1_orbits": [
+    [
+      0
+    ],
+    [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  ],
+  "proved_here": [
+    "all four glue arrays are permutations",
+    "the induced pullback matrices are unitary permutation matrices",
+    "the base-cusp parabolic holonomy has exactly two orbits",
+    "the singular subspace has dimension two",
+    "the translation-fixed and full-parabolic-fixed subspaces coincide",
+    "the remaining four dimensions are regular cusp channels",
+    "TiR is already in <T1,R> and is only a cross-check transition",
+    "the full four-generator image has order 60 and is transitive"
+  ],
+  "not_proved_here": [
+    "analytic automorphy defect bounds",
+    "partition-of-unity derivative constants",
+    "cuspidal quasimode residual or eigenvalue enclosure"
+  ]
+}

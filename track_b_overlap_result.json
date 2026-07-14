@@ -1,0 +1,69 @@
+{
+  "status": "fail-closed Track-B overlap certificate: geometry incomplete",
+  "certified": false,
+  "delta0_upper": null,
+  "delta1_upper": null,
+  "weighted_residual_upper": null,
+  "direct_weighted_defect_L2_upper": null,
+  "track_B_R_target_upper": 0.0101903405004245,
+  "closes_lambda_width_below_0.1": false,
+  "active_transition_ids": [
+    "x1m",
+    "x1p",
+    "x2m",
+    "x2p",
+    "floor"
+  ],
+  "all_transitions_covered": false,
+  "common_fiber_transport_certified": false,
+  "stabilizer_averaging_certified": false,
+  "first_gradients_certified": false,
+  "theorem_DK_compatible": false,
+  "transport_convention": "F_c(P)=F_{pi_gamma(c)}(gamma P); GLUE stores pi_gamma(c)=c.gamma^{-1}",
+  "stabilization_certified": false,
+  "two_cusp_coordinates_certified": false,
+  "refinement_table": [],
+  "refinement_monotone": false,
+  "independent_check": null,
+  "theorem_compatibility": {
+    "theorem": "Track-B six-copy/two-cusp D(K)",
+    "tau": 0,
+    "admissible": false,
+    "reason": "partition ledger is explicitly uncertified and supplies no complete overlap boxes/permutations"
+  },
+  "blockers": [
+    "partition ledger is explicitly uncertified and supplies no complete overlap boxes/permutations",
+    "prove epsilon=1/10 collar intersects only the enumerated incident Humbert chambers",
+    "prove the collar's singular-stratum incidence inventory exhaustive; listed special-point stabilizers are already exact",
+    "replace face-only transition list by all edge/vertex chamber-to-chamber words after the collar proof",
+    "interval-integrate the resulting normalized rational/quintic weights; current bounds are conditional sup bounds"
+  ],
+  "conditional_partition_bounds_not_used": {
+    "gate_epsilon": "1/10",
+    "quintic_derivative_majorants": {
+      "first": "15/8",
+      "second": "6"
+    },
+    "hyperbolic_sup_bounds": {
+      "B0": "27949014/361",
+      "B1": "11160/19"
+    },
+    "conditional_b0_upper": 54744.97874481373,
+    "conditional_b1_upper": 415.3321935811511,
+    "volume_upper": "1/2",
+    "target_R_upper": 0.0101903405004245,
+    "individual_budget": {
+      "delta0_if_delta1_zero": 1.86142012182074e-07,
+      "delta1_if_delta0_zero": 2.4535397587554034e-05
+    },
+    "equal_split_budget": {
+      "delta0": 9.3071006091037e-08,
+      "delta1": 1.2267698793777017e-05
+    }
+  },
+  "geometry": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\track_b_partition_result.json",
+  "geometry_sha256": "6c2c57dfe5541b5a57daeaf44ee70ad58af307bf811c36865aa97ad2c9abb234",
+  "trial": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\six_copy_hejhal_balanced_coeffs.json",
+  "trial_sha256": "c77b711b500cae0442376eec1f9ba79f0fb66889e6c3fdd67dac6c6c5e7c733a",
+  "rung4_certified": false
+}

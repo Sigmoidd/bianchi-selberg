@@ -1,0 +1,383 @@
+{
+  "status": "Arb Track-B projected-mass witness for fixed finite trial",
+  "witness_certified": true,
+  "theorem_DK_mu_admissible": false,
+  "theorem_blocker": "subtract a compatible interval automorphization error epsilon_auto; then mu_B >= witness_norm_lower - epsilon_auto",
+  "trial": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\six_copy_hejhal_balanced_coeffs.json",
+  "trial_sha256": "c77b711b500cae0442376eec1f9ba79f0fb66889e6c3fdd67dac6c6c5e7c733a",
+  "parameters": {
+    "M_infinity": 8,
+    "M_zero": 40,
+    "r": "6.62208",
+    "precision_bits": 192,
+    "y_segments": 512,
+    "y_min": "1.25",
+    "y_max": "1.50"
+  },
+  "projector": {
+    "formula": "P_(Q,-) P_(-z,+) P_old",
+    "old_copy_average": "(F_0+...+F_5)/6",
+    "minus_z_average": "(f(z)+f(-z))/2",
+    "rotation_odd": "(f(z)-f(i z))/2",
+    "bundle_norm_factor": 6,
+    "simplicity_assumption": false
+  },
+  "finite_algebra": {
+    "translation_selected_modes": 24,
+    "infinity_modes": 24,
+    "lift_bijection_proved": true,
+    "symmetry_defect_balls": {
+      "minus_z_even": "[3.94806412507058037166654752571913434037614250544290881855e-53 +/- 4.86e-110]",
+      "quarter_turn_odd": "[3.94806412507058037166654752571913434037614250544290881855e-53 +/- 4.86e-110]"
+    },
+    "symmetry_defect_uppers": {
+      "minus_z_even": 3.948064125070581e-53,
+      "quarter_turn_odd": 3.948064125070581e-53
+    },
+    "lift_records": [
+      {
+        "infinity_mode": [
+          -1,
+          0
+        ],
+        "zero_mode": [
+          -2,
+          1
+        ],
+        "norm_relation": "5=5*1"
+      },
+      {
+        "infinity_mode": [
+          0,
+          -1
+        ],
+        "zero_mode": [
+          -1,
+          -2
+        ],
+        "norm_relation": "5=5*1"
+      },
+      {
+        "infinity_mode": [
+          0,
+          1
+        ],
+        "zero_mode": [
+          1,
+          2
+        ],
+        "norm_relation": "5=5*1"
+      },
+      {
+        "infinity_mode": [
+          1,
+          0
+        ],
+        "zero_mode": [
+          2,
+          -1
+        ],
+        "norm_relation": "5=5*1"
+      },
+      {
+        "infinity_mode": [
+          -1,
+          -1
+        ],
+        "zero_mode": [
+          -3,
+          -1
+        ],
+        "norm_relation": "10=5*2"
+      },
+      {
+        "infinity_mode": [
+          -1,
+          1
+        ],
+        "zero_mode": [
+          -1,
+          3
+        ],
+        "norm_relation": "10=5*2"
+      },
+      {
+        "infinity_mode": [
+          1,
+          -1
+        ],
+        "zero_mode": [
+          1,
+          -3
+        ],
+        "norm_relation": "10=5*2"
+      },
+      {
+        "infinity_mode": [
+          1,
+          1
+        ],
+        "zero_mode": [
+          3,
+          1
+        ],
+        "norm_relation": "10=5*2"
+      },
+      {
+        "infinity_mode": [
+          -2,
+          0
+        ],
+        "zero_mode": [
+          -4,
+          2
+        ],
+        "norm_relation": "20=5*4"
+      },
+      {
+        "infinity_mode": [
+          0,
+          -2
+        ],
+        "zero_mode": [
+          -2,
+          -4
+        ],
+        "norm_relation": "20=5*4"
+      },
+      {
+        "infinity_mode": [
+          0,
+          2
+        ],
+        "zero_mode": [
+          2,
+          4
+        ],
+        "norm_relation": "20=5*4"
+      },
+      {
+        "infinity_mode": [
+          2,
+          0
+        ],
+        "zero_mode": [
+          4,
+          -2
+        ],
+        "norm_relation": "20=5*4"
+      },
+      {
+        "infinity_mode": [
+          -2,
+          -1
+        ],
+        "zero_mode": [
+          -5,
+          0
+        ],
+        "norm_relation": "25=5*5"
+      },
+      {
+        "infinity_mode": [
+          -2,
+          1
+        ],
+        "zero_mode": [
+          -3,
+          4
+        ],
+        "norm_relation": "25=5*5"
+      },
+      {
+        "infinity_mode": [
+          -1,
+          -2
+        ],
+        "zero_mode": [
+          -4,
+          -3
+        ],
+        "norm_relation": "25=5*5"
+      },
+      {
+        "infinity_mode": [
+          -1,
+          2
+        ],
+        "zero_mode": [
+          0,
+          5
+        ],
+        "norm_relation": "25=5*5"
+      },
+      {
+        "infinity_mode": [
+          1,
+          -2
+        ],
+        "zero_mode": [
+          0,
+          -5
+        ],
+        "norm_relation": "25=5*5"
+      },
+      {
+        "infinity_mode": [
+          1,
+          2
+        ],
+        "zero_mode": [
+          4,
+          3
+        ],
+        "norm_relation": "25=5*5"
+      },
+      {
+        "infinity_mode": [
+          2,
+          -1
+        ],
+        "zero_mode": [
+          3,
+          -4
+        ],
+        "norm_relation": "25=5*5"
+      },
+      {
+        "infinity_mode": [
+          2,
+          1
+        ],
+        "zero_mode": [
+          5,
+          0
+        ],
+        "norm_relation": "25=5*5"
+      },
+      {
+        "infinity_mode": [
+          -2,
+          -2
+        ],
+        "zero_mode": [
+          -6,
+          -2
+        ],
+        "norm_relation": "40=5*8"
+      },
+      {
+        "infinity_mode": [
+          -2,
+          2
+        ],
+        "zero_mode": [
+          -2,
+          6
+        ],
+        "norm_relation": "40=5*8"
+      },
+      {
+        "infinity_mode": [
+          2,
+          -2
+        ],
+        "zero_mode": [
+          2,
+          -6
+        ],
+        "norm_relation": "40=5*8"
+      },
+      {
+        "infinity_mode": [
+          2,
+          2
+        ],
+        "zero_mode": [
+          6,
+          2
+        ],
+        "norm_relation": "40=5*8"
+      }
+    ]
+  },
+  "pointwise_independent_crosscheck": {
+    "method_a": "direct average of six TrialEvaluator components at z,-z,Qz,-Qz",
+    "method_b": "collapsed integral-lattice Fourier coefficients",
+    "all_difference_balls_contain_zero": true,
+    "max_difference_abs_upper": 5.066180166114674e-51,
+    "records": [
+      {
+        "point": [
+          "0.125000000000000000000000000000000000000000000000000000000",
+          "0.0625000000000000000000000000000000000000000000000000000000",
+          "1.12500000000000000000000000000000000000000000000000000000"
+        ],
+        "direct_ball": "[-0.151721738903645455728659852821103254308189794545863 +/- 9.73e-52] + [-4.302974759108577949886040083605028062772224e-9 +/- 9.82e-52]j",
+        "collapsed_ball": "[-0.151721738903645455728659852821103254308189794545863 +/- 9.03e-52] + [-4.302974759108577949886040083605028062772224e-9 +/- 9.11e-52]j",
+        "difference_ball": "[+/- 1.52e-51] + [+/- 1.52e-51]j",
+        "difference_contains_zero": true
+      },
+      {
+        "point": [
+          "[-0.200000000000000000000000000000000000000000000000000000000 +/- 1.60e-59]",
+          "[0.300000000000000000000000000000000000000000000000000000000 +/- 6.39e-59]",
+          "[1.20000000000000000000000000000000000000000000000000000000 +/- 2.56e-58]"
+        ],
+        "direct_ball": "[0.34066769296805490365561124537845940210396628391194 +/- 3.70e-51] + [9.66166414401357650630830718380996553828245e-9 +/- 5.48e-51]j",
+        "collapsed_ball": "[0.34066769296805490365561124537845940210396628391194 +/- 3.51e-51] + [9.66166414401357650630830718380996553828245e-9 +/- 5.29e-51]j",
+        "difference_ball": "[+/- 3.59e-51] + [+/- 3.59e-51]j",
+        "difference_contains_zero": true
+      }
+    ]
+  },
+  "norm_certificate": {
+    "domain": "Picard half torus [-1/2,1/2]x[0,1/2], y in [1.25,1.50]",
+    "hyperbolic_measure_reduction": "|y K|^2 dx1 dx2 dy/y^3 = |K|^2 dx1 dx2 dy/y",
+    "y_segments": 512,
+    "positive_segments": {
+      "parseval": 479,
+      "direct_half_gram": 479
+    },
+    "parseval_via_evenness": {
+      "method": "full-torus Parseval divided by 2 using W_B(-z)=W_B(z)",
+      "vector_norm2_lower": 0.022724029536776293,
+      "vector_norm_lower": 0.15074491545911686,
+      "vector_norm2_ball": "0.0227240295367762967781999350336263887584209442138671875000"
+    },
+    "direct_half_gram": {
+      "method": "half-period Fourier Gram; eigenvalues certified by Rump",
+      "blocks": {
+        "-1": {
+          "size": 5,
+          "lambda_min_lower": 0.0023314311119820314
+        },
+        "0": {
+          "size": 4,
+          "lambda_min_lower": 0.07558681842161243
+        },
+        "1": {
+          "size": 5,
+          "lambda_min_lower": 0.0023314311119820314
+        },
+        "-2": {
+          "size": 5,
+          "lambda_min_lower": 0.0023314311119820314
+        },
+        "2": {
+          "size": 5,
+          "lambda_min_lower": 0.0023314311119820314
+        }
+      },
+      "vector_norm2_lower": 0.0017706166014497431,
+      "vector_norm_lower": 0.04207869533920631,
+      "vector_norm2_ball": "0.00177061660144974333808143285295955138280987739562988281250"
+    },
+    "certified_witness_norm_lower": 0.15074491545911686
+  },
+  "bessel_enclosures": {
+    "direct_arb": 12568,
+    "mean_value_fallback": 0
+  },
+  "hard_map_changed": false
+}

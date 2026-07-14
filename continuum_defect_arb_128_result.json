@@ -1,0 +1,61 @@
+{
+  "status": "Arb continuum box certificate for fixed six-copy finite trial",
+  "theorem_DK_admissible": false,
+  "theorem_blocker": "theorem_DK.tex is single-cusp PSL2(O_K); a proved two-cusp/six-copy extension and its constants are still required",
+  "trial": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\six_copy_hejhal_balanced_coeffs.json",
+  "trial_sha256": "c77b711b500cae0442376eec1f9ba79f0fb66889e6c3fdd67dac6c6c5e7c733a",
+  "parameters": {
+    "M_infinity": 8,
+    "M_zero": 40,
+    "r": "6.62208",
+    "precision_bits": 128
+  },
+  "domain_superset": "[-1/2,1/2]^2 x [1/sqrt(2),5/4]",
+  "coefficients": "exact decimal point balls from the recorded trial",
+  "normalization": {
+    "method": "piecewise Parseval on copy-infinity collar T x [1.001,1.249]",
+    "segments": 128,
+    "positive_mode_segment_contributions": 512,
+    "norm2_lower": 0.07737868552974032,
+    "norm_lower": 0.27817024558665565,
+    "norm2_ball": "[0.077378685529740323545411229133605957 +/- 7.04e-37]"
+  },
+  "levels": [
+    {
+      "subdivision": 4,
+      "boxes": 64,
+      "relations_times_copies_times_boxes": 1536,
+      "raw_delta_upper": 10404.588022464937,
+      "evaluation": "centered first-order Taylor bound with analytic gradient majorants",
+      "per_relation_upper": {
+        "T1": 1121.261624270367,
+        "R": 1121.2616325633878,
+        "TiR": 1121.2616325633878,
+        "S": 10404.588022464937
+      },
+      "worst": {
+        "relation": "S",
+        "copy": 2,
+        "other": 5,
+        "box_index": [
+          0,
+          3,
+          0
+        ],
+        "center_defect_ball": "[4.588134571309067427623989787e-6 +/- 9.09e-34] + [1.2944268680890447262e-13 +/- 3.02e-33]j",
+        "taylor_bound_ball": "[10404.58802246493759833175332661771637 +/- 7.96e-33]"
+      },
+      "normalized_delta_upper": 37403.669830041894
+    }
+  ],
+  "bessel_enclosures": {
+    "direct_arb": 5504,
+    "mean_value_fallback": 0,
+    "fallback_bound": "|d K_ir(x)/dx| <= K_1(x)"
+  },
+  "upper_bounds_monotone": true,
+  "tau_core": 0,
+  "tau_core_justification": "each finite y K_ir(2pi|mu|y) character solves (Delta-(1+r^2))f=0 analytically",
+  "eta_for_multi_copy_extension_upper": 37403.669830041894,
+  "hard_map_changed": false
+}

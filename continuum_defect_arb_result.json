@@ -1,0 +1,113 @@
+{
+  "status": "Arb continuum box certificate for fixed six-copy finite trial",
+  "theorem_DK_admissible": false,
+  "theorem_blocker": "theorem_DK.tex is single-cusp PSL2(O_K); a proved two-cusp/six-copy extension and its constants are still required",
+  "trial": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\six_copy_hejhal_balanced_coeffs.json",
+  "trial_sha256": "c77b711b500cae0442376eec1f9ba79f0fb66889e6c3fdd67dac6c6c5e7c733a",
+  "parameters": {
+    "M_infinity": 8,
+    "M_zero": 40,
+    "r": "6.62208",
+    "precision_bits": 160
+  },
+  "domain_superset": "[-1/2,1/2]^2 x [1/sqrt(2),5/4]",
+  "coefficients": "exact decimal point balls from the recorded trial",
+  "normalization": {
+    "method": "exact half-torus Fourier Gram with interval y-integration",
+    "planar_region": "[-1/2,1/2] x [0,1/2] (area 1/2)",
+    "y_interval": "[1.001,1.249]",
+    "y_segments": 256,
+    "positive_segments": 256,
+    "gram_blocks": {
+      "-1": {
+        "size": 5,
+        "lambda_min_lower": 0.002331429219135215
+      },
+      "0": {
+        "size": 4,
+        "lambda_min_lower": 0.07558681638465188
+      },
+      "1": {
+        "size": 5,
+        "lambda_min_lower": 0.002331429219135215
+      },
+      "-2": {
+        "size": 5,
+        "lambda_min_lower": 0.002331429219135215
+      },
+      "2": {
+        "size": 5,
+        "lambda_min_lower": 0.002331429219135215
+      }
+    },
+    "norm2_lower": 0.0034510513425441325,
+    "norm_lower": 0.058745649562704914,
+    "norm2_ball": "[0.0034510513425441331492038443684577941894531250 +/- 1.83e-47]"
+  },
+  "levels": [
+    {
+      "subdivision": 4,
+      "boxes": 64,
+      "relations_times_copies_times_boxes": 1536,
+      "raw_delta_upper": 10404.587970610486,
+      "evaluation": "centered first-order Taylor bound with analytic gradient majorants",
+      "per_relation_upper": {
+        "T1": 1121.2616224051828,
+        "R": 1121.2616306982036,
+        "TiR": 1121.2616306982036,
+        "S": 10404.587970610486
+      },
+      "worst": {
+        "relation": "S",
+        "copy": 2,
+        "other": 5,
+        "box_index": [
+          0,
+          3,
+          0
+        ],
+        "center_defect_ball": "[4.588134571309067427623989786939962376e-6 +/- 5.81e-43] + [1.29442686808904472622167328519e-13 +/- 3.10e-43]j",
+        "taylor_bound_ball": "[10404.58797061048443667034672026622718973183378 +/- 4.58e-42]"
+      },
+      "normalized_delta_ball": "[177112.87884150408674707089902418236061210798246 +/- 3.10e-42]",
+      "normalized_delta_upper": 177112.8788415041
+    },
+    {
+      "subdivision": 8,
+      "boxes": 512,
+      "relations_times_copies_times_boxes": 12288,
+      "raw_delta_upper": 2965.556077348526,
+      "evaluation": "centered first-order Taylor bound with analytic gradient majorants",
+      "per_relation_upper": {
+        "T1": 518.1995055104236,
+        "R": 518.1995376864613,
+        "TiR": 518.1995376864613,
+        "S": 2965.556077348526
+      },
+      "worst": {
+        "relation": "S",
+        "copy": 2,
+        "other": 5,
+        "box_index": [
+          1,
+          1,
+          3
+        ],
+        "center_defect_ball": "[4.413412747733670400195406126881002132e-6 +/- 7.26e-43] + [1.25185523584852269692396054059e-13 +/- 7.39e-43]j",
+        "taylor_bound_ball": "[2965.556077348525463369434166702056339728741459 +/- 5.20e-43]"
+      },
+      "normalized_delta_ball": "[50482.033908534689922525617350879068649729831381 +/- 5.19e-43]",
+      "normalized_delta_upper": 50482.0339085347
+    }
+  ],
+  "bessel_enclosures": {
+    "direct_arb": 20568,
+    "mean_value_fallback": 0,
+    "fallback_bound": "|d K_ir(x)/dx| <= K_1(x)"
+  },
+  "upper_bounds_monotone": true,
+  "tau_core": 0,
+  "tau_core_justification": "each finite y K_ir(2pi|mu|y) character solves (Delta-(1+r^2))f=0 analytically",
+  "eta_for_multi_copy_extension_upper": 50482.0339085347,
+  "hard_map_changed": false
+}
