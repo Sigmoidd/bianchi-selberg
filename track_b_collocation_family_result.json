@@ -1,0 +1,913 @@
+{
+  "schema": "track-b-exact-collocation-family/v1",
+  "label": "NON-SYMMETRIC EXACT PHYSICAL COLLOCATION FAMILY",
+  "fourier_cutoff_audited": 5,
+  "points": [
+    {
+      "point_id": "q00",
+      "x1": "1/5",
+      "x2": "2/7",
+      "y": "17/15",
+      "height_layer": "17/15",
+      "horizontal_denominators": [
+        5,
+        7
+      ],
+      "design": "exact rational non-symmetric Humbert-core point"
+    },
+    {
+      "point_id": "q01",
+      "x1": "-2/7",
+      "x2": "1/5",
+      "y": "19/16",
+      "height_layer": "19/16",
+      "horizontal_denominators": [
+        7,
+        5
+      ],
+      "design": "exact rational non-symmetric Humbert-core point"
+    },
+    {
+      "point_id": "q02",
+      "x1": "1/8",
+      "x2": "-3/11",
+      "y": "21/19",
+      "height_layer": "21/19",
+      "horizontal_denominators": [
+        8,
+        11
+      ],
+      "design": "exact rational non-symmetric Humbert-core point"
+    },
+    {
+      "point_id": "q03",
+      "x1": "-1/9",
+      "x2": "-2/5",
+      "y": "23/20",
+      "height_layer": "23/20",
+      "horizontal_denominators": [
+        9,
+        5
+      ],
+      "design": "exact rational non-symmetric Humbert-core point"
+    },
+    {
+      "point_id": "q04",
+      "x1": "2/11",
+      "x2": "3/8",
+      "y": "25/21",
+      "height_layer": "25/21",
+      "horizontal_denominators": [
+        11,
+        8
+      ],
+      "design": "exact rational non-symmetric Humbert-core point"
+    },
+    {
+      "point_id": "q05",
+      "x1": "-3/13",
+      "x2": "2/9",
+      "y": "27/23",
+      "height_layer": "27/23",
+      "horizontal_denominators": [
+        13,
+        9
+      ],
+      "design": "exact rational non-symmetric Humbert-core point"
+    },
+    {
+      "point_id": "q06",
+      "x1": "4/17",
+      "x2": "-1/7",
+      "y": "29/24",
+      "height_layer": "29/24",
+      "horizontal_denominators": [
+        17,
+        7
+      ],
+      "design": "exact rational non-symmetric Humbert-core point"
+    },
+    {
+      "point_id": "q07",
+      "x1": "-2/15",
+      "x2": "-3/17",
+      "y": "31/25",
+      "height_layer": "31/25",
+      "horizontal_denominators": [
+        15,
+        17
+      ],
+      "design": "exact rational non-symmetric Humbert-core point"
+    },
+    {
+      "point_id": "q08",
+      "x1": "3/19",
+      "x2": "4/21",
+      "y": "33/26",
+      "height_layer": "33/26",
+      "horizontal_denominators": [
+        19,
+        21
+      ],
+      "design": "exact rational non-symmetric Humbert-core point"
+    },
+    {
+      "point_id": "q09",
+      "x1": "-4/21",
+      "x2": "5/23",
+      "y": "35/27",
+      "height_layer": "35/27",
+      "horizontal_denominators": [
+        21,
+        23
+      ],
+      "design": "exact rational non-symmetric Humbert-core point"
+    },
+    {
+      "point_id": "q10",
+      "x1": "5/22",
+      "x2": "-3/20",
+      "y": "37/29",
+      "height_layer": "37/29",
+      "horizontal_denominators": [
+        22,
+        20
+      ],
+      "design": "exact rational non-symmetric Humbert-core point"
+    },
+    {
+      "point_id": "q11",
+      "x1": "-5/24",
+      "x2": "4/19",
+      "y": "39/31",
+      "height_layer": "39/31",
+      "horizontal_denominators": [
+        24,
+        19
+      ],
+      "design": "exact rational non-symmetric Humbert-core point"
+    },
+    {
+      "point_id": "q12",
+      "x1": "2/13",
+      "x2": "-5/18",
+      "y": "41/32",
+      "height_layer": "41/32",
+      "horizontal_denominators": [
+        13,
+        18
+      ],
+      "design": "exact rational non-symmetric Humbert-core point"
+    },
+    {
+      "point_id": "q13",
+      "x1": "-3/20",
+      "x2": "7/25",
+      "y": "43/33",
+      "height_layer": "43/33",
+      "horizontal_denominators": [
+        20,
+        25
+      ],
+      "design": "exact rational non-symmetric Humbert-core point"
+    },
+    {
+      "point_id": "q14",
+      "x1": "5/27",
+      "x2": "2/17",
+      "y": "45/34",
+      "height_layer": "45/34",
+      "horizontal_denominators": [
+        27,
+        17
+      ],
+      "design": "exact rational non-symmetric Humbert-core point"
+    },
+    {
+      "point_id": "q15",
+      "x1": "-7/29",
+      "x2": "-3/22",
+      "y": "47/35",
+      "height_layer": "47/35",
+      "horizontal_denominators": [
+        29,
+        22
+      ],
+      "design": "exact rational non-symmetric Humbert-core point"
+    },
+    {
+      "point_id": "q16",
+      "x1": "4/23",
+      "x2": "-5/31",
+      "y": "49/36",
+      "height_layer": "49/36",
+      "horizontal_denominators": [
+        23,
+        31
+      ],
+      "design": "exact rational non-symmetric Humbert-core point"
+    },
+    {
+      "point_id": "q17",
+      "x1": "-5/26",
+      "x2": "7/32",
+      "y": "51/37",
+      "height_layer": "51/37",
+      "horizontal_denominators": [
+        26,
+        32
+      ],
+      "design": "exact rational non-symmetric Humbert-core point"
+    },
+    {
+      "point_id": "q18",
+      "x1": "7/30",
+      "x2": "-4/27",
+      "y": "53/38",
+      "height_layer": "53/38",
+      "horizontal_denominators": [
+        30,
+        27
+      ],
+      "design": "exact rational non-symmetric Humbert-core point"
+    },
+    {
+      "point_id": "q19",
+      "x1": "-6/31",
+      "x2": "5/28",
+      "y": "55/39",
+      "height_layer": "55/39",
+      "horizontal_denominators": [
+        31,
+        28
+      ],
+      "design": "exact rational non-symmetric Humbert-core point"
+    }
+  ],
+  "candidate_point_checks": {
+    "candidate_coordinates_exact_once": true,
+    "candidate_ids_exact_once": true,
+    "all_points_physical": true,
+    "symmetry_axes_avoided": true,
+    "exact_generator_fixed_sets_avoided": true,
+    "no_synthetic_rows": true
+  },
+  "candidate_pool_partitions": {
+    "cusps": [
+      "infinity",
+      "zero"
+    ],
+    "height_layers": [
+      "17/15",
+      "19/16",
+      "21/19",
+      "23/20",
+      "25/21",
+      "27/23",
+      "29/24",
+      "31/25",
+      "33/26",
+      "35/27",
+      "37/29",
+      "39/31",
+      "41/32",
+      "43/33",
+      "45/34",
+      "47/35",
+      "49/36",
+      "51/37",
+      "53/38",
+      "55/39"
+    ],
+    "horizontal_x1_coordinates": [
+      "1/5",
+      "-2/7",
+      "1/8",
+      "-1/9",
+      "2/11",
+      "-3/13",
+      "4/17",
+      "-2/15",
+      "3/19",
+      "-4/21",
+      "5/22",
+      "-5/24",
+      "2/13",
+      "-3/20",
+      "5/27",
+      "-7/29",
+      "4/23",
+      "-5/26",
+      "7/30",
+      "-6/31"
+    ],
+    "horizontal_x2_coordinates": [
+      "2/7",
+      "1/5",
+      "-3/11",
+      "-2/5",
+      "3/8",
+      "2/9",
+      "-1/7",
+      "-3/17",
+      "4/21",
+      "5/23",
+      "-3/20",
+      "4/19",
+      "-5/18",
+      "7/25",
+      "2/17",
+      "-3/22",
+      "-5/31",
+      "7/32",
+      "-4/27",
+      "5/28"
+    ],
+    "six_copy_fibers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "pairing_relations": [
+      "T1",
+      "R",
+      "TiR",
+      "S"
+    ],
+    "row_partition_fields": [
+      "source_cusp",
+      "target_cusp",
+      "source_height",
+      "true_transformed_height",
+      "source_copy",
+      "target_copy",
+      "group_element",
+      "matrix_block"
+    ]
+  },
+  "point_count": 20,
+  "row_expansion": "each point x four exact generators x six source fibers",
+  "candidate_physical_row_count": 480,
+  "phase_alias_audit": {
+    "schema": "track-b-phase-alias-audit/v1",
+    "fourier_cutoff": 5,
+    "per_cusp": {
+      "infinity": {
+        "sample_count": 100,
+        "mode_count": 20,
+        "exact_aliases": [],
+        "maximum_phase_coherence_diagnostic": 0.6047035377029356,
+        "worst_pair": [
+          [
+            -1,
+            0,
+            1
+          ],
+          [
+            2,
+            0,
+            4
+          ]
+        ]
+      },
+      "zero": {
+        "sample_count": 420,
+        "mode_count": 80,
+        "exact_aliases": [],
+        "maximum_phase_coherence_diagnostic": 0.5972052686498831,
+        "worst_pair": [
+          [
+            -4,
+            -1,
+            17
+          ],
+          [
+            2,
+            -4,
+            20
+          ]
+        ]
+      }
+    },
+    "exact_alias_count": 0,
+    "exact_aliases": [],
+    "no_unexplained_exact_phase_aliases": true,
+    "mu_phase_diagnostic": 0.6047035377029356,
+    "worst_pair": {
+      "cusp": "infinity",
+      "modes": [
+        [
+          -1,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          4
+        ]
+      ]
+    }
+  },
+  "transformed_height_audit": {
+    "schema": "track-b-transformed-height-audit/v1",
+    "point_count": 20,
+    "unique_source_height_count": 20,
+    "unique_transformed_height_count": 40,
+    "duplicate_complete_height_signatures": [],
+    "different_source_points_have_distinct_height_signatures": true,
+    "records": [
+      {
+        "point_id": "q00",
+        "pairing_relation": "T1",
+        "source_height": "17/15",
+        "true_transformed_height": "17/15"
+      },
+      {
+        "point_id": "q00",
+        "pairing_relation": "R",
+        "source_height": "17/15",
+        "true_transformed_height": "17/15"
+      },
+      {
+        "point_id": "q00",
+        "pairing_relation": "TiR",
+        "source_height": "17/15",
+        "true_transformed_height": "17/15"
+      },
+      {
+        "point_id": "q00",
+        "pairing_relation": "S",
+        "source_height": "17/15",
+        "true_transformed_height": "12495/15502"
+      },
+      {
+        "point_id": "q01",
+        "pairing_relation": "T1",
+        "source_height": "19/16",
+        "true_transformed_height": "19/16"
+      },
+      {
+        "point_id": "q01",
+        "pairing_relation": "R",
+        "source_height": "19/16",
+        "true_transformed_height": "19/16"
+      },
+      {
+        "point_id": "q01",
+        "pairing_relation": "TiR",
+        "source_height": "19/16",
+        "true_transformed_height": "19/16"
+      },
+      {
+        "point_id": "q01",
+        "pairing_relation": "S",
+        "source_height": "19/16",
+        "true_transformed_height": "372400/480369"
+      },
+      {
+        "point_id": "q02",
+        "pairing_relation": "T1",
+        "source_height": "21/19",
+        "true_transformed_height": "21/19"
+      },
+      {
+        "point_id": "q02",
+        "pairing_relation": "R",
+        "source_height": "21/19",
+        "true_transformed_height": "21/19"
+      },
+      {
+        "point_id": "q02",
+        "pairing_relation": "TiR",
+        "source_height": "21/19",
+        "true_transformed_height": "21/19"
+      },
+      {
+        "point_id": "q02",
+        "pairing_relation": "S",
+        "source_height": "21/19",
+        "true_transformed_height": "3089856/3666721"
+      },
+      {
+        "point_id": "q03",
+        "pairing_relation": "T1",
+        "source_height": "23/20",
+        "true_transformed_height": "23/20"
+      },
+      {
+        "point_id": "q03",
+        "pairing_relation": "R",
+        "source_height": "23/20",
+        "true_transformed_height": "23/20"
+      },
+      {
+        "point_id": "q03",
+        "pairing_relation": "TiR",
+        "source_height": "23/20",
+        "true_transformed_height": "23/20"
+      },
+      {
+        "point_id": "q03",
+        "pairing_relation": "S",
+        "source_height": "23/20",
+        "true_transformed_height": "37260/48433"
+      },
+      {
+        "point_id": "q04",
+        "pairing_relation": "T1",
+        "source_height": "25/21",
+        "true_transformed_height": "25/21"
+      },
+      {
+        "point_id": "q04",
+        "pairing_relation": "R",
+        "source_height": "25/21",
+        "true_transformed_height": "25/21"
+      },
+      {
+        "point_id": "q04",
+        "pairing_relation": "TiR",
+        "source_height": "25/21",
+        "true_transformed_height": "25/21"
+      },
+      {
+        "point_id": "q04",
+        "pairing_relation": "S",
+        "source_height": "25/21",
+        "true_transformed_height": "813120/1086629"
+      },
+      {
+        "point_id": "q05",
+        "pairing_relation": "T1",
+        "source_height": "27/23",
+        "true_transformed_height": "27/23"
+      },
+      {
+        "point_id": "q05",
+        "pairing_relation": "R",
+        "source_height": "27/23",
+        "true_transformed_height": "27/23"
+      },
+      {
+        "point_id": "q05",
+        "pairing_relation": "TiR",
+        "source_height": "27/23",
+        "true_transformed_height": "27/23"
+      },
+      {
+        "point_id": "q05",
+        "pairing_relation": "S",
+        "source_height": "27/23",
+        "true_transformed_height": "8500869/10722526"
+      },
+      {
+        "point_id": "q06",
+        "pairing_relation": "T1",
+        "source_height": "29/24",
+        "true_transformed_height": "29/24"
+      },
+      {
+        "point_id": "q06",
+        "pairing_relation": "R",
+        "source_height": "29/24",
+        "true_transformed_height": "29/24"
+      },
+      {
+        "point_id": "q06",
+        "pairing_relation": "TiR",
+        "source_height": "29/24",
+        "true_transformed_height": "29/24"
+      },
+      {
+        "point_id": "q06",
+        "pairing_relation": "S",
+        "source_height": "29/24",
+        "true_transformed_height": "339864/431981"
+      },
+      {
+        "point_id": "q07",
+        "pairing_relation": "T1",
+        "source_height": "31/25",
+        "true_transformed_height": "31/25"
+      },
+      {
+        "point_id": "q07",
+        "pairing_relation": "R",
+        "source_height": "31/25",
+        "true_transformed_height": "31/25"
+      },
+      {
+        "point_id": "q07",
+        "pairing_relation": "TiR",
+        "source_height": "31/25",
+        "true_transformed_height": "31/25"
+      },
+      {
+        "point_id": "q07",
+        "pairing_relation": "S",
+        "source_height": "31/25",
+        "true_transformed_height": "2015775/2579086"
+      },
+      {
+        "point_id": "q08",
+        "pairing_relation": "T1",
+        "source_height": "33/26",
+        "true_transformed_height": "33/26"
+      },
+      {
+        "point_id": "q08",
+        "pairing_relation": "R",
+        "source_height": "33/26",
+        "true_transformed_height": "33/26"
+      },
+      {
+        "point_id": "q08",
+        "pairing_relation": "TiR",
+        "source_height": "33/26",
+        "true_transformed_height": "33/26"
+      },
+      {
+        "point_id": "q08",
+        "pairing_relation": "S",
+        "source_height": "33/26",
+        "true_transformed_height": "136594458/179957509"
+      },
+      {
+        "point_id": "q09",
+        "pairing_relation": "T1",
+        "source_height": "35/27",
+        "true_transformed_height": "35/27"
+      },
+      {
+        "point_id": "q09",
+        "pairing_relation": "R",
+        "source_height": "35/27",
+        "true_transformed_height": "35/27"
+      },
+      {
+        "point_id": "q09",
+        "pairing_relation": "TiR",
+        "source_height": "35/27",
+        "true_transformed_height": "35/27"
+      },
+      {
+        "point_id": "q09",
+        "pairing_relation": "S",
+        "source_height": "35/27",
+        "true_transformed_height": "24495345/33331834"
+      },
+      {
+        "point_id": "q10",
+        "pairing_relation": "T1",
+        "source_height": "37/29",
+        "true_transformed_height": "37/29"
+      },
+      {
+        "point_id": "q10",
+        "pairing_relation": "R",
+        "source_height": "37/29",
+        "true_transformed_height": "37/29"
+      },
+      {
+        "point_id": "q10",
+        "pairing_relation": "TiR",
+        "source_height": "37/29",
+        "true_transformed_height": "37/29"
+      },
+      {
+        "point_id": "q10",
+        "pairing_relation": "S",
+        "source_height": "37/29",
+        "true_transformed_height": "1403600/1872377"
+      },
+      {
+        "point_id": "q11",
+        "pairing_relation": "T1",
+        "source_height": "39/31",
+        "true_transformed_height": "39/31"
+      },
+      {
+        "point_id": "q11",
+        "pairing_relation": "R",
+        "source_height": "39/31",
+        "true_transformed_height": "39/31"
+      },
+      {
+        "point_id": "q11",
+        "pairing_relation": "TiR",
+        "source_height": "39/31",
+        "true_transformed_height": "39/31"
+      },
+      {
+        "point_id": "q11",
+        "pairing_relation": "S",
+        "source_height": "39/31",
+        "true_transformed_height": "251394624/333800257"
+      },
+      {
+        "point_id": "q12",
+        "pairing_relation": "T1",
+        "source_height": "41/32",
+        "true_transformed_height": "41/32"
+      },
+      {
+        "point_id": "q12",
+        "pairing_relation": "R",
+        "source_height": "41/32",
+        "true_transformed_height": "41/32"
+      },
+      {
+        "point_id": "q12",
+        "pairing_relation": "TiR",
+        "source_height": "41/32",
+        "true_transformed_height": "41/32"
+      },
+      {
+        "point_id": "q12",
+        "pairing_relation": "S",
+        "source_height": "41/32",
+        "true_transformed_height": "17959968/24424585"
+      },
+      {
+        "point_id": "q13",
+        "pairing_relation": "T1",
+        "source_height": "43/33",
+        "true_transformed_height": "43/33"
+      },
+      {
+        "point_id": "q13",
+        "pairing_relation": "R",
+        "source_height": "43/33",
+        "true_transformed_height": "43/33"
+      },
+      {
+        "point_id": "q13",
+        "pairing_relation": "TiR",
+        "source_height": "43/33",
+        "true_transformed_height": "43/33"
+      },
+      {
+        "point_id": "q13",
+        "pairing_relation": "S",
+        "source_height": "43/33",
+        "true_transformed_height": "14190000/19588801"
+      },
+      {
+        "point_id": "q14",
+        "pairing_relation": "T1",
+        "source_height": "45/34",
+        "true_transformed_height": "45/34"
+      },
+      {
+        "point_id": "q14",
+        "pairing_relation": "R",
+        "source_height": "45/34",
+        "true_transformed_height": "45/34"
+      },
+      {
+        "point_id": "q14",
+        "pairing_relation": "TiR",
+        "source_height": "45/34",
+        "true_transformed_height": "45/34"
+      },
+      {
+        "point_id": "q14",
+        "pairing_relation": "S",
+        "source_height": "45/34",
+        "true_transformed_height": "1115370/1516789"
+      },
+      {
+        "point_id": "q15",
+        "pairing_relation": "T1",
+        "source_height": "47/35",
+        "true_transformed_height": "47/35"
+      },
+      {
+        "point_id": "q15",
+        "pairing_relation": "R",
+        "source_height": "47/35",
+        "true_transformed_height": "47/35"
+      },
+      {
+        "point_id": "q15",
+        "pairing_relation": "TiR",
+        "source_height": "47/35",
+        "true_transformed_height": "47/35"
+      },
+      {
+        "point_id": "q15",
+        "pairing_relation": "S",
+        "source_height": "47/35",
+        "true_transformed_height": "669587380/937484321"
+      },
+      {
+        "point_id": "q16",
+        "pairing_relation": "T1",
+        "source_height": "49/36",
+        "true_transformed_height": "49/36"
+      },
+      {
+        "point_id": "q16",
+        "pairing_relation": "R",
+        "source_height": "49/36",
+        "true_transformed_height": "49/36"
+      },
+      {
+        "point_id": "q16",
+        "pairing_relation": "TiR",
+        "source_height": "49/36",
+        "true_transformed_height": "49/36"
+      },
+      {
+        "point_id": "q16",
+        "pairing_relation": "S",
+        "source_height": "49/36",
+        "true_transformed_height": "896762916/1257660865"
+      },
+      {
+        "point_id": "q17",
+        "pairing_relation": "T1",
+        "source_height": "51/37",
+        "true_transformed_height": "51/37"
+      },
+      {
+        "point_id": "q17",
+        "pairing_relation": "R",
+        "source_height": "51/37",
+        "true_transformed_height": "51/37"
+      },
+      {
+        "point_id": "q17",
+        "pairing_relation": "TiR",
+        "source_height": "51/37",
+        "true_transformed_height": "51/37"
+      },
+      {
+        "point_id": "q17",
+        "pairing_relation": "S",
+        "source_height": "51/37",
+        "true_transformed_height": "326556672/470216945"
+      },
+      {
+        "point_id": "q18",
+        "pairing_relation": "T1",
+        "source_height": "53/38",
+        "true_transformed_height": "53/38"
+      },
+      {
+        "point_id": "q18",
+        "pairing_relation": "R",
+        "source_height": "53/38",
+        "true_transformed_height": "53/38"
+      },
+      {
+        "point_id": "q18",
+        "pairing_relation": "TiR",
+        "source_height": "53/38",
+        "true_transformed_height": "53/38"
+      },
+      {
+        "point_id": "q18",
+        "pairing_relation": "S",
+        "source_height": "53/38",
+        "true_transformed_height": "18352575/26602217"
+      },
+      {
+        "point_id": "q19",
+        "pairing_relation": "T1",
+        "source_height": "55/39",
+        "true_transformed_height": "55/39"
+      },
+      {
+        "point_id": "q19",
+        "pairing_relation": "R",
+        "source_height": "55/39",
+        "true_transformed_height": "55/39"
+      },
+      {
+        "point_id": "q19",
+        "pairing_relation": "TiR",
+        "source_height": "55/39",
+        "true_transformed_height": "55/39"
+      },
+      {
+        "point_id": "q19",
+        "pairing_relation": "S",
+        "source_height": "55/39",
+        "true_transformed_height": "1616094480/2358578329"
+      }
+    ]
+  },
+  "geometric_conditions": {
+    "all_y_gt_one": true,
+    "all_inside_closed_humbert_core": true,
+    "symmetry_axes_avoided": true,
+    "exact_generator_fixed_sets_avoided": true,
+    "exact_rational_coordinates": true
+  },
+  "collocation_family_hash": "604a4118548db52277e9c37cbed151646e6c3de38035950e4456b0091c924446"
+}

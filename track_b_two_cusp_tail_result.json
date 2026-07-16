@@ -1,0 +1,45 @@
+{
+  "schema": "track-b-two-cusp-fourier-tail/v1",
+  "trial_path": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\track_b_two_cusp_result.json",
+  "trial_sha256": "98c2062d3b3ef584cf56ab47925ebea3e220a3dfc61b6bc66cf1c2aebf9f7fd2",
+  "coefficient_vector_hash": "549511efb90233d9dacdd3f9c8e299d597603b079eb34001c32e43e596b9105e",
+  "coefficient_to_field_map_hash": "d0604affa78f665386940bac8ab369e3bdd40951526674d69404540a10659cba",
+  "theorem_defect_definition_hash": "9bf39d5964642e2e4078de002f3465fb635b634e0db84d0569b0942ce26ef6a0",
+  "fourier_cutoff": 1,
+  "finite_trial_formal_tail": {
+    "definition": "the recorded trial is the finite sum over its mode_order",
+    "outside_cutoff_coefficients": "exactly zero by definition of this finite trial",
+    "value_tail_upper": "0",
+    "horizontal_gradient_tail_upper": "0",
+    "vertical_gradient_tail_upper": "0",
+    "hyperbolic_gradient_tail_upper": "0",
+    "laplacian_tail_upper": "0",
+    "certified": true,
+    "note": "This is not an error bound to an unknown infinite automorphic form."
+  },
+  "unknown_infinite_expansion_tail": {
+    "definition": "sum of unknown coefficients beyond the recorded cutoff",
+    "starting_shells": {
+      "infinity": 2,
+      "zero": 6
+    },
+    "coefficient_growth_assumption": null,
+    "certified_coefficient_bound": null,
+    "bessel_exponential_decay_bound": null,
+    "summed_tail_interval": null,
+    "value_tail_upper": null,
+    "horizontal_gradient_tail_upper": null,
+    "vertical_gradient_tail_upper": null,
+    "hyperbolic_gradient_tail_upper": null,
+    "certified": false,
+    "blocker": "No coefficients outside the independently solved finite space and no certified coefficient-growth envelope are present.  Bessel decay alone cannot bound an arbitrary coefficient sequence."
+  },
+  "theorem_interpretation": "D(K) applies directly to a finite Whittaker quasimode and requires its cusp L2 decay; it does not require approximation to an unknown infinite expansion.",
+  "requested_fourier_tail_certified": false,
+  "resolved_retained_mode_bessel_fallback_count": 0,
+  "tail_majorant_count": 0,
+  "global_hejhal_defect_certified": false,
+  "rung4_certified": false,
+  "status": "RED",
+  "tail_audit_hash": "81fc2b03806e667dc5f8b97ef7b0b75ae8c5b27b838507d8db6b9dec92719dcd"
+}

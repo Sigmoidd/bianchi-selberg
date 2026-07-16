@@ -1,0 +1,128 @@
+{
+  "label": "GLOBAL PARTITION CERTIFICATE",
+  "schema": "track-b-global-partition-certificate/v1",
+  "certified": true,
+  "arb_bits": 192,
+  "cell_count": 256,
+  "partition_degree": 8,
+  "subdivision": [
+    8,
+    4,
+    8
+  ],
+  "minimum_denominator_lower": "1.00000000000000000000000000000000000000000000000000000000",
+  "worst_denominator_cell": "0,0,0",
+  "maximum_gradient_upper": "[114.342105263157894736842105263157894736842105263157894737 +/- 1.50e-55]",
+  "worst_gradient_cell": "0,0,0",
+  "worst_gradient_weight": "core:identity",
+  "maximum_laplacian_upper": "[14726.4755309325946445060018467220683287165281625115420129 +/- 3.46e-53]",
+  "worst_laplacian_cell": "0,0,0",
+  "worst_laplacian_weight": "core:identity",
+  "B0_sup_upper": "[118062.981532779316712834718374884579870729455216989843029 +/- 2.87e-52]",
+  "B1_sup_upper": "[1853.15789473684210526315789473684210526315789473684210528 +/- 4.88e-54]",
+  "b0_upper": "[83483.1348489303855525146459870008197363683316670680001457 +/- 4.99e-53]",
+  "b1_upper": "[1310.38051397780728074493315735324919332731965084269320150 +/- 3.09e-54]",
+  "partition_constants_certified": true,
+  "coverage_certified": true,
+  "local_finiteness_certified": true,
+  "denominator_positive_certified": true,
+  "partition_sum_certified": true,
+  "partition_deviation_upper": "0",
+  "stabilizer_averages_certified": true,
+  "stabilizers_certified": true,
+  "weight_gradients_certified": true,
+  "weight_laplacians_certified": true,
+  "floor_weight_consistency_certified": true,
+  "geometry_incidence_certified": true,
+  "global_partition_certified": true,
+  "global_weight_bounds_certified": true,
+  "unresolved_fallback_count": 0,
+  "transitions_complete": true,
+  "transition_set_complete": true,
+  "active_transition_ids": [
+    "x1m",
+    "x1p",
+    "x2m",
+    "x2p",
+    "floor"
+  ],
+  "theorem_DK_compatible": true,
+  "two_cusp_coordinates_certified": true,
+  "stability_check_passed": true,
+  "provisional": false,
+  "partition_definition": {
+    "schema": "track-b-global-normalized-partition/v1",
+    "cusp": "H((y-1.01)/0.19)",
+    "core_factor": "1-cusp",
+    "transitions": {
+      "x1m": "1-H((x1+0.50)/0.10)",
+      "x1p": "H((x1-0.40)/0.10)",
+      "x2m": "1-H(x2/0.10)",
+      "x2p": "H((x2-0.40)/0.10)",
+      "floor": "1-H(log(x1^2+x2^2+y^2)/0.30)"
+    },
+    "H": "0(t<=0), 10t^3-15t^4+6t^5(0<t<1), 1(t>=1)",
+    "raw_weights": "cusp and (1-cusp)*tensor product of a_i or (1-a_i)",
+    "denominator_identity": "cusp+(1-cusp)*prod_i(a_i+(1-a_i))=1",
+    "floor_weight_formula_id": "track-b-floor-quintic-logrho-width-0.30/v1"
+  },
+  "partition_definition_hash": "1a35272402dde6431a9354baf21f7371df67c803ae5fc0e5ff068d8e3c9dade7",
+  "weight_formulas_hash": "1492b20128a12c0cde55dbb046499a35bddf956e4252a985afe18296ace84a93",
+  "geometry_incidence_hash": "ba74a4e760c858632d4ff20c3796377b79f058e140428e75de6a45d370b44700",
+  "configuration_hash": "57bb5e383f49a30ce935a79bb4c7bd8c3c9dd08178524ede378bf31b5a812549",
+  "floor_width": "0.30",
+  "floor_weight_formula_id": "track-b-floor-quintic-logrho-width-0.30/v1",
+  "stabilizer_certificate": {
+    "certified": true,
+    "edge_orders": [
+      3,
+      3,
+      2,
+      3
+    ],
+    "vertex_orders": {
+      "v_00": 4,
+      "v_0h": 6,
+      "v_mh0": 6,
+      "v_ph0": 6,
+      "v_mhh": 12,
+      "v_phh": 12
+    },
+    "averaging_identity": "A_G phi=|G|^-1 sum_(g in G) phi o g",
+    "invariance_proof": "exact group reindexing A_G(phi) o h=A_G(phi); isometry chain rule gives covariant-gradient equivariance and Delta invariance",
+    "normalization_once_proof": "one reference-cell ledger plus Reynolds averaging; group terms are not duplicated as integration leaves",
+    "sampled_equality_used": false
+  },
+  "coverage_proof": {
+    "uniform_grid_exact_once": true,
+    "s_cap": "0.70",
+    "exp_s_cap_lower_gt_1.94": true,
+    "nonplateau_rho_upper": "1/2+(6/5)^2=1.94",
+    "cusp_plateau": "y>=1.20 is one analytic chart with constant weight 1",
+    "interfaces": "half-open ownership; closed interfaces retained only for incidence checks"
+  },
+  "coordinate_and_metric_convention": {
+    "cell_coordinates": "(x1,x2,s=log rho)",
+    "stored_derivatives": "original (x1,x2,y)",
+    "gradient_norm": "y*Euclidean gradient norm",
+    "laplacian": "Delta=-y^2(d_x1^2+d_x2^2+d_y^2)+y*d_y"
+  },
+  "audit_jsonl": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\track_b_partition_cells_8x4x8.jsonl",
+  "rung4_certified": false,
+  "status": "GREEN",
+  "stability_check": {
+    "check_subdivision": [
+      16,
+      8,
+      16
+    ],
+    "check_partition_degree": 8,
+    "check_minimum_denominator_lower": "1.00000000000000000000000000000000000000000000000000000000",
+    "check_maximum_gradient_upper": "[114.342105263157894736842105263157894736842105263157894737 +/- 1.50e-55]",
+    "check_maximum_laplacian_upper": "[14726.4755309325946445060018467220683287165281625115420129 +/- 3.46e-53]",
+    "gradient_relative_change_upper": "0",
+    "laplacian_relative_change_upper": "0",
+    "denominator_relative_drop_upper": "0",
+    "passed": true
+  }
+}

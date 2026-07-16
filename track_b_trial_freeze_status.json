@@ -1,0 +1,13 @@
+{
+  "schema": "track-b-trial-freeze-status/v1",
+  "rank_milestone_M4": true,
+  "rank_milestone_M5": true,
+  "initial_convergence_milestone": false,
+  "strong_convergence_milestone": false,
+  "candidate_frozen_trial_manifest": null,
+  "reason": "coefficient stability thresholds failed; no track-b-frozen-trial/v1 manifest emitted",
+  "trial_frozen": false,
+  "global_hejhal_defect_certified": false,
+  "rung4_certified": false,
+  "dual_certification": false
+}

@@ -1,0 +1,41 @@
+{
+  "status": "diagnostic progress; continuum floor residual remains uncertified",
+  "rung4_certified": false,
+  "epsilon": "0.30",
+  "target_R_upper": 0.010190340500424501,
+  "corrected_interval_taylor": {
+    "certified_upper_bound": true,
+    "subdivision": [8, 4, 8],
+    "commutator_norm_upper": 254619077.9410262,
+    "below_target": false,
+    "method": "exact (x1,x2,log(r^2)) parameter jet; quarter-turn and reflection orbit folding; equal radial shells grouped",
+    "parameter_vs_direct_difference_ball": "[+/- 7.67e-41] + [+/- 7.69e-41]j",
+    "parameter_vs_legacy_jet_difference_ball": "[+/- 7.69e-41] + [+/- 7.71e-41]j"
+  },
+  "affine_diagnostics": [
+    {
+      "subdivision": [8, 4, 8],
+      "affine_cell_sup_norm": 0.011877151261352692,
+      "affine_polynomial_L2_norm": 0.005284626685974611,
+      "remainder_included": false
+    },
+    {
+      "subdivision": [16, 8, 16],
+      "affine_cell_sup_norm": 0.009805220506023145,
+      "affine_polynomial_L2_norm": null,
+      "remainder_included": false
+    }
+  ],
+  "conditioning_observation": {
+    "max_projected_fourier_coefficient_modulus": 17446.802604456705,
+    "representative_midpoint_gradient_scale": "1e-2 to 5e-2",
+    "representative_interval_gradient_scale": "1e8",
+    "direct_bessel_evaluations": 56,
+    "mean_value_bessel_fallbacks": 0,
+    "conclusion": "remaining loss is Fourier cancellation in the interval derivative enclosure"
+  },
+  "next_provable_step": "validated higher-order Taylor/Chebyshev remainder with Fourier coefficients summed before bounding and exact cellwise polynomial L2 integration",
+  "trial_sha256": "C77B711B500CAE0442376EEC1F9BA79F0FB66889E6C3FDD67DAC6C6C5E7C733A",
+  "source_sha256": "D1B1D28ECE6B153DA5FC8A4BA9E48178A5DC0A054F35B4C44136920B71586D15",
+  "precision_bits": 160
+}

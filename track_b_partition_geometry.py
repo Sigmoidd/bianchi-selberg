@@ -293,8 +293,317 @@ def rational_bounds() -> dict[str, object]:
     }
 
 
+def exp_upper_by_taylor(x: Q, terms: int) -> Q:
+    """A rational upper bound for exp(x), for positive rational x.
+
+    After the displayed Taylor terms, the ratio of successive terms is at
+    most x/(terms+1).  The geometric tail bound is deliberately elementary:
+    this ledger must not depend on a floating-point comparison with exp.
+    """
+    if x < 0 or terms < 0:
+        raise ValueError("this elementary exp bound requires x >= 0")
+    term = Q(1)
+    partial = term
+    for k in range(1, terms + 1):
+        term *= x / k
+        partial += term
+    next_term = term * x / (terms + 1)
+    ratio = x / (terms + 2)
+    if ratio >= 1:
+        raise ValueError("Taylor tail ratio must be below one")
+    return partial + next_term / (1 - ratio)
+
+
+def finite_order(a: Mat, limit: int = 24) -> int:
+    """Return the projective order of a known finite-order matrix."""
+    b = ID
+    for order in range(1, limit + 1):
+        b = mmul(b, a)
+        if b == ID:
+            return order
+    raise ArithmeticError(f"no order <= {limit} for purported elliptic matrix")
+
+
+def floor_collar_incidence() -> dict[str, object]:
+    """Exact finite incidence ledger for 0 <= log(|z|^2+y^2) <= 3/10.
+
+    This proves only the finite isometric-sphere / elliptic-stratum claim
+    needed by the floor collar.  It deliberately does not claim that the
+    full smooth-orbifold collar construction or its partition constants have
+    been completed.
+
+    Put rho=|z|^2+y^2.  On the closed Picard rectangle,
+    |z|^2 <= 1/2 and rho >= 1, hence y^2 >= 1/2.  For an isometric sphere
+
+        |c z+d|^2+|c|^2 y^2 = 1,
+
+    |c|^2>2 is impossible; |c|^2=2 forces y^2=1/2 and cz+d=0,
+    hence one of the two lower corner vertices.  The remaining |c|=1
+    spheres have Gaussian centres n=-d/c.  Horizontal radius one confines
+    n to {-1,0,1}^2, which is enumerated below with exact affine extrema.
+    """
+    eps = Q(3, 10)
+    rho_cap = Q(27, 20)
+    exp_cap = exp_upper_by_taylor(eps, 8)
+    if not exp_cap < rho_cap:
+        raise ArithmeticError("failed rational containment exp(3/10) < 27/20")
+
+    # For a unit-c sphere centred at n, its equation is
+    # rho = 1-|n|^2+2(n_1 x1+n_2 x2).  The extrema on the closed horizontal
+    # rectangle are attained at corners, so this is entirely rational.
+    corners = [(Q(-1, 2), Q(0)), (Q(-1, 2), Q(1, 2)),
+               (Q(1, 2), Q(0)), (Q(1, 2), Q(1, 2))]
+    unit_spheres = []
+    for n1 in range(-1, 2):
+        for n2 in range(-1, 2):
+            values = [Q(1 - n1 * n1 - n2 * n2) + 2 * (n1 * x1 + n2 * x2)
+                      for x1, x2 in corners]
+            lo, hi = min(values), max(values)
+            if (n1, n2) == (0, 0):
+                incidence = "the unique codimension-one floor sphere; rho=1"
+            elif (n1, n2) == (-1, 0):
+                incidence = "floor/x1m edge only"
+            elif (n1, n2) == (1, 0):
+                incidence = "floor/x1p edge only"
+            elif (n1, n2) == (0, 1):
+                incidence = "floor/x2p edge only"
+            elif (n1, n2) == (-1, 1):
+                incidence = "v_mhh only"
+            elif (n1, n2) == (1, 1):
+                incidence = "v_phh only"
+            else:
+                incidence = "disjoint from rho >= 1"
+            unit_spheres.append({
+                "center": [n1, n2],
+                "rho_range_on_horizontal_rectangle": [str(lo), str(hi)],
+                "incidence": incidence,
+            })
+
+    edge_generators = {
+        "floor_x1m": (mmul(S, T1), 3,
+                        ["v_mh0", "v_mhh"], [], "x1=-1/2, rho=1"),
+        "floor_x1p": (mmul(T1, S), 3,
+                        ["v_ph0", "v_phh"], [], "x1=1/2, rho=1"),
+        "floor_x2m": (mmul(R, S), 2,
+                        ["v_mh0", "v_ph0"], ["v_00"], "x2=0, rho=1"),
+        "floor_x2p": (mmul(TIR, S), 3,
+                        ["v_mhh", "v_phh"], ["v_0h"], "x2=1/2, rho=1"),
+    }
+    elliptic_edges = []
+    for name, (generator, expected_order, endpoints, special_points, locus) in edge_generators.items():
+        order = finite_order(generator)
+        if order != expected_order:
+            raise ArithmeticError(f"wrong order on {name}: {order}")
+        elliptic_edges.append({
+            "id": name,
+            "locus": locus,
+            "generator": mat_json(generator),
+            "stabilizer_order": order,
+            "averaging_rule": f"average the local chart over the cyclic group of order {order}",
+            "endpoints": endpoints,
+            "interior_special_points": special_points,
+            "interior_special_point_rule": (
+                "replace the generic cyclic average by the exact SPECIAL-point "
+                "stabilizer average when this list is nonempty"
+            ),
+        })
+
+    return {
+        "certified": True,
+        "scope": "finite isometric-sphere and elliptic-stratum incidence in the selected floor collar",
+        "floor_collar": {
+            "log_rho_interval": ["0", "3/10"],
+            "rho_upper_containment": "27/20",
+            "exp_upper_by_9_term_taylor_plus_geometric_tail": str(exp_cap),
+            "containment_verified": True,
+        },
+        "exclusion_argument": {
+            "closed_cell_y_squared_lower": "1/2",
+            "c_norm_squared_greater_than_2": "impossible, since |c|^2 y^2 > 1",
+            "c_norm_squared_equal_2": (
+                "only equality cases y^2=1/2 and cz+d=0; these are the already "
+                "enumerated vertices v_mhh and v_phh"
+            ),
+            "c_norm_squared_equal_1": (
+                "unit-c sphere centres are Gaussian; radius-one horizontal projection "
+                "forces each centre coordinate into {-1,0,1}"
+            ),
+        },
+        "unit_c_spheres": unit_spheres,
+        "open_collar_incident_codimension_one_words": ["S"],
+        "closed_collar_incident_vertical_faces": ["x1m", "x1p", "x2m", "x2p"],
+        "elliptic_edge_averages": elliptic_edges,
+        "vertex_averages": {
+            name: {
+                "stabilizer_order": len(exhaustive_stabilizer((x1, x2), y2)),
+                "averaging_rule": "average over the exact finite point stabilizer recorded in stabilizers",
+            }
+            for name, (x1, x2, y2) in SPECIAL.items()
+        },
+        "conclusion": (
+            "No unlisted isometric sphere enters the open 0.30 floor collar.  "
+            "All closed-collar edge and vertex incidences reduce to the listed finite "
+            "cyclic averages and exact SPECIAL-point stabilizers."
+        ),
+    }
+
+
+def global_singular_strata_incidence() -> dict[str, object]:
+    """Exact singular-stratum ledger for the closed Humbert cell.
+
+    The five boundary faces are the two ``x1`` faces paired to one another
+    and the three self-paired faces ``x2=0``, ``x2=1/2`` and ``rho=1``.
+    The relative interiors of the self-paired faces contain one fixed axis
+    each.  The four vertical face intersections and the four floor/vertical
+    intersections are the remaining open one-dimensional strata.  Their
+    endpoints/intersections are exactly the six points in ``SPECIAL``.
+
+    Stabilizer orders are not inferred from pictures or midpoint floating
+    point tests.  For one rational point in every open stratum we invoke the
+    exhaustive Gaussian-entry enumeration used for the vertices.  The face
+    and edge-cycle equations identify the full open locus; the stabilizer can
+    change only at a listed intersection, where the complete point group is
+    substituted.
+    """
+    strata = {
+        # Fixed axes in relative interiors of self-paired faces.
+        "floor_S": {
+            "locus": "x1=0, rho=1, 0<x2<1/2",
+            "sample": (Q(0), Q(1, 4), Q(15, 16)),
+            "kind": "self_paired_face_fixed_axis",
+            "incident_faces": ["floor"],
+            "expected_order": 2,
+        },
+        "vertical_R": {
+            "locus": "x1=0, x2=0, rho>1",
+            "sample": (Q(0), Q(0), Q(2)),
+            "kind": "self_paired_face_fixed_axis",
+            "incident_faces": ["x2m"],
+            "expected_order": 2,
+        },
+        "vertical_TiR": {
+            "locus": "x1=0, x2=1/2, rho>1",
+            "sample": (Q(0), Q(1, 2), Q(2)),
+            "kind": "self_paired_face_fixed_axis",
+            "incident_faces": ["x2p"],
+            "expected_order": 2,
+        },
+        # Vertical corner cycles.  The two members of each x1-paired pair
+        # remain separate closed-cell incidences but represent one quotient
+        # stratum after the exact face identification.
+        "vertical_x1m_x2m": {
+            "locus": "x1=-1/2, x2=0, rho>1",
+            "sample": (Q(-1, 2), Q(0), Q(2)),
+            "kind": "vertical_edge_cycle",
+            "incident_faces": ["x1m", "x2m"],
+            "expected_order": 2,
+        },
+        "vertical_x1p_x2m": {
+            "locus": "x1=1/2, x2=0, rho>1",
+            "sample": (Q(1, 2), Q(0), Q(2)),
+            "kind": "vertical_edge_cycle",
+            "incident_faces": ["x1p", "x2m"],
+            "expected_order": 2,
+        },
+        "vertical_x1m_x2p": {
+            "locus": "x1=-1/2, x2=1/2, rho>1",
+            "sample": (Q(-1, 2), Q(1, 2), Q(2)),
+            "kind": "vertical_edge_cycle",
+            "incident_faces": ["x1m", "x2p"],
+            "expected_order": 2,
+        },
+        "vertical_x1p_x2p": {
+            "locus": "x1=1/2, x2=1/2, rho>1",
+            "sample": (Q(1, 2), Q(1, 2), Q(2)),
+            "kind": "vertical_edge_cycle",
+            "incident_faces": ["x1p", "x2p"],
+            "expected_order": 2,
+        },
+        # Four boundary edges of the inversion face.
+        "floor_x1m": {
+            "locus": "x1=-1/2, rho=1, 0<x2<1/2",
+            "sample": (Q(-1, 2), Q(1, 4), Q(11, 16)),
+            "kind": "floor_edge_cycle",
+            "incident_faces": ["floor", "x1m"],
+            "expected_order": 3,
+        },
+        "floor_x1p": {
+            "locus": "x1=1/2, rho=1, 0<x2<1/2",
+            "sample": (Q(1, 2), Q(1, 4), Q(11, 16)),
+            "kind": "floor_edge_cycle",
+            "incident_faces": ["floor", "x1p"],
+            "expected_order": 3,
+        },
+        "floor_x2m": {
+            "locus": "x2=0, rho=1, -1/2<x1<1/2",
+            "sample": (Q(1, 4), Q(0), Q(15, 16)),
+            "kind": "floor_edge_cycle",
+            "incident_faces": ["floor", "x2m"],
+            "expected_order": 2,
+        },
+        "floor_x2p": {
+            "locus": "x2=1/2, rho=1, -1/2<x1<1/2",
+            "sample": (Q(1, 4), Q(1, 2), Q(11, 16)),
+            "kind": "floor_edge_cycle",
+            "incident_faces": ["floor", "x2p"],
+            "expected_order": 3,
+        },
+    }
+    rows = []
+    for name, data in strata.items():
+        x1, x2, y2 = data["sample"]
+        group = exhaustive_stabilizer((x1, x2), y2)
+        expected = int(data["expected_order"])
+        if len(group) != expected:
+            raise ArithmeticError(
+                f"wrong exact generic stabilizer order on {name}: "
+                f"{len(group)} != {expected}"
+            )
+        closure = all(mmul(a, b) in group for a in group for b in group)
+        reindexing = all({mmul(a, h) for a in group} == group for h in group)
+        if not closure or not reindexing:
+            raise ArithmeticError(f"stabilizer group check failed on {name}")
+        rows.append({
+            "id": name,
+            "locus": data["locus"],
+            "kind": data["kind"],
+            "incident_faces": data["incident_faces"],
+            "generic_sample": {
+                "x1": str(x1), "x2": str(x2), "y_squared": str(y2),
+            },
+            "stabilizer_order": len(group),
+            "elements": [mat_json(a) for a in sorted(group)],
+            "group_closure_exact": closure,
+            "right_reindexing_exact": reindexing,
+        })
+
+    return {
+        "certified": True,
+        "scope": "all positive-height singular strata of the closed Humbert reference cell",
+        "face_inventory_complete": True,
+        "relative_face_interior_classification": {
+            "paired_distinct_faces": ["x1m", "x1p"],
+            "self_paired_faces": ["x2m", "x2p", "floor"],
+            "self_paired_fixed_axes": ["vertical_R", "vertical_TiR", "floor_S"],
+        },
+        "one_dimensional_strata": rows,
+        "zero_dimensional_strata": list(SPECIAL),
+        "exhaustiveness_proof": (
+            "The exact five-face Humbert polyhedron has no other nonempty "
+            "relative face intersections.  Interior stabilizers are excluded "
+            "by disjoint fundamental-domain interiors; face-interior isotropy "
+            "is the fixed locus of one of the three self-pairings; edge isotropy "
+            "is one of the eight listed face cycles.  Stabilizer jumps occur "
+            "only at the six enumerated SPECIAL intersections."
+        ),
+        "sampled_floating_point_geometry_used": False,
+    }
+
+
 def build(max_depth: int) -> dict[str, object]:
     words = bfs(max_depth)
+    collar_incidence = floor_collar_incidence()
+    global_incidence = global_singular_strata_incidence()
     stabilizers = {}
     for name, (xr, xi, y2) in SPECIAL.items():
         exact = exhaustive_stabilizer((xr, xi), y2)
@@ -349,7 +658,10 @@ def build(max_depth: int) -> dict[str, object]:
         "theorem_compatibility": {
             "theorem": "theorem_DK_sixcopy.tex, Lemma Certified automorphization",
             "compatible": False,
-            "reason": "no exact collar-separation/Lebesgue-number proof or exhaustive singular-stratum incidence inventory",
+            "reason": (
+                "the finite floor-collar incidence is now exact, but the global "
+                "collar-separation/Lebesgue-number and normalized-weight proofs remain open"
+            ),
         },
         "coordinate_convention": {
             "reference_cell": "x1 in [-1/2,1/2], x2 in [0,1/2], x1^2+x2^2+y^2 >= 1",
@@ -394,13 +706,15 @@ def build(max_depth: int) -> dict[str, object]:
             "exact_fixed_point_tests": True,
             "elliptic_averaging_required": True,
             "listed_special_points_exhaustive": True,
-            "global_singular_strata_exhaustive": False,
+            "floor_collar_singular_strata_exhaustive": True,
+            "global_singular_strata_exhaustive": global_incidence["certified"],
         },
+        "floor_collar_incidence": collar_incidence,
+        "global_singular_strata_incidence": global_incidence,
         "conditional_bounds_not_theorem_inputs": conditional,
         "blockers": [
-            "prove epsilon=1/10 collar intersects only the enumerated incident Humbert chambers",
-            "prove the collar's singular-stratum incidence inventory exhaustive; listed special-point stabilizers are already exact",
             "replace face-only transition list by all edge/vertex chamber-to-chamber words after the collar proof",
+            "prove the global collar-separation/Lebesgue-number statement outside the resolved floor collar",
             "interval-integrate the resulting normalized rational/quintic weights; current bounds are conditional sup bounds",
         ],
         "source_mesh_audit": {
@@ -416,9 +730,54 @@ def main() -> int:
     ap.add_argument("--depth", type=int, default=6)
     ap.add_argument("--output", type=Path,
                     default=ROOT / "track_b_partition_result.json")
+    ap.add_argument("--certify-global-partition", action="store_true")
+    ap.add_argument("--bits", type=int, default=192)
+    ap.add_argument("--partition-subdivision", default="16,8,16")
+    ap.add_argument("--partition-degree", type=int, default=8)
+    ap.add_argument("--partition-workers", type=int, default=1)
+    ap.add_argument("--partition-audit-jsonl", type=Path,
+                    default=ROOT / "track_b_partition_cells.jsonl")
+    ap.add_argument("--check-refinement", default="")
+    ap.add_argument("--check-audit-jsonl", type=Path,
+                    default=ROOT / "track_b_partition_cells_refined.jsonl")
+    ap.add_argument("--global-json-out", type=Path,
+                    default=ROOT / "track_b_global_partition_result.json")
     ns = ap.parse_args()
     out = build(ns.depth)
     ns.output.write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8")
+    if ns.certify_global_partition:
+        from flint import ctx
+        from track_b_global_partition_arb import apply_stability, certify_partition
+
+        ctx.prec = max(128, ns.bits)
+        dims = tuple(int(q) for q in ns.partition_subdivision.split(","))
+        if len(dims) != 3 or min(dims) <= 0:
+            raise ValueError("partition subdivision must be nx1,nx2,ns")
+        result = certify_partition(
+            out, dims, ns.partition_degree, int(ctx.prec),
+            ns.partition_audit_jsonl, ns.partition_workers, True,
+        )
+        if ns.check_refinement.strip():
+            check_dims = tuple(int(q) for q in ns.check_refinement.split(","))
+            if len(check_dims) != 3 or min(check_dims) <= 0:
+                raise ValueError("check refinement must be nx1,nx2,ns")
+            check = certify_partition(
+                out, check_dims, ns.partition_degree, int(ctx.prec),
+                ns.check_audit_jsonl, ns.partition_workers, False,
+            )
+            result = apply_stability(result, check)
+        result["rung4_certified"] = False
+        ns.global_json_out.write_text(
+            json.dumps(result, indent=2) + "\n", encoding="utf-8"
+        )
+        print(json.dumps({
+            "global_partition_certified": result["global_partition_certified"],
+            "global_weight_bounds_certified": result["global_weight_bounds_certified"],
+            "stability_check_passed": result["stability_check_passed"],
+            "rung4_certified": False,
+            "global_output": str(ns.global_json_out.resolve()),
+        }, indent=2))
+        return 0 if result["global_weight_bounds_certified"] else 2
     print(json.dumps({
         "certified": out["certified"],
         "output": str(ns.output),

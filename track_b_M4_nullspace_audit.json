@@ -1,0 +1,4977 @@
+{
+  "schema": "track-b-M4-six-point-nullspace-audit/v1",
+  "label": "DIAGNOSTIC ONLY",
+  "arb_midpoint_precision_bits": 256,
+  "matrix_shape": [
+    145,
+    80
+  ],
+  "observed_numerical_nullity": 7,
+  "numpy_smallest_singular_values": [
+    2.52558350327715e-07,
+    2.0205395409238592e-07,
+    1.7105345259114804e-07,
+    8.345302515241425e-08,
+    1.5722678533463343e-09,
+    4.313088958569852e-18,
+    4.051300398430147e-20,
+    2.997307354604136e-20,
+    1.832653208733754e-20,
+    1.2679590191038571e-20,
+    5.468466012281785e-21,
+    3.1627375250562035e-21
+  ],
+  "basis_method": "256-bit Arb midpoint Gram matrix; approximate high-precision acb eigensystem",
+  "basis_nonuniqueness_note": "the seven nearly degenerate null directions may rotate within their invariant subspace",
+  "null_vectors": [
+    {
+      "basis_vector": 0,
+      "gram_eigenvalue_high_precision_diagnostic": "[-1.167322056513911118928413642373159869457973992329253390662915040593724519117e-84 +/- 2.48e-160] + [3.084754017956251926498508499097135176013008947944816323516893673385887093260e-84 +/- 1.97e-160]j",
+      "physical_action_l2": 1.3216023253043801e-20,
+      "fraction_in_new_M4_modes": 0.8052027589677646,
+      "fraction_in_old_M_le_3_modes": 0.1947972410322354,
+      "row_families_least_sensitive": [
+        {
+          "row_family": "relation:T1",
+          "rms_action": 7.702143204732705e-82,
+          "maximum_action": 2.5099907279924165e-81
+        },
+        {
+          "row_family": "block:infinity->infinity",
+          "rms_action": 2.205814966808074e-24,
+          "maximum_action": 6.617444900424222e-24
+        },
+        {
+          "row_family": "fiber:0",
+          "rms_action": 4.254464723754404e-22,
+          "maximum_action": 1.2749534182144804e-21
+        },
+        {
+          "row_family": "block:zero->infinity",
+          "rms_action": 7.237813028414931e-22,
+          "maximum_action": 1.0587911840678754e-21
+        },
+        {
+          "row_family": "block:infinity->zero",
+          "rms_action": 8.508843673307333e-22,
+          "maximum_action": 1.2749534182144804e-21
+        },
+        {
+          "row_family": "fiber:4",
+          "rms_action": 1.0494858707764037e-21,
+          "maximum_action": 2.117582368135751e-21
+        },
+        {
+          "row_family": "fiber:3",
+          "rms_action": 1.061346329318326e-21,
+          "maximum_action": 2.7952889362416865e-21
+        },
+        {
+          "row_family": "fiber:1",
+          "rms_action": 1.1063352320879462e-21,
+          "maximum_action": 2.752857078576476e-21
+        },
+        {
+          "row_family": "relation:R",
+          "rms_action": 1.2054334797055654e-21,
+          "maximum_action": 2.7952889362416865e-21
+        },
+        {
+          "row_family": "relation:TiR",
+          "rms_action": 1.2054334797055654e-21,
+          "maximum_action": 2.7952889362416865e-21
+        },
+        {
+          "row_family": "block:zero->zero",
+          "rms_action": 1.2109732259719211e-21,
+          "maximum_action": 5.152300273486526e-21
+        },
+        {
+          "row_family": "fiber:2",
+          "rms_action": 1.2598428713898847e-21,
+          "maximum_action": 2.6785533665288553e-21
+        }
+      ],
+      "by_cusp": {
+        "infinity": 0.082077962036408,
+        "zero": 0.9179220379635921
+      },
+      "by_radial_shell": [
+        {
+          "shell": "zero:17/5",
+          "energy": 0.34174822358691936
+        },
+        {
+          "shell": "zero:20/5",
+          "energy": 0.20156420875853542
+        },
+        {
+          "shell": "zero:18/5",
+          "energy": 0.17327004962618184
+        },
+        {
+          "shell": "zero:16/5",
+          "energy": 0.06698555436218832
+        },
+        {
+          "shell": "zero:13/5",
+          "energy": 0.05388319889401702
+        },
+        {
+          "shell": "infinity:2",
+          "energy": 0.048501909708541256
+        },
+        {
+          "shell": "zero:10/5",
+          "energy": 0.022707981158587718
+        },
+        {
+          "shell": "infinity:4",
+          "energy": 0.021634722633939663
+        },
+        {
+          "shell": "zero:8/5",
+          "energy": 0.013435457714735484
+        },
+        {
+          "shell": "zero:4/5",
+          "energy": 0.012598708293314448
+        },
+        {
+          "shell": "infinity:1",
+          "energy": 0.0119413296939271
+        },
+        {
+          "shell": "zero:1/5",
+          "energy": 0.011808551019272384
+        },
+        {
+          "shell": "zero:9/5",
+          "energy": 0.011340497560829384
+        },
+        {
+          "shell": "zero:2/5",
+          "energy": 0.006669769199225779
+        },
+        {
+          "shell": "zero:5/5",
+          "energy": 0.0019098377897849292
+        }
+      ],
+      "dominant_shell": {
+        "shell": "zero:17/5",
+        "energy": 0.34174822358691936
+      },
+      "by_symmetry_orbit": [
+        {
+          "orbit": "('zero', ((-4, -1), (-1, 4), (1, -4), (4, 1)))",
+          "energy": 0.26913275688025884
+        },
+        {
+          "orbit": "('zero', ((-4, -2), (-2, 4), (2, -4), (4, 2)))",
+          "energy": 0.20069881985317783
+        },
+        {
+          "orbit": "('zero', ((-3, -3), (-3, 3), (3, -3), (3, 3)))",
+          "energy": 0.17327004962618184
+        },
+        {
+          "orbit": "('zero', ((-4, 1), (-1, -4), (1, 4), (4, -1)))",
+          "energy": 0.07261546670666047
+        },
+        {
+          "orbit": "('zero', ((-4, 0), (0, -4), (0, 4), (4, 0)))",
+          "energy": 0.06698555436218832
+        },
+        {
+          "orbit": "('infinity', ((-1, -1), (-1, 1), (1, -1), (1, 1)))",
+          "energy": 0.048501909708541256
+        },
+        {
+          "orbit": "('zero', ((-3, 2), (-2, -3), (2, 3), (3, -2)))",
+          "energy": 0.035113914961394044
+        },
+        {
+          "orbit": "('infinity', ((-2, 0), (0, -2), (0, 2), (2, 0)))",
+          "energy": 0.021634722633939663
+        },
+        {
+          "orbit": "('zero', ((-3, 1), (-1, -3), (1, 3), (3, -1)))",
+          "energy": 0.020767904770246065
+        },
+        {
+          "orbit": "('zero', ((-3, -2), (-2, 3), (2, -3), (3, 2)))",
+          "energy": 0.018769283932622977
+        },
+        {
+          "orbit": "('zero', ((-2, -2), (-2, 2), (2, -2), (2, 2)))",
+          "energy": 0.013435457714735484
+        },
+        {
+          "orbit": "('zero', ((-2, 0), (0, -2), (0, 2), (2, 0)))",
+          "energy": 0.012598708293314448
+        },
+        {
+          "orbit": "('infinity', ((-1, 0), (0, -1), (0, 1), (1, 0)))",
+          "energy": 0.0119413296939271
+        },
+        {
+          "orbit": "('zero', ((-1, 0), (0, -1), (0, 1), (1, 0)))",
+          "energy": 0.011808551019272384
+        },
+        {
+          "orbit": "('zero', ((-3, 0), (0, -3), (0, 3), (3, 0)))",
+          "energy": 0.011340497560829384
+        },
+        {
+          "orbit": "('zero', ((-1, -1), (-1, 1), (1, -1), (1, 1)))",
+          "energy": 0.006669769199225779
+        },
+        {
+          "orbit": "('zero', ((-3, -1), (-1, 3), (1, -3), (3, 1)))",
+          "energy": 0.00194007638834165
+        },
+        {
+          "orbit": "('zero', ((-2, -1), (-1, 2), (1, -2), (2, 1)))",
+          "energy": 0.001432184602027845
+        },
+        {
+          "orbit": "('zero', ((-4, 2), (-2, -4), (2, 4), (4, -2)))",
+          "energy": 0.0008653889053575861
+        },
+        {
+          "orbit": "('zero', ((-2, 1), (-1, -2), (1, 2), (2, -1)))",
+          "energy": 0.0004776531877570842
+        }
+      ],
+      "dominant_modes": [
+        {
+          "cusp": "zero",
+          "mode": [
+            4,
+            1,
+            17
+          ],
+          "energy": 0.12475767576261074,
+          "real_energy": 0.048549960433127884,
+          "imaginary_energy": 0.07620771532948287,
+          "symmetry_orbit": [
+            [
+              -4,
+              -1
+            ],
+            [
+              -1,
+              4
+            ],
+            [
+              1,
+              -4
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -2,
+            4,
+            20
+          ],
+          "energy": 0.1154879179692536,
+          "real_energy": 0.029876611280747586,
+          "imaginary_energy": 0.085611306688506,
+          "symmetry_orbit": [
+            [
+              -4,
+              -2
+            ],
+            [
+              -2,
+              4
+            ],
+            [
+              2,
+              -4
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -4,
+            -1,
+            17
+          ],
+          "energy": 0.10061732408884098,
+          "real_energy": 0.05827651394434863,
+          "imaginary_energy": 0.042340810144492376,
+          "symmetry_orbit": [
+            [
+              -4,
+              -1
+            ],
+            [
+              -1,
+              4
+            ],
+            [
+              1,
+              -4
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            3,
+            3,
+            18
+          ],
+          "energy": 0.062420832342526884,
+          "real_energy": 0.033077331016429616,
+          "imaginary_energy": 0.029343501326097265,
+          "symmetry_orbit": [
+            [
+              -3,
+              -3
+            ],
+            [
+              -3,
+              3
+            ],
+            [
+              3,
+              -3
+            ],
+            [
+              3,
+              3
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            2,
+            -4,
+            20
+          ],
+          "energy": 0.059768149455715174,
+          "real_energy": 0.023342783373004283,
+          "imaginary_energy": 0.0364253660827109,
+          "symmetry_orbit": [
+            [
+              -4,
+              -2
+            ],
+            [
+              -2,
+              4
+            ],
+            [
+              2,
+              -4
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -3,
+            3,
+            18
+          ],
+          "energy": 0.049921891545796425,
+          "real_energy": 0.03505875047956186,
+          "imaginary_energy": 0.014863141066234565,
+          "symmetry_orbit": [
+            [
+              -3,
+              -3
+            ],
+            [
+              -3,
+              3
+            ],
+            [
+              3,
+              -3
+            ],
+            [
+              3,
+              3
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -4,
+            0,
+            16
+          ],
+          "energy": 0.03687863016859155,
+          "real_energy": 0.016440989920154234,
+          "imaginary_energy": 0.020437640248437316,
+          "symmetry_orbit": [
+            [
+              -4,
+              0
+            ],
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              0
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -4,
+            1,
+            17
+          ],
+          "energy": 0.03580834199647743,
+          "real_energy": 0.029625498525110105,
+          "imaginary_energy": 0.0061828434713673336,
+          "symmetry_orbit": [
+            [
+              -4,
+              1
+            ],
+            [
+              -1,
+              -4
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              4,
+              -1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -1,
+            4,
+            17
+          ],
+          "energy": 0.031650053805582376,
+          "real_energy": 0.023970377685186076,
+          "imaginary_energy": 0.007679676120396308,
+          "symmetry_orbit": [
+            [
+              -4,
+              -1
+            ],
+            [
+              -1,
+              4
+            ],
+            [
+              1,
+              -4
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            3,
+            -3,
+            18
+          ],
+          "energy": 0.031191991905852322,
+          "real_energy": 0.025594044070268218,
+          "imaginary_energy": 0.005597947835584103,
+          "symmetry_orbit": [
+            [
+              -3,
+              -3
+            ],
+            [
+              -3,
+              3
+            ],
+            [
+              3,
+              -3
+            ],
+            [
+              3,
+              3
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -3,
+            -3,
+            18
+          ],
+          "energy": 0.02973533383200621,
+          "real_energy": 0.029111241171961524,
+          "imaginary_energy": 0.0006240926600446834,
+          "symmetry_orbit": [
+            [
+              -3,
+              -3
+            ],
+            [
+              -3,
+              3
+            ],
+            [
+              3,
+              -3
+            ],
+            [
+              3,
+              3
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            4,
+            -1,
+            17
+          ],
+          "energy": 0.027286190111151163,
+          "real_energy": 0.025201310676377625,
+          "imaginary_energy": 0.0020848794347735336,
+          "symmetry_orbit": [
+            [
+              -4,
+              1
+            ],
+            [
+              -1,
+              -4
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              4,
+              -1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -4,
+            -2,
+            20
+          ],
+          "energy": 0.0254427523183098,
+          "real_energy": 0.01867894196368905,
+          "imaginary_energy": 0.006763810354620752,
+          "symmetry_orbit": [
+            [
+              -4,
+              -2
+            ],
+            [
+              -2,
+              4
+            ],
+            [
+              2,
+              -4
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "infinity",
+          "mode": [
+            -1,
+            1,
+            2
+          ],
+          "energy": 0.01972028695384186,
+          "real_energy": 0.006231831581056085,
+          "imaginary_energy": 0.013488455372785771,
+          "symmetry_orbit": [
+            [
+              -1,
+              -1
+            ],
+            [
+              -1,
+              1
+            ],
+            [
+              1,
+              -1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "infinity",
+          "mode": [
+            1,
+            -1,
+            2
+          ],
+          "energy": 0.01972028695384186,
+          "real_energy": 0.006231831581056085,
+          "imaginary_energy": 0.013488455372785771,
+          "symmetry_orbit": [
+            [
+              -1,
+              -1
+            ],
+            [
+              -1,
+              1
+            ],
+            [
+              1,
+              -1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            4,
+            0,
+            16
+          ],
+          "energy": 0.016158308012211204,
+          "real_energy": 0.015533227813380148,
+          "imaginary_energy": 0.0006250801988310542,
+          "symmetry_orbit": [
+            [
+              -4,
+              0
+            ],
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              0
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        }
+      ],
+      "real_component_energy": 0.5410745567988293,
+      "imaginary_component_energy": 0.45892544320117074,
+      "fiber_note": "the physical formulation has cusp-channel coefficients shared by all six fibers"
+    },
+    {
+      "basis_vector": 1,
+      "gram_eigenvalue_high_precision_diagnostic": "[-7.785289330838118661178326518301388717606293150885771460110302321242428963067e-83 +/- 3.36e-159] + [5.819895122384927001371941008903174770125396757576617056244045063705381787250e-83 +/- 2.89e-159]j",
+      "physical_action_l2": 1.2381387071268336e-20,
+      "fraction_in_new_M4_modes": 0.8154079784641732,
+      "fraction_in_old_M_le_3_modes": 0.18459202153582677,
+      "row_families_least_sensitive": [
+        {
+          "row_family": "block:infinity->infinity",
+          "rms_action": 1.3472543583590117e-83,
+          "maximum_action": 4.576797491060831e-83
+        },
+        {
+          "row_family": "relation:T1",
+          "rms_action": 7.722822701132162e-82,
+          "maximum_action": 2.1784473860052015e-81
+        },
+        {
+          "row_family": "fiber:0",
+          "rms_action": 3.598657153411791e-22,
+          "maximum_action": 1.0587911840678754e-21
+        },
+        {
+          "row_family": "fiber:1",
+          "rms_action": 7.048180732191373e-22,
+          "maximum_action": 2.117582368135751e-21
+        },
+        {
+          "row_family": "block:infinity->zero",
+          "rms_action": 7.197314306823582e-22,
+          "maximum_action": 1.0587911840678754e-21
+        },
+        {
+          "row_family": "fiber:5",
+          "rms_action": 8.935919510162856e-22,
+          "maximum_action": 2.117582368135751e-21
+        },
+        {
+          "row_family": "fiber:3",
+          "rms_action": 9.615582369218822e-22,
+          "maximum_action": 2.1595187633528426e-21
+        },
+        {
+          "row_family": "block:zero->zero",
+          "rms_action": 1.1132645820209436e-21,
+          "maximum_action": 3.788046498485219e-21
+        },
+        {
+          "row_family": "relation:R",
+          "rms_action": 1.1198168154540875e-21,
+          "maximum_action": 3.618526336874044e-21
+        },
+        {
+          "row_family": "relation:TiR",
+          "rms_action": 1.1198168154540875e-21,
+          "maximum_action": 3.618526336874044e-21
+        },
+        {
+          "row_family": "block:zero->infinity",
+          "rms_action": 1.2181851557624489e-21,
+          "maximum_action": 2.117582368135751e-21
+        },
+        {
+          "row_family": "fiber:4",
+          "rms_action": 1.2284943817852112e-21,
+          "maximum_action": 2.576150136743263e-21
+        }
+      ],
+      "by_cusp": {
+        "infinity": 0.3398007847350048,
+        "zero": 0.660199215264995
+      },
+      "by_radial_shell": [
+        {
+          "shell": "infinity:4",
+          "energy": 0.3145992901884994
+        },
+        {
+          "shell": "zero:17/5",
+          "energy": 0.25048838067483686
+        },
+        {
+          "shell": "zero:18/5",
+          "energy": 0.11206532869901414
+        },
+        {
+          "shell": "zero:20/5",
+          "energy": 0.10970166520371358
+        },
+        {
+          "shell": "zero:13/5",
+          "energy": 0.08787021732924082
+        },
+        {
+          "shell": "zero:16/5",
+          "energy": 0.028553313698109
+        },
+        {
+          "shell": "zero:4/5",
+          "energy": 0.01734748336677017
+        },
+        {
+          "shell": "infinity:1",
+          "energy": 0.01362289789328512
+        },
+        {
+          "shell": "zero:9/5",
+          "energy": 0.01313245600634991
+        },
+        {
+          "shell": "zero:8/5",
+          "energy": 0.012283755818272263
+        },
+        {
+          "shell": "infinity:2",
+          "energy": 0.01157859665322026
+        },
+        {
+          "shell": "zero:1/5",
+          "energy": 0.010799499761419045
+        },
+        {
+          "shell": "zero:10/5",
+          "energy": 0.009503681874601336
+        },
+        {
+          "shell": "zero:5/5",
+          "energy": 0.007493900670556223
+        },
+        {
+          "shell": "zero:2/5",
+          "energy": 0.0009595321621116074
+        }
+      ],
+      "dominant_shell": {
+        "shell": "infinity:4",
+        "energy": 0.3145992901884994
+      },
+      "by_symmetry_orbit": [
+        {
+          "orbit": "('infinity', ((-2, 0), (0, -2), (0, 2), (2, 0)))",
+          "energy": 0.3145992901884994
+        },
+        {
+          "orbit": "('zero', ((-4, -1), (-1, 4), (1, -4), (4, 1)))",
+          "energy": 0.14861348364314556
+        },
+        {
+          "orbit": "('zero', ((-3, -3), (-3, 3), (3, -3), (3, 3)))",
+          "energy": 0.11206532869901414
+        },
+        {
+          "orbit": "('zero', ((-4, 1), (-1, -4), (1, 4), (4, -1)))",
+          "energy": 0.1018748970316913
+        },
+        {
+          "orbit": "('zero', ((-4, -2), (-2, 4), (2, -4), (4, 2)))",
+          "energy": 0.09711769359617359
+        },
+        {
+          "orbit": "('zero', ((-3, -2), (-2, 3), (2, -3), (3, 2)))",
+          "energy": 0.07954860615649698
+        },
+        {
+          "orbit": "('zero', ((-4, 0), (0, -4), (0, 4), (4, 0)))",
+          "energy": 0.028553313698109
+        },
+        {
+          "orbit": "('zero', ((-2, 0), (0, -2), (0, 2), (2, 0)))",
+          "energy": 0.01734748336677017
+        },
+        {
+          "orbit": "('infinity', ((-1, 0), (0, -1), (0, 1), (1, 0)))",
+          "energy": 0.01362289789328512
+        },
+        {
+          "orbit": "('zero', ((-3, 0), (0, -3), (0, 3), (3, 0)))",
+          "energy": 0.01313245600634991
+        },
+        {
+          "orbit": "('zero', ((-4, 2), (-2, -4), (2, 4), (4, -2)))",
+          "energy": 0.012583971607539973
+        },
+        {
+          "orbit": "('zero', ((-2, -2), (-2, 2), (2, -2), (2, 2)))",
+          "energy": 0.012283755818272263
+        },
+        {
+          "orbit": "('infinity', ((-1, -1), (-1, 1), (1, -1), (1, 1)))",
+          "energy": 0.01157859665322026
+        },
+        {
+          "orbit": "('zero', ((-1, 0), (0, -1), (0, 1), (1, 0)))",
+          "energy": 0.010799499761419045
+        },
+        {
+          "orbit": "('zero', ((-3, 1), (-1, -3), (1, 3), (3, -1)))",
+          "energy": 0.009040538008472527
+        },
+        {
+          "orbit": "('zero', ((-3, 2), (-2, -3), (2, 3), (3, -2)))",
+          "energy": 0.008321611172743833
+        },
+        {
+          "orbit": "('zero', ((-2, -1), (-1, 2), (1, -2), (2, 1)))",
+          "energy": 0.006948984754824817
+        },
+        {
+          "orbit": "('zero', ((-1, -1), (-1, 1), (1, -1), (1, 1)))",
+          "energy": 0.0009595321621116074
+        },
+        {
+          "orbit": "('zero', ((-2, 1), (-1, -2), (1, 2), (2, -1)))",
+          "energy": 0.0005449159157314047
+        },
+        {
+          "orbit": "('zero', ((-3, -1), (-1, 3), (1, -3), (3, 1)))",
+          "energy": 0.00046314386612881055
+        }
+      ],
+      "dominant_modes": [
+        {
+          "cusp": "infinity",
+          "mode": [
+            -2,
+            0,
+            4
+          ],
+          "energy": 0.15729855129924003,
+          "real_energy": 0.059050921620413636,
+          "imaginary_energy": 0.0982476296788264,
+          "symmetry_orbit": [
+            [
+              -2,
+              0
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "infinity",
+          "mode": [
+            2,
+            0,
+            4
+          ],
+          "energy": 0.15729855129924003,
+          "real_energy": 0.059050921620413636,
+          "imaginary_energy": 0.0982476296788264,
+          "symmetry_orbit": [
+            [
+              -2,
+              0
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -2,
+            4,
+            20
+          ],
+          "energy": 0.0752207666519267,
+          "real_energy": 0.0369836973465425,
+          "imaginary_energy": 0.038237069305384216,
+          "symmetry_orbit": [
+            [
+              -4,
+              -2
+            ],
+            [
+              -2,
+              4
+            ],
+            [
+              2,
+              -4
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -4,
+            -1,
+            17
+          ],
+          "energy": 0.07093055302788176,
+          "real_energy": 0.06964442125023716,
+          "imaginary_energy": 0.0012861317776446033,
+          "symmetry_orbit": [
+            [
+              -4,
+              -1
+            ],
+            [
+              -1,
+              4
+            ],
+            [
+              1,
+              -4
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            1,
+            4,
+            17
+          ],
+          "energy": 0.046664635974617626,
+          "real_energy": 0.016338520400628553,
+          "imaginary_energy": 0.030326115573989076,
+          "symmetry_orbit": [
+            [
+              -4,
+              1
+            ],
+            [
+              -1,
+              -4
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              4,
+              -1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -1,
+            -4,
+            17
+          ],
+          "energy": 0.04563920546482522,
+          "real_energy": 0.017838912917877998,
+          "imaginary_energy": 0.027800292546947228,
+          "symmetry_orbit": [
+            [
+              -4,
+              1
+            ],
+            [
+              -1,
+              -4
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              4,
+              -1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            2,
+            -3,
+            13
+          ],
+          "energy": 0.03937421699882283,
+          "real_energy": 0.020582042346072082,
+          "imaginary_energy": 0.018792174652750748,
+          "symmetry_orbit": [
+            [
+              -3,
+              -2
+            ],
+            [
+              -2,
+              3
+            ],
+            [
+              2,
+              -3
+            ],
+            [
+              3,
+              2
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -2,
+            3,
+            13
+          ],
+          "energy": 0.03770620625064775,
+          "real_energy": 0.014561484817164034,
+          "imaginary_energy": 0.023144721433483718,
+          "symmetry_orbit": [
+            [
+              -3,
+              -2
+            ],
+            [
+              -2,
+              3
+            ],
+            [
+              2,
+              -3
+            ],
+            [
+              3,
+              2
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            3,
+            -3,
+            18
+          ],
+          "energy": 0.033489630151804964,
+          "real_energy": 0.031169213676263664,
+          "imaginary_energy": 0.0023204164755412987,
+          "symmetry_orbit": [
+            [
+              -3,
+              -3
+            ],
+            [
+              -3,
+              3
+            ],
+            [
+              3,
+              -3
+            ],
+            [
+              3,
+              3
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -1,
+            4,
+            17
+          ],
+          "energy": 0.032368360009660785,
+          "real_energy": 0.026629336167653585,
+          "imaginary_energy": 0.005739023842007197,
+          "symmetry_orbit": [
+            [
+              -4,
+              -1
+            ],
+            [
+              -1,
+              4
+            ],
+            [
+              1,
+              -4
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -3,
+            -3,
+            18
+          ],
+          "energy": 0.030568749217852208,
+          "real_energy": 0.02930776789471594,
+          "imaginary_energy": 0.0012609813231362723,
+          "symmetry_orbit": [
+            [
+              -3,
+              -3
+            ],
+            [
+              -3,
+              3
+            ],
+            [
+              3,
+              -3
+            ],
+            [
+              3,
+              3
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -3,
+            3,
+            18
+          ],
+          "energy": 0.030273328308140435,
+          "real_energy": 0.026644744196686235,
+          "imaginary_energy": 0.0036285841114542037,
+          "symmetry_orbit": [
+            [
+              -3,
+              -3
+            ],
+            [
+              -3,
+              3
+            ],
+            [
+              3,
+              -3
+            ],
+            [
+              3,
+              3
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            1,
+            -4,
+            17
+          ],
+          "energy": 0.02821305587370921,
+          "real_energy": 0.015743535163114487,
+          "imaginary_energy": 0.012469520710594723,
+          "symmetry_orbit": [
+            [
+              -4,
+              -1
+            ],
+            [
+              -1,
+              4
+            ],
+            [
+              1,
+              -4
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            3,
+            3,
+            18
+          ],
+          "energy": 0.01773362102121653,
+          "real_energy": 0.0010961406648459016,
+          "imaginary_energy": 0.01663748035637063,
+          "symmetry_orbit": [
+            [
+              -3,
+              -3
+            ],
+            [
+              -3,
+              3
+            ],
+            [
+              3,
+              -3
+            ],
+            [
+              3,
+              3
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            4,
+            1,
+            17
+          ],
+          "energy": 0.017101514731893815,
+          "real_energy": 2.9280794094301567e-05,
+          "imaginary_energy": 0.017072233937799518,
+          "symmetry_orbit": [
+            [
+              -4,
+              -1
+            ],
+            [
+              -1,
+              4
+            ],
+            [
+              1,
+              -4
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -4,
+            0,
+            16
+          ],
+          "energy": 0.009657440024440168,
+          "real_energy": 0.009490557516532465,
+          "imaginary_energy": 0.00016688250790770285,
+          "symmetry_orbit": [
+            [
+              -4,
+              0
+            ],
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              0
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        }
+      ],
+      "real_component_energy": 0.5262293836555411,
+      "imaginary_component_energy": 0.4737706163444588,
+      "fiber_note": "the physical formulation has cusp-channel coefficients shared by all six fibers"
+    },
+    {
+      "basis_vector": 2,
+      "gram_eigenvalue_high_precision_diagnostic": "[2.051667692470371934774761277532184086030059518391907480018009185048748645908e-81 +/- 2.14e-157] + [-3.581413553665487646989143788170865745971950587064517392198324161777898543930e-83 +/- 1.66e-159]j",
+      "physical_action_l2": 1.5148844727599875e-20,
+      "fraction_in_new_M4_modes": 0.738697738757949,
+      "fraction_in_old_M_le_3_modes": 0.261302261242051,
+      "row_families_least_sensitive": [
+        {
+          "row_family": "block:infinity->infinity",
+          "rms_action": 2.723134511300248e-83,
+          "maximum_action": 8.880479479112821e-83
+        },
+        {
+          "row_family": "relation:T1",
+          "rms_action": 7.934392242484865e-82,
+          "maximum_action": 2.661731561296796e-81
+        },
+        {
+          "row_family": "fiber:0",
+          "rms_action": 5.01472518599266e-22,
+          "maximum_action": 1.6161745999431679e-21
+        },
+        {
+          "row_family": "block:infinity->zero",
+          "rms_action": 1.002945037198532e-21,
+          "maximum_action": 1.6161745999431679e-21
+        },
+        {
+          "row_family": "fiber:3",
+          "rms_action": 1.0203318959237326e-21,
+          "maximum_action": 2.5433037001749034e-21
+        },
+        {
+          "row_family": "fiber:4",
+          "rms_action": 1.0326607048547871e-21,
+          "maximum_action": 2.1412726531833356e-21
+        },
+        {
+          "row_family": "fiber:5",
+          "rms_action": 1.043460064775065e-21,
+          "maximum_action": 1.7462031549538564e-21
+        },
+        {
+          "row_family": "fiber:1",
+          "rms_action": 1.0991799746033663e-21,
+          "maximum_action": 1.809263168437022e-21
+        },
+        {
+          "row_family": "relation:S",
+          "rms_action": 1.168161787078447e-21,
+          "maximum_action": 2.549906836428961e-21
+        },
+        {
+          "row_family": "block:zero->infinity",
+          "rms_action": 1.333027842033277e-21,
+          "maximum_action": 1.7597924895162627e-21
+        },
+        {
+          "row_family": "block:zero->zero",
+          "rms_action": 1.3662290422439326e-21,
+          "maximum_action": 5.152300273486526e-21
+        },
+        {
+          "row_family": "relation:R",
+          "rms_action": 1.5827271909607977e-21,
+          "maximum_action": 5.152300273486526e-21
+        }
+      ],
+      "by_cusp": {
+        "infinity": 0.14168434788063455,
+        "zero": 0.8583156521193656
+      },
+      "by_radial_shell": [
+        {
+          "shell": "zero:18/5",
+          "energy": 0.2652873454714183
+        },
+        {
+          "shell": "zero:17/5",
+          "energy": 0.22084533931096134
+        },
+        {
+          "shell": "zero:20/5",
+          "energy": 0.15414718895355312
+        },
+        {
+          "shell": "infinity:2",
+          "energy": 0.08629038622647937
+        },
+        {
+          "shell": "zero:13/5",
+          "energy": 0.07655197382664425
+        },
+        {
+          "shell": "zero:16/5",
+          "energy": 0.07171725624109562
+        },
+        {
+          "shell": "infinity:1",
+          "energy": 0.028693352873234622
+        },
+        {
+          "shell": "infinity:4",
+          "energy": 0.02670060878092056
+        },
+        {
+          "shell": "zero:10/5",
+          "energy": 0.020570801436512375
+        },
+        {
+          "shell": "zero:4/5",
+          "energy": 0.014544527741614674
+        },
+        {
+          "shell": "zero:8/5",
+          "energy": 0.011651516953024812
+        },
+        {
+          "shell": "zero:1/5",
+          "energy": 0.007398762294215343
+        },
+        {
+          "shell": "zero:9/5",
+          "energy": 0.007014086268543219
+        },
+        {
+          "shell": "zero:2/5",
+          "energy": 0.004734903557397127
+        },
+        {
+          "shell": "zero:5/5",
+          "energy": 0.0038519500643853033
+        }
+      ],
+      "dominant_shell": {
+        "shell": "zero:18/5",
+        "energy": 0.2652873454714183
+      },
+      "by_symmetry_orbit": [
+        {
+          "orbit": "('zero', ((-3, -3), (-3, 3), (3, -3), (3, 3)))",
+          "energy": 0.2652873454714183
+        },
+        {
+          "orbit": "('zero', ((-4, -2), (-2, 4), (2, -4), (4, 2)))",
+          "energy": 0.1530791646023163
+        },
+        {
+          "orbit": "('zero', ((-4, -1), (-1, 4), (1, -4), (4, 1)))",
+          "energy": 0.13837347325279026
+        },
+        {
+          "orbit": "('infinity', ((-1, -1), (-1, 1), (1, -1), (1, 1)))",
+          "energy": 0.08629038622647937
+        },
+        {
+          "orbit": "('zero', ((-4, 1), (-1, -4), (1, 4), (4, -1)))",
+          "energy": 0.08247186605817104
+        },
+        {
+          "orbit": "('zero', ((-4, 0), (0, -4), (0, 4), (4, 0)))",
+          "energy": 0.07171725624109562
+        },
+        {
+          "orbit": "('zero', ((-3, 2), (-2, -3), (2, 3), (3, -2)))",
+          "energy": 0.0488906365190117
+        },
+        {
+          "orbit": "('infinity', ((-1, 0), (0, -1), (0, 1), (1, 0)))",
+          "energy": 0.028693352873234622
+        },
+        {
+          "orbit": "('zero', ((-3, -2), (-2, 3), (2, -3), (3, 2)))",
+          "energy": 0.027661337307632535
+        },
+        {
+          "orbit": "('infinity', ((-2, 0), (0, -2), (0, 2), (2, 0)))",
+          "energy": 0.02670060878092056
+        },
+        {
+          "orbit": "('zero', ((-3, 1), (-1, -3), (1, 3), (3, -1)))",
+          "energy": 0.017119185987453198
+        },
+        {
+          "orbit": "('zero', ((-2, 0), (0, -2), (0, 2), (2, 0)))",
+          "energy": 0.014544527741614674
+        },
+        {
+          "orbit": "('zero', ((-2, -2), (-2, 2), (2, -2), (2, 2)))",
+          "energy": 0.011651516953024812
+        },
+        {
+          "orbit": "('zero', ((-1, 0), (0, -1), (0, 1), (1, 0)))",
+          "energy": 0.007398762294215343
+        },
+        {
+          "orbit": "('zero', ((-3, 0), (0, -3), (0, 3), (3, 0)))",
+          "energy": 0.007014086268543219
+        },
+        {
+          "orbit": "('zero', ((-1, -1), (-1, 1), (1, -1), (1, 1)))",
+          "energy": 0.004734903557397127
+        },
+        {
+          "orbit": "('zero', ((-3, -1), (-1, 3), (1, -3), (3, 1)))",
+          "energy": 0.0034516154490591734
+        },
+        {
+          "orbit": "('zero', ((-2, -1), (-1, 2), (1, -2), (2, 1)))",
+          "energy": 0.002704215949455918
+        },
+        {
+          "orbit": "('zero', ((-2, 1), (-1, -2), (1, 2), (2, -1)))",
+          "energy": 0.001147734114929385
+        },
+        {
+          "orbit": "('zero', ((-4, 2), (-2, -4), (2, 4), (4, -2)))",
+          "energy": 0.0010680243512368223
+        }
+      ],
+      "dominant_modes": [
+        {
+          "cusp": "zero",
+          "mode": [
+            -3,
+            -3,
+            18
+          ],
+          "energy": 0.09995356948663617,
+          "real_energy": 0.09601713290183522,
+          "imaginary_energy": 0.003936436584800938,
+          "symmetry_orbit": [
+            [
+              -3,
+              -3
+            ],
+            [
+              -3,
+              3
+            ],
+            [
+              3,
+              -3
+            ],
+            [
+              3,
+              3
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            3,
+            3,
+            18
+          ],
+          "energy": 0.08724007344316952,
+          "real_energy": 0.038924640974083734,
+          "imaginary_energy": 0.04831543246908579,
+          "symmetry_orbit": [
+            [
+              -3,
+              -3
+            ],
+            [
+              -3,
+              3
+            ],
+            [
+              3,
+              -3
+            ],
+            [
+              3,
+              3
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -2,
+            4,
+            20
+          ],
+          "energy": 0.0660166461747873,
+          "real_energy": 0.04054925161772607,
+          "imaginary_energy": 0.025467394557061214,
+          "symmetry_orbit": [
+            [
+              -4,
+              -2
+            ],
+            [
+              -2,
+              4
+            ],
+            [
+              2,
+              -4
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -4,
+            -2,
+            20
+          ],
+          "energy": 0.06479399457871397,
+          "real_energy": 0.019046465264157156,
+          "imaginary_energy": 0.0457475293145568,
+          "symmetry_orbit": [
+            [
+              -4,
+              -2
+            ],
+            [
+              -2,
+              4
+            ],
+            [
+              2,
+              -4
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            1,
+            -4,
+            17
+          ],
+          "energy": 0.062209140846251856,
+          "real_energy": 0.012981865912928716,
+          "imaginary_energy": 0.049227274933323135,
+          "symmetry_orbit": [
+            [
+              -4,
+              -1
+            ],
+            [
+              -1,
+              4
+            ],
+            [
+              1,
+              -4
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -4,
+            -1,
+            17
+          ],
+          "energy": 0.06191729445004129,
+          "real_energy": 0.005044744177882945,
+          "imaginary_energy": 0.056872550272158345,
+          "symmetry_orbit": [
+            [
+              -4,
+              -1
+            ],
+            [
+              -1,
+              4
+            ],
+            [
+              1,
+              -4
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            3,
+            -3,
+            18
+          ],
+          "energy": 0.04272506090037496,
+          "real_energy": 0.03688563024181145,
+          "imaginary_energy": 0.005839430658563506,
+          "symmetry_orbit": [
+            [
+              -3,
+              -3
+            ],
+            [
+              -3,
+              3
+            ],
+            [
+              3,
+              -3
+            ],
+            [
+              3,
+              3
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "infinity",
+          "mode": [
+            -1,
+            1,
+            2
+          ],
+          "energy": 0.04140586329778872,
+          "real_energy": 0.03533595760990081,
+          "imaginary_energy": 0.006069905687887905,
+          "symmetry_orbit": [
+            [
+              -1,
+              -1
+            ],
+            [
+              -1,
+              1
+            ],
+            [
+              1,
+              -1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "infinity",
+          "mode": [
+            1,
+            -1,
+            2
+          ],
+          "energy": 0.04140586329778872,
+          "real_energy": 0.03533595760990081,
+          "imaginary_energy": 0.006069905687887905,
+          "symmetry_orbit": [
+            [
+              -1,
+              -1
+            ],
+            [
+              -1,
+              1
+            ],
+            [
+              1,
+              -1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -3,
+            3,
+            18
+          ],
+          "energy": 0.035368641641237646,
+          "real_energy": 0.03489533530623903,
+          "imaginary_energy": 0.00047330633499862313,
+          "symmetry_orbit": [
+            [
+              -3,
+              -3
+            ],
+            [
+              -3,
+              3
+            ],
+            [
+              3,
+              -3
+            ],
+            [
+              3,
+              3
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -4,
+            0,
+            16
+          ],
+          "energy": 0.03314628706560084,
+          "real_energy": 0.031621772470060455,
+          "imaginary_energy": 0.0015245145955403822,
+          "symmetry_orbit": [
+            [
+              -4,
+              0
+            ],
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              0
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            4,
+            -1,
+            17
+          ],
+          "energy": 0.032909801606352,
+          "real_energy": 0.025745409405096373,
+          "imaginary_energy": 0.007164392201255624,
+          "symmetry_orbit": [
+            [
+              -4,
+              1
+            ],
+            [
+              -1,
+              -4
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              4,
+              -1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -4,
+            1,
+            17
+          ],
+          "energy": 0.024118557051582664,
+          "real_energy": 0.023342535454870365,
+          "imaginary_energy": 0.0007760215967122983,
+          "symmetry_orbit": [
+            [
+              -4,
+              1
+            ],
+            [
+              -1,
+              -4
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              4,
+              -1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            2,
+            -4,
+            20
+          ],
+          "energy": 0.022268523848814985,
+          "real_energy": 3.091678095587299e-05,
+          "imaginary_energy": 0.022237607067859114,
+          "symmetry_orbit": [
+            [
+              -4,
+              -2
+            ],
+            [
+              -2,
+              4
+            ],
+            [
+              2,
+              -4
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            2,
+            3,
+            13
+          ],
+          "energy": 0.02012360932148,
+          "real_energy": 0.019866582077374677,
+          "imaginary_energy": 0.00025702724410532423,
+          "symmetry_orbit": [
+            [
+              -3,
+              2
+            ],
+            [
+              -2,
+              -3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              -2
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -2,
+            -3,
+            13
+          ],
+          "energy": 0.019644414671527798,
+          "real_energy": 0.018528643342361845,
+          "imaginary_energy": 0.0011157713291659558,
+          "symmetry_orbit": [
+            [
+              -3,
+              2
+            ],
+            [
+              -2,
+              -3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              -2
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        }
+      ],
+      "real_component_energy": 0.668630137705175,
+      "imaginary_component_energy": 0.3313698622948251,
+      "fiber_note": "the physical formulation has cusp-channel coefficients shared by all six fibers"
+    },
+    {
+      "basis_vector": 3,
+      "gram_eigenvalue_high_precision_diagnostic": "[2.040353764924450904632566256723816273347169115360750466026214935007443830928e-81 +/- 9.07e-159] + [2.049770134725149393081553481144936262298349664072342772065669986755849744696e-81 +/- 3.99e-157]j",
+      "physical_action_l2": 8.503885724886963e-21,
+      "fraction_in_new_M4_modes": 0.8706714438780034,
+      "fraction_in_old_M_le_3_modes": 0.12932855612199656,
+      "row_families_least_sensitive": [
+        {
+          "row_family": "block:infinity->infinity",
+          "rms_action": 1.5541911009574872e-83,
+          "maximum_action": 5.042655740651546e-83
+        },
+        {
+          "row_family": "relation:T1",
+          "rms_action": 6.394144055850913e-82,
+          "maximum_action": 2.403666699817314e-81
+        },
+        {
+          "row_family": "fiber:0",
+          "rms_action": 1.9749128400271426e-22,
+          "maximum_action": 6.440375341858158e-22
+        },
+        {
+          "row_family": "block:infinity->zero",
+          "rms_action": 3.9498256800542853e-22,
+          "maximum_action": 6.440375341858158e-22
+        },
+        {
+          "row_family": "fiber:1",
+          "rms_action": 4.974506947345484e-22,
+          "maximum_action": 1.0797593816764213e-21
+        },
+        {
+          "row_family": "fiber:3",
+          "rms_action": 5.350061988470066e-22,
+          "maximum_action": 1.6538847004437893e-21
+        },
+        {
+          "row_family": "relation:R",
+          "rms_action": 6.5705152148371945e-22,
+          "maximum_action": 1.3392766832644277e-21
+        },
+        {
+          "row_family": "relation:TiR",
+          "rms_action": 6.5705152148371945e-22,
+          "maximum_action": 1.3392766832644277e-21
+        },
+        {
+          "row_family": "block:zero->infinity",
+          "rms_action": 7.06002913080135e-22,
+          "maximum_action": 1.0797593816764213e-21
+        },
+        {
+          "row_family": "block:zero->zero",
+          "rms_action": 7.745364452260115e-22,
+          "maximum_action": 4.365507887384641e-21
+        },
+        {
+          "row_family": "fiber:5",
+          "rms_action": 8.455150894867051e-22,
+          "maximum_action": 1.7462031549538564e-21
+        },
+        {
+          "row_family": "fiber:2",
+          "rms_action": 8.731684485050565e-22,
+          "maximum_action": 1.7462031549538564e-21
+        }
+      ],
+      "by_cusp": {
+        "infinity": 0.03742605606016404,
+        "zero": 0.9625739439398362
+      },
+      "by_radial_shell": [
+        {
+          "shell": "zero:20/5",
+          "energy": 0.6423541336465497
+        },
+        {
+          "shell": "zero:16/5",
+          "energy": 0.10907749430124007
+        },
+        {
+          "shell": "zero:13/5",
+          "energy": 0.0679990045595466
+        },
+        {
+          "shell": "zero:18/5",
+          "energy": 0.061110883572083975
+        },
+        {
+          "shell": "zero:17/5",
+          "energy": 0.05597297589432737
+        },
+        {
+          "shell": "infinity:2",
+          "energy": 0.024561053208544924
+        },
+        {
+          "shell": "infinity:1",
+          "energy": 0.010709046387816707
+        },
+        {
+          "shell": "zero:4/5",
+          "energy": 0.008901207632898058
+        },
+        {
+          "shell": "zero:9/5",
+          "energy": 0.005144411422699757
+        },
+        {
+          "shell": "zero:8/5",
+          "energy": 0.0036653495645244927
+        },
+        {
+          "shell": "zero:10/5",
+          "energy": 0.0034844504271426486
+        },
+        {
+          "shell": "zero:5/5",
+          "energy": 0.0022079380510046176
+        },
+        {
+          "shell": "infinity:4",
+          "energy": 0.0021559564638024198
+        },
+        {
+          "shell": "zero:2/5",
+          "energy": 0.0015781426785888536
+        },
+        {
+          "shell": "zero:1/5",
+          "energy": 0.0010779521892297977
+        }
+      ],
+      "dominant_shell": {
+        "shell": "zero:20/5",
+        "energy": 0.6423541336465497
+      },
+      "by_symmetry_orbit": [
+        {
+          "orbit": "('zero', ((-4, -2), (-2, 4), (2, -4), (4, 2)))",
+          "energy": 0.6422678953879976
+        },
+        {
+          "orbit": "('zero', ((-4, 0), (0, -4), (0, 4), (4, 0)))",
+          "energy": 0.10907749430124007
+        },
+        {
+          "orbit": "('zero', ((-3, -3), (-3, 3), (3, -3), (3, 3)))",
+          "energy": 0.061110883572083975
+        },
+        {
+          "orbit": "('zero', ((-3, 2), (-2, -3), (2, 3), (3, -2)))",
+          "energy": 0.04671237528746796
+        },
+        {
+          "orbit": "('zero', ((-4, 1), (-1, -4), (1, 4), (4, -1)))",
+          "energy": 0.02935077467034663
+        },
+        {
+          "orbit": "('zero', ((-4, -1), (-1, 4), (1, -4), (4, 1)))",
+          "energy": 0.02662220122398075
+        },
+        {
+          "orbit": "('infinity', ((-1, -1), (-1, 1), (1, -1), (1, 1)))",
+          "energy": 0.024561053208544924
+        },
+        {
+          "orbit": "('zero', ((-3, -2), (-2, 3), (2, -3), (3, 2)))",
+          "energy": 0.021286629272078653
+        },
+        {
+          "orbit": "('infinity', ((-1, 0), (0, -1), (0, 1), (1, 0)))",
+          "energy": 0.010709046387816707
+        },
+        {
+          "orbit": "('zero', ((-2, 0), (0, -2), (0, 2), (2, 0)))",
+          "energy": 0.008901207632898058
+        },
+        {
+          "orbit": "('zero', ((-3, 0), (0, -3), (0, 3), (3, 0)))",
+          "energy": 0.005144411422699757
+        },
+        {
+          "orbit": "('zero', ((-2, -2), (-2, 2), (2, -2), (2, 2)))",
+          "energy": 0.0036653495645244927
+        },
+        {
+          "orbit": "('zero', ((-3, 1), (-1, -3), (1, 3), (3, -1)))",
+          "energy": 0.002502008298800851
+        },
+        {
+          "orbit": "('infinity', ((-2, 0), (0, -2), (0, 2), (2, 0)))",
+          "energy": 0.0021559564638024198
+        },
+        {
+          "orbit": "('zero', ((-2, -1), (-1, 2), (1, -2), (2, 1)))",
+          "energy": 0.0017795761954919492
+        },
+        {
+          "orbit": "('zero', ((-1, -1), (-1, 1), (1, -1), (1, 1)))",
+          "energy": 0.0015781426785888536
+        },
+        {
+          "orbit": "('zero', ((-1, 0), (0, -1), (0, 1), (1, 0)))",
+          "energy": 0.0010779521892297977
+        },
+        {
+          "orbit": "('zero', ((-3, -1), (-1, 3), (1, -3), (3, 1)))",
+          "energy": 0.0009824421283417969
+        },
+        {
+          "orbit": "('zero', ((-2, 1), (-1, -2), (1, 2), (2, -1)))",
+          "energy": 0.00042836185551266824
+        },
+        {
+          "orbit": "('zero', ((-4, 2), (-2, -4), (2, 4), (4, -2)))",
+          "energy": 8.62382585520968e-05
+        }
+      ],
+      "dominant_modes": [
+        {
+          "cusp": "zero",
+          "mode": [
+            4,
+            2,
+            20
+          ],
+          "energy": 0.3871034921158971,
+          "real_energy": 0.02837627793186375,
+          "imaginary_energy": 0.3587272141840333,
+          "symmetry_orbit": [
+            [
+              -4,
+              -2
+            ],
+            [
+              -2,
+              4
+            ],
+            [
+              2,
+              -4
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -4,
+            -2,
+            20
+          ],
+          "energy": 0.21584317580052223,
+          "real_energy": 0.009912983676164396,
+          "imaginary_energy": 0.2059301921243578,
+          "symmetry_orbit": [
+            [
+              -4,
+              -2
+            ],
+            [
+              -2,
+              4
+            ],
+            [
+              2,
+              -4
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            0,
+            4,
+            16
+          ],
+          "energy": 0.05627544380073719,
+          "real_energy": 0.0032896020974541138,
+          "imaginary_energy": 0.052985841703283076,
+          "symmetry_orbit": [
+            [
+              -4,
+              0
+            ],
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              0
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            0,
+            -4,
+            16
+          ],
+          "energy": 0.0410041115560339,
+          "real_energy": 0.0003291722353295957,
+          "imaginary_energy": 0.04067493932070431,
+          "symmetry_orbit": [
+            [
+              -4,
+              0
+            ],
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              0
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            3,
+            -3,
+            18
+          ],
+          "energy": 0.030886340171270135,
+          "real_energy": 0.02337448213086394,
+          "imaginary_energy": 0.007511858040406196,
+          "symmetry_orbit": [
+            [
+              -3,
+              -3
+            ],
+            [
+              -3,
+              3
+            ],
+            [
+              3,
+              -3
+            ],
+            [
+              3,
+              3
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            2,
+            -4,
+            20
+          ],
+          "energy": 0.024905218814652758,
+          "real_energy": 0.010192110448685784,
+          "imaginary_energy": 0.014713108365966978,
+          "symmetry_orbit": [
+            [
+              -4,
+              -2
+            ],
+            [
+              -2,
+              4
+            ],
+            [
+              2,
+              -4
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            2,
+            3,
+            13
+          ],
+          "energy": 0.022304455343124894,
+          "real_energy": 0.00017184158955380426,
+          "imaginary_energy": 0.02213261375357109,
+          "symmetry_orbit": [
+            [
+              -3,
+              2
+            ],
+            [
+              -2,
+              -3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              -2
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -3,
+            3,
+            18
+          ],
+          "energy": 0.02057408961078205,
+          "real_energy": 0.01401023116221428,
+          "imaginary_energy": 0.006563858448567775,
+          "symmetry_orbit": [
+            [
+              -3,
+              -3
+            ],
+            [
+              -3,
+              3
+            ],
+            [
+              3,
+              -3
+            ],
+            [
+              3,
+              3
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -2,
+            -3,
+            13
+          ],
+          "energy": 0.01959284817036388,
+          "real_energy": 0.0001936924154867017,
+          "imaginary_energy": 0.019399155754877176,
+          "symmetry_orbit": [
+            [
+              -3,
+              2
+            ],
+            [
+              -2,
+              -3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              -2
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            4,
+            -1,
+            17
+          ],
+          "energy": 0.01463572693900938,
+          "real_energy": 0.014358698689590058,
+          "imaginary_energy": 0.000277028249419323,
+          "symmetry_orbit": [
+            [
+              -4,
+              1
+            ],
+            [
+              -1,
+              -4
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              4,
+              -1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -2,
+            4,
+            20
+          ],
+          "energy": 0.014416008656925463,
+          "real_energy": 0.0001481808279715526,
+          "imaginary_energy": 0.014267827828953911,
+          "symmetry_orbit": [
+            [
+              -4,
+              -2
+            ],
+            [
+              -2,
+              4
+            ],
+            [
+              2,
+              -4
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            4,
+            1,
+            17
+          ],
+          "energy": 0.011699796005239156,
+          "real_energy": 0.006892611737562725,
+          "imaginary_energy": 0.004807184267676429,
+          "symmetry_orbit": [
+            [
+              -4,
+              -1
+            ],
+            [
+              -1,
+              4
+            ],
+            [
+              1,
+              -4
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -4,
+            1,
+            17
+          ],
+          "energy": 0.011506987162537344,
+          "real_energy": 0.011201048516267123,
+          "imaginary_energy": 0.0003059386462702194,
+          "symmetry_orbit": [
+            [
+              -4,
+              1
+            ],
+            [
+              -1,
+              -4
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              4,
+              -1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "infinity",
+          "mode": [
+            -1,
+            1,
+            2
+          ],
+          "energy": 0.010498873072177799,
+          "real_energy": 0.006621321942972048,
+          "imaginary_energy": 0.0038775511292057528,
+          "symmetry_orbit": [
+            [
+              -1,
+              -1
+            ],
+            [
+              -1,
+              1
+            ],
+            [
+              1,
+              -1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "infinity",
+          "mode": [
+            1,
+            -1,
+            2
+          ],
+          "energy": 0.010498873072177799,
+          "real_energy": 0.006621321942972048,
+          "imaginary_energy": 0.0038775511292057528,
+          "symmetry_orbit": [
+            [
+              -1,
+              -1
+            ],
+            [
+              -1,
+              1
+            ],
+            [
+              1,
+              -1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -2,
+            3,
+            13
+          ],
+          "energy": 0.009376954012250357,
+          "real_energy": 0.0021514704880987814,
+          "imaginary_energy": 0.007225483524151575,
+          "symmetry_orbit": [
+            [
+              -3,
+              -2
+            ],
+            [
+              -2,
+              3
+            ],
+            [
+              2,
+              -3
+            ],
+            [
+              3,
+              2
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        }
+      ],
+      "real_component_energy": 0.18820867309397898,
+      "imaginary_component_energy": 0.8117913269060208,
+      "fiber_note": "the physical formulation has cusp-channel coefficients shared by all six fibers"
+    },
+    {
+      "basis_vector": 4,
+      "gram_eigenvalue_high_precision_diagnostic": "[-1.149058606987313468607825743422463693076059256243370588146768790871554695397e-80 +/- 2.54e-156] + [9.278012459329973493174259852234930906156911693880862132877005321957612777075e-81 +/- 1.35e-157]j",
+      "physical_action_l2": 8.703113586392041e-21,
+      "fraction_in_new_M4_modes": 0.8746117067439567,
+      "fraction_in_old_M_le_3_modes": 0.12538829325604328,
+      "row_families_least_sensitive": [
+        {
+          "row_family": "relation:T1",
+          "rms_action": 5.823512450248342e-82,
+          "maximum_action": 2.209181496212e-81
+        },
+        {
+          "row_family": "block:infinity->infinity",
+          "rms_action": 3.5293039468929185e-23,
+          "maximum_action": 1.0587911840678754e-22
+        },
+        {
+          "row_family": "fiber:0",
+          "rms_action": 3.743782046947825e-22,
+          "maximum_action": 1.3392766832644277e-21
+        },
+        {
+          "row_family": "block:zero->infinity",
+          "rms_action": 4.713371619227269e-22,
+          "maximum_action": 6.838177600491522e-22
+        },
+        {
+          "row_family": "fiber:3",
+          "rms_action": 5.358965424373834e-22,
+          "maximum_action": 1.0587911840678754e-21
+        },
+        {
+          "row_family": "fiber:1",
+          "rms_action": 7.112546058932346e-22,
+          "maximum_action": 1.8940232492426095e-21
+        },
+        {
+          "row_family": "block:infinity->zero",
+          "rms_action": 7.4625690261269135e-22,
+          "maximum_action": 1.3392766832644277e-21
+        },
+        {
+          "row_family": "block:zero->zero",
+          "rms_action": 7.894447127557545e-22,
+          "maximum_action": 2.8410348738639142e-21
+        },
+        {
+          "row_family": "relation:R",
+          "rms_action": 7.985661877805467e-22,
+          "maximum_action": 1.8940232492426095e-21
+        },
+        {
+          "row_family": "relation:TiR",
+          "rms_action": 7.985661877805467e-22,
+          "maximum_action": 1.8940232492426095e-21
+        },
+        {
+          "row_family": "fiber:4",
+          "rms_action": 8.154596916820226e-22,
+          "maximum_action": 1.8940232492426095e-21
+        },
+        {
+          "row_family": "fiber:5",
+          "rms_action": 8.802279681421155e-22,
+          "maximum_action": 2.8410348738639142e-21
+        }
+      ],
+      "by_cusp": {
+        "infinity": 0.04300661240904007,
+        "zero": 0.9569933875909598
+      },
+      "by_radial_shell": [
+        {
+          "shell": "zero:20/5",
+          "energy": 0.6416114354229969
+        },
+        {
+          "shell": "zero:16/5",
+          "energy": 0.10707287043669649
+        },
+        {
+          "shell": "zero:13/5",
+          "energy": 0.06593232715373624
+        },
+        {
+          "shell": "zero:18/5",
+          "energy": 0.06216628751534563
+        },
+        {
+          "shell": "zero:17/5",
+          "energy": 0.054941414721126514
+        },
+        {
+          "shell": "infinity:2",
+          "energy": 0.02269111495932386
+        },
+        {
+          "shell": "infinity:1",
+          "energy": 0.011495798801925037
+        },
+        {
+          "shell": "infinity:4",
+          "energy": 0.008819698647791174
+        },
+        {
+          "shell": "zero:4/5",
+          "energy": 0.007653209502076968
+        },
+        {
+          "shell": "zero:9/5",
+          "energy": 0.005209838683509433
+        },
+        {
+          "shell": "zero:8/5",
+          "energy": 0.003797433141388269
+        },
+        {
+          "shell": "zero:10/5",
+          "energy": 0.003683896688204205
+        },
+        {
+          "shell": "zero:5/5",
+          "energy": 0.0021788452527982958
+        },
+        {
+          "shell": "zero:2/5",
+          "energy": 0.001582025653779164
+        },
+        {
+          "shell": "zero:1/5",
+          "energy": 0.0011638034193017725
+        }
+      ],
+      "dominant_shell": {
+        "shell": "zero:20/5",
+        "energy": 0.6416114354229969
+      },
+      "by_symmetry_orbit": [
+        {
+          "orbit": "('zero', ((-4, -2), (-2, 4), (2, -4), (4, 2)))",
+          "energy": 0.6412586474770853
+        },
+        {
+          "orbit": "('zero', ((-4, 0), (0, -4), (0, 4), (4, 0)))",
+          "energy": 0.10707287043669649
+        },
+        {
+          "orbit": "('zero', ((-3, -3), (-3, 3), (3, -3), (3, 3)))",
+          "energy": 0.06216628751534563
+        },
+        {
+          "orbit": "('zero', ((-3, 2), (-2, -3), (2, 3), (3, -2)))",
+          "energy": 0.04555029791429567
+        },
+        {
+          "orbit": "('zero', ((-4, 1), (-1, -4), (1, 4), (4, -1)))",
+          "energy": 0.02841678840818431
+        },
+        {
+          "orbit": "('zero', ((-4, -1), (-1, 4), (1, -4), (4, 1)))",
+          "energy": 0.026524626312942206
+        },
+        {
+          "orbit": "('infinity', ((-1, -1), (-1, 1), (1, -1), (1, 1)))",
+          "energy": 0.02269111495932386
+        },
+        {
+          "orbit": "('zero', ((-3, -2), (-2, 3), (2, -3), (3, 2)))",
+          "energy": 0.020382029239440574
+        },
+        {
+          "orbit": "('infinity', ((-1, 0), (0, -1), (0, 1), (1, 0)))",
+          "energy": 0.011495798801925037
+        },
+        {
+          "orbit": "('infinity', ((-2, 0), (0, -2), (0, 2), (2, 0)))",
+          "energy": 0.008819698647791174
+        },
+        {
+          "orbit": "('zero', ((-2, 0), (0, -2), (0, 2), (2, 0)))",
+          "energy": 0.007653209502076968
+        },
+        {
+          "orbit": "('zero', ((-3, 0), (0, -3), (0, 3), (3, 0)))",
+          "energy": 0.005209838683509433
+        },
+        {
+          "orbit": "('zero', ((-2, -2), (-2, 2), (2, -2), (2, 2)))",
+          "energy": 0.003797433141388269
+        },
+        {
+          "orbit": "('zero', ((-3, 1), (-1, -3), (1, 3), (3, -1)))",
+          "energy": 0.0027762520898312504
+        },
+        {
+          "orbit": "('zero', ((-2, -1), (-1, 2), (1, -2), (2, 1)))",
+          "energy": 0.0017190133007212944
+        },
+        {
+          "orbit": "('zero', ((-1, -1), (-1, 1), (1, -1), (1, 1)))",
+          "energy": 0.001582025653779164
+        },
+        {
+          "orbit": "('zero', ((-1, 0), (0, -1), (0, 1), (1, 0)))",
+          "energy": 0.0011638034193017725
+        },
+        {
+          "orbit": "('zero', ((-3, -1), (-1, 3), (1, -3), (3, 1)))",
+          "energy": 0.0009076445983729546
+        },
+        {
+          "orbit": "('zero', ((-2, 1), (-1, -2), (1, 2), (2, -1)))",
+          "energy": 0.0004598319520770015
+        },
+        {
+          "orbit": "('zero', ((-4, 2), (-2, -4), (2, 4), (4, -2)))",
+          "energy": 0.00035278794591164705
+        }
+      ],
+      "dominant_modes": [
+        {
+          "cusp": "zero",
+          "mode": [
+            4,
+            2,
+            20
+          ],
+          "energy": 0.3905976072642022,
+          "real_energy": 0.028358599206288436,
+          "imaginary_energy": 0.3622390080579138,
+          "symmetry_orbit": [
+            [
+              -4,
+              -2
+            ],
+            [
+              -2,
+              4
+            ],
+            [
+              2,
+              -4
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -4,
+            -2,
+            20
+          ],
+          "energy": 0.2105407035559153,
+          "real_energy": 0.09933347073056152,
+          "imaginary_energy": 0.1112072328253538,
+          "symmetry_orbit": [
+            [
+              -4,
+              -2
+            ],
+            [
+              -2,
+              4
+            ],
+            [
+              2,
+              -4
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            0,
+            4,
+            16
+          ],
+          "energy": 0.05707881788573395,
+          "real_energy": 0.004164303207216433,
+          "imaginary_energy": 0.052914514678517516,
+          "symmetry_orbit": [
+            [
+              -4,
+              0
+            ],
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              0
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            0,
+            -4,
+            16
+          ],
+          "energy": 0.04034922514131843,
+          "real_energy": 0.012677512797107951,
+          "imaginary_energy": 0.02767171234421048,
+          "symmetry_orbit": [
+            [
+              -4,
+              0
+            ],
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              0
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            3,
+            -3,
+            18
+          ],
+          "energy": 0.031061741395176007,
+          "real_energy": 0.007018631575143931,
+          "imaginary_energy": 0.024043109820032077,
+          "symmetry_orbit": [
+            [
+              -3,
+              -3
+            ],
+            [
+              -3,
+              3
+            ],
+            [
+              3,
+              -3
+            ],
+            [
+              3,
+              3
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            2,
+            -4,
+            20
+          ],
+          "energy": 0.02541505865674761,
+          "real_energy": 0.0007930046747872866,
+          "imaginary_energy": 0.024622053981960323,
+          "symmetry_orbit": [
+            [
+              -4,
+              -2
+            ],
+            [
+              -2,
+              4
+            ],
+            [
+              2,
+              -4
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            2,
+            3,
+            13
+          ],
+          "energy": 0.021849085766414103,
+          "real_energy": 0.00404513244381811,
+          "imaginary_energy": 0.017803953322595992,
+          "symmetry_orbit": [
+            [
+              -3,
+              2
+            ],
+            [
+              -2,
+              -3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              -2
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -3,
+            3,
+            18
+          ],
+          "energy": 0.021041168814973546,
+          "real_energy": 0.0033401339218714463,
+          "imaginary_energy": 0.0177010348931021,
+          "symmetry_orbit": [
+            [
+              -3,
+              -3
+            ],
+            [
+              -3,
+              3
+            ],
+            [
+              3,
+              -3
+            ],
+            [
+              3,
+              3
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -2,
+            -3,
+            13
+          ],
+          "energy": 0.018985355935781347,
+          "real_energy": 0.006592556242225436,
+          "imaginary_energy": 0.012392799693555908,
+          "symmetry_orbit": [
+            [
+              -3,
+              2
+            ],
+            [
+              -2,
+              -3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              -2
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -2,
+            4,
+            20
+          ],
+          "energy": 0.014705278000220175,
+          "real_energy": 0.0053501508398310325,
+          "imaginary_energy": 0.009355127160389142,
+          "symmetry_orbit": [
+            [
+              -4,
+              -2
+            ],
+            [
+              -2,
+              4
+            ],
+            [
+              2,
+              -4
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            4,
+            -1,
+            17
+          ],
+          "energy": 0.014099169869443965,
+          "real_energy": 0.008297541057258039,
+          "imaginary_energy": 0.005801628812185923,
+          "symmetry_orbit": [
+            [
+              -4,
+              1
+            ],
+            [
+              -1,
+              -4
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              4,
+              -1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            4,
+            1,
+            17
+          ],
+          "energy": 0.013420825175586338,
+          "real_energy": 0.0010295720170187027,
+          "imaginary_energy": 0.012391253158567636,
+          "symmetry_orbit": [
+            [
+              -4,
+              -1
+            ],
+            [
+              -1,
+              4
+            ],
+            [
+              1,
+              -4
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -4,
+            1,
+            17
+          ],
+          "energy": 0.011155768003108298,
+          "real_energy": 0.006218246714398852,
+          "imaginary_energy": 0.0049375212887094455,
+          "symmetry_orbit": [
+            [
+              -4,
+              1
+            ],
+            [
+              -1,
+              -4
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              4,
+              -1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -2,
+            3,
+            13
+          ],
+          "energy": 0.00957835396626688,
+          "real_energy": 0.007746474415326645,
+          "imaginary_energy": 0.0018318795509402346,
+          "symmetry_orbit": [
+            [
+              -3,
+              -2
+            ],
+            [
+              -2,
+              3
+            ],
+            [
+              2,
+              -3
+            ],
+            [
+              3,
+              2
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "infinity",
+          "mode": [
+            -1,
+            1,
+            2
+          ],
+          "energy": 0.009503698124271818,
+          "real_energy": 0.009361954561606574,
+          "imaginary_energy": 0.0001417435626652458,
+          "symmetry_orbit": [
+            [
+              -1,
+              -1
+            ],
+            [
+              -1,
+              1
+            ],
+            [
+              1,
+              -1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "infinity",
+          "mode": [
+            1,
+            -1,
+            2
+          ],
+          "energy": 0.009503698124271818,
+          "real_energy": 0.009361954561606574,
+          "imaginary_energy": 0.0001417435626652458,
+          "symmetry_orbit": [
+            [
+              -1,
+              -1
+            ],
+            [
+              -1,
+              1
+            ],
+            [
+              1,
+              -1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        }
+      ],
+      "real_component_energy": 0.28711213172912725,
+      "imaginary_component_energy": 0.7128878682708728,
+      "fiber_note": "the physical formulation has cusp-channel coefficients shared by all six fibers"
+    },
+    {
+      "basis_vector": 5,
+      "gram_eigenvalue_high_precision_diagnostic": "[6.133964245451932306999353735360087268674154528794015891013083003250478459385e-80 +/- 1.62e-156] + [8.676251773208218499110529732886754627812934977607902136287598498517908131638e-84 +/- 4.36e-160]j",
+      "physical_action_l2": 1.4142608613213147e-20,
+      "fraction_in_new_M4_modes": 0.7644614084884732,
+      "fraction_in_old_M_le_3_modes": 0.23553859151152678,
+      "row_families_least_sensitive": [
+        {
+          "row_family": "relation:T1",
+          "rms_action": 1.1104407872294568e-81,
+          "maximum_action": 4.10956902322738e-81
+        },
+        {
+          "row_family": "block:infinity->infinity",
+          "rms_action": 4.668830272318687e-23,
+          "maximum_action": 1.0587911840678754e-22
+        },
+        {
+          "row_family": "fiber:0",
+          "rms_action": 4.04043649985792e-22,
+          "maximum_action": 1.3392766832644277e-21
+        },
+        {
+          "row_family": "block:zero->infinity",
+          "rms_action": 6.444736802319985e-22,
+          "maximum_action": 1.0587911840678754e-21
+        },
+        {
+          "row_family": "block:infinity->zero",
+          "rms_action": 8.040309021062866e-22,
+          "maximum_action": 1.3392766832644277e-21
+        },
+        {
+          "row_family": "fiber:5",
+          "rms_action": 9.060504126980401e-22,
+          "maximum_action": 1.4823076576950256e-21
+        },
+        {
+          "row_family": "fiber:4",
+          "rms_action": 9.141659431753695e-22,
+          "maximum_action": 1.4205174369319571e-21
+        },
+        {
+          "row_family": "relation:S",
+          "rms_action": 1.098290423279526e-21,
+          "maximum_action": 2.469504184394431e-21
+        },
+        {
+          "row_family": "fiber:3",
+          "rms_action": 1.2118276903702925e-21,
+          "maximum_action": 2.6785533665288553e-21
+        },
+        {
+          "row_family": "block:zero->zero",
+          "rms_action": 1.3031785363716352e-21,
+          "maximum_action": 5.152300273486526e-21
+        },
+        {
+          "row_family": "fiber:2",
+          "rms_action": 1.4458473520086988e-21,
+          "maximum_action": 3.0540207233327644e-21
+        },
+        {
+          "row_family": "relation:R",
+          "rms_action": 1.4747347767541303e-21,
+          "maximum_action": 5.152300273486526e-21
+        }
+      ],
+      "by_cusp": {
+        "infinity": 0.15068347324019432,
+        "zero": 0.8493165267598056
+      },
+      "by_radial_shell": [
+        {
+          "shell": "zero:17/5",
+          "energy": 0.29784196682095
+        },
+        {
+          "shell": "zero:20/5",
+          "energy": 0.20261413661847813
+        },
+        {
+          "shell": "zero:18/5",
+          "energy": 0.16556201528761633
+        },
+        {
+          "shell": "infinity:2",
+          "energy": 0.09748103453423534
+        },
+        {
+          "shell": "zero:16/5",
+          "energy": 0.05145797201549443
+        },
+        {
+          "shell": "zero:13/5",
+          "energy": 0.04975906062196851
+        },
+        {
+          "shell": "infinity:4",
+          "energy": 0.04698531774593431
+        },
+        {
+          "shell": "zero:8/5",
+          "energy": 0.02029779437117849
+        },
+        {
+          "shell": "zero:5/5",
+          "energy": 0.015509329190953837
+        },
+        {
+          "shell": "zero:9/5",
+          "energy": 0.01332839455006381
+        },
+        {
+          "shell": "zero:2/5",
+          "energy": 0.011703205411576214
+        },
+        {
+          "shell": "zero:10/5",
+          "energy": 0.008365595232002507
+        },
+        {
+          "shell": "zero:4/5",
+          "energy": 0.007357515380283086
+        },
+        {
+          "shell": "infinity:1",
+          "energy": 0.006217120960024651
+        },
+        {
+          "shell": "zero:1/5",
+          "energy": 0.005519541259240371
+        }
+      ],
+      "dominant_shell": {
+        "shell": "zero:17/5",
+        "energy": 0.29784196682095
+      },
+      "by_symmetry_orbit": [
+        {
+          "orbit": "('zero', ((-4, -1), (-1, 4), (1, -4), (4, 1)))",
+          "energy": 0.20904484723266348
+        },
+        {
+          "orbit": "('zero', ((-4, -2), (-2, 4), (2, -4), (4, 2)))",
+          "energy": 0.20073472390864075
+        },
+        {
+          "orbit": "('zero', ((-3, -3), (-3, 3), (3, -3), (3, 3)))",
+          "energy": 0.16556201528761633
+        },
+        {
+          "orbit": "('infinity', ((-1, -1), (-1, 1), (1, -1), (1, 1)))",
+          "energy": 0.09748103453423534
+        },
+        {
+          "orbit": "('zero', ((-4, 1), (-1, -4), (1, 4), (4, -1)))",
+          "energy": 0.08879711958828646
+        },
+        {
+          "orbit": "('zero', ((-4, 0), (0, -4), (0, 4), (4, 0)))",
+          "energy": 0.05145797201549443
+        },
+        {
+          "orbit": "('infinity', ((-2, 0), (0, -2), (0, 2), (2, 0)))",
+          "energy": 0.04698531774593431
+        },
+        {
+          "orbit": "('zero', ((-3, -2), (-2, 3), (2, -3), (3, 2)))",
+          "energy": 0.044254683145863484
+        },
+        {
+          "orbit": "('zero', ((-2, -2), (-2, 2), (2, -2), (2, 2)))",
+          "energy": 0.02029779437117849
+        },
+        {
+          "orbit": "('zero', ((-2, -1), (-1, 2), (1, -2), (2, 1)))",
+          "energy": 0.015260644352552852
+        },
+        {
+          "orbit": "('zero', ((-3, 0), (0, -3), (0, 3), (3, 0)))",
+          "energy": 0.01332839455006381
+        },
+        {
+          "orbit": "('zero', ((-1, -1), (-1, 1), (1, -1), (1, 1)))",
+          "energy": 0.011703205411576214
+        },
+        {
+          "orbit": "('zero', ((-2, 0), (0, -2), (0, 2), (2, 0)))",
+          "energy": 0.007357515380283086
+        },
+        {
+          "orbit": "('infinity', ((-1, 0), (0, -1), (0, 1), (1, 0)))",
+          "energy": 0.006217120960024651
+        },
+        {
+          "orbit": "('zero', ((-1, 0), (0, -1), (0, 1), (1, 0)))",
+          "energy": 0.005519541259240371
+        },
+        {
+          "orbit": "('zero', ((-3, 2), (-2, -3), (2, 3), (3, -2)))",
+          "energy": 0.005504377476105018
+        },
+        {
+          "orbit": "('zero', ((-3, 1), (-1, -3), (1, 3), (3, -1)))",
+          "energy": 0.004466353850633094
+        },
+        {
+          "orbit": "('zero', ((-3, -1), (-1, 3), (1, -3), (3, 1)))",
+          "energy": 0.003899241381369414
+        },
+        {
+          "orbit": "('zero', ((-4, 2), (-2, -4), (2, 4), (4, -2)))",
+          "energy": 0.0018794127098373716
+        },
+        {
+          "orbit": "('zero', ((-2, 1), (-1, -2), (1, 2), (2, -1)))",
+          "energy": 0.000248684838400986
+        }
+      ],
+      "dominant_modes": [
+        {
+          "cusp": "zero",
+          "mode": [
+            2,
+            -4,
+            20
+          ],
+          "energy": 0.09169558974376052,
+          "real_energy": 0.043541889900317106,
+          "imaginary_energy": 0.04815369984344342,
+          "symmetry_orbit": [
+            [
+              -4,
+              -2
+            ],
+            [
+              -2,
+              4
+            ],
+            [
+              2,
+              -4
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -2,
+            4,
+            20
+          ],
+          "energy": 0.09115115997827464,
+          "real_energy": 0.022857506555614637,
+          "imaginary_energy": 0.06829365342266001,
+          "symmetry_orbit": [
+            [
+              -4,
+              -2
+            ],
+            [
+              -2,
+              4
+            ],
+            [
+              2,
+              -4
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            3,
+            -3,
+            18
+          ],
+          "energy": 0.08192954789398006,
+          "real_energy": 0.060720918528727796,
+          "imaginary_energy": 0.021208629365252266,
+          "symmetry_orbit": [
+            [
+              -3,
+              -3
+            ],
+            [
+              -3,
+              3
+            ],
+            [
+              3,
+              -3
+            ],
+            [
+              3,
+              3
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -3,
+            3,
+            18
+          ],
+          "energy": 0.08104700896083049,
+          "real_energy": 0.05693478743138594,
+          "imaginary_energy": 0.024112221529444557,
+          "symmetry_orbit": [
+            [
+              -3,
+              -3
+            ],
+            [
+              -3,
+              3
+            ],
+            [
+              3,
+              -3
+            ],
+            [
+              3,
+              3
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -4,
+            -1,
+            17
+          ],
+          "energy": 0.06764407402242352,
+          "real_energy": 0.015661446609269932,
+          "imaginary_energy": 0.05198262741315359,
+          "symmetry_orbit": [
+            [
+              -4,
+              -1
+            ],
+            [
+              -1,
+              4
+            ],
+            [
+              1,
+              -4
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            4,
+            1,
+            17
+          ],
+          "energy": 0.06007106107781657,
+          "real_energy": 0.0013795794336953768,
+          "imaginary_energy": 0.058691481644121184,
+          "symmetry_orbit": [
+            [
+              -4,
+              -1
+            ],
+            [
+              -1,
+              4
+            ],
+            [
+              1,
+              -4
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "infinity",
+          "mode": [
+            -1,
+            -1,
+            2
+          ],
+          "energy": 0.04512801137922779,
+          "real_energy": 0.014366221651281201,
+          "imaginary_energy": 0.030761789727946597,
+          "symmetry_orbit": [
+            [
+              -1,
+              -1
+            ],
+            [
+              -1,
+              1
+            ],
+            [
+              1,
+              -1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "infinity",
+          "mode": [
+            1,
+            1,
+            2
+          ],
+          "energy": 0.04512801137922779,
+          "real_energy": 0.014366221651281201,
+          "imaginary_energy": 0.030761789727946597,
+          "symmetry_orbit": [
+            [
+              -1,
+              -1
+            ],
+            [
+              -1,
+              1
+            ],
+            [
+              1,
+              -1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            1,
+            -4,
+            17
+          ],
+          "energy": 0.04363252510704154,
+          "real_energy": 0.010738237472231557,
+          "imaginary_energy": 0.032894287634809984,
+          "symmetry_orbit": [
+            [
+              -4,
+              -1
+            ],
+            [
+              -1,
+              4
+            ],
+            [
+              1,
+              -4
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -4,
+            1,
+            17
+          ],
+          "energy": 0.0419900428608302,
+          "real_energy": 0.0281173056897748,
+          "imaginary_energy": 0.013872737171055397,
+          "symmetry_orbit": [
+            [
+              -4,
+              1
+            ],
+            [
+              -1,
+              -4
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              4,
+              -1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            4,
+            -1,
+            17
+          ],
+          "energy": 0.041931085905097816,
+          "real_energy": 0.03033869659875885,
+          "imaginary_energy": 0.011592389306338966,
+          "symmetry_orbit": [
+            [
+              -4,
+              1
+            ],
+            [
+              -1,
+              -4
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              4,
+              -1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -1,
+            4,
+            17
+          ],
+          "energy": 0.03769718702538185,
+          "real_energy": 0.0156903783037196,
+          "imaginary_energy": 0.02200680872166225,
+          "symmetry_orbit": [
+            [
+              -4,
+              -1
+            ],
+            [
+              -1,
+              4
+            ],
+            [
+              1,
+              -4
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "infinity",
+          "mode": [
+            -2,
+            0,
+            4
+          ],
+          "energy": 0.023492633515576258,
+          "real_energy": 0.0006939861107001218,
+          "imaginary_energy": 0.022798647404876134,
+          "symmetry_orbit": [
+            [
+              -2,
+              0
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "infinity",
+          "mode": [
+            2,
+            0,
+            4
+          ],
+          "energy": 0.023492633515576258,
+          "real_energy": 0.0006939861107001218,
+          "imaginary_energy": 0.022798647404876134,
+          "symmetry_orbit": [
+            [
+              -2,
+              0
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            0,
+            4,
+            16
+          ],
+          "energy": 0.019858747596280184,
+          "real_energy": 0.011563709131405923,
+          "imaginary_energy": 0.00829503846487426,
+          "symmetry_orbit": [
+            [
+              -4,
+              0
+            ],
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              0
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            0,
+            -4,
+            16
+          ],
+          "energy": 0.0180237091015492,
+          "real_energy": 0.011580344367327968,
+          "imaginary_energy": 0.006443364734221234,
+          "symmetry_orbit": [
+            [
+              -4,
+              0
+            ],
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              0
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        }
+      ],
+      "real_component_energy": 0.40230027809400104,
+      "imaginary_component_energy": 0.5976997219059991,
+      "fiber_note": "the physical formulation has cusp-channel coefficients shared by all six fibers"
+    },
+    {
+      "basis_vector": 6,
+      "gram_eigenvalue_high_precision_diagnostic": "[1.928250818685895019067481820480909189192328765136763716495337218675511899876e-78 +/- 4.89e-154] + [4.026954215326414915728571284213827701045665699755543762313994273849909013682e-86 +/- 1.08e-162]j",
+      "physical_action_l2": 8.352159262099701e-21,
+      "fraction_in_new_M4_modes": 0.860359331609632,
+      "fraction_in_old_M_le_3_modes": 0.13964066839036804,
+      "row_families_least_sensitive": [
+        {
+          "row_family": "relation:T1",
+          "rms_action": 3.278194786281927e-82,
+          "maximum_action": 1.4130456139960258e-81
+        },
+        {
+          "row_family": "block:infinity->infinity",
+          "rms_action": 4.991189507432859e-23,
+          "maximum_action": 1.0587911840678754e-22
+        },
+        {
+          "row_family": "fiber:0",
+          "rms_action": 3.612017798575221e-22,
+          "maximum_action": 1.2716518500874517e-21
+        },
+        {
+          "row_family": "fiber:5",
+          "rms_action": 4.473836504102433e-22,
+          "maximum_action": 8.470329472543003e-22
+        },
+        {
+          "row_family": "fiber:3",
+          "rms_action": 5.119011748655601e-22,
+          "maximum_action": 9.04631584218511e-22
+        },
+        {
+          "row_family": "fiber:1",
+          "rms_action": 5.288645514622182e-22,
+          "maximum_action": 1.2716518500874517e-21
+        },
+        {
+          "row_family": "block:zero->infinity",
+          "rms_action": 6.9297003361856195e-22,
+          "maximum_action": 9.470116246213047e-22
+        },
+        {
+          "row_family": "block:infinity->zero",
+          "rms_action": 7.172121800968212e-22,
+          "maximum_action": 1.2716518500874517e-21
+        },
+        {
+          "row_family": "relation:R",
+          "rms_action": 7.4758906034078345e-22,
+          "maximum_action": 2.1281439417242924e-21
+        },
+        {
+          "row_family": "relation:TiR",
+          "rms_action": 7.4758906034078345e-22,
+          "maximum_action": 2.1281439417242924e-21
+        },
+        {
+          "row_family": "block:zero->zero",
+          "rms_action": 7.477810339274563e-22,
+          "maximum_action": 3.928957098646177e-21
+        },
+        {
+          "row_family": "relation:S",
+          "rms_action": 9.055159258877766e-22,
+          "maximum_action": 3.928957098646177e-21
+        }
+      ],
+      "by_cusp": {
+        "infinity": 0.02566660597847186,
+        "zero": 0.9743333940215281
+      },
+      "by_radial_shell": [
+        {
+          "shell": "zero:17/5",
+          "energy": 0.316468676442016
+        },
+        {
+          "shell": "zero:20/5",
+          "energy": 0.25526068699484955
+        },
+        {
+          "shell": "zero:16/5",
+          "energy": 0.15219561269838694
+        },
+        {
+          "shell": "zero:18/5",
+          "energy": 0.1227208800168859
+        },
+        {
+          "shell": "zero:13/5",
+          "energy": 0.08549645616358664
+        },
+        {
+          "shell": "zero:10/5",
+          "energy": 0.01750517964394576
+        },
+        {
+          "shell": "infinity:4",
+          "energy": 0.013713475457493341
+        },
+        {
+          "shell": "zero:1/5",
+          "energy": 0.008361512966348475
+        },
+        {
+          "shell": "infinity:1",
+          "energy": 0.00719070252392108
+        },
+        {
+          "shell": "zero:9/5",
+          "energy": 0.006582873240867334
+        },
+        {
+          "shell": "infinity:2",
+          "energy": 0.004762427997057441
+        },
+        {
+          "shell": "zero:4/5",
+          "energy": 0.004439195610784112
+        },
+        {
+          "shell": "zero:5/5",
+          "energy": 0.0026177651531377943
+        },
+        {
+          "shell": "zero:2/5",
+          "energy": 0.0021819640078003496
+        },
+        {
+          "shell": "zero:8/5",
+          "energy": 0.0005025910829191819
+        }
+      ],
+      "dominant_shell": {
+        "shell": "zero:17/5",
+        "energy": 0.316468676442016
+      },
+      "by_symmetry_orbit": [
+        {
+          "orbit": "('zero', ((-4, -1), (-1, 4), (1, -4), (4, 1)))",
+          "energy": 0.2842137237669784
+        },
+        {
+          "orbit": "('zero', ((-4, -2), (-2, 4), (2, -4), (4, 2)))",
+          "energy": 0.25471214797654984
+        },
+        {
+          "orbit": "('zero', ((-4, 0), (0, -4), (0, 4), (4, 0)))",
+          "energy": 0.15219561269838694
+        },
+        {
+          "orbit": "('zero', ((-3, -3), (-3, 3), (3, -3), (3, 3)))",
+          "energy": 0.1227208800168859
+        },
+        {
+          "orbit": "('zero', ((-3, 2), (-2, -3), (2, 3), (3, -2)))",
+          "energy": 0.058238575613898044
+        },
+        {
+          "orbit": "('zero', ((-4, 1), (-1, -4), (1, 4), (4, -1)))",
+          "energy": 0.03225495267503758
+        },
+        {
+          "orbit": "('zero', ((-3, -2), (-2, 3), (2, -3), (3, 2)))",
+          "energy": 0.027257880549688595
+        },
+        {
+          "orbit": "('zero', ((-3, 1), (-1, -3), (1, 3), (3, -1)))",
+          "energy": 0.017314682524063464
+        },
+        {
+          "orbit": "('infinity', ((-2, 0), (0, -2), (0, 2), (2, 0)))",
+          "energy": 0.013713475457493341
+        },
+        {
+          "orbit": "('zero', ((-1, 0), (0, -1), (0, 1), (1, 0)))",
+          "energy": 0.008361512966348475
+        },
+        {
+          "orbit": "('infinity', ((-1, 0), (0, -1), (0, 1), (1, 0)))",
+          "energy": 0.00719070252392108
+        },
+        {
+          "orbit": "('zero', ((-3, 0), (0, -3), (0, 3), (3, 0)))",
+          "energy": 0.006582873240867334
+        },
+        {
+          "orbit": "('infinity', ((-1, -1), (-1, 1), (1, -1), (1, 1)))",
+          "energy": 0.004762427997057441
+        },
+        {
+          "orbit": "('zero', ((-2, 0), (0, -2), (0, 2), (2, 0)))",
+          "energy": 0.004439195610784112
+        },
+        {
+          "orbit": "('zero', ((-2, -1), (-1, 2), (1, -2), (2, 1)))",
+          "energy": 0.002330137052180951
+        },
+        {
+          "orbit": "('zero', ((-1, -1), (-1, 1), (1, -1), (1, 1)))",
+          "energy": 0.0021819640078003496
+        },
+        {
+          "orbit": "('zero', ((-4, 2), (-2, -4), (2, 4), (4, -2)))",
+          "energy": 0.0005485390182997335
+        },
+        {
+          "orbit": "('zero', ((-2, -2), (-2, 2), (2, -2), (2, 2)))",
+          "energy": 0.0005025910829191819
+        },
+        {
+          "orbit": "('zero', ((-2, 1), (-1, -2), (1, 2), (2, -1)))",
+          "energy": 0.00028762810095684326
+        },
+        {
+          "orbit": "('zero', ((-3, -1), (-1, 3), (1, -3), (3, 1)))",
+          "energy": 0.00019049711988229764
+        }
+      ],
+      "dominant_modes": [
+        {
+          "cusp": "zero",
+          "mode": [
+            2,
+            -4,
+            20
+          ],
+          "energy": 0.1695359246483708,
+          "real_energy": 0.030887735246483198,
+          "imaginary_energy": 0.1386481894018876,
+          "symmetry_orbit": [
+            [
+              -4,
+              -2
+            ],
+            [
+              -2,
+              4
+            ],
+            [
+              2,
+              -4
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -4,
+            -1,
+            17
+          ],
+          "energy": 0.10534358958076467,
+          "real_energy": 0.04951278437614704,
+          "imaginary_energy": 0.055830805204617646,
+          "symmetry_orbit": [
+            [
+              -4,
+              -1
+            ],
+            [
+              -1,
+              4
+            ],
+            [
+              1,
+              -4
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            4,
+            1,
+            17
+          ],
+          "energy": 0.10055661673562315,
+          "real_energy": 5.370495301003347e-06,
+          "imaginary_energy": 0.10055124624032213,
+          "symmetry_orbit": [
+            [
+              -4,
+              -1
+            ],
+            [
+              -1,
+              4
+            ],
+            [
+              1,
+              -4
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            4,
+            0,
+            16
+          ],
+          "energy": 0.08629840832044818,
+          "real_energy": 0.015908673506774725,
+          "imaginary_energy": 0.07038973481367346,
+          "symmetry_orbit": [
+            [
+              -4,
+              0
+            ],
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              0
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            3,
+            3,
+            18
+          ],
+          "energy": 0.07153306772742311,
+          "real_energy": 0.019937735623113215,
+          "imaginary_energy": 0.05159533210430991,
+          "symmetry_orbit": [
+            [
+              -3,
+              -3
+            ],
+            [
+              -3,
+              3
+            ],
+            [
+              3,
+              -3
+            ],
+            [
+              3,
+              3
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -4,
+            0,
+            16
+          ],
+          "energy": 0.060232245993626456,
+          "real_energy": 0.006183010415576966,
+          "imaginary_energy": 0.054049235578049484,
+          "symmetry_orbit": [
+            [
+              -4,
+              0
+            ],
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              0
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -2,
+            4,
+            20
+          ],
+          "energy": 0.04672599394527989,
+          "real_energy": 0.0006420323655274594,
+          "imaginary_energy": 0.04608396157975243,
+          "symmetry_orbit": [
+            [
+              -4,
+              -2
+            ],
+            [
+              -2,
+              4
+            ],
+            [
+              2,
+              -4
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -3,
+            -3,
+            18
+          ],
+          "energy": 0.04223702702002021,
+          "real_energy": 0.0022650198615243645,
+          "imaginary_energy": 0.03997200715849585,
+          "symmetry_orbit": [
+            [
+              -3,
+              -3
+            ],
+            [
+              -3,
+              3
+            ],
+            [
+              3,
+              -3
+            ],
+            [
+              3,
+              3
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -1,
+            4,
+            17
+          ],
+          "energy": 0.041101804035223045,
+          "real_energy": 0.0020272762067721655,
+          "imaginary_energy": 0.03907452782845088,
+          "symmetry_orbit": [
+            [
+              -4,
+              -1
+            ],
+            [
+              -1,
+              4
+            ],
+            [
+              1,
+              -4
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -4,
+            -2,
+            20
+          ],
+          "energy": 0.03845022938289917,
+          "real_energy": 0.02741283547185145,
+          "imaginary_energy": 0.01103739391104772,
+          "symmetry_orbit": [
+            [
+              -4,
+              -2
+            ],
+            [
+              -2,
+              4
+            ],
+            [
+              2,
+              -4
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            1,
+            -4,
+            17
+          ],
+          "energy": 0.03721171341536755,
+          "real_energy": 0.005920679364017154,
+          "imaginary_energy": 0.031291034051350405,
+          "symmetry_orbit": [
+            [
+              -4,
+              -1
+            ],
+            [
+              -1,
+              4
+            ],
+            [
+              1,
+              -4
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            3,
+            -2,
+            13
+          ],
+          "energy": 0.019017631198010945,
+          "real_energy": 0.004126304830384994,
+          "imaginary_energy": 0.01489132636762595,
+          "symmetry_orbit": [
+            [
+              -3,
+              2
+            ],
+            [
+              -2,
+              -3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              -2
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -3,
+            2,
+            13
+          ],
+          "energy": 0.015886055065598734,
+          "real_energy": 0.0031037417219970005,
+          "imaginary_energy": 0.012782313343601732,
+          "symmetry_orbit": [
+            [
+              -3,
+              2
+            ],
+            [
+              -2,
+              -3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              -2
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -4,
+            1,
+            17
+          ],
+          "energy": 0.013119331495964528,
+          "real_energy": 0.00031604293975663817,
+          "imaginary_energy": 0.012803288556207888,
+          "symmetry_orbit": [
+            [
+              -4,
+              1
+            ],
+            [
+              -1,
+              -4
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              4,
+              -1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            -2,
+            -3,
+            13
+          ],
+          "energy": 0.012258715615771429,
+          "real_energy": 0.0014445678231112804,
+          "imaginary_energy": 0.01081414779266015,
+          "symmetry_orbit": [
+            [
+              -3,
+              2
+            ],
+            [
+              -2,
+              -3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              3,
+              -2
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        },
+        {
+          "cusp": "zero",
+          "mode": [
+            4,
+            -1,
+            17
+          ],
+          "energy": 0.011890371411397795,
+          "real_energy": 0.00034183530595300433,
+          "imaginary_energy": 0.011548536105444792,
+          "symmetry_orbit": [
+            [
+              -4,
+              1
+            ],
+            [
+              -1,
+              -4
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              4,
+              -1
+            ]
+          ],
+          "six_copy_fiber": "shared cusp-channel coefficient"
+        }
+      ],
+      "real_component_energy": 0.21966994728370703,
+      "imaginary_component_energy": 0.7803300527162932,
+      "fiber_note": "the physical formulation has cusp-channel coefficients shared by all six fibers"
+    }
+  ],
+  "diagnostic_only": true,
+  "cutoff_rank_certified": false,
+  "trial_frozen": false,
+  "global_hejhal_defect_certified": false,
+  "rung4_certified": false,
+  "dual_certification": false,
+  "audit_hash": "d99c9c9da1f457bda2a427b850c8258c02912c37a1496db236027148068e3c04"
+}

@@ -1,0 +1,21 @@
+{
+  "schema": "track-b-global-partition-verification/v1",
+  "verified": true,
+  "cell_count": 2048,
+  "expected_cell_count": 2048,
+  "exact_once": true,
+  "hashes_match": true,
+  "audit_hash_match": true,
+  "reconstructed_minimum_denominator_lower": "1.00000000000000000000000000000000000000000000000000000000",
+  "reconstructed_maximum_gradient_upper": "[114.342105263157894736842105263157894736842105263157894737 +/- 1.50e-55]",
+  "reconstructed_maximum_laplacian_upper": "[14726.4755309325946445060018467220683287165281625115420129 +/- 3.46e-53]",
+  "fallback_count": 0,
+  "cell_flags_green": true,
+  "per_weight_enclosures_complete": true,
+  "stabilizers_exact": true,
+  "endpoint_agreement": true,
+  "result_flags_green": true,
+  "global_partition_certified": true,
+  "global_weight_bounds_certified": true,
+  "rung4_certified": false
+}

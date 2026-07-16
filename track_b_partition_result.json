@@ -15,7 +15,7 @@
   "theorem_compatibility": {
     "theorem": "theorem_DK_sixcopy.tex, Lemma Certified automorphization",
     "compatible": false,
-    "reason": "no exact collar-separation/Lebesgue-number proof or exhaustive singular-stratum incidence inventory"
+    "reason": "the finite floor-collar incidence is now exact, but the global collar-separation/Lebesgue-number and normalized-weight proofs remain open"
   },
   "coordinate_convention": {
     "reference_cell": "x1 in [-1/2,1/2], x2 in [0,1/2], x1^2+x2^2+y^2 >= 1",
@@ -428,7 +428,7 @@
         "x2": "0",
         "y_squared": "1"
       },
-      "found_through_word_depth": 7,
+      "found_through_word_depth": 6,
       "order_found": 4,
       "bfs_reproduced_all": true,
       "elements": [
@@ -542,7 +542,7 @@
         "x2": "1/2",
         "y_squared": "3/4"
       },
-      "found_through_word_depth": 7,
+      "found_through_word_depth": 6,
       "order_found": 6,
       "bfs_reproduced_all": true,
       "elements": [
@@ -706,7 +706,7 @@
         "x2": "0",
         "y_squared": "3/4"
       },
-      "found_through_word_depth": 7,
+      "found_through_word_depth": 6,
       "order_found": 6,
       "bfs_reproduced_all": true,
       "elements": [
@@ -870,7 +870,7 @@
         "x2": "0",
         "y_squared": "3/4"
       },
-      "found_through_word_depth": 7,
+      "found_through_word_depth": 6,
       "order_found": 6,
       "bfs_reproduced_all": true,
       "elements": [
@@ -1034,7 +1034,7 @@
         "x2": "1/2",
         "y_squared": "1/2"
       },
-      "found_through_word_depth": 7,
+      "found_through_word_depth": 6,
       "order_found": 12,
       "bfs_reproduced_all": true,
       "elements": [
@@ -1348,7 +1348,7 @@
         "x2": "1/2",
         "y_squared": "1/2"
       },
-      "found_through_word_depth": 7,
+      "found_through_word_depth": 6,
       "order_found": 12,
       "bfs_reproduced_all": true,
       "elements": [
@@ -1661,7 +1661,1095 @@
     "exact_fixed_point_tests": true,
     "elliptic_averaging_required": true,
     "listed_special_points_exhaustive": true,
-    "global_singular_strata_exhaustive": false
+    "floor_collar_singular_strata_exhaustive": true,
+    "global_singular_strata_exhaustive": true
+  },
+  "floor_collar_incidence": {
+    "certified": true,
+    "scope": "finite isometric-sphere and elliptic-stratum incidence in the selected floor collar",
+    "floor_collar": {
+      "log_rho_interval": [
+        "0",
+        "3/10"
+      ],
+      "rho_upper_containment": "27/20",
+      "exp_upper_by_9_term_taylor_plus_geometric_tail": "58659464342023/43456000000000",
+      "containment_verified": true
+    },
+    "exclusion_argument": {
+      "closed_cell_y_squared_lower": "1/2",
+      "c_norm_squared_greater_than_2": "impossible, since |c|^2 y^2 > 1",
+      "c_norm_squared_equal_2": "only equality cases y^2=1/2 and cz+d=0; these are the already enumerated vertices v_mhh and v_phh",
+      "c_norm_squared_equal_1": "unit-c sphere centres are Gaussian; radius-one horizontal projection forces each centre coordinate into {-1,0,1}"
+    },
+    "unit_c_spheres": [
+      {
+        "center": [
+          -1,
+          -1
+        ],
+        "rho_range_on_horizontal_rectangle": [
+          "-3",
+          "0"
+        ],
+        "incidence": "disjoint from rho >= 1"
+      },
+      {
+        "center": [
+          -1,
+          0
+        ],
+        "rho_range_on_horizontal_rectangle": [
+          "-1",
+          "1"
+        ],
+        "incidence": "floor/x1m edge only"
+      },
+      {
+        "center": [
+          -1,
+          1
+        ],
+        "rho_range_on_horizontal_rectangle": [
+          "-2",
+          "1"
+        ],
+        "incidence": "v_mhh only"
+      },
+      {
+        "center": [
+          0,
+          -1
+        ],
+        "rho_range_on_horizontal_rectangle": [
+          "-1",
+          "0"
+        ],
+        "incidence": "disjoint from rho >= 1"
+      },
+      {
+        "center": [
+          0,
+          0
+        ],
+        "rho_range_on_horizontal_rectangle": [
+          "1",
+          "1"
+        ],
+        "incidence": "the unique codimension-one floor sphere; rho=1"
+      },
+      {
+        "center": [
+          0,
+          1
+        ],
+        "rho_range_on_horizontal_rectangle": [
+          "0",
+          "1"
+        ],
+        "incidence": "floor/x2p edge only"
+      },
+      {
+        "center": [
+          1,
+          -1
+        ],
+        "rho_range_on_horizontal_rectangle": [
+          "-3",
+          "0"
+        ],
+        "incidence": "disjoint from rho >= 1"
+      },
+      {
+        "center": [
+          1,
+          0
+        ],
+        "rho_range_on_horizontal_rectangle": [
+          "-1",
+          "1"
+        ],
+        "incidence": "floor/x1p edge only"
+      },
+      {
+        "center": [
+          1,
+          1
+        ],
+        "rho_range_on_horizontal_rectangle": [
+          "-2",
+          "1"
+        ],
+        "incidence": "v_phh only"
+      }
+    ],
+    "open_collar_incident_codimension_one_words": [
+      "S"
+    ],
+    "closed_collar_incident_vertical_faces": [
+      "x1m",
+      "x1p",
+      "x2m",
+      "x2p"
+    ],
+    "elliptic_edge_averages": [
+      {
+        "id": "floor_x1m",
+        "locus": "x1=-1/2, rho=1",
+        "generator": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              -1,
+              0
+            ]
+          ],
+          [
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ]
+        ],
+        "stabilizer_order": 3,
+        "averaging_rule": "average the local chart over the cyclic group of order 3",
+        "endpoints": [
+          "v_mh0",
+          "v_mhh"
+        ],
+        "interior_special_points": [],
+        "interior_special_point_rule": "replace the generic cyclic average by the exact SPECIAL-point stabilizer average when this list is nonempty"
+      },
+      {
+        "id": "floor_x1p",
+        "locus": "x1=1/2, rho=1",
+        "generator": [
+          [
+            [
+              -1,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          [
+            [
+              -1,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        ],
+        "stabilizer_order": 3,
+        "averaging_rule": "average the local chart over the cyclic group of order 3",
+        "endpoints": [
+          "v_ph0",
+          "v_phh"
+        ],
+        "interior_special_points": [],
+        "interior_special_point_rule": "replace the generic cyclic average by the exact SPECIAL-point stabilizer average when this list is nonempty"
+      },
+      {
+        "id": "floor_x2m",
+        "locus": "x2=0, rho=1",
+        "generator": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              -1
+            ]
+          ],
+          [
+            [
+              0,
+              -1
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        ],
+        "stabilizer_order": 2,
+        "averaging_rule": "average the local chart over the cyclic group of order 2",
+        "endpoints": [
+          "v_mh0",
+          "v_ph0"
+        ],
+        "interior_special_points": [
+          "v_00"
+        ],
+        "interior_special_point_rule": "replace the generic cyclic average by the exact SPECIAL-point stabilizer average when this list is nonempty"
+      },
+      {
+        "id": "floor_x2p",
+        "locus": "x2=1/2, rho=1",
+        "generator": [
+          [
+            [
+              -1,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        ],
+        "stabilizer_order": 3,
+        "averaging_rule": "average the local chart over the cyclic group of order 3",
+        "endpoints": [
+          "v_mhh",
+          "v_phh"
+        ],
+        "interior_special_points": [
+          "v_0h"
+        ],
+        "interior_special_point_rule": "replace the generic cyclic average by the exact SPECIAL-point stabilizer average when this list is nonempty"
+      }
+    ],
+    "vertex_averages": {
+      "v_00": {
+        "stabilizer_order": 4,
+        "averaging_rule": "average over the exact finite point stabilizer recorded in stabilizers"
+      },
+      "v_0h": {
+        "stabilizer_order": 6,
+        "averaging_rule": "average over the exact finite point stabilizer recorded in stabilizers"
+      },
+      "v_mh0": {
+        "stabilizer_order": 6,
+        "averaging_rule": "average over the exact finite point stabilizer recorded in stabilizers"
+      },
+      "v_ph0": {
+        "stabilizer_order": 6,
+        "averaging_rule": "average over the exact finite point stabilizer recorded in stabilizers"
+      },
+      "v_mhh": {
+        "stabilizer_order": 12,
+        "averaging_rule": "average over the exact finite point stabilizer recorded in stabilizers"
+      },
+      "v_phh": {
+        "stabilizer_order": 12,
+        "averaging_rule": "average over the exact finite point stabilizer recorded in stabilizers"
+      }
+    },
+    "conclusion": "No unlisted isometric sphere enters the open 0.30 floor collar.  All closed-collar edge and vertex incidences reduce to the listed finite cyclic averages and exact SPECIAL-point stabilizers."
+  },
+  "global_singular_strata_incidence": {
+    "certified": true,
+    "scope": "all positive-height singular strata of the closed Humbert reference cell",
+    "face_inventory_complete": true,
+    "relative_face_interior_classification": {
+      "paired_distinct_faces": [
+        "x1m",
+        "x1p"
+      ],
+      "self_paired_faces": [
+        "x2m",
+        "x2p",
+        "floor"
+      ],
+      "self_paired_fixed_axes": [
+        "vertical_R",
+        "vertical_TiR",
+        "floor_S"
+      ]
+    },
+    "one_dimensional_strata": [
+      {
+        "id": "floor_S",
+        "locus": "x1=0, rho=1, 0<x2<1/2",
+        "kind": "self_paired_face_fixed_axis",
+        "incident_faces": [
+          "floor"
+        ],
+        "generic_sample": {
+          "x1": "0",
+          "x2": "1/4",
+          "y_squared": "15/16"
+        },
+        "stabilizer_order": 2,
+        "elements": [
+          [
+            [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0
+              ],
+              [
+                -1,
+                0
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                0,
+                0
+              ],
+              [
+                -1,
+                0
+              ]
+            ],
+            [
+              [
+                1,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          ]
+        ],
+        "group_closure_exact": true,
+        "right_reindexing_exact": true
+      },
+      {
+        "id": "vertical_R",
+        "locus": "x1=0, x2=0, rho>1",
+        "kind": "self_paired_face_fixed_axis",
+        "incident_faces": [
+          "x2m"
+        ],
+        "generic_sample": {
+          "x1": "0",
+          "x2": "0",
+          "y_squared": "2"
+        },
+        "stabilizer_order": 2,
+        "elements": [
+          [
+            [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0
+              ],
+              [
+                -1,
+                0
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          ]
+        ],
+        "group_closure_exact": true,
+        "right_reindexing_exact": true
+      },
+      {
+        "id": "vertical_TiR",
+        "locus": "x1=0, x2=1/2, rho>1",
+        "kind": "self_paired_face_fixed_axis",
+        "incident_faces": [
+          "x2p"
+        ],
+        "generic_sample": {
+          "x1": "0",
+          "x2": "1/2",
+          "y_squared": "2"
+        },
+        "stabilizer_order": 2,
+        "elements": [
+          [
+            [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0
+              ],
+              [
+                -1,
+                0
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                0,
+                -1
+              ],
+              [
+                -1,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          ]
+        ],
+        "group_closure_exact": true,
+        "right_reindexing_exact": true
+      },
+      {
+        "id": "vertical_x1m_x2m",
+        "locus": "x1=-1/2, x2=0, rho>1",
+        "kind": "vertical_edge_cycle",
+        "incident_faces": [
+          "x1m",
+          "x2m"
+        ],
+        "generic_sample": {
+          "x1": "-1/2",
+          "x2": "0",
+          "y_squared": "2"
+        },
+        "stabilizer_order": 2,
+        "elements": [
+          [
+            [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0
+              ],
+              [
+                -1,
+                0
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ]
+            ],
+            [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          ]
+        ],
+        "group_closure_exact": true,
+        "right_reindexing_exact": true
+      },
+      {
+        "id": "vertical_x1p_x2m",
+        "locus": "x1=1/2, x2=0, rho>1",
+        "kind": "vertical_edge_cycle",
+        "incident_faces": [
+          "x1p",
+          "x2m"
+        ],
+        "generic_sample": {
+          "x1": "1/2",
+          "x2": "0",
+          "y_squared": "2"
+        },
+        "stabilizer_order": 2,
+        "elements": [
+          [
+            [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0
+              ],
+              [
+                -1,
+                0
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          ]
+        ],
+        "group_closure_exact": true,
+        "right_reindexing_exact": true
+      },
+      {
+        "id": "vertical_x1m_x2p",
+        "locus": "x1=-1/2, x2=1/2, rho>1",
+        "kind": "vertical_edge_cycle",
+        "incident_faces": [
+          "x1m",
+          "x2p"
+        ],
+        "generic_sample": {
+          "x1": "-1/2",
+          "x2": "1/2",
+          "y_squared": "2"
+        },
+        "stabilizer_order": 2,
+        "elements": [
+          [
+            [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0
+              ],
+              [
+                -1,
+                0
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                0,
+                -1
+              ],
+              [
+                -1,
+                -1
+              ]
+            ],
+            [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          ]
+        ],
+        "group_closure_exact": true,
+        "right_reindexing_exact": true
+      },
+      {
+        "id": "vertical_x1p_x2p",
+        "locus": "x1=1/2, x2=1/2, rho>1",
+        "kind": "vertical_edge_cycle",
+        "incident_faces": [
+          "x1p",
+          "x2p"
+        ],
+        "generic_sample": {
+          "x1": "1/2",
+          "x2": "1/2",
+          "y_squared": "2"
+        },
+        "stabilizer_order": 2,
+        "elements": [
+          [
+            [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0
+              ],
+              [
+                -1,
+                0
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                0,
+                -1
+              ],
+              [
+                -1,
+                1
+              ]
+            ],
+            [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          ]
+        ],
+        "group_closure_exact": true,
+        "right_reindexing_exact": true
+      },
+      {
+        "id": "floor_x1m",
+        "locus": "x1=-1/2, rho=1, 0<x2<1/2",
+        "kind": "floor_edge_cycle",
+        "incident_faces": [
+          "floor",
+          "x1m"
+        ],
+        "generic_sample": {
+          "x1": "-1/2",
+          "x2": "1/4",
+          "y_squared": "11/16"
+        },
+        "stabilizer_order": 3,
+        "elements": [
+          [
+            [
+              [
+                -1,
+                0
+              ],
+              [
+                -1,
+                0
+              ]
+            ],
+            [
+              [
+                1,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0
+              ],
+              [
+                -1,
+                0
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                0,
+                0
+              ],
+              [
+                -1,
+                0
+              ]
+            ],
+            [
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ]
+          ]
+        ],
+        "group_closure_exact": true,
+        "right_reindexing_exact": true
+      },
+      {
+        "id": "floor_x1p",
+        "locus": "x1=1/2, rho=1, 0<x2<1/2",
+        "kind": "floor_edge_cycle",
+        "incident_faces": [
+          "floor",
+          "x1p"
+        ],
+        "generic_sample": {
+          "x1": "1/2",
+          "x2": "1/4",
+          "y_squared": "11/16"
+        },
+        "stabilizer_order": 3,
+        "elements": [
+          [
+            [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0
+              ],
+              [
+                -1,
+                0
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                -1,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                0,
+                0
+              ],
+              [
+                -1,
+                0
+              ]
+            ],
+            [
+              [
+                1,
+                0
+              ],
+              [
+                -1,
+                0
+              ]
+            ]
+          ]
+        ],
+        "group_closure_exact": true,
+        "right_reindexing_exact": true
+      },
+      {
+        "id": "floor_x2m",
+        "locus": "x2=0, rho=1, -1/2<x1<1/2",
+        "kind": "floor_edge_cycle",
+        "incident_faces": [
+          "floor",
+          "x2m"
+        ],
+        "generic_sample": {
+          "x1": "1/4",
+          "x2": "0",
+          "y_squared": "15/16"
+        },
+        "stabilizer_order": 2,
+        "elements": [
+          [
+            [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0
+              ],
+              [
+                -1,
+                0
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                -1
+              ]
+            ],
+            [
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          ]
+        ],
+        "group_closure_exact": true,
+        "right_reindexing_exact": true
+      },
+      {
+        "id": "floor_x2p",
+        "locus": "x2=1/2, rho=1, -1/2<x1<1/2",
+        "kind": "floor_edge_cycle",
+        "incident_faces": [
+          "floor",
+          "x2p"
+        ],
+        "generic_sample": {
+          "x1": "1/4",
+          "x2": "1/2",
+          "y_squared": "11/16"
+        },
+        "stabilizer_order": 3,
+        "elements": [
+          [
+            [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0
+              ],
+              [
+                -1,
+                0
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                -1,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                -1
+              ]
+            ],
+            [
+              [
+                0,
+                -1
+              ],
+              [
+                -1,
+                0
+              ]
+            ]
+          ]
+        ],
+        "group_closure_exact": true,
+        "right_reindexing_exact": true
+      }
+    ],
+    "zero_dimensional_strata": [
+      "v_00",
+      "v_0h",
+      "v_mh0",
+      "v_ph0",
+      "v_mhh",
+      "v_phh"
+    ],
+    "exhaustiveness_proof": "The exact five-face Humbert polyhedron has no other nonempty relative face intersections.  Interior stabilizers are excluded by disjoint fundamental-domain interiors; face-interior isotropy is the fixed locus of one of the three self-pairings; edge isotropy is one of the eight listed face cycles.  Stabilizer jumps occur only at the six enumerated SPECIAL intersections.",
+    "sampled_floating_point_geometry_used": false
   },
   "conditional_bounds_not_theorem_inputs": {
     "gate_epsilon": "1/10",
@@ -1687,9 +2775,8 @@
     }
   },
   "blockers": [
-    "prove epsilon=1/10 collar intersects only the enumerated incident Humbert chambers",
-    "prove the collar's singular-stratum incidence inventory exhaustive; listed special-point stabilizers are already exact",
     "replace face-only transition list by all edge/vertex chamber-to-chamber words after the collar proof",
+    "prove the global collar-separation/Lebesgue-number statement outside the resolved floor collar",
     "interval-integrate the resulting normalized rational/quintic weights; current bounds are conditional sup bounds"
   ],
   "source_mesh_audit": {

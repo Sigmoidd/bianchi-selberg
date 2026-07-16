@@ -1,0 +1,31 @@
+{
+  "schema": "track-b-two-cusp-verification/v1",
+  "verified": true,
+  "independently_reassembled_matrix": true,
+  "serialized_matrix_entries_used": false,
+  "expected_row_count": 144,
+  "row_count": 144,
+  "exact_once": true,
+  "exact_row_order": true,
+  "all_four_blocks": true,
+  "glue_permutations_exact": true,
+  "transformed_coordinates_agree": true,
+  "coefficient_count_correct": true,
+  "selected_system_contains_zero": true,
+  "scaling_roundtrip_certified": true,
+  "deterministic_hashes_match": true,
+  "endpoint_agreement": true,
+  "endpoint_checks": {
+    "component": true,
+    "l2": true,
+    "normalization": true
+  },
+  "maximum_component_residual_upper": "[9.58246967231502567263826673199773240041914740272588346670e-5 +/- 9.08e-63]",
+  "euclidean_residual_norm_upper": "[0.000213796098003357356772102417959182323601914543674344927686 +/- 1.90e-61]",
+  "normalization_residual_upper": "[1.69711521047173819918760240277322282054228708148002624512e-14 +/- 2.82e-71]",
+  "worst_row_index": 102,
+  "worst_row_type": "R",
+  "worst_cusp_transition": "infinity->infinity",
+  "physical_residual_certified": true,
+  "rung4_certified": false
+}

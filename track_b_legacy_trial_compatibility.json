@@ -1,0 +1,37 @@
+{
+  "schema": "track-b-legacy-trial-compatibility/v1",
+  "current_trial_path": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\track_b_observable_M5_result.json",
+  "current_trial_coefficient_hash": "74af95a87aac75b4ab6bc06107a1b17ad1b00cdf68af109f6d44746e29b8c939",
+  "artifacts": [
+    {
+      "artifact": "floor",
+      "path": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\track_b_floor_stability_d10_result.json",
+      "sha256": "5c5bd47651ceeb911dafd7e13daedb4baef0bb4d04998010bbc6a57efcb6eeda",
+      "valid_for_original_trial": true,
+      "original_trial": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\six_copy_hejhal_balanced_coeffs.json",
+      "original_trial_sha256": "c77b711b500cae0442376eec1f9ba79f0fb66889e6c3fdd67dac6c6c5e7c733a",
+      "original_trial_hash_verified_from_mass_provenance": true,
+      "current_trial_coefficient_hash": "74af95a87aac75b4ab6bc06107a1b17ad1b00cdf68af109f6d44746e29b8c939",
+      "compatible_with_current_trial": false,
+      "reason": "legacy standalone floor artifact has no matching current coefficient/trial hash"
+    },
+    {
+      "artifact": "projected_mass",
+      "path": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\track_b_projected_mass_arb_result.json",
+      "sha256": "dbde0c94d220c8e5174da0f5fb3c188db35949c3ae1ca654b681bc30a4eca886",
+      "valid_for_original_trial": true,
+      "original_trial": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\six_copy_hejhal_balanced_coeffs.json",
+      "original_trial_sha256": "c77b711b500cae0442376eec1f9ba79f0fb66889e6c3fdd67dac6c6c5e7c733a",
+      "original_trial_hash_verified": true,
+      "current_trial_coefficient_hash": "74af95a87aac75b4ab6bc06107a1b17ad1b00cdf68af109f6d44746e29b8c939",
+      "compatible_with_current_trial": false,
+      "reason": "projected mass proposition is certified for the recorded fixed legacy trial only"
+    }
+  ],
+  "legacy_artifacts_preserved": true,
+  "legacy_artifacts_imported_into_current_trial": false,
+  "global_hejhal_defect_certified": false,
+  "rung4_certified": false,
+  "dual_certification": false,
+  "compatibility_ledger_hash": "3668025dbd1fc4faaa4576efcfeafded0b0980975fa56faeba04e9a02593108c"
+}

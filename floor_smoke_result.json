@@ -1,0 +1,74 @@
+{
+  "label": "DIAGNOSTIC",
+  "floor_width": "[0.300000000000000000000000000000000000000000000000000000000 +/- 6.39e-59]",
+  "grid": [
+    1,
+    1,
+    1
+  ],
+  "polynomial_degree": 4,
+  "arb_bits": 192,
+  "polynomial_l2_upper": "[0.0519779390820882864076939666113027960552551640088663187001 +/- 4.63e-60]",
+  "remainder_l2_upper": "[205952334673.671174592937573971376554771057347634564247367 +/- 3.33e-46]",
+  "floor_l2_upper": "[205952334673.723152532019662257784248737668650430619502531 +/- 3.65e-46]",
+  "allowed_budget_interval": "[0.0101903405004245470000000000000000000000000000000000000000 +/- 5.57e-60]",
+  "allowed_budget_lower": "[0.0101903405004245470000000000000000000000000000000000000000 +/- 6.82e-60]",
+  "certified_margin_lower": "[-205952334673.712962191519237710784248737668650430619502531 +/- 3.98e-46]",
+  "certified_ratio_upper": "[20210544943531.8502171618353521787464338809110616426078582 +/- 4.16e-46]",
+  "worst_cell": [
+    0,
+    0,
+    0
+  ],
+  "worst_cell_remainder": "[531766641535.776530421410698245691304215183696804833434254 +/- 4.54e-46]",
+  "maximum_fourier_bessel_tail": "0",
+  "bessel_direct_count": 30,
+  "bessel_fallback_count": 0,
+  "bessel_majorant_count": 70,
+  "fourier_tail_upper": "0",
+  "continuum_remainder_certified": true,
+  "floor_residual_certified": false,
+  "stability_check_passed": false,
+  "geometry_incidence_certified": true,
+  "projected_symmetries_certified": true,
+  "projected_symmetry_certificate": {
+    "certified": true,
+    "method": "exact lattice permutations induced by the explicit projectors",
+    "minus_z_even_coefficient_identities": true,
+    "quarter_turn_odd_coefficient_identities": true,
+    "integer_periodicity": true,
+    "relations": {
+      "T1": {
+        "value_defect": "0",
+        "first_gradient_defect": "0",
+        "proof": "integer-frequency phase permutation; differentiate the identity"
+      },
+      "R": {
+        "value_defect": "0",
+        "first_gradient_defect": "0",
+        "proof": "(-z)-even coefficient permutation (a,b)->(-a,-b)"
+      },
+      "TiR": {
+        "value_defect": "0",
+        "first_gradient_defect": "0",
+        "proof": "composition of integer i-translation with (-z)-evenness"
+      }
+    },
+    "laplace_eigen_equation": {
+      "certified": true,
+      "identity": "(Delta-(1+r^2)) y K_(ir)(2*pi*|m|y) exp(2*pi*i<m,x>)=0",
+      "proof": "modified-Bessel differential equation, modewise; linear projectors preserve it"
+    }
+  },
+  "global_partition_certified": false,
+  "global_weight_bounds_certified": false,
+  "witness_mass_certified": true,
+  "rung4_integrator_comparison_certified": false,
+  "rung4_certified": false,
+  "status": "RED",
+  "cell_count": 1,
+  "audit_jsonl": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\floor_cells_smoke.jsonl",
+  "stability_checks": [],
+  "provisional": true,
+  "global_label": "GLOBAL RUNG-4 CERTIFICATE: NOT CERTIFIED"
+}

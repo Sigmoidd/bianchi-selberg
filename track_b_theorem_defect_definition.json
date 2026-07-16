@@ -1,0 +1,135 @@
+{
+  "schema": "track-b-theorem-defect-definition/v1",
+  "label": "TRACK-B D(K) THEOREM DEFECT DEFINITION",
+  "source": {
+    "path": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\theorem_DK_sixcopy.tex",
+    "sha256": "fe7a5a30c3a017d39b5a606f2f119842f1001ef4dac8a5f1b792f494c817de20",
+    "status": "working draft",
+    "references": [
+      "lem:patch",
+      "cor:target",
+      "prop:trackBwitness",
+      "cor:trackBplateau"
+    ]
+  },
+  "defect": {
+    "global_field": "U=sum_j psi_j F_j",
+    "operator": "Delta-lambda",
+    "spectral_parameter_convention": "lambda=1+r^2",
+    "norm_type": "L2 graph residual of the covariant Laplacian",
+    "norm": "R=||(Delta-lambda)U||_{L2(X;C^6)}",
+    "base_space": "X=PSL2(Z[i])\\H^3 with the induced flat C^6 bundle",
+    "integration_measure": "hyperbolic volume dx1 dx2 dy / y^3",
+    "pointwise_value_norm": "Euclidean C^6 fiber norm",
+    "pointwise_gradient_norm": "hyperbolic cotangent norm tensor Euclidean C^6 norm",
+    "value_jump": "d0=max_active ||t_kj F_j-F_k||_{C^6}",
+    "gradient_jump": "d1=max_active ||nabla(t_kj F_j)-nabla F_k||_{T*X tensor C^6}",
+    "value_jump_weight": "B0=sum_j |Delta psi_j|",
+    "gradient_jump_weight": "B1=2 sum_j |nabla psi_j|",
+    "partition_commutator": "||B0*d0+B1*d1||_L2, with the pointwise sum formed before the norm",
+    "interior_term": "tau=||sum_j psi_j(Delta-lambda)F_j||_L2",
+    "finite_whittaker_interior_term": "tau=0 termwise",
+    "direct_bound": "R<=tau+||B0*d0+B1*d1||_L2",
+    "uniform_fallback": "R<=tau+b0*delta0+b1*delta1; b_i=||B_i||_L2",
+    "cusp_requirement": "zero constant term and exponential L2 decay in correctly scaled coordinates at both cusps",
+    "trace_or_boundary_norm": null
+  },
+  "required_clause_checks": {
+    "working_draft_disclosed": true,
+    "patch_residual_defined": true,
+    "direct_weighted_bound_defined": true,
+    "supremum_fallback_defined": true,
+    "finite_whittaker_tau_zero": true,
+    "target_mass_formula_defined": true,
+    "spectral_error_formula_defined": true,
+    "two_cusp_decay_required": true
+  },
+  "theorem_defect_norm_frozen": true,
+  "theorem_source_is_final": false,
+  "requested_trial": {
+    "path": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\track_b_two_cusp_result.json",
+    "sha256": "115f25bfb69f936f164c4ed3a520b1216be2ad9d8960f476968712bf946658e3",
+    "spectral_parameter_input": "6.7439020359331625,6.7439020359331625",
+    "fourier_cutoff": 1
+  },
+  "mass_compatibility": {
+    "mass_artifact_path": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\track_b_projected_mass_arb_result.json",
+    "mass_artifact_sha256": "dbde0c94d220c8e5174da0f5fb3c188db35949c3ae1ca654b681bc30a4eca886",
+    "recorded_trial_file_hash_matches": true,
+    "spectral_parameter_matches": false,
+    "coefficient_artifact_matches": false,
+    "compatible": false,
+    "blocker": "The certified plateau mass belongs to a different fixed coefficient artifact; D(K) does not transfer that lower bound by spectral-parameter proximity."
+  },
+  "threshold": {
+    "formula": "R_allowed = mu_target_lower * full_spectral_width_tolerance / 2",
+    "justification": "|lambda_j-lambda| <= R/mu_target",
+    "full_spectral_width_tolerance": "0.1",
+    "mass_witness_lower": "0.20380681000849094",
+    "mass_witness_trial": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\six_copy_hejhal_balanced_coeffs.json",
+    "mass_witness_trial_sha256": "c77b711b500cae0442376eec1f9ba79f0fb66889e6c3fdd67dac6c6c5e7c733a",
+    "mass_witness_r": "6.62208",
+    "mass_compatible_with_requested_trial": false,
+    "allowed_defect_interval": null,
+    "allowed_defect_lower": null,
+    "certified_for_requested_trial": false
+  },
+  "legacy_eta0_applicable": false,
+  "local_floor_budget_is_global_threshold_only_for_same_fixed_trial": true,
+  "global_threshold_certified_for_requested_trial": false,
+  "theorem_defect_hash_payload": {
+    "schema": "track-b-theorem-defect-definition/v1",
+    "source": {
+      "path": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\theorem_DK_sixcopy.tex",
+      "sha256": "fe7a5a30c3a017d39b5a606f2f119842f1001ef4dac8a5f1b792f494c817de20",
+      "status": "working draft",
+      "references": [
+        "lem:patch",
+        "cor:target",
+        "prop:trackBwitness",
+        "cor:trackBplateau"
+      ]
+    },
+    "defect": {
+      "global_field": "U=sum_j psi_j F_j",
+      "operator": "Delta-lambda",
+      "spectral_parameter_convention": "lambda=1+r^2",
+      "norm_type": "L2 graph residual of the covariant Laplacian",
+      "norm": "R=||(Delta-lambda)U||_{L2(X;C^6)}",
+      "base_space": "X=PSL2(Z[i])\\H^3 with the induced flat C^6 bundle",
+      "integration_measure": "hyperbolic volume dx1 dx2 dy / y^3",
+      "pointwise_value_norm": "Euclidean C^6 fiber norm",
+      "pointwise_gradient_norm": "hyperbolic cotangent norm tensor Euclidean C^6 norm",
+      "value_jump": "d0=max_active ||t_kj F_j-F_k||_{C^6}",
+      "gradient_jump": "d1=max_active ||nabla(t_kj F_j)-nabla F_k||_{T*X tensor C^6}",
+      "value_jump_weight": "B0=sum_j |Delta psi_j|",
+      "gradient_jump_weight": "B1=2 sum_j |nabla psi_j|",
+      "partition_commutator": "||B0*d0+B1*d1||_L2, with the pointwise sum formed before the norm",
+      "interior_term": "tau=||sum_j psi_j(Delta-lambda)F_j||_L2",
+      "finite_whittaker_interior_term": "tau=0 termwise",
+      "direct_bound": "R<=tau+||B0*d0+B1*d1||_L2",
+      "uniform_fallback": "R<=tau+b0*delta0+b1*delta1; b_i=||B_i||_L2",
+      "cusp_requirement": "zero constant term and exponential L2 decay in correctly scaled coordinates at both cusps",
+      "trace_or_boundary_norm": null
+    },
+    "required_clause_checks": {
+      "working_draft_disclosed": true,
+      "patch_residual_defined": true,
+      "direct_weighted_bound_defined": true,
+      "supremum_fallback_defined": true,
+      "finite_whittaker_tau_zero": true,
+      "target_mass_formula_defined": true,
+      "spectral_error_formula_defined": true,
+      "two_cusp_decay_required": true
+    },
+    "theorem_defect_norm_frozen": true,
+    "theorem_source_is_final": false,
+    "threshold_definition": {
+      "formula": "R_allowed = mu_target_lower * full_spectral_width_tolerance / 2",
+      "justification": "|lambda_j-lambda| <= R/mu_target",
+      "full_spectral_width_tolerance": "0.1"
+    },
+    "legacy_eta0_applicable": false
+  },
+  "theorem_defect_definition_hash": "9bf39d5964642e2e4078de002f3465fb635b634e0db84d0569b0942ce26ef6a0"
+}

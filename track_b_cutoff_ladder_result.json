@@ -1,0 +1,2293 @@
+{
+  "schema": "track-b-two-cusp-cutoff-ladder/v1",
+  "label": "TWO-CUSP CUTOFF LADDER AND EXACT NESTING AUDIT",
+  "r_interval": "6.7439020359331625,6.7439020359331625",
+  "cutoffs": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "collocation_points": 6,
+  "runs": [
+    {
+      "fourier_cutoff": 1,
+      "result_path": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\track_b_cutoff_ladder_p6\\track_b_two_cusp_M1_result.json",
+      "row_ledger_path": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\track_b_cutoff_ladder_p6\\track_b_two_cusp_M1_rows.jsonl",
+      "verification_path": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\track_b_cutoff_ladder_p6\\track_b_two_cusp_M1_verification.json",
+      "unknown_count": 24,
+      "physical_row_count": 144,
+      "selected_row_count": 23,
+      "omitted_row_count": 121,
+      "verified_solve_certified": true,
+      "independent_verification_certified": true,
+      "verified_contraction_upper": "[1.88678391734085110360214672781844212912096174599620480856e-13 +/- 1.98e-70]",
+      "sigma_min_lower": "0.003737198521763965",
+      "coefficient_dynamic_range": {
+        "certified": false,
+        "upper": null,
+        "maximum_coefficient_upper": "[1.07114667316939319954489269007037066010548653771650151612 +/- 4.62e-57]",
+        "minimum_coefficient_lower": "0",
+        "reason": "at least one coefficient enclosure contains zero"
+      },
+      "physical_residual_component_upper": "[2.64623989884255332136534868567280687286651570817702087536e-5 +/- 2.83e-62]",
+      "physical_residual_l2_upper": "[5.04850055946644565946682661587973030642798309873485527568e-5 +/- 1.18e-62]",
+      "continuum_residual_upper": null,
+      "fourier_tail_upper": null,
+      "complete_theorem_defect_upper": null,
+      "elapsed_seconds": null,
+      "python_tracemalloc_peak_bytes": null,
+      "condition_diagnostics": {
+        "physical_matrix_condition_estimate": "120.44437563908814",
+        "preconditioned_matrix_condition_estimate": "917627.9568240918",
+        "equilibrated_matrix_condition_estimate": "319.90062565205335",
+        "smallest_singular_value_diagnostic": "0.03210202462009486",
+        "amplitude_dynamic_range": "120.44437563908814",
+        "interval_radius_midpoint_norm_ratio": "1.6171096109305205e-54",
+        "face_only_numerical_nullity": 12,
+        "complete_system_numerical_nullity": 0
+      },
+      "theorem_defect_definition_hash": "9bf39d5964642e2e4078de002f3465fb635b634e0db84d0569b0942ce26ef6a0"
+    },
+    {
+      "fourier_cutoff": 2,
+      "result_path": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\track_b_cutoff_ladder_p6\\track_b_two_cusp_M2_result.json",
+      "row_ledger_path": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\track_b_cutoff_ladder_p6\\track_b_two_cusp_M2_rows.jsonl",
+      "verification_path": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\track_b_cutoff_ladder_p6\\track_b_two_cusp_M2_verification.json",
+      "unknown_count": 44,
+      "physical_row_count": 144,
+      "selected_row_count": 43,
+      "omitted_row_count": 101,
+      "verified_solve_certified": true,
+      "independent_verification_certified": true,
+      "verified_contraction_upper": "[1.41877618543718170703922286177473064460408039006424026882e-9 +/- 4.52e-66]",
+      "sigma_min_lower": "1.1502469111147503e-06",
+      "coefficient_dynamic_range": {
+        "certified": false,
+        "upper": null,
+        "maximum_coefficient_upper": "[3.45777623287033106411361554346443197838212313399708364159 +/- 1.32e-57]",
+        "minimum_coefficient_lower": "0",
+        "reason": "at least one coefficient enclosure contains zero"
+      },
+      "physical_residual_component_upper": "[9.58246967232460984820101033648822121114334423818402899140e-5 +/- 1.21e-62]",
+      "physical_residual_l2_upper": "[0.000213796098003571190930515004317151211271461084951710105749 +/- 4.25e-61]",
+      "continuum_residual_upper": null,
+      "fourier_tail_upper": null,
+      "complete_theorem_defect_upper": null,
+      "elapsed_seconds": null,
+      "python_tracemalloc_peak_bytes": null,
+      "condition_diagnostics": {
+        "physical_matrix_condition_estimate": "376.07456744549995",
+        "preconditioned_matrix_condition_estimate": "3067098482.947172",
+        "equilibrated_matrix_condition_estimate": "1213859.1693775952",
+        "smallest_singular_value_diagnostic": "1.218661714397343e-05",
+        "amplitude_dynamic_range": "376.07456744549995",
+        "interval_radius_midpoint_norm_ratio": "7.759458170052057e-54",
+        "face_only_numerical_nullity": 22,
+        "complete_system_numerical_nullity": 0
+      },
+      "theorem_defect_definition_hash": "9bf39d5964642e2e4078de002f3465fb635b634e0db84d0569b0942ce26ef6a0"
+    },
+    {
+      "fourier_cutoff": 3,
+      "result_path": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\track_b_cutoff_ladder_p6\\track_b_two_cusp_M3_result.json",
+      "row_ledger_path": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\track_b_cutoff_ladder_p6\\track_b_two_cusp_M3_rows.jsonl",
+      "verification_path": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\track_b_cutoff_ladder_p6\\track_b_two_cusp_M3_verification.json",
+      "unknown_count": 52,
+      "physical_row_count": 144,
+      "selected_row_count": 51,
+      "omitted_row_count": 93,
+      "verified_solve_certified": true,
+      "independent_verification_certified": true,
+      "verified_contraction_upper": "[6.75442353557907309515168162101132170646491792338051570752e-11 +/- 6.11e-69]",
+      "sigma_min_lower": "1.1909924915924913e-05",
+      "coefficient_dynamic_range": {
+        "certified": false,
+        "upper": null,
+        "maximum_coefficient_upper": "[1.97027344379983598479484502421837585628416888994252076373 +/- 4.96e-57]",
+        "minimum_coefficient_lower": "0",
+        "reason": "at least one coefficient enclosure contains zero"
+      },
+      "physical_residual_component_upper": "[5.80359179785294804694694562219672458219106973348037172383e-5 +/- 1.18e-62]",
+      "physical_residual_l2_upper": "[0.000127077974813664593430903564155750127752601859893231459354 +/- 6.24e-62]",
+      "continuum_residual_upper": null,
+      "fourier_tail_upper": null,
+      "complete_theorem_defect_upper": null,
+      "elapsed_seconds": null,
+      "python_tracemalloc_peak_bytes": null,
+      "condition_diagnostics": {
+        "physical_matrix_condition_estimate": "554.5880165385905",
+        "preconditioned_matrix_condition_estimate": "273927918.97491616",
+        "equilibrated_matrix_condition_estimate": "75653.34706413609",
+        "smallest_singular_value_diagnostic": "0.00019263704945804492",
+        "amplitude_dynamic_range": "554.5880165385905",
+        "interval_radius_midpoint_norm_ratio": "2.2459623617329477e-53",
+        "face_only_numerical_nullity": 26,
+        "complete_system_numerical_nullity": 0
+      },
+      "theorem_defect_definition_hash": "9bf39d5964642e2e4078de002f3465fb635b634e0db84d0569b0942ce26ef6a0"
+    },
+    {
+      "fourier_cutoff": 4,
+      "result_path": null,
+      "row_ledger_path": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\track_b_cutoff_ladder_p6\\track_b_two_cusp_M4_rows.jsonl",
+      "verification_path": null,
+      "verified_solve_certified": false,
+      "independent_verification_certified": false,
+      "failure_type": "ArithmeticError",
+      "failure": "physical rows plus normalization have rank 73 < 80",
+      "elapsed_seconds": 54.98362510011066,
+      "python_tracemalloc_peak_bytes": 2577026,
+      "continuum_residual_upper": null,
+      "fourier_tail_upper": null,
+      "complete_theorem_defect_upper": null
+    }
+  ],
+  "nesting_comparisons": [
+    {
+      "embedding": {
+        "schema": "track-b-cutoff-embedding/v1",
+        "source_cutoff": 1,
+        "target_cutoff": 2,
+        "source_dimension": 24,
+        "target_dimension": 44,
+        "source_labels": [
+          [
+            "infinity",
+            -1,
+            0,
+            1
+          ],
+          [
+            "infinity",
+            0,
+            -1,
+            1
+          ],
+          [
+            "infinity",
+            0,
+            1,
+            1
+          ],
+          [
+            "infinity",
+            1,
+            0,
+            1
+          ],
+          [
+            "zero",
+            -1,
+            0,
+            1
+          ],
+          [
+            "zero",
+            0,
+            -1,
+            1
+          ],
+          [
+            "zero",
+            0,
+            1,
+            1
+          ],
+          [
+            "zero",
+            1,
+            0,
+            1
+          ],
+          [
+            "zero",
+            -1,
+            -1,
+            2
+          ],
+          [
+            "zero",
+            -1,
+            1,
+            2
+          ],
+          [
+            "zero",
+            1,
+            -1,
+            2
+          ],
+          [
+            "zero",
+            1,
+            1,
+            2
+          ],
+          [
+            "zero",
+            -2,
+            0,
+            4
+          ],
+          [
+            "zero",
+            0,
+            -2,
+            4
+          ],
+          [
+            "zero",
+            0,
+            2,
+            4
+          ],
+          [
+            "zero",
+            2,
+            0,
+            4
+          ],
+          [
+            "zero",
+            -2,
+            -1,
+            5
+          ],
+          [
+            "zero",
+            -2,
+            1,
+            5
+          ],
+          [
+            "zero",
+            -1,
+            -2,
+            5
+          ],
+          [
+            "zero",
+            -1,
+            2,
+            5
+          ],
+          [
+            "zero",
+            1,
+            -2,
+            5
+          ],
+          [
+            "zero",
+            1,
+            2,
+            5
+          ],
+          [
+            "zero",
+            2,
+            -1,
+            5
+          ],
+          [
+            "zero",
+            2,
+            1,
+            5
+          ]
+        ],
+        "target_labels": [
+          [
+            "infinity",
+            -1,
+            0,
+            1
+          ],
+          [
+            "infinity",
+            0,
+            -1,
+            1
+          ],
+          [
+            "infinity",
+            0,
+            1,
+            1
+          ],
+          [
+            "infinity",
+            1,
+            0,
+            1
+          ],
+          [
+            "infinity",
+            -1,
+            -1,
+            2
+          ],
+          [
+            "infinity",
+            -1,
+            1,
+            2
+          ],
+          [
+            "infinity",
+            1,
+            -1,
+            2
+          ],
+          [
+            "infinity",
+            1,
+            1,
+            2
+          ],
+          [
+            "zero",
+            -1,
+            0,
+            1
+          ],
+          [
+            "zero",
+            0,
+            -1,
+            1
+          ],
+          [
+            "zero",
+            0,
+            1,
+            1
+          ],
+          [
+            "zero",
+            1,
+            0,
+            1
+          ],
+          [
+            "zero",
+            -1,
+            -1,
+            2
+          ],
+          [
+            "zero",
+            -1,
+            1,
+            2
+          ],
+          [
+            "zero",
+            1,
+            -1,
+            2
+          ],
+          [
+            "zero",
+            1,
+            1,
+            2
+          ],
+          [
+            "zero",
+            -2,
+            0,
+            4
+          ],
+          [
+            "zero",
+            0,
+            -2,
+            4
+          ],
+          [
+            "zero",
+            0,
+            2,
+            4
+          ],
+          [
+            "zero",
+            2,
+            0,
+            4
+          ],
+          [
+            "zero",
+            -2,
+            -1,
+            5
+          ],
+          [
+            "zero",
+            -2,
+            1,
+            5
+          ],
+          [
+            "zero",
+            -1,
+            -2,
+            5
+          ],
+          [
+            "zero",
+            -1,
+            2,
+            5
+          ],
+          [
+            "zero",
+            1,
+            -2,
+            5
+          ],
+          [
+            "zero",
+            1,
+            2,
+            5
+          ],
+          [
+            "zero",
+            2,
+            -1,
+            5
+          ],
+          [
+            "zero",
+            2,
+            1,
+            5
+          ],
+          [
+            "zero",
+            -2,
+            -2,
+            8
+          ],
+          [
+            "zero",
+            -2,
+            2,
+            8
+          ],
+          [
+            "zero",
+            2,
+            -2,
+            8
+          ],
+          [
+            "zero",
+            2,
+            2,
+            8
+          ],
+          [
+            "zero",
+            -3,
+            0,
+            9
+          ],
+          [
+            "zero",
+            0,
+            -3,
+            9
+          ],
+          [
+            "zero",
+            0,
+            3,
+            9
+          ],
+          [
+            "zero",
+            3,
+            0,
+            9
+          ],
+          [
+            "zero",
+            -3,
+            -1,
+            10
+          ],
+          [
+            "zero",
+            -3,
+            1,
+            10
+          ],
+          [
+            "zero",
+            -1,
+            -3,
+            10
+          ],
+          [
+            "zero",
+            -1,
+            3,
+            10
+          ],
+          [
+            "zero",
+            1,
+            -3,
+            10
+          ],
+          [
+            "zero",
+            1,
+            3,
+            10
+          ],
+          [
+            "zero",
+            3,
+            -1,
+            10
+          ],
+          [
+            "zero",
+            3,
+            1,
+            10
+          ]
+        ],
+        "entries_source_target_value": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            2,
+            2,
+            1
+          ],
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            4,
+            8,
+            1
+          ],
+          [
+            5,
+            9,
+            1
+          ],
+          [
+            6,
+            10,
+            1
+          ],
+          [
+            7,
+            11,
+            1
+          ],
+          [
+            8,
+            12,
+            1
+          ],
+          [
+            9,
+            13,
+            1
+          ],
+          [
+            10,
+            14,
+            1
+          ],
+          [
+            11,
+            15,
+            1
+          ],
+          [
+            12,
+            16,
+            1
+          ],
+          [
+            13,
+            17,
+            1
+          ],
+          [
+            14,
+            18,
+            1
+          ],
+          [
+            15,
+            19,
+            1
+          ],
+          [
+            16,
+            20,
+            1
+          ],
+          [
+            17,
+            21,
+            1
+          ],
+          [
+            18,
+            22,
+            1
+          ],
+          [
+            19,
+            23,
+            1
+          ],
+          [
+            20,
+            24,
+            1
+          ],
+          [
+            21,
+            25,
+            1
+          ],
+          [
+            22,
+            26,
+            1
+          ],
+          [
+            23,
+            27,
+            1
+          ]
+        ],
+        "cusp_labels_preserved": true,
+        "mode_labels_preserved": true,
+        "six_copy_fibers": "unchanged; coefficients are cusp-channel coefficients",
+        "realification": "none; complex Arb coefficient vector",
+        "normalization": "a_infinity,(1,0)=1 at both cutoffs",
+        "embedding_hash": "f257990213a6fb7ea0cf7e994b13fc8bd6c939590f04c5f45b38f28c14680d51"
+      },
+      "comparison_certified": true,
+      "delta_definition": "||a_Mprime_low-E_(M->Mprime)a_M||_2",
+      "delta_l2_upper": "[3.14317762327247513422602645299085747656934942374459741398 +/- 3.19e-57]",
+      "delta_component_upper": "[2.30742597631615063054668694178701848773727078878437168896 +/- 1.99e-57]",
+      "per_mode": [
+        {
+          "label": [
+            "infinity",
+            -1,
+            0,
+            1
+          ],
+          "source_index": 0,
+          "target_index": 0,
+          "difference_abs_upper": "[1.50130239203280930383238553257321465372875479715730762109 +/- 1.61e-57]"
+        },
+        {
+          "label": [
+            "infinity",
+            0,
+            -1,
+            1
+          ],
+          "source_index": 1,
+          "target_index": 1,
+          "difference_abs_upper": "[1.51705044838292363601137167247148891668917514152781222947 +/- 5.82e-58]"
+        },
+        {
+          "label": [
+            "infinity",
+            0,
+            1,
+            1
+          ],
+          "source_index": 2,
+          "target_index": 2,
+          "difference_abs_upper": "[2.30742597631615063054668694178701848773727078878437168896 +/- 1.99e-57]"
+        },
+        {
+          "label": [
+            "infinity",
+            1,
+            0,
+            1
+          ],
+          "source_index": 3,
+          "target_index": 3,
+          "difference_abs_upper": "[1.76259111140437979168768545257250934810144826769828796387e-14 +/- 2.82e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            -1,
+            0,
+            1
+          ],
+          "source_index": 4,
+          "target_index": 8,
+          "difference_abs_upper": "[1.73425010367330014815837047059687847649911418557167053223e-14 +/- 3.44e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            0,
+            -1,
+            1
+          ],
+          "source_index": 5,
+          "target_index": 9,
+          "difference_abs_upper": "[1.73425010367330014815837047059687847649911418557167053223e-14 +/- 3.44e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            0,
+            1,
+            1
+          ],
+          "source_index": 6,
+          "target_index": 10,
+          "difference_abs_upper": "[1.73425010367330014815837047059687847649911418557167053223e-14 +/- 3.44e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            1,
+            0,
+            1
+          ],
+          "source_index": 7,
+          "target_index": 11,
+          "difference_abs_upper": "[1.73425010367330014815837047059687847649911418557167053223e-14 +/- 3.44e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            -1,
+            -1,
+            2
+          ],
+          "source_index": 8,
+          "target_index": 12,
+          "difference_abs_upper": "[1.73425010367330014815837047059687847649911418557167053223e-14 +/- 3.44e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            -1,
+            1,
+            2
+          ],
+          "source_index": 9,
+          "target_index": 13,
+          "difference_abs_upper": "[1.73425010367330014815837047059687847649911418557167053223e-14 +/- 3.44e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            1,
+            -1,
+            2
+          ],
+          "source_index": 10,
+          "target_index": 14,
+          "difference_abs_upper": "[1.73425010367330014815837047059687847649911418557167053223e-14 +/- 3.44e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            1,
+            1,
+            2
+          ],
+          "source_index": 11,
+          "target_index": 15,
+          "difference_abs_upper": "[1.73425010367330014815837047059687847649911418557167053223e-14 +/- 3.44e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            -2,
+            0,
+            4
+          ],
+          "source_index": 12,
+          "target_index": 16,
+          "difference_abs_upper": "[1.73425010367330014815837047059687847649911418557167053223e-14 +/- 3.44e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            0,
+            -2,
+            4
+          ],
+          "source_index": 13,
+          "target_index": 17,
+          "difference_abs_upper": "[1.73425010367330014815837047059687847649911418557167053223e-14 +/- 3.44e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            0,
+            2,
+            4
+          ],
+          "source_index": 14,
+          "target_index": 18,
+          "difference_abs_upper": "[1.73425010367330014815837047059687847649911418557167053223e-14 +/- 3.44e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            2,
+            0,
+            4
+          ],
+          "source_index": 15,
+          "target_index": 19,
+          "difference_abs_upper": "[1.73425010367330014815837047059687847649911418557167053223e-14 +/- 3.44e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            -2,
+            -1,
+            5
+          ],
+          "source_index": 16,
+          "target_index": 20,
+          "difference_abs_upper": "[1.73425010367330014815837047059687847649911418557167053223e-14 +/- 3.44e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            -2,
+            1,
+            5
+          ],
+          "source_index": 17,
+          "target_index": 21,
+          "difference_abs_upper": "[1.73425010367330014815837047059687847649911418557167053223e-14 +/- 3.44e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            -1,
+            -2,
+            5
+          ],
+          "source_index": 18,
+          "target_index": 22,
+          "difference_abs_upper": "[1.73425010367330014815837047059687847649911418557167053223e-14 +/- 3.44e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            -1,
+            2,
+            5
+          ],
+          "source_index": 19,
+          "target_index": 23,
+          "difference_abs_upper": "[1.73425010367330014815837047059687847649911418557167053223e-14 +/- 3.44e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            1,
+            -2,
+            5
+          ],
+          "source_index": 20,
+          "target_index": 24,
+          "difference_abs_upper": "[1.73425010367330014815837047059687847649911418557167053223e-14 +/- 3.44e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            1,
+            2,
+            5
+          ],
+          "source_index": 21,
+          "target_index": 25,
+          "difference_abs_upper": "[1.73425010367330014815837047059687847649911418557167053223e-14 +/- 3.44e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            2,
+            -1,
+            5
+          ],
+          "source_index": 22,
+          "target_index": 26,
+          "difference_abs_upper": "[1.73425010367330014815837047059687847649911418557167053223e-14 +/- 3.44e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            2,
+            1,
+            5
+          ],
+          "source_index": 23,
+          "target_index": 27,
+          "difference_abs_upper": "[1.73425010367330014815837047059687847649911418557167053223e-14 +/- 3.44e-71]"
+        }
+      ]
+    },
+    {
+      "embedding": {
+        "schema": "track-b-cutoff-embedding/v1",
+        "source_cutoff": 2,
+        "target_cutoff": 3,
+        "source_dimension": 44,
+        "target_dimension": 52,
+        "source_labels": [
+          [
+            "infinity",
+            -1,
+            0,
+            1
+          ],
+          [
+            "infinity",
+            0,
+            -1,
+            1
+          ],
+          [
+            "infinity",
+            0,
+            1,
+            1
+          ],
+          [
+            "infinity",
+            1,
+            0,
+            1
+          ],
+          [
+            "infinity",
+            -1,
+            -1,
+            2
+          ],
+          [
+            "infinity",
+            -1,
+            1,
+            2
+          ],
+          [
+            "infinity",
+            1,
+            -1,
+            2
+          ],
+          [
+            "infinity",
+            1,
+            1,
+            2
+          ],
+          [
+            "zero",
+            -1,
+            0,
+            1
+          ],
+          [
+            "zero",
+            0,
+            -1,
+            1
+          ],
+          [
+            "zero",
+            0,
+            1,
+            1
+          ],
+          [
+            "zero",
+            1,
+            0,
+            1
+          ],
+          [
+            "zero",
+            -1,
+            -1,
+            2
+          ],
+          [
+            "zero",
+            -1,
+            1,
+            2
+          ],
+          [
+            "zero",
+            1,
+            -1,
+            2
+          ],
+          [
+            "zero",
+            1,
+            1,
+            2
+          ],
+          [
+            "zero",
+            -2,
+            0,
+            4
+          ],
+          [
+            "zero",
+            0,
+            -2,
+            4
+          ],
+          [
+            "zero",
+            0,
+            2,
+            4
+          ],
+          [
+            "zero",
+            2,
+            0,
+            4
+          ],
+          [
+            "zero",
+            -2,
+            -1,
+            5
+          ],
+          [
+            "zero",
+            -2,
+            1,
+            5
+          ],
+          [
+            "zero",
+            -1,
+            -2,
+            5
+          ],
+          [
+            "zero",
+            -1,
+            2,
+            5
+          ],
+          [
+            "zero",
+            1,
+            -2,
+            5
+          ],
+          [
+            "zero",
+            1,
+            2,
+            5
+          ],
+          [
+            "zero",
+            2,
+            -1,
+            5
+          ],
+          [
+            "zero",
+            2,
+            1,
+            5
+          ],
+          [
+            "zero",
+            -2,
+            -2,
+            8
+          ],
+          [
+            "zero",
+            -2,
+            2,
+            8
+          ],
+          [
+            "zero",
+            2,
+            -2,
+            8
+          ],
+          [
+            "zero",
+            2,
+            2,
+            8
+          ],
+          [
+            "zero",
+            -3,
+            0,
+            9
+          ],
+          [
+            "zero",
+            0,
+            -3,
+            9
+          ],
+          [
+            "zero",
+            0,
+            3,
+            9
+          ],
+          [
+            "zero",
+            3,
+            0,
+            9
+          ],
+          [
+            "zero",
+            -3,
+            -1,
+            10
+          ],
+          [
+            "zero",
+            -3,
+            1,
+            10
+          ],
+          [
+            "zero",
+            -1,
+            -3,
+            10
+          ],
+          [
+            "zero",
+            -1,
+            3,
+            10
+          ],
+          [
+            "zero",
+            1,
+            -3,
+            10
+          ],
+          [
+            "zero",
+            1,
+            3,
+            10
+          ],
+          [
+            "zero",
+            3,
+            -1,
+            10
+          ],
+          [
+            "zero",
+            3,
+            1,
+            10
+          ]
+        ],
+        "target_labels": [
+          [
+            "infinity",
+            -1,
+            0,
+            1
+          ],
+          [
+            "infinity",
+            0,
+            -1,
+            1
+          ],
+          [
+            "infinity",
+            0,
+            1,
+            1
+          ],
+          [
+            "infinity",
+            1,
+            0,
+            1
+          ],
+          [
+            "infinity",
+            -1,
+            -1,
+            2
+          ],
+          [
+            "infinity",
+            -1,
+            1,
+            2
+          ],
+          [
+            "infinity",
+            1,
+            -1,
+            2
+          ],
+          [
+            "infinity",
+            1,
+            1,
+            2
+          ],
+          [
+            "zero",
+            -1,
+            0,
+            1
+          ],
+          [
+            "zero",
+            0,
+            -1,
+            1
+          ],
+          [
+            "zero",
+            0,
+            1,
+            1
+          ],
+          [
+            "zero",
+            1,
+            0,
+            1
+          ],
+          [
+            "zero",
+            -1,
+            -1,
+            2
+          ],
+          [
+            "zero",
+            -1,
+            1,
+            2
+          ],
+          [
+            "zero",
+            1,
+            -1,
+            2
+          ],
+          [
+            "zero",
+            1,
+            1,
+            2
+          ],
+          [
+            "zero",
+            -2,
+            0,
+            4
+          ],
+          [
+            "zero",
+            0,
+            -2,
+            4
+          ],
+          [
+            "zero",
+            0,
+            2,
+            4
+          ],
+          [
+            "zero",
+            2,
+            0,
+            4
+          ],
+          [
+            "zero",
+            -2,
+            -1,
+            5
+          ],
+          [
+            "zero",
+            -2,
+            1,
+            5
+          ],
+          [
+            "zero",
+            -1,
+            -2,
+            5
+          ],
+          [
+            "zero",
+            -1,
+            2,
+            5
+          ],
+          [
+            "zero",
+            1,
+            -2,
+            5
+          ],
+          [
+            "zero",
+            1,
+            2,
+            5
+          ],
+          [
+            "zero",
+            2,
+            -1,
+            5
+          ],
+          [
+            "zero",
+            2,
+            1,
+            5
+          ],
+          [
+            "zero",
+            -2,
+            -2,
+            8
+          ],
+          [
+            "zero",
+            -2,
+            2,
+            8
+          ],
+          [
+            "zero",
+            2,
+            -2,
+            8
+          ],
+          [
+            "zero",
+            2,
+            2,
+            8
+          ],
+          [
+            "zero",
+            -3,
+            0,
+            9
+          ],
+          [
+            "zero",
+            0,
+            -3,
+            9
+          ],
+          [
+            "zero",
+            0,
+            3,
+            9
+          ],
+          [
+            "zero",
+            3,
+            0,
+            9
+          ],
+          [
+            "zero",
+            -3,
+            -1,
+            10
+          ],
+          [
+            "zero",
+            -3,
+            1,
+            10
+          ],
+          [
+            "zero",
+            -1,
+            -3,
+            10
+          ],
+          [
+            "zero",
+            -1,
+            3,
+            10
+          ],
+          [
+            "zero",
+            1,
+            -3,
+            10
+          ],
+          [
+            "zero",
+            1,
+            3,
+            10
+          ],
+          [
+            "zero",
+            3,
+            -1,
+            10
+          ],
+          [
+            "zero",
+            3,
+            1,
+            10
+          ],
+          [
+            "zero",
+            -3,
+            -2,
+            13
+          ],
+          [
+            "zero",
+            -3,
+            2,
+            13
+          ],
+          [
+            "zero",
+            -2,
+            -3,
+            13
+          ],
+          [
+            "zero",
+            -2,
+            3,
+            13
+          ],
+          [
+            "zero",
+            2,
+            -3,
+            13
+          ],
+          [
+            "zero",
+            2,
+            3,
+            13
+          ],
+          [
+            "zero",
+            3,
+            -2,
+            13
+          ],
+          [
+            "zero",
+            3,
+            2,
+            13
+          ]
+        ],
+        "entries_source_target_value": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            2,
+            2,
+            1
+          ],
+          [
+            3,
+            3,
+            1
+          ],
+          [
+            4,
+            4,
+            1
+          ],
+          [
+            5,
+            5,
+            1
+          ],
+          [
+            6,
+            6,
+            1
+          ],
+          [
+            7,
+            7,
+            1
+          ],
+          [
+            8,
+            8,
+            1
+          ],
+          [
+            9,
+            9,
+            1
+          ],
+          [
+            10,
+            10,
+            1
+          ],
+          [
+            11,
+            11,
+            1
+          ],
+          [
+            12,
+            12,
+            1
+          ],
+          [
+            13,
+            13,
+            1
+          ],
+          [
+            14,
+            14,
+            1
+          ],
+          [
+            15,
+            15,
+            1
+          ],
+          [
+            16,
+            16,
+            1
+          ],
+          [
+            17,
+            17,
+            1
+          ],
+          [
+            18,
+            18,
+            1
+          ],
+          [
+            19,
+            19,
+            1
+          ],
+          [
+            20,
+            20,
+            1
+          ],
+          [
+            21,
+            21,
+            1
+          ],
+          [
+            22,
+            22,
+            1
+          ],
+          [
+            23,
+            23,
+            1
+          ],
+          [
+            24,
+            24,
+            1
+          ],
+          [
+            25,
+            25,
+            1
+          ],
+          [
+            26,
+            26,
+            1
+          ],
+          [
+            27,
+            27,
+            1
+          ],
+          [
+            28,
+            28,
+            1
+          ],
+          [
+            29,
+            29,
+            1
+          ],
+          [
+            30,
+            30,
+            1
+          ],
+          [
+            31,
+            31,
+            1
+          ],
+          [
+            32,
+            32,
+            1
+          ],
+          [
+            33,
+            33,
+            1
+          ],
+          [
+            34,
+            34,
+            1
+          ],
+          [
+            35,
+            35,
+            1
+          ],
+          [
+            36,
+            36,
+            1
+          ],
+          [
+            37,
+            37,
+            1
+          ],
+          [
+            38,
+            38,
+            1
+          ],
+          [
+            39,
+            39,
+            1
+          ],
+          [
+            40,
+            40,
+            1
+          ],
+          [
+            41,
+            41,
+            1
+          ],
+          [
+            42,
+            42,
+            1
+          ],
+          [
+            43,
+            43,
+            1
+          ]
+        ],
+        "cusp_labels_preserved": true,
+        "mode_labels_preserved": true,
+        "six_copy_fibers": "unchanged; coefficients are cusp-channel coefficients",
+        "realification": "none; complex Arb coefficient vector",
+        "normalization": "a_infinity,(1,0)=1 at both cutoffs",
+        "embedding_hash": "d0c4bb5051211435346746995a5b39362fee9f28ae2965180c9175a310abc898"
+      },
+      "comparison_certified": true,
+      "delta_definition": "||a_Mprime_low-E_(M->Mprime)a_M||_2",
+      "delta_l2_upper": "[3.29237617868490019277490355604844171184146672284872721614 +/- 3.62e-57]",
+      "delta_component_upper": "[2.07858574493123116781596285314315242231941738282330334187 +/- 4.47e-57]",
+      "per_mode": [
+        {
+          "label": [
+            "infinity",
+            -1,
+            0,
+            1
+          ],
+          "source_index": 0,
+          "target_index": 0,
+          "difference_abs_upper": "[0.831627206389225514281725854643344264527371478834538720548 +/- 1.53e-58]"
+        },
+        {
+          "label": [
+            "infinity",
+            0,
+            -1,
+            1
+          ],
+          "source_index": 1,
+          "target_index": 1,
+          "difference_abs_upper": "[0.678903484022701274901840417575794861537730184863903559744 +/- 3.59e-58]"
+        },
+        {
+          "label": [
+            "infinity",
+            0,
+            1,
+            1
+          ],
+          "source_index": 2,
+          "target_index": 2,
+          "difference_abs_upper": "[0.914495484727618154913357570565037718557377388606255408376 +/- 4.56e-58]"
+        },
+        {
+          "label": [
+            "infinity",
+            1,
+            0,
+            1
+          ],
+          "source_index": 3,
+          "target_index": 3,
+          "difference_abs_upper": "[1.88161447914572568622382231495748783345334231853485107422e-14 +/- 1.25e-71]"
+        },
+        {
+          "label": [
+            "infinity",
+            -1,
+            -1,
+            2
+          ],
+          "source_index": 4,
+          "target_index": 4,
+          "difference_abs_upper": "[2.07858574493123116781596285314315242231941738282330334187 +/- 4.47e-57]"
+        },
+        {
+          "label": [
+            "infinity",
+            -1,
+            1,
+            2
+          ],
+          "source_index": 5,
+          "target_index": 5,
+          "difference_abs_upper": "[0.398490931978626706871397995281258719302286408492363989353 +/- 1.80e-58]"
+        },
+        {
+          "label": [
+            "infinity",
+            1,
+            -1,
+            2
+          ],
+          "source_index": 6,
+          "target_index": 6,
+          "difference_abs_upper": "[1.25470393801769363992626908448340533608345026550523471087 +/- 2.18e-57]"
+        },
+        {
+          "label": [
+            "infinity",
+            1,
+            1,
+            2
+          ],
+          "source_index": 7,
+          "target_index": 7,
+          "difference_abs_upper": "[1.67252188786336986470120011434581375198149544303305447102 +/- 4.07e-57]"
+        },
+        {
+          "label": [
+            "zero",
+            -1,
+            0,
+            1
+          ],
+          "source_index": 8,
+          "target_index": 8,
+          "difference_abs_upper": "[1.83564921452947845282449579329409061756450682878494262695e-14 +/- 3.13e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            0,
+            -1,
+            1
+          ],
+          "source_index": 9,
+          "target_index": 9,
+          "difference_abs_upper": "[1.83564921452947845282449579329409061756450682878494262695e-14 +/- 3.13e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            0,
+            1,
+            1
+          ],
+          "source_index": 10,
+          "target_index": 10,
+          "difference_abs_upper": "[1.83564921452947845282449579329409061756450682878494262695e-14 +/- 3.13e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            1,
+            0,
+            1
+          ],
+          "source_index": 11,
+          "target_index": 11,
+          "difference_abs_upper": "[1.83564921452947845282449579329409061756450682878494262695e-14 +/- 3.13e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            -1,
+            -1,
+            2
+          ],
+          "source_index": 12,
+          "target_index": 12,
+          "difference_abs_upper": "[1.83564921452947845282449579329409061756450682878494262695e-14 +/- 3.13e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            -1,
+            1,
+            2
+          ],
+          "source_index": 13,
+          "target_index": 13,
+          "difference_abs_upper": "[1.83564921452947845282449579329409061756450682878494262695e-14 +/- 3.13e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            1,
+            -1,
+            2
+          ],
+          "source_index": 14,
+          "target_index": 14,
+          "difference_abs_upper": "[1.83564921452947845282449579329409061756450682878494262695e-14 +/- 3.13e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            1,
+            1,
+            2
+          ],
+          "source_index": 15,
+          "target_index": 15,
+          "difference_abs_upper": "[1.83564921452947845282449579329409061756450682878494262695e-14 +/- 3.13e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            -2,
+            0,
+            4
+          ],
+          "source_index": 16,
+          "target_index": 16,
+          "difference_abs_upper": "[1.83564921452947845282449579329409061756450682878494262695e-14 +/- 3.13e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            0,
+            -2,
+            4
+          ],
+          "source_index": 17,
+          "target_index": 17,
+          "difference_abs_upper": "[1.83564921452947845282449579329409061756450682878494262695e-14 +/- 3.13e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            0,
+            2,
+            4
+          ],
+          "source_index": 18,
+          "target_index": 18,
+          "difference_abs_upper": "[1.83564921452947845282449579329409061756450682878494262695e-14 +/- 3.13e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            2,
+            0,
+            4
+          ],
+          "source_index": 19,
+          "target_index": 19,
+          "difference_abs_upper": "[1.83564921452947845282449579329409061756450682878494262695e-14 +/- 3.13e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            -2,
+            -1,
+            5
+          ],
+          "source_index": 20,
+          "target_index": 20,
+          "difference_abs_upper": "[1.83564921452947845282449579329409061756450682878494262695e-14 +/- 3.13e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            -2,
+            1,
+            5
+          ],
+          "source_index": 21,
+          "target_index": 21,
+          "difference_abs_upper": "[1.83564921452947845282449579329409061756450682878494262695e-14 +/- 3.13e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            -1,
+            -2,
+            5
+          ],
+          "source_index": 22,
+          "target_index": 22,
+          "difference_abs_upper": "[1.83564921452947845282449579329409061756450682878494262695e-14 +/- 3.13e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            -1,
+            2,
+            5
+          ],
+          "source_index": 23,
+          "target_index": 23,
+          "difference_abs_upper": "[1.83564921452947845282449579329409061756450682878494262695e-14 +/- 3.13e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            1,
+            -2,
+            5
+          ],
+          "source_index": 24,
+          "target_index": 24,
+          "difference_abs_upper": "[1.83564921452947845282449579329409061756450682878494262695e-14 +/- 3.13e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            1,
+            2,
+            5
+          ],
+          "source_index": 25,
+          "target_index": 25,
+          "difference_abs_upper": "[1.83564921452947845282449579329409061756450682878494262695e-14 +/- 3.13e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            2,
+            -1,
+            5
+          ],
+          "source_index": 26,
+          "target_index": 26,
+          "difference_abs_upper": "[1.83564921452947845282449579329409061756450682878494262695e-14 +/- 3.13e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            2,
+            1,
+            5
+          ],
+          "source_index": 27,
+          "target_index": 27,
+          "difference_abs_upper": "[1.83564921452947845282449579329409061756450682878494262695e-14 +/- 3.13e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            -2,
+            -2,
+            8
+          ],
+          "source_index": 28,
+          "target_index": 28,
+          "difference_abs_upper": "[3.49027909201662326493798005344615376088768243789672851563e-14 +/- 5.00e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            -2,
+            2,
+            8
+          ],
+          "source_index": 29,
+          "target_index": 29,
+          "difference_abs_upper": "[3.49027909201662326493798005344615376088768243789672851563e-14 +/- 5.00e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            2,
+            -2,
+            8
+          ],
+          "source_index": 30,
+          "target_index": 30,
+          "difference_abs_upper": "[3.49027909201662326493798005344615376088768243789672851563e-14 +/- 5.00e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            2,
+            2,
+            8
+          ],
+          "source_index": 31,
+          "target_index": 31,
+          "difference_abs_upper": "[3.49027909201662326493798005344615376088768243789672851563e-14 +/- 5.00e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            -3,
+            0,
+            9
+          ],
+          "source_index": 32,
+          "target_index": 32,
+          "difference_abs_upper": "[3.65574208135352452225114161521446476399432867765426635742e-14 +/- 1.88e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            0,
+            -3,
+            9
+          ],
+          "source_index": 33,
+          "target_index": 33,
+          "difference_abs_upper": "[3.65574208135352452225114161521446476399432867765426635742e-14 +/- 1.88e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            0,
+            3,
+            9
+          ],
+          "source_index": 34,
+          "target_index": 34,
+          "difference_abs_upper": "[3.65574208135352452225114161521446476399432867765426635742e-14 +/- 1.88e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            3,
+            0,
+            9
+          ],
+          "source_index": 35,
+          "target_index": 35,
+          "difference_abs_upper": "[3.65574208135352452225114161521446476399432867765426635742e-14 +/- 1.88e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            -3,
+            -1,
+            10
+          ],
+          "source_index": 36,
+          "target_index": 36,
+          "difference_abs_upper": "[3.65574208135352452225114161521446476399432867765426635742e-14 +/- 1.88e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            -3,
+            1,
+            10
+          ],
+          "source_index": 37,
+          "target_index": 37,
+          "difference_abs_upper": "[3.65574208135352452225114161521446476399432867765426635742e-14 +/- 1.88e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            -1,
+            -3,
+            10
+          ],
+          "source_index": 38,
+          "target_index": 38,
+          "difference_abs_upper": "[3.65574208135352452225114161521446476399432867765426635742e-14 +/- 1.88e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            -1,
+            3,
+            10
+          ],
+          "source_index": 39,
+          "target_index": 39,
+          "difference_abs_upper": "[3.65574208135352452225114161521446476399432867765426635742e-14 +/- 1.88e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            1,
+            -3,
+            10
+          ],
+          "source_index": 40,
+          "target_index": 40,
+          "difference_abs_upper": "[3.65574208135352452225114161521446476399432867765426635742e-14 +/- 1.88e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            1,
+            3,
+            10
+          ],
+          "source_index": 41,
+          "target_index": 41,
+          "difference_abs_upper": "[3.65574208135352452225114161521446476399432867765426635742e-14 +/- 1.88e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            3,
+            -1,
+            10
+          ],
+          "source_index": 42,
+          "target_index": 42,
+          "difference_abs_upper": "[3.65574208135352452225114161521446476399432867765426635742e-14 +/- 1.88e-71]"
+        },
+        {
+          "label": [
+            "zero",
+            3,
+            1,
+            10
+          ],
+          "source_index": 43,
+          "target_index": 43,
+          "difference_abs_upper": "[3.65574208135352452225114161521446476399432867765426635742e-14 +/- 1.88e-71]"
+        }
+      ]
+    },
+    {
+      "source_cutoff": 3,
+      "target_cutoff": 4,
+      "comparison_certified": false,
+      "reason": "one or both cutoff solves failed"
+    }
+  ],
+  "normalization_unchanged": true,
+  "theorem_defect_definition_hash": "9bf39d5964642e2e4078de002f3465fb635b634e0db84d0569b0942ce26ef6a0",
+  "all_verified_solves_certified": false,
+  "all_physical_rows_independently_verified": false,
+  "cutoff_convergence_checked": false,
+  "continuum_channels_certified": false,
+  "fourier_tails_certified": false,
+  "global_hejhal_defect_certified": false,
+  "rung4_certified": false,
+  "hejhal_existence_certified": false,
+  "dual_certification": false,
+  "status": "RED",
+  "ladder_hash": "d89d1a1a31d9eec23927a4b47a520424f66b8ef38c512b0eb30507094e934cd1"
+}

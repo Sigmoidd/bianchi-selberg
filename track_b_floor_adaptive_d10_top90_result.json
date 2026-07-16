@@ -1,0 +1,44 @@
+{
+  "schema": "track-b-floor-adaptive/v1",
+  "base_audit": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\track_b_floor_cells_d10_n8.jsonl",
+  "base": {
+    "polynomial_l2_upper": "[0.00495251069792705161065210159942255334639979635705334754110 +/- 4.24e-60]",
+    "remainder_l2_upper": "[0.000862241231152791704301430517797338108746998843664365279637 +/- 7.78e-62]",
+    "floor_l2_upper": "[0.00541037842160210468468274579032033711626371129398934108845 +/- 8.01e-61]",
+    "allowed_budget_lower": "[0.0101903405004245470000000000000000000000000000000000000000 +/- 6.82e-60]",
+    "certified_margin_lower": "[0.00477996207882244231531725420967966288373628870601065891154 +/- 3.99e-60]",
+    "certified_ratio_upper": "[0.530932054858883181929845377794938947394054531219053712620 +/- 1.59e-58]",
+    "leaf_count": 256
+  },
+  "adaptive": {
+    "polynomial_l2_upper": "[0.00495251059031829936456173526624870709015149795486464689037 +/- 4.99e-60]",
+    "remainder_l2_upper": "[0.000244153678091228010600356890826854602485843436716214959668 +/- 2.63e-61]",
+    "floor_l2_upper": "[0.00509752616176239843610567031333753996530465355325090412750 +/- 5.56e-61]",
+    "allowed_budget_lower": "[0.0101903405004245470000000000000000000000000000000000000000 +/- 6.82e-60]",
+    "certified_margin_lower": "[0.00509281433866214856389432968666246003469534644674909587249 +/- 3.75e-60]",
+    "certified_ratio_upper": "[0.500231190660412847323832213481458148583724061099246863099 +/- 8.58e-59]",
+    "leaf_count": 305
+  },
+  "refinement_axes": [
+    "x1",
+    "x2",
+    "s"
+  ],
+  "maximum_depth": 1,
+  "top_fraction": 0.0,
+  "squared_contribution_fraction": 0.9,
+  "remainder_threshold": null,
+  "target_global_remainder": "0.0001",
+  "parents_replaced": 7,
+  "parent_child_events": 7,
+  "elapsed_seconds": 1345.9688525999663,
+  "leaf_audit_jsonl": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\track_b_floor_adaptive_d10_top90_leaves.jsonl",
+  "parent_child_audit_jsonl": "C:\\Users\\Admin\\Documents\\Bearings\\bianchi-selberg\\track_b_floor_adaptive_d10_top90_tree.jsonl",
+  "partition_exact_once_asserted": true,
+  "floor_residual_certified": false,
+  "global_partition_certified": false,
+  "global_weight_bounds_certified": false,
+  "rung4_integrator_comparison_certified": false,
+  "rung4_certified": false,
+  "status": "DIAGNOSTIC_STABILITY_OR_GLOBAL_GATES_PENDING"
+}

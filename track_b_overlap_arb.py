@@ -158,9 +158,36 @@ class DifferentialTrial(TrialEvaluator):
             return cached
         out = acb(arg).bessel_k(order)
         if not out.is_finite():
-            raise ArithmeticError(
-                "direct Arb K enclosure failed for derivative order; refine geometry box"
+            xlo = arg.lower()
+            if not bool(xlo > 0):
+                raise ArithmeticError(
+                    f"shifted-order K argument not provably positive: {arg}"
+                )
+            # Integral representation gives |K_(a+ir)(x)| <= K_|a|(x).
+            # Combining it with K'_mu=-(K_(mu-1)+K_(mu+1))/2 yields a
+            # real-order derivative majorant.  The only shifted orders used
+            # here have Re(mu)=+/-1, so the majorant is (K_0+K_2)/2.
+            are = abs(float(order.real.mid()))
+            if abs(are - 1.0) > 1e-12:
+                raise ArithmeticError(
+                    f"unsupported shifted-order real part for fallback: {order}"
+                )
+            mid = arg.mid()
+            kmid = acb(mid).bessel_k(order)
+            k0 = acb(xlo).bessel_k(0)
+            k2 = acb(xlo).bessel_k(2)
+            if not kmid.is_finite() or not k0.is_finite() or not k2.is_finite():
+                raise ArithmeticError(
+                    "real-order shifted-K mean-value fallback failed"
+                )
+            derivative_upper = (abs(k0).upper() + abs(k2).upper()) / 2
+            extra = derivative_upper * arg.rad()
+            out = acb(
+                arb(kmid.real, kmid.real.rad() + extra),
+                arb(kmid.imag, kmid.imag.rad() + extra),
             )
+            if not out.is_finite():
+                raise ArithmeticError("invalid shifted-order K fallback enclosure")
         self._shifted_k_cache[key] = out
         return out
 

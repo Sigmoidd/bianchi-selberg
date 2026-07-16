@@ -1,0 +1,57 @@
+{
+  "schema": "track-b-oversampled-least-squares-diagnostic/v1",
+  "label": "DIAGNOSTIC ONLY; NOT AN INTERVAL SOLVE",
+  "normalization": "a_infinity,(1,0)=1",
+  "runs": [
+    {
+      "fourier_cutoff": 2,
+      "unknown_count": 44,
+      "full_oversampled_residual_l2_diagnostic": 2.3566231736737714e-05,
+      "constrained_matrix_condition_diagnostic": 128.06777244366887
+    },
+    {
+      "fourier_cutoff": 3,
+      "unknown_count": 52,
+      "full_oversampled_residual_l2_diagnostic": 1.728000153842969e-05,
+      "constrained_matrix_condition_diagnostic": 156.18411148448456
+    },
+    {
+      "fourier_cutoff": 4,
+      "unknown_count": 80,
+      "full_oversampled_residual_l2_diagnostic": 3.6447419367228165e-06,
+      "constrained_matrix_condition_diagnostic": 1051.185411639435
+    },
+    {
+      "fourier_cutoff": 5,
+      "unknown_count": 100,
+      "full_oversampled_residual_l2_diagnostic": 6.962449501382458e-07,
+      "constrained_matrix_condition_diagnostic": 27709.344424211056
+    }
+  ],
+  "comparisons": [
+    {
+      "source_cutoff": 2,
+      "target_cutoff": 3,
+      "low_mode_delta_l2_diagnostic": 1.1360323534844434,
+      "relative_delta_diagnostic": 0.4913366025669483
+    },
+    {
+      "source_cutoff": 3,
+      "target_cutoff": 4,
+      "low_mode_delta_l2_diagnostic": 1.7233868706917967,
+      "relative_delta_diagnostic": 0.6757122351154239
+    },
+    {
+      "source_cutoff": 4,
+      "target_cutoff": 5,
+      "low_mode_delta_l2_diagnostic": 6.916436376841663,
+      "relative_delta_diagnostic": 1.7896130535770003
+    }
+  ],
+  "conclusion": "order-one low-mode drift persists in the full oversampled least-squares crosscheck, so changing only the square-row selector does not explain it",
+  "diagnostic_only": true,
+  "trial_frozen": false,
+  "global_hejhal_defect_certified": false,
+  "rung4_certified": false,
+  "dual_certification": false
+}

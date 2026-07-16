@@ -126,21 +126,95 @@ diagnostics, not yet continuum certificates.
 
 ## Next load-bearing calculation
 
-The script now supports a floor-width sweep.  Width `0.15` is the first
-candidate to test rigorously: simple derivative scaling from the width `0.10`
-diagnostic predicts a requested norm near `0.0097`, but this prediction is
-not a certificate.  Unlike widening the cusp cutoff, widening the floor gate
-does not reduce the projected mass because the same `W_B` field is used on
-both cusp and core charts.
+The floor-width/refinement diagnostics now give:
+
+| width | grid | requested norm | actual commutator |
+|---:|---:|---:|---:|
+| `0.15` | `8x4x8` | `0.00916188` | `0.00539611` |
+| `0.15` | `12x6x12` | `0.01276456` | `0.00808610` |
+| `0.20` | `12x6x12` | `0.01016525` | `0.00589625` |
+| `0.25` | `12x6x12` | `0.00856394` | `0.00452729` |
+| `0.25` | `16x8x16` | `0.00944768` | `0.00516263` |
+| `0.25` | `20x10x20` | `0.00985829` | `0.00546536` |
+| `0.30` | `16x8x16` | `0.00845702` | `0.00429240` |
+
+Widths `0.15` and `0.20` do not provide credible interval margin.  Width
+`0.25` appears to converge too close to the threshold.  Width `0.30` is the
+current load-bearing candidate, with a diagnostic requested-bound ratio
+`0.8299` and commutator ratio `0.4212`.  Unlike widening the cusp cutoff,
+widening the floor gate does not reduce projected mass because the same
+`W_B` field is used on both cusp and core charts.
+
+Two rigorous continuum attempts were also run at width `0.30`:
+
+```text
+direct independent Arb boxes, 8x4x8     upper ~ 2.03e10
+legacy second-order jet / interval Hessian upper ~ 3.29e12
+correlated (x1,x2,log(r^2)) jet, 8x4x8     upper ~ 2.55e8
+```
+
+The corrected jet uses
+
+\[
+y^2=e^s-x_1^2-x_2^2,
+\qquad
+S(x_1,x_2,y)=(-e^{-s}x_1,e^{-s}x_2,e^{-s}y),
+\]
+
+and evaluates the commutator as
+
+\[
+-4y^2e^{-s}\{q_{ss}D+q_s(x_1D_{x_1}+x_2D_{x_2}+2D_s)\}.
+\]
+
+It also folds the exact quarter-turn-odd four-mode orbits, pairs those
+orbits under the floor reflection, and sums equal radial shells before
+applying interval absolute values.  Its value at the first cell midpoint
+agrees with both the direct action/Jacobian implementation and the legacy
+jet, with difference balls below `1e-40`.  The new certified upper is about
+`6.5e3` times smaller than the legacy jet bound, but remains useless for the
+theorem.
+
+The remaining inflation is now localized.  The largest projected Fourier
+coefficient has modulus about `1.7447e4`, while representative midpoint
+commutator derivatives are only `1e-2` to `5e-2`.  On the same cell, the
+interval-gradient enclosure is `1e8`.  All 56 Bessel evaluations in this
+diagnostic were direct Arb evaluations, with no mean-value fallback.  Thus
+the present obstruction is cancellation among the large Fourier terms in
+the interval Hessian, not Bessel evaluation, shell geometry, or the
+`(x_1,x_2,s)` coordinate formula.
+
+Center-affine diagnostics quantify what a genuine Taylor model must prove:
+
+| grid | affine cell-sup envelope | affine-polynomial L2 part |
+|---:|---:|---:|
+| `8x4x8` | `0.01187715` | `0.00528463` |
+| `16x8x16` | `0.00980522` | not run in this audit |
+
+The affine quantities are not certificates because the second-order
+remainder is omitted.  The `8x4x8` cell-sup route cannot close even with a
+zero remainder.  In contrast, exact cell integration of the affine
+polynomial leaves about `0.00491` of L2 norm budget for a rigorous remainder.
+This makes a cancellation-preserving Taylor model with exact polynomial L2
+integration the smallest credible provable improvement.  Plain interval
+Hessians or geometric box refinement are not credible closure mechanisms.
 
 The remaining proof tasks are:
 
-1. run the `0.10,0.15,0.20` floor sweep and select a width with diagnostic
-   margin;
-2. interval-subdivide the floor shell and certify its direct commutator norm;
-3. prove that the selected floor collar meets only the required incident
-   chambers, treating elliptic edge averages explicitly;
-4. feed the certified direct residual into `track_b_rung4_integrator.py`.
+1. represent the already-subtracted scalar `S` residual by a validated
+   Taylor/Chebyshev model on each floor cell, summing its polynomial
+   coefficients across Fourier modes before bounding the remainder;
+2. integrate the squared polynomial part cellwise and prove an L2 bound for
+   the Taylor remainder, rather than replacing each cell by a supremum;
+3. feed the certified direct residual into `track_b_rung4_integrator.py`.
+
+The finite floor-collar incidence is now certified in
+`track_b_partition_geometry.py`: `exp(0.30) < 27/20` is checked by a rational
+Taylor-tail bound; `|c|^2>2` is excluded from the closed Picard cell by
+`y^2>=1/2`; the `|c|^2=2` cases reduce to the two lower vertices; and all nine
+unit-`c` translated `S` spheres are enumerated exactly.  Only `S` enters the
+open collar.  Its four closed-collar elliptic edges use cyclic averages of
+orders `3,3,2,3`, while vertex averages use the existing exact stabilizers.
 
 The projected-core construction is materially closer to dual certification
 than the original five-gate/supremum construction.  It removes the certified
@@ -153,10 +227,33 @@ transition.
 python track_b_direct_weighted_arb.py `
   --bits 192 `
   --lower-bound-segments 512 `
-  --floor-widths 0.10,0.15,0.20 `
-  --floor-subdivision 8,4,8
+  --floor-widths 0.30 `
+  --floor-subdivision 16,8,16 `
+  --taylor-floor-width 0.30 `
+  --taylor-floor-subdivision 8,4,8 `
+  --affine-floor-width 0.30 `
+  --affine-floor-subdivision 8,4,8
 ```
 
 `rung4_certified=false` remains mandatory until the floor-shell midpoint
-diagnostic is replaced by a complete interval integral and the collar
-incidence proof is GREEN.
+diagnostic is replaced by a complete interval integral.  The finite collar
+incidence ledger is GREEN, but the broader normalized partition remains
+fail-closed pending its global collar and weight proofs.
+
+## July 2026 global-partition update
+
+The two limitations in the preceding paragraph have since been separated.
+The degree-10 floor Taylor integral is certified and stable, and the complete
+global normalized partition is now independently verified.  The latter has
+exact denominator `Phi=1`, exact partition deviation zero, finite certified
+first-gradient/Laplacian bounds on all 2,048 primary cells, a complete global
+elliptic-stratum ledger, zero fallback, and zero change under the
+`32x16x32` stability refinement.  See
+`TRACK_B_GLOBAL_PARTITION_CERTIFICATE.md` and
+`track_b_global_partition_result.json`.
+
+`rung4_certified=false` still remains mandatory.  The current overlap
+artifact is RED because the complete two-cusp non-floor value/first-gradient
+defects have not yet been regenerated and certified against the new
+partition identifiers.  The global partition result does not by itself
+make an eigenvalue-existence claim.
