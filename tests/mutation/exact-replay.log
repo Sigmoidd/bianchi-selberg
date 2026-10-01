@@ -1,0 +1,8 @@
+2 parameters PASS actual: {'k': 2, 'delta_hex': '0x1.50cdd836674d7p-2', 'R': 40, 'precision_bits': 100} frozen: {'k': 2, 'delta_hex': '0x1.50cdd836674d7p-2', 'R': 40, 'precision_bits': 100}
+2 bound_ball PASS actual: [0.43 +/- 5.45e-3] frozen: [0.43 +/- 5.45e-3]
+2 lower_endpoint_ball PASS actual: [0.4245518407392955617061859991770204379294 +/- 4.93e-41] frozen: [0.4245518407392955617061859991770204379294 +/- 4.93e-41]
+2 upper_endpoint_ball PASS actual: [0.4295747809360909507623917486887391879294 +/- 4.93e-41] frozen: [0.4295747809360909507623917486887391879294 +/- 4.93e-41]
+7 parameters PASS actual: {'k': 2, 'delta_hex': '0x1.441535c05a140p-2', 'R': 256, 'precision_bits': 100} frozen: {'k': 2, 'delta_hex': '0x1.441535c05a140p-2', 'R': 256, 'precision_bits': 100}
+7 bound_ball PASS actual: [0.3640 +/- 5.32e-5] frozen: [0.3640 +/- 5.32e-5]
+7 lower_endpoint_ball PASS actual: [0.3639468761489975954506425851303745125833 +/- 1.95e-41] frozen: [0.3639468761489975954506425851303745125833 +/- 1.95e-41]
+7 upper_endpoint_ball PASS actual: [0.3640005536935969907832677209097553109232 +/- 3.69e-41] frozen: [0.3640005536935969907832677209097553109232 +/- 3.69e-41]
