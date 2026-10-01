@@ -359,3 +359,151 @@ Ran 8 tests in 0.138s
 
 FAILED (failures=1)
 ```
+
+## Follow-up: classify each zero-movement mutation
+
+This follow-up instruments the same 10 zero-movement perturbations. New
+measurements are in [zero-movement-results.json](../tests/mutation/zero-movement-results.json);
+the original 32-case results are retained unchanged. Values and radii below
+are from actual Arb objects, not inferred from coarse bound formatting.
+Classifications are **1** = vanishes at these support parameters,
+**2** = movement below the term's Arb radius, and **3** = numerical target
+not reached in the native pipeline. **No case is attributed to class 2:**
+none of these measurements establishes a small nonzero effect hidden by
+interval uncertainty.
+
+The earlier “below radius” flag was a numerical flag, not a causal diagnosis.
+In particular, the eight unchanged translation-mutation B values were
+**diagnostic values after arithmetic-gate bypass**, not native certificates.
+Removing a primitive translation does not remove its separately stored norm
+or its NCE contribution. Those NCE terms are positive and nonzero; they are
+not Fourier values at the primitive translation length. Their lengths being
+large would not make these elliptic contributions vanish.
+
+### Eight translation-witness mutations: class 3
+
+Each native run reached the inventory verifier once, rejected the missing
+witness, and executed **zero coefficient calls**. A diagnostic rerun with
+only `require_inventory` bypassed executed the unchanged coefficient formula,
+which reads the stored norm and does not read `primitive_translation`.
+The requested missing-witness-to-numerical-term dependency is not present.
+The missing-witness coefficient counters below show that the diagnostic
+really received the mutated records; this does not establish a valid
+certificate or a witnessed primitive norm.
+
+| Group | Mutation | Target term | Baseline Arb value | Actual Arb radius | Class | Native inventory / coefficient calls | Diagnostic calls using missing witness |
+|---|---|---|---|---|---|---|---|
+| d=2 | translation:0:d2 order 2: multiplier A2 | NCE class contribution | `[0.22330651696674861957860859578 +/- 5.72e-30]` | `2.628107700942912017008170743997461889385e-30` | 3 | 1 / 0 | 2 |
+| d=2 | translation:1:d2 order 2: multiplier S2 | NCE class contribution | `[0.11165325848337430978930429789 +/- 2.88e-30]` | `1.331799042661808211387130940640445732110e-30` | 3 | 1 / 0 | 2 |
+| d=2 | translation:2:d2 order 3: alpha | NCE class contribution | `[0.25813996549286154668341755604 +/- 4.72e-30]` | `3.202093125951373209623528650298175110640e-30` | 3 | 1 / 0 | 2 |
+| d=2 | translation:3:d2 order 3: alpha inverse | NCE class contribution | `[0.25813996549286154668341755604 +/- 4.72e-30]` | `3.202093125951373209623528650298175110640e-30` | 3 | 1 / 0 | 2 |
+| d=2 | translation_all | NCE | `[0.8512397064358460227347480057 +/- 5.95e-29]` | `1.086773945256828479684271354262546653064e-29` | 3 | 1 / 0 | 8 |
+| d=7 | translation:0:d7 order 2: A2 | NCE class contribution | `[0.36450391157636372869396769320 +/- 6.12e-30]` | `2.265924208700321664376410260785994729110e-30` | 3 | 1 / 0 | 2 |
+| d=7 | translation:1:d7 order 3: inverse classes merged | NCE class contribution | `[0.36671062069376735078119507415 +/- 6.11e-30]` | `2.593358177754285112055414442760299321000e-30` | 3 | 1 / 0 | 2 |
+| d=7 | translation_all | NCE | `[0.73121453227013107947516276735 +/- 4.92e-30]` | `4.859282386454606776431824703546294050109e-30` | 3 | 1 / 0 | 4 |
+
+Verbatim rejection in every one of these eight native runs:
+
+```text
+ArithmeticError: translation witness is missing or outside the specified group
+```
+
+### Two truncated trace domains: class 1 at the frozen support
+
+The target is the loxodromic/geodesic sum omitted because the Fourier support
+lies at/below the proven shortest length. It is **zero by the support proof**,
+with exact radius zero; it is not a stored `Evaluation.terms` entry and no
+geodesic-sum numerical routine is being claimed. The range monkeypatch did
+execute: 12 range replacements and 3 backend systole verification calls per
+full evaluate/export run. The surviving shortest trace is unchanged.
+
+| Group | Mutation | Target term | Baseline value / Arb radius | Class | Support radius S=2kδ | Shortest removed trace | Its length | Patched range / verification calls |
+|---|---|---|---|---|---|---|---|---|
+| d=2 | trace box [-6,6] → [-1,1] | omitted loxodromic sum | 0 / 0 (support-derived) | 1 | `[1.315640939027891809232073683233465999365 +/- 1.48e-40]` | `[-2, -1]` | `[1.76274717403908605046521864996 +/- 2.38e-30]` | 12 / 3 |
+| d=7 | trace box [-6,6] → [-1,1] | omitted loxodromic sum | 0 / 0 (support-derived) | 1 | `[1.265948638401894754679233301430940628052 +/- 2.43e-40]` | `[-2, 1]` | `[1.48602212487692709247916872095 +/- 6.59e-30]` | 12 / 3 |
+
+For both groups, the shortest removed length is **provably strictly above**
+the support upper endpoint. Thus every removed trace is outside support.
+This explains zero numerical movement without asserting that the shortened
+enumeration still proves completeness. The full, unmodified systole theorem
+is what justifies the frozen certificate.
+
+### Class-1 reruns with an inside-support target
+
+Pre-run prediction: shorten one excluded trace's synthetic length to S/2.
+The complete verifier should reject it as shorter than the witness; the
+truncated verifier should fail to visit it. These predictions were written
+in the harness before execution. This mutates `cosh_length` in memory for
+one exact `(A, radicand)` pair, with S and the certificate parameters fixed.
+The chosen pair has no representative in the truncated box. For d=7 the
+shortest removed pair also occurs in the retained box, so a different
+excluded pair was used to isolate non-visitation.
+
+This is a **synthetic inconsistent trace-length fixture**, not a claim that
+an actual geodesic in either group has that shorter length. Its Fourier
+kernel g(S/2) is provably positive. No orbital weight was invented and no
+valid geodesic certificate was exported from a rejected run.
+
+| Group | Target trace | Original length | Mutated length S/2 | g(S/2) |
+|---|---|---|---|---|
+| d=2 | `[-2, -1]` | `[1.76274717403908605046521864996 +/- 2.38e-30]` | `[0.6578204695139459046160368416167329996824 +/- 2.65e-41]` | `[0.2533619344345034938073001098 +/- 6.73e-29]` |
+| d=7 | `[-3, 0]` | `[1.92484730023841378999103565370 +/- 4.68e-30]` | `[0.6329743192009473773396166507154703140259 +/- 2.11e-41]` | `[0.2633071541939694153636436388 +/- 3.91e-29]` |
+
+| Group | Search | Shortened-length branch calls | Range replacements | Result / B |
+|---|---|---|---|---|
+| d=2 | complete | 1 | 0 | Rejected before B: `ArithmeticError: trace (-2,-1) not proved longer than witness` |
+| d=2 | truncated | 0 | 12 | Accepted; exact baseline B unchanged: `[0.43 +/- 5.45e-3]` |
+| d=7 | complete | 1 | 0 | Rejected before B: `ArithmeticError: trace (-3,0) not proved longer than witness` |
+| d=7 | truncated | 0 | 12 | Accepted; exact baseline B unchanged: `[0.3640 +/- 5.32e-5]` |
+
+The inside-support truncated reruns are **class 3 for the injected short-length
+branch**: counters confirm it was never visited. The positive interior
+kernel does not become a geometric contribution because the production
+pipeline has no geodesic-sum assembly route at these parameters. Consequently
+these reruns cannot provide an independently computed nonzero geodesic B
+term. They expose the exact reachability limit, without fixes.
+
+## Independent volume check
+
+Computed independently of `fields.quadratic.volume`, `zetaK2`, and production
+`character_data` using
+
+\[
+V=\frac{|D|^{3/2}\zeta_K(2)}{4\pi^2},\qquad
+\zeta_K(2)=\frac{\pi^2}{6}\sum_{n\ge1}\frac{\chi_D(n)}{n^2}.
+\]
+
+
+The checker uses explicit independent residue tables for D=-8 and D=-7.
+It sums 100,000 terms for D=-8 and 99,995 terms for D=-7 (whole character
+periods), in Arb at 100-bit precision. For both characters, the partial
+sums over a period lie between 0 and 2 and the full-period sum is zero.
+Abel summation therefore encloses the remaining L-series tail in
+`[0, 2/(N+1)^2]`. The volume computation uses integer `|D|*sqrt(|D|)` and
+zeta(2)=π²/6, rather than the production Hurwitz-zeta implementation or its
+fractional-power call. This independently checks the numerical L-value and
+normalization against the requested formula, not the formula's underlying
+covolume theorem.
+
+| Group | D | Production volume ball | Independent volume ball | Actual independent Arb radius | Check |
+|---|---|---|---|---|---|
+| d=2 | -8 | `[1.0038410033411981372723648858 +/- 4.78e-29]` | `[1.003841003 +/- 4.36e-10]` | `9.428045887396874213948194665135815739632e-11` | PASS: contains production ball |
+| d=7 | -7 | `[0.8889149278163532635989041542 +/- 2.02e-29]` | `[0.8889149278 +/- 9.36e-11]` | `7.717509953580198311939852828800212591887e-11` | PASS: contains production ball |
+
+Both comparisons overlap and, more strongly, the independent enclosure
+contains the entire production enclosure. The +1% and -1% scaled production
+volumes are disjoint from the independent enclosure in both groups: this
+independent check would reject all four earlier volume perturbations. It
+was not part of the native production gate in the original campaign and
+does not retroactively change those rows' “none” classification.
+
+Reproduce this follow-up from the repository root:
+
+```sh
+python tests/mutation/zero_movement.py /workspace/scratch/31144417503a/regression-logs/zero-movement.json > /workspace/scratch/31144417503a/regression-logs/zero-movement.log 2>&1
+```
+
+The run completed successfully for all 10 original zero-movement cases,
+four inside-support probes, and two independent volume checks. Original
+production code, existing tests, certificates and historical reports remain
+unchanged. No flagged behavior was fixed.
