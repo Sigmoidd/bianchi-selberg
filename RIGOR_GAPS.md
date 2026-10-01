@@ -12,8 +12,10 @@ including its original Eisenstein normalization, and is retained unchanged.
 | Quadrature and analytic tails | Arb evaluation, both half-lines included; elementary digamma majorant | `core/assemble.py`, `docs/ANALYTIC_DERIVATIONS.md` |
 | Eisenstein full PSL centralizer | Exact Klein-four witness established; normalization remains open | `scripts/feasibility/flip_check.py`, `docs/NORMALIZATION_ISSUE.md` |
 | Historical elliptic class counts | Existing external classification inputs retained; not replaced by a new proof | `old_RIGOR_GAPS.md`, `docs/REFERENCES.md` |
-| New-field inventory completeness | **Open. Self-contained arithmetic proof required.** | `docs/INVENTORY_PROOF.md` |
-| New-field spectral certificates | **Blocked**, even if the mechanical bound is < 1 | `GroupData.require_inventory`, `core/certificate.py` |
+| d=2 inventory completeness | Four element classes; complete lattice and unit proofs; full PSL orbital factor | `docs/D2_INVENTORY_PROOF.md`, `groups/d2_inventory.py` |
+| d=2 spectral certificate | B in [0.42455184, 0.42957479], excluding discrete eigenvalues in (0,1) | `certificates/d2-k2.json`, `examples/d2_certificate.py` |
+| d=7,11,19 inventory completeness | **Open. Self-contained arithmetic proofs required.** | `docs/INVENTORY_PROOF.md` |
+| Other new-field spectral certificates | **Blocked**, even if the mechanical bound is < 1 | `GroupData.require_inventory`, `core/certificate.py` |
 
 An Arb enclosure certifies the numerical evaluation of supplied inputs. It
 does not certify a missing conjugacy classification or an unsettled group
@@ -23,5 +25,6 @@ mechanical screens and historical inventories.
 
 The historical normalization is left frozen at the user's request. The
 existence of a flip must not be presented as a completed re-certification.
-Future work proceeds in the order d=2, d=7, then d=11 and d=19, after the
-inventory obligations are resolved.
+The d=2 obligations are now closed by the local arithmetic proof and exact
+replay. Future work proceeds to d=7, then d=11 and d=19. These are ordinary
+mathematical proofs with executable checks, not proof-assistant formalizations.

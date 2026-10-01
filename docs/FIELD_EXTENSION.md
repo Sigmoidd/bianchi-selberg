@@ -11,8 +11,8 @@ The selected decisions are:
 | Milestone | State | Exit condition |
 |---|---|---|
 | M0: interface and safety net | Implemented | Two legacy enclosures reproduced within numerical quadrature variation; exact derivative; closed-form systoles; support gate; regression tests |
-| M1: complete exact class inventory | **Open** | All obligations in `INVENTORY_PROOF.md`, including full PSL normalization, resolved |
-| M2: d=2 | Mechanical screen ready; spectral certificate blocked | Self-contained inventory, then frozen full certificate and example |
+| M1: complete exact class inventory | Closed for d=2; per-field proof replay implemented | Four element classes; nonmaximal lattice included; SL splitting, complete units, primitive norms, full PSL orbital factor proved in `D2_INVENTORY_PROOF.md` |
+| M2: d=2 | Full certificate frozen | `certificates/d2-k2.json`, B in [0.42455184, 0.42957479]; `examples/d2_certificate.py` |
 | M3: d=7 | Mechanical screen ready; spectral certificate blocked | Same, after d=2 |
 | M4: d=11,19 | Mechanical screens ready; later work | Same, after d=2 and d=7 |
 
@@ -31,12 +31,27 @@ python -m unittest discover -s tests -v
 python bianchi_omega_arb.py
 python picard_stf.py
 python -m groups.systoles
+python -m groups.d2_inventory
+python examples/d2_certificate.py --output certificates/d2-k2.json
 python scripts/feasibility/flip_check.py --bound 2
 python scripts/feasibility/gpp_check.py
 python scripts/feasibility/screen.py 1 3 2 7 11 19
 python scripts/feasibility/budget.py
 python examples/field_screen.py 2 7 11 19
 ```
+
+The d=2 inventory has two involution classes with multiplier orders A2 and
+S2, and two inverse order-3 element classes. Its primitive norms are
+17+12 sqrt(2), 3+2 sqrt(2), and 5+2 sqrt(6), respectively. Both involutions
+have maximal finite full PSL centralizer of order four. The norm map on
+A3 units has image {1}, so determinant-minus-one GL conjugacy does not
+merge the inverse order-3 classes in SL or PSL. All class records are
+bound to an exact replay, at assembly and at certificate export.
+
+The new arithmetic proof does not replace the historical Picard/Eisenstein
+classification inputs. Their regression bounds and coefficients remain
+unchanged. Future fields require their own self-contained replay before
+the full analytic assembly admits them.
 
 The four attached feasibility scripts are in `scripts/feasibility/`. The
 mpmath screen and budget remain exploratory, use truncated quadrature, and

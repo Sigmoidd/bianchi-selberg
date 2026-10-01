@@ -37,8 +37,9 @@ The NCE contribution is then **halved**, not doubled. At the historical
 parameters it would decrease B by about 0.254723, leaving B near 0.2797.
 This is a conditional sensitivity calculation, not a corrected certificate.
 
-The remaining work is to derive the orbital integral with its endpoint
-exchange, determine the full integral centralizer of the actual class,
+The orbital integral with endpoint exchange is now derived in
+`D2_INVENTORY_PROOF.md` for the new d=2 records. For the frozen Eisenstein
+result, remaining work includes determining the full integral centralizer of the actual class,
 prove the maximal finite subgroup and primitive loxodromic norm, and check
 element-conjugacy multiplicity. A bounded SL-order search does not settle
 these questions. Picard trace-one order-3 lifts cannot have a sign flip,

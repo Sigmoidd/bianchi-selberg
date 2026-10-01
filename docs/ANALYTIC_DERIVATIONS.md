@@ -46,7 +46,8 @@ covolume V=sqrt(|D|)/2 and w the number of units. Its constant Laurent
 coefficient is c0=w*(gamma*L(1)+L'(1)). Partial summation gives the lattice
 Euler constant eta=(V/pi)*c0. The cusp rotation index is GG=w/2.
 For d=2,7,11,19, units are +/-1, so GG=1 and the cuspidal-elliptic sector
-vanishes. Non-cuspidal elliptics still need a complete inventory.
+vanishes. The complete d=2 non-cuspidal inventory is proved in
+`D2_INVENTORY_PROOF.md`; the other three inventories remain open.
 
 With the single-cusp determinant
 phi_K(s)=(2*pi/sqrt(|D|))*zeta_K(s-1)/((s-1)*zeta_K(s)), define
@@ -113,5 +114,6 @@ the nonnegative elementary tail uses [0,tail].
 
 Arb quadrature uses ball endpoints, and the cuspidal integral is split at
 every B-spline knot with a fixed polynomial integrand on each piece.
-No new-field spectral conclusion follows from these analytic reductions
+These reductions combine with the complete d=2 inventory to give its
+spectral certificate. For the other fields, they remain mechanical screens
 until the missing elliptic data are proved.
