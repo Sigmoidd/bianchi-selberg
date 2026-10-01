@@ -92,7 +92,7 @@ Mathematical:
   77 (1963); Leutbecher, Math. Z. 100 (1967)).
 - **Spectral decomposition of cofinite Kleinian groups** — Friedman,
   *The Selberg trace formula for PSL(2,O_K)*, arXiv:math/0612807,
-  Theorem 3.8.1 (in-repo text: `../friedman_thesis.txt`), resting on
+  Theorem 3.8.1 (source: [arXiv:math/0612807](https://arxiv.org/abs/math/0612807)), resting on
   [EGM98 §6.2]. Used only for: (i) spectrum ∩ [0,1) is atomic
   (Eisenstein part has eigenvalue 1+t² ≥ 1); (ii) the λ₁ ≥ 1 phrasing.
   The core statement "no L² eigenvalues in (0,1)" needs neither.

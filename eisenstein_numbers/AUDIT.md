@@ -8,7 +8,7 @@ Primary sources in-repo:
 
 | Claim | Code | Math note |
 |-------|------|-----------|
-| CE formula / kernel | `cuspidal_ce.py` header, `bianchi_omega*.py` | Friedman arXiv:math/0612807 Lemmas 4.3.2, 4.4.4 (OCR: `bianchiselberg-refs/friedman_thesis.txt`) |
+| CE formula / kernel | `cuspidal_ce.py` header, `bianchi_omega*.py` | Friedman arXiv:math/0612807 Lemmas 4.3.2, 4.4.4 (source: [arXiv:math/0612807](https://arxiv.org/abs/math/0612807)) |
 | Six classes + \|C\|=6 + constants | `cuspidal_ce.exact_eisenstein_CE_check`, `run_CE("omega")` | `old_RIGOR_GAPS.md` §2 |
 | NCE classification | `elliptic_inventory.py` | EGM book Ch.4 §4.3 (cited in RIGOR_GAPS §1; **not** substituted by 1982 OCR) |
 

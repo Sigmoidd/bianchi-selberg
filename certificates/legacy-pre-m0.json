@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "report_kind": "frozen-pre-m0-baseline",
+  "source_commit": "7c96c49fe4d4241347c219d7bc6ba48c286ff920",
+  "notes": [
+    "Computed with the unmodified base-commit engine before M0 changes.",
+    "Eisenstein elliptic normalization is historical and remains frozen.",
+    "The original source and bound are preserved; this is not a new theorem certificate."
+  ],
+  "reports": [
+    {
+      "field": "i",
+      "group_input_status": "legacy",
+      "spectral_certificate": false,
+      "k": 2,
+      "frac": "0.999",
+      "R": 40,
+      "precision_bits": 100,
+      "delta_hex": "0x1.ec44a5581d127p-3",
+      "systole_ball": "[0.96242365011920689499551782685 +/- 3.67e-30]",
+      "C_ell_ball": "[0.292657310427737046361121410513 +/- 7.72e-31]",
+      "bound_ball": "[0.31 +/- 7.82e-3]",
+      "lower_endpoint_ball": "[0.3045761084987486579929570948192954165135 +/- 1.87e-41]",
+      "upper_endpoint_ball": "[0.3178103501751490735923032557079672915135 +/- 1.87e-41]"
+    },
+    {
+      "field": "omega",
+      "group_input_status": "legacy",
+      "spectral_certificate": false,
+      "k": 2,
+      "frac": "0.999",
+      "R": 40,
+      "precision_bits": 100,
+      "delta_hex": "0x1.b92fb411b7c11p-3",
+      "systole_ball": "[0.86255462765127195234907071985 +/- 6.37e-30]",
+      "C_ell_ball": "[0.329239474231204177156261586827 +/- 7.43e-31]",
+      "bound_ball": "[0.5 +/- 0.0437]",
+      "lower_endpoint_ball": "[0.5252159567224010528045946924136657887841 +/- 2.14e-41]",
+      "upper_endpoint_ball": "[0.5436742803047094196993166772769470387841 +/- 2.14e-41]"
+    }
+  ]
+}
