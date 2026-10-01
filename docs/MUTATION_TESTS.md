@@ -507,3 +507,173 @@ The run completed successfully for all 10 original zero-movement cases,
 four inside-support probes, and two independent volume checks. Original
 production code, existing tests, certificates and historical reports remain
 unchanged. No flagged behavior was fixed.
+
+## Follow-up: primitive translation consumers and executing mutations
+
+The primitive translations are **per-class matrix witnesses**, not a separate
+numerical translation-set collection. Each class separately stores its norm,
+finite-centralizer order, and elliptic order. Numerical assembly consumes
+those scalars. It does not derive a fresh norm from `primitive_translation`.
+The arithmetic proof establishes the relationship between those records.
+
+### Consumers in order
+
+“Arithmetic replay” below means the standalone `verify_inventory()` routine
+used by `python -O -m groups.d2_inventory` / `groups.d7_inventory`. The profiled
+follow-up called the same routine under ordinary Python; it did not claim
+new optimized runs. `GroupData.verify_inventory()` is a **group-bound wrapper**
+used by the certificate pipeline; it is different from the standalone
+field-inventory routine. Full call-count dictionaries for d=2 and d=7 are in
+[translation-consumer-results.json](../tests/mutation/translation-evidence/translation-consumer-results.json).
+
+The order includes two branches: arithmetic binding first, then scalar
+numerical assembly. Arithmetic source construction is repeated when replayed.
+
+| Order | Consumer (function, file) | What flows through it | Runs in |
+|---|---|---|---|
+| 1 | `expected_classes`, `groups/d2_inventory.py` or `groups/d7_inventory.py` | Creates each translation matrix and the separate exact norm record | both |
+| 1a | `QuadraticOrder.matrix`, `power`, `QuadraticOrder.mul`, `groups/relative_orders.py` | Builds the matrix from an explicit unit/power; these are source helpers | both |
+| 2 | `d2_group` / `d7_group`, `groups/builtins.py` | Wraps the dictionaries into `EllipticClass` records inside `GroupData.elliptic_classes` | certificate pipeline |
+| 3 | `GroupRegistry.get`, `groups/registry.py`; `get_group`, `groups/data.py` | Resolves the factory or passes an already constructed group | certificate pipeline |
+| 4 | `evaluate`, `core/assemble.py` → `GroupData.require_inventory` → `GroupData.verify_inventory`, `groups/data.py` → `GroupRegistry.verify`, `groups/registry.py` | Sends group records to the inventory gate before B assembly | certificate pipeline |
+| 5 | `InventoryBackend.verify` → `_verify_element_witnesses`, `groups/registry.py` | Reads each T directly; checks existence, membership, commutation | certificate pipeline |
+| 5a | `GroupKey.contains`, `groups/identity.py`; `MatrixOps.validate/det/mul`, `groups/matrix.py` | Exact matrix shape/determinant/membership and commutator operations used on T | certificate pipeline for membership; shared matrix arithmetic also runs in arithmetic replay |
+| 6 | `verify_group_records`, `groups/d2_inventory.py` / `groups/d7_inventory.py` | Invokes the field proof, then compares actual T and all recorded fields with the regenerated expected classes | certificate pipeline |
+| 7 | `verify_inventory`, `groups/d2_inventory.py` / `groups/d7_inventory.py` | Runs number-theory/unit completeness checks, then witness verification | both |
+| 8 | `verify_class_witnesses`, `groups/d2_inventory.py` | Regenerates T; checks unit matrix matches T, primitive norm, determinant and commutation | both |
+| 8 | `verify_witnesses_and_splitting`, `groups/d7_inventory.py` | Regenerates T; checks determinant/commutation and the generator-derived individual norm record | both |
+| 8a | `RelativeOrder.abs_square`, field inventory module; `MatrixOps.det/mul`, `groups/matrix.py` (d=2 aliases `mat_det/mat_mul`) | Exact primitive norm and matrix operations used inside those witness checks | both |
+| 9 | `verify_group_records`, field inventory module (return phase) | Compares proof class list back to the supplied records, including `primitive_translation` | certificate pipeline |
+| 10 | `LevelOneBackend.geometry`, `core/backends/level_one.py` → `GroupData.analytic_data`, `groups/data.py` | Creates geometry and cached `C_ell`; calls scalar coefficient routine, without consuming T | certificate pipeline |
+| 11 | `EllipticClass.coefficient`, `groups/data.py` | Reads `norm`, `norm_denominator`, `m`, `finite_centralizer_order`; computes log(N)/(4·centralizer·sin²). Does not read T | certificate pipeline |
+| 12 | `evaluate`, `core/assemble.py` | Calls coefficient again directly, multiplies the sum by `g0` to produce NCE, adds NCE to final B | certificate pipeline |
+| 13 | `certificate_payload`, `core/certificate.py` | Repeats `InventoryBackend.verify` on the records; repeats geometry/support checks and checks B<1 | certificate pipeline |
+| 14 | `report_payload`, `core/certificate.py` | Repeats geometry; serializes B/terms. `certificate_payload` attaches proof class records including T and recomputes the reported elliptic coefficient | certificate pipeline |
+| 15 | `main`, `examples/group_certificate.py` | Serializes/writes the certificate payload; both compatibility certificate commands delegate here | certificate pipeline |
+| 15a | Inventory module `__main__`, `groups/d2_inventory.py` / `groups/d7_inventory.py` | Serializes/prints the standalone proof class records, including T; no B | arithmetic replay |
+| — | Witness-to-norm recomputation inside `EllipticClass.coefficient` | No such code path exists | neither |
+| — | Numerical use of cached `geometry.constants['C_ell']` as the assembly NCE coefficient | Assembly recomputes coefficients directly; this cached value is not used by `_terms` | neither |
+
+The standalone proof is not a replay of arbitrary supplied `GroupData`.
+Missing records injected into `GroupData` are caught by the group-bound gate;
+the standalone routine independently regenerates its own class records.
+
+Observed counts for a fresh group followed by full evaluate/export:
+
+| Function | d=2 certificate | d=7 certificate | Standalone replay, each field |
+|---|---|---|---|
+| Group factory | 1 | 1 | 0 |
+| `expected_classes` | 3 | 3 | 1 |
+| Field `verify_inventory` | 2 | 2 | 1 |
+| `verify_group_records` | 2 | 2 | 0 |
+| `_verify_element_witnesses` | 2 | 2 | 0 |
+| `GroupData.analytic_data` | 3 | 3 | 0 |
+| `EllipticClass.coefficient` | 20 | 10 | 0 |
+
+### Reruns at consumers that execute
+
+Two placements keep the distinction between record deletion and numerical
+sensitivity explicit. All use the frozen k/δ/R and verify baseline B plus
+both endpoint strings against the frozen certificate before mutating.
+
+**A. Original witness-removal semantics at the executing guard.** A wrapper
+on `_verify_element_witnesses` injects the missing T records immediately
+before the original consumer runs. All eight are rejected before B exists;
+mutated B and delta are therefore **unavailable, not zero**. No guard bypass
+is used in these reruns.
+
+| Group | Mutation | Baseline B | Mutated B / delta | Check | Wrapper / original guard / missing records / downstream coefficient calls |
+|---|---|---|---|---|---|
+| d=2 | remove d2 order 2: multiplier A2 | [0.42455184, 0.42957479] | unavailable / unavailable | arithmetic replay | 1 / 1 / 1 / 0 |
+| d=2 | remove d2 order 2: multiplier S2 | [0.42455184, 0.42957479] | unavailable / unavailable | arithmetic replay | 1 / 1 / 1 / 0 |
+| d=2 | remove d2 order 3: alpha | [0.42455184, 0.42957479] | unavailable / unavailable | arithmetic replay | 1 / 1 / 1 / 0 |
+| d=2 | remove d2 order 3: alpha inverse | [0.42455184, 0.42957479] | unavailable / unavailable | arithmetic replay | 1 / 1 / 1 / 0 |
+| d=2 | remove all translations | [0.42455184, 0.42957479] | unavailable / unavailable | arithmetic replay | 1 / 1 / 4 / 0 |
+| d=7 | remove d7 order 2: A2 | [0.36394687, 0.36400056] | unavailable / unavailable | arithmetic replay | 1 / 1 / 1 / 0 |
+| d=7 | remove d7 order 3: inverse classes merged | [0.36394687, 0.36400056] | unavailable / unavailable | arithmetic replay | 1 / 1 / 1 / 0 |
+| d=7 | remove all translations | [0.36394687, 0.36400056] | unavailable / unavailable | arithmetic replay | 1 / 1 / 2 / 0 |
+
+Every original guard call raises, verbatim:
+
+```text
+ArithmeticError: translation witness is missing or outside the specified group
+```
+
+**B. Numerical contribution deletion at the executing scalar consumer.**
+The eight selected translation targets are identified by their matrix values
+at `EllipticClass.coefficient`; the monkeypatch returns zero for their
+associated coefficients. This deliberately tests **removal of the associated
+NCE contribution**, not removal of a matrix witness with its scalar norm left
+intact. The arithmetic records remain valid, so this downstream trusted-code
+mutation is not caught by witness/record verification. No production code
+was edited, and this is not a claim about valid mutated spectral theorems.
+
+Predictions were recorded in the harness before these runs: original guard
+placement rejects; scalar contribution placement decreases B by the selected
+positive NCE contribution. All eight numerical runs move downward, as predicted.
+The five invocations per class are three cached-geometry evaluations, direct
+assembly, and the exporter's reported coefficient calculation. Counters prove
+that the suppressed numerical target was actually reached.
+
+| Group | Mutation | Baseline B | Mutated B | Delta | Check rejected | Coefficient calls / suppression hits | Zero movement? |
+|---|---|---|---|---|---|---|---|
+| d=2 | remove d2 order 2: multiplier A2 | [0.42455184, 0.42957479] | [0.20124532, 0.20626827] | [-0.22832946, -0.21828357] | none | 20 / 5 | no |
+| d=2 | remove d2 order 2: multiplier S2 | [0.42455184, 0.42957479] | [0.31289858, 0.31792153] | [-0.11667620, -0.10663031] | none | 20 / 5 | no |
+| d=2 | remove d2 order 3: alpha | [0.42455184, 0.42957479] | [0.16641187, 0.17143482] | [-0.26316291, -0.25311702] | none | 20 / 5 | no |
+| d=2 | remove d2 order 3: alpha inverse | [0.42455184, 0.42957479] | [0.16641187, 0.17143482] | [-0.26316291, -0.25311702] | none | 20 / 5 | no |
+| d=2 | remove all translations | [0.42455184, 0.42957479] | [-0.42668787, -0.42166492] | [-0.85626265, -0.84621676] | none | 20 / 20 | no |
+| d=7 | remove d7 order 2: A2 | [0.36394687, 0.36400056] | [-0.00055704, -0.00050335] | [-0.36455759, -0.36445023] | none | 10 / 5 | no |
+| d=7 | remove d7 order 3: inverse classes merged | [0.36394687, 0.36400056] | [-0.00276375, -0.00271006] | [-0.36676430, -0.36665694] | none | 10 / 5 | no |
+| d=7 | remove all translations | [0.36394687, 0.36400056] | [-0.36726766, -0.36721397] | [-0.73126821, -0.73116085] | none | 10 / 10 | no |
+
+Intervals are rounded outward to eight decimals; exact balls and counter
+outputs are retained in the linked JSON and
+[consumer-counters.log](../tests/mutation/translation-evidence/consumer-counters.log).
+**Zero-movement numerical-consumer mutations: 0/8.** All eight pass the
+native B<1 threshold and export, with valid original records but altered
+numerical coefficients; no additional independent check is implied.
+
+The earlier eight zero-movement **diagnostic** runs remain in the preceding
+section: native coefficient calls 0; diagnostic missing-witness coefficient
+calls 2 per single removal, 8 for all d=2 witnesses, and 4 for all d=7 witnesses.
+Those diagnostics retain the scalar norms. They are not a native zero-B-change
+result and are not silently replaced by these contribution-deletion runs.
+
+### Complete versus truncated length lists up to support
+
+Lists were dumped from the production rational trace-pair and Arb length
+functions with the exact original filters (`A<=9`; real |trace|<=2 excluded),
+using `[-6,6]^2` and `[-1,1]^2`. They retain trace representatives/multiplicities;
+they are not a primitive conjugacy-class geodesic inventory. Inclusion requires
+`length.upper() <= support.lower()`; exclusion requires the opposite strict
+separation. **Boundary-ambiguous candidates: 0** for both groups and searches.
+
+| Group | Support radius | Complete candidate count | Truncated candidate count | Complete lengths up to support | Truncated lengths up to support | Diff |
+|---|---|---|---|---|---|---|
+| d=2 | `[1.315640939027891809232073683233465999365 +/- 1.48e-40]` | 18 | 6 | `[]` | `[]` | empty; exit 0 |
+| d=7 | `[1.265948638401894754679233301430940628052 +/- 2.43e-40]` | 20 | 6 | `[]` | `[]` | empty; exit 0 |
+
+The support lies strictly below the shortest trace length, including the d=7
+fraction=1 case because delta is rounded downward. The empty lists therefore
+match. This says nothing about whether the truncated domain proves the
+systole; the complete search still has 12 additional candidates for d=2 and
+14 for d=7, all outside support.
+
+The four dumps are
+[d2 complete](../tests/mutation/translation-evidence/d2-complete-up-to-support.json),
+[d2 truncated](../tests/mutation/translation-evidence/d2-truncated-up-to-support.json),
+[d7 complete](../tests/mutation/translation-evidence/d7-complete-up-to-support.json),
+and [d7 truncated](../tests/mutation/translation-evidence/d7-truncated-up-to-support.json).
+Each file contains exactly `[]` plus a newline. Full candidate lengths,
+including those excluded by support, are also in translation-consumer-results.json.
+
+Exact commands used from the repository root:
+
+```sh
+python tests/mutation/translation_consumers.py /workspace/scratch/31144417503a/translation-consumers > /workspace/scratch/31144417503a/translation-consumers.log 2>&1
+diff -u /workspace/scratch/31144417503a/translation-consumers/d2-complete-up-to-support.json /workspace/scratch/31144417503a/translation-consumers/d2-truncated-up-to-support.json
+diff -u /workspace/scratch/31144417503a/translation-consumers/d7-complete-up-to-support.json /workspace/scratch/31144417503a/translation-consumers/d7-truncated-up-to-support.json
+```
+
+All completed. Production math, certificates, historical reports and
+existing tests remain unchanged; no flagged behavior was fixed.
