@@ -1,0 +1,72 @@
+test_coefficients_from_independent_matrix_trace_path (test_d11_inventory.D11InventoryTests.test_coefficients_from_independent_matrix_trace_path) ... ok
+test_complete_inventory_and_inverse_obstruction (test_d11_inventory.D11InventoryTests.test_complete_inventory_and_inverse_obstruction) ... ok
+test_frozen_full_certificate_exact_endpoints_and_support (test_d11_inventory.D11InventoryTests.test_frozen_full_certificate_exact_endpoints_and_support) ... ok
+test_record_changes_are_rejected_before_evaluation (test_d11_inventory.D11InventoryTests.test_record_changes_are_rejected_before_evaluation) ... ok
+test_search_claim_is_best_of_55_only (test_d11_inventory.D11InventoryTests.test_search_claim_is_best_of_55_only) ... ok
+test_certificate_cli_from_unrelated_directory (test_d2_inventory.D2InventoryTests.test_certificate_cli_from_unrelated_directory) ... ok
+test_complete_arithmetic_replay (test_d2_inventory.D2InventoryTests.test_complete_arithmetic_replay) ... ok
+test_determinant_obstruction_is_not_discarded (test_d2_inventory.D2InventoryTests.test_determinant_obstruction_is_not_discarded) ... ok
+test_export_rechecks_inventory_and_support (test_d2_inventory.D2InventoryTests.test_export_rechecks_inventory_and_support) ... ok
+test_full_coefficient_and_frozen_certificate (test_d2_inventory.D2InventoryTests.test_full_coefficient_and_frozen_certificate) ... ok
+test_inventory_gate_rejects_missing_or_altered_classes (test_d2_inventory.D2InventoryTests.test_inventory_gate_rejects_missing_or_altered_classes) ... ok
+test_radical_comparisons_on_both_sides_of_zero (test_d2_inventory.D2InventoryTests.test_radical_comparisons_on_both_sides_of_zero) ... ok
+test_status_string_cannot_certify_another_field (test_d2_inventory.D2InventoryTests.test_status_string_cannot_certify_another_field) ... FAIL
+test_complete_inventory_and_determinant_splitting (test_d7_inventory.D7InventoryTests.test_complete_inventory_and_determinant_splitting) ... ok
+test_full_selected_certificate_replays_and_support_is_checked (test_d7_inventory.D7InventoryTests.test_full_selected_certificate_replays_and_support_is_checked) ... ok
+test_rational_radical_square_and_reciprocal (test_d7_inventory.D7InventoryTests.test_rational_radical_square_and_reciprocal) ... ok
+test_record_tampering_cannot_lower_bound (test_d7_inventory.D7InventoryTests.test_record_tampering_cannot_lower_bound) ... ok
+test_search_manifest_has_only_finite_optimality_claim (test_d7_inventory.D7InventoryTests.test_search_manifest_has_only_finite_optimality_claim) ... ok
+test_analytic_backend_rejects_incomplete_terms_and_nonfinite_geometry (test_group_interfaces.GroupInterfaceTests.test_analytic_backend_rejects_incomplete_terms_and_nonfinite_geometry) ... ok
+test_associates_have_the_same_level_key (test_group_interfaces.GroupInterfaceTests.test_associates_have_the_same_level_key) ... ok
+test_congruence_backend_uses_common_pipeline_without_claiming_a_proof (test_group_interfaces.GroupInterfaceTests.test_congruence_backend_uses_common_pipeline_without_claiming_a_proof) ... ok
+test_congruence_membership_respects_psl_sign (test_group_interfaces.GroupInterfaceTests.test_congruence_membership_respects_psl_sign) ... ok
+test_distinct_prime_ideals_with_equal_norm (test_group_interfaces.GroupInterfaceTests.test_distinct_prime_ideals_with_equal_norm) ... ok
+test_full_group_formulas_cannot_run_on_a_congruence_clone (test_group_interfaces.GroupInterfaceTests.test_full_group_formulas_cannot_run_on_a_congruence_clone) ... ok
+test_ideal_and_field_validation (test_group_interfaces.GroupInterfaceTests.test_ideal_and_field_validation) ... ok
+test_new_analytic_backend_dispatch_needs_no_core_field_branch (test_group_interfaces.GroupInterfaceTests.test_new_analytic_backend_dispatch_needs_no_core_field_branch) ... ok
+test_proof_registry_is_bound_to_exact_group_and_id (test_group_interfaces.GroupInterfaceTests.test_proof_registry_is_bound_to_exact_group_and_id) ... ok
+test_relative_order_arithmetic_is_reusable_for_other_fields (test_group_interfaces.GroupInterfaceTests.test_relative_order_arithmetic_is_reusable_for_other_fields) ... ok
+test_v1_certificate_still_has_identical_numerical_endpoints (test_group_interfaces.GroupInterfaceTests.test_v1_certificate_still_has_identical_numerical_endpoints) ... ok
+test_v2_certificate_preserves_v1_math_and_records_backend_scope (test_group_interfaces.GroupInterfaceTests.test_v2_certificate_preserves_v1_math_and_records_backend_scope) ... ok
+test_import_has_no_analytic_dependencies (test_quotients.QuotientTests.test_import_has_no_analytic_dependencies) ... ok
+test_ring_cosets_composite_level_and_signs (test_quotients.QuotientTests.test_ring_cosets_composite_level_and_signs) ... ok
+test_size_cap_and_operator_input_fail_closed (test_quotients.QuotientTests.test_size_cap_and_operator_input_fail_closed) ... ok
+test_split_primes_and_inert_prime_images (test_quotients.QuotientTests.test_split_primes_and_inert_prime_images) ... ok
+test_all_systoles_and_class_numbers (test_trace_core.TraceCoreTests.test_all_systoles_and_class_numbers) ... ok
+test_baseline_enclosures_and_proof_gate (test_trace_core.TraceCoreTests.test_baseline_enclosures_and_proof_gate) ... ok
+test_character_and_splitting (test_trace_core.TraceCoreTests.test_character_and_splitting) ... ok
+test_closed_form_eisenstein_systole (test_trace_core.TraceCoreTests.test_closed_form_eisenstein_systole) ... ok
+test_corrected_k3_omega_bound (test_trace_core.TraceCoreTests.test_corrected_k3_omega_bound) ... ok
+test_entire_sinc_at_zero_and_complex_arguments (test_trace_core.TraceCoreTests.test_entire_sinc_at_zero_and_complex_arguments) ... ok
+test_exact_second_derivative_known_values (test_trace_core.TraceCoreTests.test_exact_second_derivative_known_values) ... ok
+test_flip_script_from_unrelated_working_directory (test_trace_core.TraceCoreTests.test_flip_script_from_unrelated_working_directory) ... ok
+test_fourier_transform_at_zero (test_trace_core.TraceCoreTests.test_fourier_transform_at_zero) ... ok
+test_inert_prime_and_prime_powers (test_trace_core.TraceCoreTests.test_inert_prime_and_prime_powers) ... ok
+test_invalid_parameters (test_trace_core.TraceCoreTests.test_invalid_parameters) ... ok
+test_mechanical_screen_cannot_be_a_certificate (test_trace_core.TraceCoreTests.test_mechanical_screen_cannot_be_a_certificate) ... ok
+test_new_fields_block_full_assembly (test_trace_core.TraceCoreTests.test_new_fields_block_full_assembly) ... FAIL
+test_prime_term_baseline_and_multiplicity (test_trace_core.TraceCoreTests.test_prime_term_baseline_and_multiplicity) ... ok
+test_unknown_fields_do_not_fall_back_to_omega (test_trace_core.TraceCoreTests.test_unknown_fields_do_not_fall_back_to_omega) ... ok
+
+======================================================================
+FAIL: test_status_string_cannot_certify_another_field (test_d2_inventory.D2InventoryTests.test_status_string_cannot_certify_another_field)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5332e74d4d90/bianchi-selberg/tests/test_d2_inventory.py", line 61, in test_status_string_cannot_certify_another_field
+    with self.assertRaisesRegex(ValueError, "no self-contained inventory verifier"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_new_fields_block_full_assembly (test_trace_core.TraceCoreTests.test_new_fields_block_full_assembly)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5332e74d4d90/bianchi-selberg/tests/test_trace_core.py", line 108, in test_new_fields_block_full_assembly
+    with self.assertRaisesRegex(ValueError, "inventory is incomplete"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 49 tests in 23.178s
+
+FAILED (failures=2)

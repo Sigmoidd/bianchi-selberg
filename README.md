@@ -1,6 +1,6 @@
 # bianchi-selberg — certified trace-formula engine for Bianchi groups
 
-This repository proves, at level 1, that the d=2, d=7, Picard and Eisenstein–Picard
+This repository proves, at level 1, that the d=2, d=7, d=11, Picard and Eisenstein–Picard
 orbifolds have no exceptional Laplace eigenvalues.  The long calculations and
 literature notes below support this theorem; they are not the proof's primary
 organization.
@@ -43,7 +43,16 @@ minimizes the certified upper bound among the 55 evaluations in the
 [parameter comparison](certificates/d7-search.json); global optimality is
 not proved. Replay with `python examples/d7_certificate.py --output /tmp/d7.json`.
 The [review guide](docs/D7_REVIEW_GUIDE.md) maps the completeness arguments
-to exact checks. Candidate fields d=11,19 still have only mechanical screens.
+to exact checks.
+
+The d=11 extension has a [self-contained inventory proof](docs/D11_INVENTORY_PROOF.md)
+and [frozen certificate](certificates/d11-k2.json): **B in
+[0.52924365, 0.52928221] < 1** for PSL₂(O₋₁₁). Its three element classes
+include an involution with an endpoint flip and two distinct inverse order-3
+classes. The [55-evaluation comparison](certificates/d11-search.json) selects
+sinc⁴ with full admissible support and R=256; no global optimum is claimed.
+Replay with `python examples/d11_certificate.py --output /tmp/d11.json`.
+See the [review and regression record](docs/D11_REVIEW_GUIDE.md). d=19 remains open.
 
 The independent [finite-quotient layer](docs/FINITE_QUOTIENTS.md) supplies
 exact residue arithmetic, complete generated images and regular adjacency
@@ -57,6 +66,7 @@ citations and local derivations are in [docs/REFERENCES.md](docs/REFERENCES.md).
 
 Let \(\Gamma\) be \(\operatorname{PSL}_2(\mathbb Z[\sqrt{-2}])\),
 \(\operatorname{PSL}_2(\mathcal O_{-7})\),
+\(\operatorname{PSL}_2(\mathcal O_{-11})\),
 \(\operatorname{PSL}_2(\mathbb Z[i])\) or
 \(\operatorname{PSL}_2(\mathbb Z[\omega])\). For the admissible test
 function \(h(r)=\operatorname{sinc}^4(\delta r)\), the certified trace-formula
@@ -70,8 +80,8 @@ Grunewald, and Mennicke, *Groups Acting on Hyperbolic Space* (1998), Ch. 4,
 §4.3.  All field-specific reductions and numerical inequalities are recorded
 and checked in this repository.
 
-For d=2 and d=7 the arithmetic classification and orbital normalization are proved
-locally in `docs/D2_INVENTORY_PROOF.md` and `docs/D7_INVENTORY_PROOF.md`, using the lattice correspondence,
+For d=2, d=7 and d=11 the arithmetic classification and orbital normalization are proved
+locally in `docs/D2_INVENTORY_PROOF.md` `docs/D7_INVENTORY_PROOF.md` and `docs/D11_INVENTORY_PROOF.md`, using the lattice correspondence,
 Minkowski bounds, and exhaustive unit reduction with proved finite bounds.
 The historical two fields retain their earlier classification inputs.
 
