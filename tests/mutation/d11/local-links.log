@@ -1,0 +1,3 @@
+local path targets: 80 broken: []
+scope: Markdown inline-link file targets; heading fragments not validated
+external URLs not checked: 15

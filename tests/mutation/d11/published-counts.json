@@ -1,0 +1,31 @@
+{
+  "source": "Norbert Kraemer, 1980 Diplomarbeit, table 27.26",
+  "url": "https://theses.hal.science/tel-00628809/document",
+  "pdf_sha256": "6804880395f5eec77e8be873f93c7cd8cddceaedcc2d3bc6719e977e6f05202f",
+  "printed_page": 189,
+  "pdf_page": 197,
+  "d": 11,
+  "method": "Visual reading of rendered original scan; zeros are blank by note on printed page188",
+  "SL_center_containing_subgroup_symbols": {
+    "lambda4_prime": 0,
+    "lambda4_star": 1,
+    "lambda4_T": 1,
+    "mu_T": 2,
+    "mu2_minus": 0,
+    "lambda6_prime": 1,
+    "lambda6_star": 0,
+    "mu3": 0
+  },
+  "PSL_subgroup_counts": {
+    "C2": 1,
+    "C3": 1,
+    "V4_all": 2,
+    "V4_maximal": 0,
+    "S3": 0,
+    "A4": 2
+  },
+  "PSL_element_counts": {
+    "order2": 1,
+    "order3": 2
+  }
+}

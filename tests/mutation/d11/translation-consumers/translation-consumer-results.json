@@ -1,0 +1,867 @@
+{
+  "profiles": {
+    "11": {
+      "certificate": {
+        "core/assemble.py:evaluate": 1,
+        "core/assemble.py:evaluate.<locals>.<genexpr>": 15,
+        "core/backends/__init__.py:AnalyticRegistry.__init__": 1,
+        "core/backends/__init__.py:AnalyticRegistry.get": 3,
+        "core/backends/__init__.py:AnalyticRegistry.register": 1,
+        "core/backends/__init__.py:default_registry": 3,
+        "core/backends/__init__.py:get_backend": 3,
+        "core/backends/__init__.py:validate_geometry": 3,
+        "core/backends/level_one.py:LevelOneBackend.geometry": 3,
+        "core/backends/level_one.py:LevelOneBackend.terms": 1,
+        "core/backends/level_one.py:LevelOneBackend.validate": 4,
+        "core/backends/level_one.py:_terms": 1,
+        "core/backends/level_one.py:_terms.<locals>.<lambda>": 5485,
+        "core/backends/level_one.py:_terms.<locals>.shift_integrand": 4869,
+        "core/bspline.py:g0": 2,
+        "core/bspline.py:gbspline": 4,
+        "core/bspline.py:gpp0": 1,
+        "core/bspline.py:second_derivative_coefficient": 1,
+        "core/bspline.py:second_derivative_coefficient.<locals>.<genexpr>": 3,
+        "core/bspline.py:validate_k": 6,
+        "core/certificate.py:certificate_payload": 1,
+        "core/certificate.py:certificate_payload.<locals>.<genexpr>": 8,
+        "core/certificate.py:report_payload": 1,
+        "core/numerics.py:integ": 3,
+        "core/numerics.py:integ.<locals>.<lambda>": 10354,
+        "core/numerics.py:setp": 1,
+        "core/terms.py:prime_term": 1,
+        "core/testfunctions.py:ce_integral": 1,
+        "core/testfunctions.py:ce_integral.<locals>.<lambda>": 70,
+        "core/testfunctions.py:ce_integral.<locals>.piece": 70,
+        "core/testfunctions.py:h_isig": 1,
+        "core/testfunctions.py:sinc2k": 10355,
+        "groups/arithmetic.py:QuadraticRing.__post_init__": 36,
+        "groups/arithmetic.py:QuadraticRing.add": 8727,
+        "groups/arithmetic.py:QuadraticRing.mul": 24288,
+        "groups/arithmetic.py:QuadraticRing.neg": 523,
+        "groups/arithmetic.py:QuadraticRing.norm": 7964,
+        "groups/arithmetic.py:QuadraticRing.relation": 32252,
+        "groups/arithmetic.py:QuadraticRing.sub": 1434,
+        "groups/builtins.py:<module>": 1,
+        "groups/builtins.py:d11_backend": 1,
+        "groups/builtins.py:d11_group": 1,
+        "groups/builtins.py:d11_group.<locals>.<genexpr>": 4,
+        "groups/builtins.py:d2_backend": 1,
+        "groups/builtins.py:d7_backend": 1,
+        "groups/builtins.py:register_builtins": 1,
+        "groups/d11_inventory.py:<module>": 1,
+        "groups/d11_inventory.py:RelativeOrder": 1,
+        "groups/d11_inventory.py:RelativeOrder.__init__": 18,
+        "groups/d11_inventory.py:RelativeOrder.abs_square": 52,
+        "groups/d11_inventory.py:expected_classes": 3,
+        "groups/d11_inventory.py:require": 182,
+        "groups/d11_inventory.py:residue": 40,
+        "groups/d11_inventory.py:verify_group_records": 2,
+        "groups/d11_inventory.py:verify_inventory": 2,
+        "groups/d11_inventory.py:verify_orders_and_lattices": 2,
+        "groups/d11_inventory.py:verify_orders_and_lattices.<locals>.<genexpr>": 6,
+        "groups/d11_inventory.py:verify_orders_and_lattices.<locals>.<lambda>": 14,
+        "groups/d11_inventory.py:verify_orders_and_lattices.<locals>.<lambda>.<locals>.<genexpr>": 24,
+        "groups/d11_inventory.py:verify_units": 4,
+        "groups/d11_inventory.py:verify_units.<locals>.<genexpr>": 34,
+        "groups/d11_inventory.py:verify_witnesses_and_splitting": 2,
+        "groups/d11_inventory.py:verify_witnesses_and_splitting.<locals>.<genexpr>": 74,
+        "groups/d2_inventory.py:<module>": 1,
+        "groups/d2_inventory.py:RelativeOrder": 1,
+        "groups/d7_inventory.py:<module>": 1,
+        "groups/d7_inventory.py:RelativeOrder": 1,
+        "groups/data.py:EllipticClass.coefficient": 15,
+        "groups/data.py:GroupData.GG": 5,
+        "groups/data.py:GroupData.__post_init__": 1,
+        "groups/data.py:GroupData.analytic_data": 3,
+        "groups/data.py:GroupData.analytic_data.<locals>.<genexpr>": 12,
+        "groups/data.py:GroupData.require_inventory": 1,
+        "groups/data.py:GroupData.require_level_one": 15,
+        "groups/data.py:GroupData.systole": 6,
+        "groups/data.py:GroupData.verify_inventory": 1,
+        "groups/data.py:_arb_fraction": 18,
+        "groups/data.py:get_group": 5,
+        "groups/exact.py:<module>": 1,
+        "groups/exact.py:Radical": 1,
+        "groups/exact.py:Radical.__post_init__": 196,
+        "groups/exact.py:Radical.__post_init__.<locals>.<genexpr>": 980,
+        "groups/exact.py:Radical.compare": 82,
+        "groups/exact.py:Radical.sign": 82,
+        "groups/exact.py:Radical.square": 2,
+        "groups/exact.py:Radical.unit_reciprocal": 4,
+        "groups/identity.py:GroupKey.__post_init__": 16,
+        "groups/identity.py:GroupKey.contains": 14,
+        "groups/identity.py:GroupKey.is_full": 29,
+        "groups/identity.py:GroupKey.level": 1,
+        "groups/identity.py:GroupKey.payload": 1,
+        "groups/identity.py:LevelIdeal.__post_init__": 17,
+        "groups/identity.py:LevelIdeal.__post_init__.<locals>.<genexpr>": 51,
+        "groups/identity.py:LevelIdeal.basis": 17,
+        "groups/identity.py:LevelIdeal.contains": 34,
+        "groups/identity.py:LevelIdeal.norm": 33,
+        "groups/identity.py:LevelIdeal.payload": 1,
+        "groups/identity.py:_integer": 136,
+        "groups/matrix.py:MatrixOps.canon": 112,
+        "groups/matrix.py:MatrixOps.det": 30,
+        "groups/matrix.py:MatrixOps.mul": 203,
+        "groups/matrix.py:MatrixOps.neg": 126,
+        "groups/matrix.py:MatrixOps.neg.<locals>.<genexpr>": 630,
+        "groups/matrix.py:MatrixOps.power": 30,
+        "groups/matrix.py:MatrixOps.validate": 14,
+        "groups/matrix.py:MatrixOps.validate.<locals>.<genexpr>": 70,
+        "groups/matrix.py:MatrixOps.validate.<locals>.<genexpr>.<genexpr>": 168,
+        "groups/registry.py:GroupRegistry.__init__": 1,
+        "groups/registry.py:GroupRegistry.get": 5,
+        "groups/registry.py:GroupRegistry.inventory_backend": 2,
+        "groups/registry.py:GroupRegistry.register": 9,
+        "groups/registry.py:GroupRegistry.verify": 1,
+        "groups/registry.py:InventoryBackend.verify": 2,
+        "groups/registry.py:_verify_element_witnesses": 2,
+        "groups/registry.py:default_registry": 7,
+        "groups/relative_orders.py:<genexpr>": 5,
+        "groups/relative_orders.py:<genexpr>.<genexpr>": 20,
+        "groups/relative_orders.py:<module>": 1,
+        "groups/relative_orders.py:QuadraticOrder": 1,
+        "groups/relative_orders.py:QuadraticOrder.__init__": 18,
+        "groups/relative_orders.py:QuadraticOrder.absolute_norm": 18,
+        "groups/relative_orders.py:QuadraticOrder.discriminant": 4,
+        "groups/relative_orders.py:QuadraticOrder.discriminant.<locals>.<genexpr>": 320,
+        "groups/relative_orders.py:QuadraticOrder.matrix": 15,
+        "groups/relative_orders.py:QuadraticOrder.mul": 1404,
+        "groups/relative_orders.py:QuadraticOrder.multiplication_matrix": 274,
+        "groups/relative_orders.py:QuadraticOrder.norm": 2540,
+        "groups/relative_orders.py:QuadraticOrder.pair": 5367,
+        "groups/relative_orders.py:QuadraticOrder.sigma": 4,
+        "groups/relative_orders.py:power": 23,
+        "groups/systoles.py:cosh_length": 33,
+        "groups/systoles.py:trace_pair": 510,
+        "groups/systoles.py:verify_systole": 3
+      },
+      "standalone_arithmetic": {
+        "groups/arithmetic.py:QuadraticRing.add": 4261,
+        "groups/arithmetic.py:QuadraticRing.mul": 11905,
+        "groups/arithmetic.py:QuadraticRing.neg": 203,
+        "groups/arithmetic.py:QuadraticRing.norm": 3982,
+        "groups/arithmetic.py:QuadraticRing.relation": 15887,
+        "groups/arithmetic.py:QuadraticRing.sub": 709,
+        "groups/d11_inventory.py:RelativeOrder.__init__": 8,
+        "groups/d11_inventory.py:RelativeOrder.abs_square": 26,
+        "groups/d11_inventory.py:expected_classes": 1,
+        "groups/d11_inventory.py:require": 61,
+        "groups/d11_inventory.py:residue": 20,
+        "groups/d11_inventory.py:verify_inventory": 1,
+        "groups/d11_inventory.py:verify_orders_and_lattices": 1,
+        "groups/d11_inventory.py:verify_orders_and_lattices.<locals>.<genexpr>": 3,
+        "groups/d11_inventory.py:verify_orders_and_lattices.<locals>.<lambda>": 7,
+        "groups/d11_inventory.py:verify_orders_and_lattices.<locals>.<lambda>.<locals>.<genexpr>": 12,
+        "groups/d11_inventory.py:verify_units": 2,
+        "groups/d11_inventory.py:verify_units.<locals>.<genexpr>": 17,
+        "groups/d11_inventory.py:verify_witnesses_and_splitting": 1,
+        "groups/d11_inventory.py:verify_witnesses_and_splitting.<locals>.<genexpr>": 37,
+        "groups/exact.py:Radical.__post_init__": 98,
+        "groups/exact.py:Radical.__post_init__.<locals>.<genexpr>": 490,
+        "groups/exact.py:Radical.compare": 41,
+        "groups/exact.py:Radical.sign": 41,
+        "groups/exact.py:Radical.square": 1,
+        "groups/exact.py:Radical.unit_reciprocal": 2,
+        "groups/matrix.py:MatrixOps.canon": 44,
+        "groups/matrix.py:MatrixOps.det": 8,
+        "groups/matrix.py:MatrixOps.mul": 77,
+        "groups/matrix.py:MatrixOps.neg": 49,
+        "groups/matrix.py:MatrixOps.neg.<locals>.<genexpr>": 245,
+        "groups/matrix.py:MatrixOps.power": 11,
+        "groups/relative_orders.py:QuadraticOrder.__init__": 8,
+        "groups/relative_orders.py:QuadraticOrder.absolute_norm": 9,
+        "groups/relative_orders.py:QuadraticOrder.discriminant": 2,
+        "groups/relative_orders.py:QuadraticOrder.discriminant.<locals>.<genexpr>": 160,
+        "groups/relative_orders.py:QuadraticOrder.matrix": 5,
+        "groups/relative_orders.py:QuadraticOrder.mul": 701,
+        "groups/relative_orders.py:QuadraticOrder.multiplication_matrix": 137,
+        "groups/relative_orders.py:QuadraticOrder.norm": 1270,
+        "groups/relative_orders.py:QuadraticOrder.pair": 2679,
+        "groups/relative_orders.py:QuadraticOrder.sigma": 2,
+        "groups/relative_orders.py:power": 11
+      }
+    }
+  },
+  "guard_mutations": [
+    {
+      "d": 11,
+      "mutation": "remove d11 order 2: A2 with endpoint flip",
+      "consumer": "groups.registry._verify_element_witnesses",
+      "baseline_B": {
+        "value": "[0.5293 +/- 5.64e-5]",
+        "lower": "[0.5292436509472265025059841062950232075723 +/- 3.25e-42]",
+        "upper": "[0.5292822062534452707431427624153235005410 +/- 4.68e-41]",
+        "radius": "1.927765310938411857932806015014648437500e-5"
+      },
+      "mutated_B": null,
+      "delta": null,
+      "check": "arithmetic replay",
+      "error": "ArithmeticError: translation witness is missing or outside the specified group",
+      "counts": {
+        "wrapper_entries": 1,
+        "mutated_records_delivered": 1,
+        "original_guard_calls": 1,
+        "downstream_coefficient_calls": 0
+      }
+    },
+    {
+      "d": 11,
+      "mutation": "remove d11 order 3: alpha",
+      "consumer": "groups.registry._verify_element_witnesses",
+      "baseline_B": {
+        "value": "[0.5293 +/- 5.64e-5]",
+        "lower": "[0.5292436509472265025059841062950232075723 +/- 3.25e-42]",
+        "upper": "[0.5292822062534452707431427624153235005410 +/- 4.68e-41]",
+        "radius": "1.927765310938411857932806015014648437500e-5"
+      },
+      "mutated_B": null,
+      "delta": null,
+      "check": "arithmetic replay",
+      "error": "ArithmeticError: translation witness is missing or outside the specified group",
+      "counts": {
+        "wrapper_entries": 1,
+        "mutated_records_delivered": 1,
+        "original_guard_calls": 1,
+        "downstream_coefficient_calls": 0
+      }
+    },
+    {
+      "d": 11,
+      "mutation": "remove d11 order 3: alpha inverse",
+      "consumer": "groups.registry._verify_element_witnesses",
+      "baseline_B": {
+        "value": "[0.5293 +/- 5.64e-5]",
+        "lower": "[0.5292436509472265025059841062950232075723 +/- 3.25e-42]",
+        "upper": "[0.5292822062534452707431427624153235005410 +/- 4.68e-41]",
+        "radius": "1.927765310938411857932806015014648437500e-5"
+      },
+      "mutated_B": null,
+      "delta": null,
+      "check": "arithmetic replay",
+      "error": "ArithmeticError: translation witness is missing or outside the specified group",
+      "counts": {
+        "wrapper_entries": 1,
+        "mutated_records_delivered": 1,
+        "original_guard_calls": 1,
+        "downstream_coefficient_calls": 0
+      }
+    },
+    {
+      "d": 11,
+      "mutation": "remove all translations",
+      "consumer": "groups.registry._verify_element_witnesses",
+      "baseline_B": {
+        "value": "[0.5293 +/- 5.64e-5]",
+        "lower": "[0.5292436509472265025059841062950232075723 +/- 3.25e-42]",
+        "upper": "[0.5292822062534452707431427624153235005410 +/- 4.68e-41]",
+        "radius": "1.927765310938411857932806015014648437500e-5"
+      },
+      "mutated_B": null,
+      "delta": null,
+      "check": "arithmetic replay",
+      "error": "ArithmeticError: translation witness is missing or outside the specified group",
+      "counts": {
+        "wrapper_entries": 1,
+        "mutated_records_delivered": 3,
+        "original_guard_calls": 1,
+        "downstream_coefficient_calls": 0
+      }
+    }
+  ],
+  "coefficient_mutations": [
+    {
+      "d": 11,
+      "mutation": "remove d11 order 2: A2 with endpoint flip",
+      "consumer": "groups.data.EllipticClass.coefficient",
+      "baseline_B": {
+        "value": "[0.5293 +/- 5.64e-5]",
+        "lower": "[0.5292436509472265025059841062950232075723 +/- 3.25e-42]",
+        "upper": "[0.5292822062534452707431427624153235005410 +/- 4.68e-41]",
+        "radius": "1.927765310938411857932806015014648437500e-5"
+      },
+      "mutated_B": {
+        "value": "[0.2041 +/- 5.69e-5]",
+        "lower": "[0.2041183360435323139371983488834630417957 +/- 3.69e-41]",
+        "upper": "[0.2041568913497510821743570050037633347644 +/- 1.32e-41]",
+        "radius": "1.927765310938411857932806015014648437500e-5"
+      },
+      "delta": {
+        "value": "[-0.3251 +/- 6.39e-5]",
+        "lower": "[-0.3251638702099129568059444135318604587454 +/- 1.65e-41]",
+        "upper": "[-0.3250867595974754203316271012912598728079 +/- 1.65e-41]",
+        "radius": "3.855530621876823715865612030029296875000e-5"
+      },
+      "check": "none",
+      "error": null,
+      "accepted": true,
+      "counts": {
+        "coefficient_calls": 15,
+        "suppressed_translation_contributions": 5
+      },
+      "zero_movement": false,
+      "semantics": "Deletion of the numerical contribution associated with the selected primitive translation(s), not missing-witness removal; original arithmetic records retained."
+    },
+    {
+      "d": 11,
+      "mutation": "remove d11 order 3: alpha",
+      "consumer": "groups.data.EllipticClass.coefficient",
+      "baseline_B": {
+        "value": "[0.5293 +/- 5.64e-5]",
+        "lower": "[0.5292436509472265025059841062950232075723 +/- 3.25e-42]",
+        "upper": "[0.5292822062534452707431427624153235005410 +/- 4.68e-41]",
+        "radius": "1.927765310938411857932806015014648437500e-5"
+      },
+      "mutated_B": {
+        "value": "[0.1596 +/- 6.67e-5]",
+        "lower": "[0.1596280838315080415763814811472502557529 +/- 3.49e-41]",
+        "upper": "[0.1596666391377268098135401372675505487217 +/- 1.52e-41]",
+        "radius": "1.927765310938411857932806015014648437500e-5"
+      },
+      "delta": {
+        "value": "[-0.3696 +/- 5.42e-5]",
+        "lower": "[-0.3696541224219372291667612812680732447881 +/- 1.19e-41]",
+        "upper": "[-0.3695770118094996926924439690274726588506 +/- 1.19e-41]",
+        "radius": "3.855530621876823715865612030029296875000e-5"
+      },
+      "check": "none",
+      "error": null,
+      "accepted": true,
+      "counts": {
+        "coefficient_calls": 15,
+        "suppressed_translation_contributions": 5
+      },
+      "zero_movement": false,
+      "semantics": "Deletion of the numerical contribution associated with the selected primitive translation(s), not missing-witness removal; original arithmetic records retained."
+    },
+    {
+      "d": 11,
+      "mutation": "remove d11 order 3: alpha inverse",
+      "consumer": "groups.data.EllipticClass.coefficient",
+      "baseline_B": {
+        "value": "[0.5293 +/- 5.64e-5]",
+        "lower": "[0.5292436509472265025059841062950232075723 +/- 3.25e-42]",
+        "upper": "[0.5292822062534452707431427624153235005410 +/- 4.68e-41]",
+        "radius": "1.927765310938411857932806015014648437500e-5"
+      },
+      "mutated_B": {
+        "value": "[0.1596 +/- 6.67e-5]",
+        "lower": "[0.1596280838315080415763814811472502557529 +/- 3.49e-41]",
+        "upper": "[0.1596666391377268098135401372675505487217 +/- 1.52e-41]",
+        "radius": "1.927765310938411857932806015014648437500e-5"
+      },
+      "delta": {
+        "value": "[-0.3696 +/- 5.42e-5]",
+        "lower": "[-0.3696541224219372291667612812680732447881 +/- 1.19e-41]",
+        "upper": "[-0.3695770118094996926924439690274726588506 +/- 1.19e-41]",
+        "radius": "3.855530621876823715865612030029296875000e-5"
+      },
+      "check": "none",
+      "error": null,
+      "accepted": true,
+      "counts": {
+        "coefficient_calls": 15,
+        "suppressed_translation_contributions": 5
+      },
+      "zero_movement": false,
+      "semantics": "Deletion of the numerical contribution associated with the selected primitive translation(s), not missing-witness removal; original arithmetic records retained."
+    },
+    {
+      "d": 11,
+      "mutation": "remove all translations",
+      "consumer": "groups.data.EllipticClass.coefficient",
+      "baseline_B": {
+        "value": "[0.5293 +/- 5.64e-5]",
+        "lower": "[0.5292436509472265025059841062950232075723 +/- 3.25e-42]",
+        "upper": "[0.5292822062534452707431427624153235005410 +/- 4.68e-41]",
+        "radius": "1.927765310938411857932806015014648437500e-5"
+      },
+      "mutated_B": {
+        "value": "[-0.5351 +/- 2.58e-5]",
+        "lower": "[-0.5351127981879046079220069014089274182222 +/- 2.35e-41]",
+        "upper": "[-0.5350742428816858396848482452886271252534 +/- 2.66e-41]",
+        "radius": "1.927765310938411857932806015014648437500e-5"
+      },
+      "delta": {
+        "value": "[-1.0644 +/- 8.22e-5]",
+        "lower": "[-1.064395004441349878665149663824250918763 +/- 2.24e-40]",
+        "upper": "[-1.064317893828912342190832351583650332826 +/- 2.77e-40]",
+        "radius": "3.855530621876823715865612030029296875000e-5"
+      },
+      "check": "none",
+      "error": null,
+      "accepted": true,
+      "counts": {
+        "coefficient_calls": 15,
+        "suppressed_translation_contributions": 15
+      },
+      "zero_movement": false,
+      "semantics": "Deletion of the numerical contribution associated with the selected primitive translation(s), not missing-witness removal; original arithmetic records retained."
+    }
+  ],
+  "length_searches": [
+    {
+      "d": 11,
+      "support_radius": {
+        "value": "[1.534394436502638736641301875351928174496 +/- 3.03e-40]",
+        "lower": "[1.534394436502638736641301875351928174496 +/- 3.03e-40]",
+        "upper": "[1.534394436502638736641301875351928174496 +/- 3.03e-40]",
+        "radius": "0"
+      },
+      "complete": {
+        "all": [
+          {
+            "trace": [
+              -3,
+              0
+            ],
+            "length": {
+              "value": "[1.92484730023841378999103565370 +/- 4.68e-30]",
+              "lower": "[1.924847300238413789991035653693885490918 +/- 6.64e-41]",
+              "upper": "[1.924847300238413789991035653700196378160 +/- 2.99e-40]",
+              "radius": "[1.713345599642721821451357758534664787781e-30 +/- 4.08e-70]"
+            },
+            "pair": [
+              [
+                9,
+                1
+              ],
+              [
+                25,
+                1
+              ]
+            ]
+          },
+          {
+            "trace": [
+              -3,
+              1
+            ],
+            "length": {
+              "value": "[2.14431164244884954176572319035 +/- 6.26e-30]",
+              "lower": "[2.144311642448849541765723190341459800057 +/- 1.27e-40]",
+              "upper": "[2.144311642448849541765723190354081574540 +/- 4.11e-40]",
+              "radius": "[4.022513515424165658483200579134458236711e-30 +/- 4.90e-70]"
+            },
+            "pair": [
+              [
+                9,
+                1
+              ],
+              [
+                69,
+                1
+              ]
+            ]
+          },
+          {
+            "trace": [
+              -2,
+              -1
+            ],
+            "length": {
+              "value": "[2.14431164244884954176572319035 +/- 6.26e-30]",
+              "lower": "[2.144311642448849541765723190341459800057 +/- 1.27e-40]",
+              "upper": "[2.144311642448849541765723190354081574540 +/- 4.11e-40]",
+              "radius": "[4.022513515424165658483200579134458236711e-30 +/- 4.90e-70]"
+            },
+            "pair": [
+              [
+                9,
+                1
+              ],
+              [
+                69,
+                1
+              ]
+            ]
+          },
+          {
+            "trace": [
+              -2,
+              1
+            ],
+            "length": {
+              "value": "[1.73659607992264932343451988479 +/- 3.42e-30]",
+              "lower": "[1.736596079922649323434519884785687844017 +/- 5.38e-42]",
+              "upper": "[1.736596079922649323434519884791998731259 +/- 2.38e-40]",
+              "radius": "[2.260538552027650763707025617779691916090e-30 +/- 4.16e-70]"
+            },
+            "pair": [
+              [
+                5,
+                1
+              ],
+              [
+                45,
+                1
+              ]
+            ]
+          },
+          {
+            "trace": [
+              -1,
+              -1
+            ],
+            "length": {
+              "value": "[1.73659607992264932343451988479 +/- 3.42e-30]",
+              "lower": "[1.736596079922649323434519884785687844017 +/- 5.38e-42]",
+              "upper": "[1.736596079922649323434519884791998731259 +/- 2.38e-40]",
+              "radius": "[2.260538552027650763707025617779691916090e-30 +/- 4.16e-70]"
+            },
+            "pair": [
+              [
+                5,
+                1
+              ],
+              [
+                45,
+                1
+              ]
+            ]
+          },
+          {
+            "trace": [
+              -1,
+              1
+            ],
+            "length": {
+              "value": "[1.53439443650263888665805753704 +/- 4.39e-30]",
+              "lower": "[1.534394436502638886658057537034860080856 +/- 1.27e-40]",
+              "upper": "[1.534394436502638886658057537041170968098 +/- 1.06e-40]",
+              "radius": "[2.402202613072577544583186058601618067828e-30 +/- 7.00e-72]"
+            },
+            "pair": [
+              [
+                3,
+                1
+              ],
+              [
+                45,
+                1
+              ]
+            ]
+          },
+          {
+            "trace": [
+              0,
+              -1
+            ],
+            "length": {
+              "value": "[1.53439443650263888665805753704 +/- 4.39e-30]",
+              "lower": "[1.534394436502638886658057537034860080856 +/- 1.27e-40]",
+              "upper": "[1.534394436502638886658057537041170968098 +/- 1.06e-40]",
+              "radius": "[2.402202613072577544583186058601618067828e-30 +/- 7.00e-72]"
+            },
+            "pair": [
+              [
+                3,
+                1
+              ],
+              [
+                45,
+                1
+              ]
+            ]
+          },
+          {
+            "trace": [
+              0,
+              1
+            ],
+            "length": {
+              "value": "[1.53439443650263888665805753704 +/- 4.39e-30]",
+              "lower": "[1.534394436502638886658057537034860080856 +/- 1.27e-40]",
+              "upper": "[1.534394436502638886658057537041170968098 +/- 1.06e-40]",
+              "radius": "[2.402202613072577544583186058601618067828e-30 +/- 7.00e-72]"
+            },
+            "pair": [
+              [
+                3,
+                1
+              ],
+              [
+                45,
+                1
+              ]
+            ]
+          },
+          {
+            "trace": [
+              1,
+              -1
+            ],
+            "length": {
+              "value": "[1.53439443650263888665805753704 +/- 4.39e-30]",
+              "lower": "[1.534394436502638886658057537034860080856 +/- 1.27e-40]",
+              "upper": "[1.534394436502638886658057537041170968098 +/- 1.06e-40]",
+              "radius": "[2.402202613072577544583186058601618067828e-30 +/- 7.00e-72]"
+            },
+            "pair": [
+              [
+                3,
+                1
+              ],
+              [
+                45,
+                1
+              ]
+            ]
+          },
+          {
+            "trace": [
+              1,
+              1
+            ],
+            "length": {
+              "value": "[1.73659607992264932343451988479 +/- 3.42e-30]",
+              "lower": "[1.736596079922649323434519884785687844017 +/- 5.38e-42]",
+              "upper": "[1.736596079922649323434519884791998731259 +/- 2.38e-40]",
+              "radius": "[2.260538552027650763707025617779691916090e-30 +/- 4.16e-70]"
+            },
+            "pair": [
+              [
+                5,
+                1
+              ],
+              [
+                45,
+                1
+              ]
+            ]
+          },
+          {
+            "trace": [
+              2,
+              -1
+            ],
+            "length": {
+              "value": "[1.73659607992264932343451988479 +/- 3.42e-30]",
+              "lower": "[1.736596079922649323434519884785687844017 +/- 5.38e-42]",
+              "upper": "[1.736596079922649323434519884791998731259 +/- 2.38e-40]",
+              "radius": "[2.260538552027650763707025617779691916090e-30 +/- 4.16e-70]"
+            },
+            "pair": [
+              [
+                5,
+                1
+              ],
+              [
+                45,
+                1
+              ]
+            ]
+          },
+          {
+            "trace": [
+              2,
+              1
+            ],
+            "length": {
+              "value": "[2.14431164244884954176572319035 +/- 6.26e-30]",
+              "lower": "[2.144311642448849541765723190341459800057 +/- 1.27e-40]",
+              "upper": "[2.144311642448849541765723190354081574540 +/- 4.11e-40]",
+              "radius": "[4.022513515424165658483200579134458236711e-30 +/- 4.90e-70]"
+            },
+            "pair": [
+              [
+                9,
+                1
+              ],
+              [
+                69,
+                1
+              ]
+            ]
+          },
+          {
+            "trace": [
+              3,
+              -1
+            ],
+            "length": {
+              "value": "[2.14431164244884954176572319035 +/- 6.26e-30]",
+              "lower": "[2.144311642448849541765723190341459800057 +/- 1.27e-40]",
+              "upper": "[2.144311642448849541765723190354081574540 +/- 4.11e-40]",
+              "radius": "[4.022513515424165658483200579134458236711e-30 +/- 4.90e-70]"
+            },
+            "pair": [
+              [
+                9,
+                1
+              ],
+              [
+                69,
+                1
+              ]
+            ]
+          },
+          {
+            "trace": [
+              3,
+              0
+            ],
+            "length": {
+              "value": "[1.92484730023841378999103565370 +/- 4.68e-30]",
+              "lower": "[1.924847300238413789991035653693885490918 +/- 6.64e-41]",
+              "upper": "[1.924847300238413789991035653700196378160 +/- 2.99e-40]",
+              "radius": "[1.713345599642721821451357758534664787781e-30 +/- 4.08e-70]"
+            },
+            "pair": [
+              [
+                9,
+                1
+              ],
+              [
+                25,
+                1
+              ]
+            ]
+          }
+        ],
+        "up_to_support": [],
+        "boundary_ambiguous": []
+      },
+      "truncated": {
+        "all": [
+          {
+            "trace": [
+              -1,
+              -1
+            ],
+            "length": {
+              "value": "[1.73659607992264932343451988479 +/- 3.42e-30]",
+              "lower": "[1.736596079922649323434519884785687844017 +/- 5.38e-42]",
+              "upper": "[1.736596079922649323434519884791998731259 +/- 2.38e-40]",
+              "radius": "[2.260538552027650763707025617779691916090e-30 +/- 4.16e-70]"
+            },
+            "pair": [
+              [
+                5,
+                1
+              ],
+              [
+                45,
+                1
+              ]
+            ]
+          },
+          {
+            "trace": [
+              -1,
+              1
+            ],
+            "length": {
+              "value": "[1.53439443650263888665805753704 +/- 4.39e-30]",
+              "lower": "[1.534394436502638886658057537034860080856 +/- 1.27e-40]",
+              "upper": "[1.534394436502638886658057537041170968098 +/- 1.06e-40]",
+              "radius": "[2.402202613072577544583186058601618067828e-30 +/- 7.00e-72]"
+            },
+            "pair": [
+              [
+                3,
+                1
+              ],
+              [
+                45,
+                1
+              ]
+            ]
+          },
+          {
+            "trace": [
+              0,
+              -1
+            ],
+            "length": {
+              "value": "[1.53439443650263888665805753704 +/- 4.39e-30]",
+              "lower": "[1.534394436502638886658057537034860080856 +/- 1.27e-40]",
+              "upper": "[1.534394436502638886658057537041170968098 +/- 1.06e-40]",
+              "radius": "[2.402202613072577544583186058601618067828e-30 +/- 7.00e-72]"
+            },
+            "pair": [
+              [
+                3,
+                1
+              ],
+              [
+                45,
+                1
+              ]
+            ]
+          },
+          {
+            "trace": [
+              0,
+              1
+            ],
+            "length": {
+              "value": "[1.53439443650263888665805753704 +/- 4.39e-30]",
+              "lower": "[1.534394436502638886658057537034860080856 +/- 1.27e-40]",
+              "upper": "[1.534394436502638886658057537041170968098 +/- 1.06e-40]",
+              "radius": "[2.402202613072577544583186058601618067828e-30 +/- 7.00e-72]"
+            },
+            "pair": [
+              [
+                3,
+                1
+              ],
+              [
+                45,
+                1
+              ]
+            ]
+          },
+          {
+            "trace": [
+              1,
+              -1
+            ],
+            "length": {
+              "value": "[1.53439443650263888665805753704 +/- 4.39e-30]",
+              "lower": "[1.534394436502638886658057537034860080856 +/- 1.27e-40]",
+              "upper": "[1.534394436502638886658057537041170968098 +/- 1.06e-40]",
+              "radius": "[2.402202613072577544583186058601618067828e-30 +/- 7.00e-72]"
+            },
+            "pair": [
+              [
+                3,
+                1
+              ],
+              [
+                45,
+                1
+              ]
+            ]
+          },
+          {
+            "trace": [
+              1,
+              1
+            ],
+            "length": {
+              "value": "[1.73659607992264932343451988479 +/- 3.42e-30]",
+              "lower": "[1.736596079922649323434519884785687844017 +/- 5.38e-42]",
+              "upper": "[1.736596079922649323434519884791998731259 +/- 2.38e-40]",
+              "radius": "[2.260538552027650763707025617779691916090e-30 +/- 4.16e-70]"
+            },
+            "pair": [
+              [
+                5,
+                1
+              ],
+              [
+                45,
+                1
+              ]
+            ]
+          }
+        ],
+        "up_to_support": [],
+        "boundary_ambiguous": []
+      },
+      "diff": "",
+      "meaning": "Trace representatives with multiplicities retained; not a primitive conjugacy-class geodesic inventory."
+    }
+  ]
+}

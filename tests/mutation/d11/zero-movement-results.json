@@ -1,0 +1,299 @@
+{
+  "zero_mutations": [
+    {
+      "d": 11,
+      "mutation": "translation:0:d11 order 2: A2 with endpoint flip",
+      "target_term": "NCE class contribution",
+      "baseline_term": {
+        "value": "[0.32512531490369418856878575741 +/- 5.88e-30]",
+        "radius": "[3.128959027863410590719873845705605390224e-30 +/- 1.65e-70]",
+        "lower": "[0.3251253149036941885687857574095880135136 +/- 1.90e-41]",
+        "upper": "[0.3251253149036941885687857574158989007553 +/- 4.92e-41]"
+      },
+      "classification": 3,
+      "counts": {
+        "native_inventory_calls": 1,
+        "native_coefficient_calls": 0,
+        "diagnostic_coefficient_calls": 6,
+        "diagnostic_missing_witness_coefficient_calls": 2
+      },
+      "native_error": "ArithmeticError: translation witness is missing or outside the specified group",
+      "diagnostic_B": {
+        "value": "[0.5293 +/- 5.64e-5]",
+        "radius": "1.927765310938411857932806015014648437500e-5",
+        "lower": "[0.5292436509472265025059841062950232075723 +/- 3.25e-42]",
+        "upper": "[0.5292822062534452707431427624153235005410 +/- 4.68e-41]"
+      },
+      "same_B": true,
+      "reason": "Arithmetic gate reached and rejects; numerical coefficient consumes stored norm, not the missing translation witness. No witness-to-norm recomputation path exists in coefficient()."
+    },
+    {
+      "d": 11,
+      "mutation": "translation:1:d11 order 3: alpha",
+      "target_term": "NCE class contribution",
+      "baseline_term": {
+        "value": "[0.36961556711571846092960262515 +/- 6.88e-30]",
+        "radius": "[3.860961106765939234250903509059836385347e-30 +/- 1.13e-70]",
+        "lower": "[0.3696155671157184609296026251430397863880 +/- 3.59e-41]",
+        "upper": "[0.3696155671157184609296026251509283954402 +/- 4.60e-41]"
+      },
+      "classification": 3,
+      "counts": {
+        "native_inventory_calls": 1,
+        "native_coefficient_calls": 0,
+        "diagnostic_coefficient_calls": 6,
+        "diagnostic_missing_witness_coefficient_calls": 2
+      },
+      "native_error": "ArithmeticError: translation witness is missing or outside the specified group",
+      "diagnostic_B": {
+        "value": "[0.5293 +/- 5.64e-5]",
+        "radius": "1.927765310938411857932806015014648437500e-5",
+        "lower": "[0.5292436509472265025059841062950232075723 +/- 3.25e-42]",
+        "upper": "[0.5292822062534452707431427624153235005410 +/- 4.68e-41]"
+      },
+      "same_B": true,
+      "reason": "Arithmetic gate reached and rejects; numerical coefficient consumes stored norm, not the missing translation witness. No witness-to-norm recomputation path exists in coefficient()."
+    },
+    {
+      "d": 11,
+      "mutation": "translation:2:d11 order 3: alpha inverse",
+      "target_term": "NCE class contribution",
+      "baseline_term": {
+        "value": "[0.36961556711571846092960262515 +/- 6.88e-30]",
+        "radius": "[3.860961106765939234250903509059836385347e-30 +/- 1.13e-70]",
+        "lower": "[0.3696155671157184609296026251430397863880 +/- 3.59e-41]",
+        "upper": "[0.3696155671157184609296026251509283954402 +/- 4.60e-41]"
+      },
+      "classification": 3,
+      "counts": {
+        "native_inventory_calls": 1,
+        "native_coefficient_calls": 0,
+        "diagnostic_coefficient_calls": 6,
+        "diagnostic_missing_witness_coefficient_calls": 2
+      },
+      "native_error": "ArithmeticError: translation witness is missing or outside the specified group",
+      "diagnostic_B": {
+        "value": "[0.5293 +/- 5.64e-5]",
+        "radius": "1.927765310938411857932806015014648437500e-5",
+        "lower": "[0.5292436509472265025059841062950232075723 +/- 3.25e-42]",
+        "upper": "[0.5292822062534452707431427624153235005410 +/- 4.68e-41]"
+      },
+      "same_B": true,
+      "reason": "Arithmetic gate reached and rejects; numerical coefficient consumes stored norm, not the missing translation witness. No witness-to-norm recomputation path exists in coefficient()."
+    },
+    {
+      "d": 11,
+      "mutation": "translation_all",
+      "target_term": "NCE",
+      "baseline_term": {
+        "value": "[1.0643564491351311104279910077 +/- 1.82e-29]",
+        "radius": "[1.261629495188466131803788601821841429321e-29 +/- 1.53e-69]",
+        "lower": "[1.064356449135131110427991007692906573121 +/- 3.80e-40]",
+        "upper": "[1.064356449135131110427991007718150122088 +/- 4.52e-40]"
+      },
+      "classification": 3,
+      "counts": {
+        "native_inventory_calls": 1,
+        "native_coefficient_calls": 0,
+        "diagnostic_coefficient_calls": 6,
+        "diagnostic_missing_witness_coefficient_calls": 6
+      },
+      "native_error": "ArithmeticError: translation witness is missing or outside the specified group",
+      "diagnostic_B": {
+        "value": "[0.5293 +/- 5.64e-5]",
+        "radius": "1.927765310938411857932806015014648437500e-5",
+        "lower": "[0.5292436509472265025059841062950232075723 +/- 3.25e-42]",
+        "upper": "[0.5292822062534452707431427624153235005410 +/- 4.68e-41]"
+      },
+      "same_B": true,
+      "reason": "Arithmetic gate reached and rejects; numerical coefficient consumes stored norm, not the missing translation witness. No witness-to-norm recomputation path exists in coefficient()."
+    },
+    {
+      "d": 11,
+      "mutation": "trace_box",
+      "target_term": "omitted loxodromic/geodesic sum (not an Evaluation.terms entry)",
+      "baseline_term": {
+        "value": "0",
+        "radius": "0",
+        "lower": "0",
+        "upper": "0"
+      },
+      "baseline_term_status": "zero by proved support, not a stored computed sum",
+      "classification": 1,
+      "support_radius": {
+        "value": "[1.534394436502638736641301875351928174496 +/- 3.03e-40]",
+        "radius": "0",
+        "lower": "[1.534394436502638736641301875351928174496 +/- 3.03e-40]",
+        "upper": "[1.534394436502638736641301875351928174496 +/- 3.03e-40]"
+      },
+      "systole": {
+        "value": "[1.53439443650263888665805753704 +/- 6.68e-30]",
+        "radius": "[4.688885446628830132872257602735640986151e-30 +/- 2.97e-70]",
+        "lower": "[1.534394436502638886658057537033282359046 +/- 3.16e-40]",
+        "upper": "[1.534394436502638886658057537042748689908 +/- 3.37e-40]"
+      },
+      "shortest_removed_trace": [
+        -2,
+        1
+      ],
+      "shortest_removed_length": {
+        "value": "[1.73659607992264932343451988479 +/- 3.42e-30]",
+        "radius": "[2.260538552027650763707025617779691916090e-30 +/- 4.16e-70]",
+        "lower": "[1.736596079922649323434519884785687844017 +/- 5.38e-42]",
+        "upper": "[1.736596079922649323434519884791998731259 +/- 2.38e-40]"
+      },
+      "removed_length_provably_outside": true,
+      "inside_probe_target_trace": [
+        -3,
+        0
+      ],
+      "inside_probe_original_length": {
+        "value": "[1.92484730023841378999103565370 +/- 4.68e-30]",
+        "radius": "[1.713345599642721821451357758534664787781e-30 +/- 4.08e-70]",
+        "lower": "[1.924847300238413789991035653693885490918 +/- 6.64e-41]",
+        "upper": "[1.924847300238413789991035653700196378160 +/- 2.99e-40]"
+      },
+      "counts": {
+        "range_replacements": 12,
+        "systole_verifications": 3
+      },
+      "same_B": true
+    }
+  ],
+  "inside_support": [
+    {
+      "d": 11,
+      "truncated": false,
+      "prediction": "reject shorter trace",
+      "target_trace": [
+        -3,
+        0
+      ],
+      "synthetic_length": {
+        "value": "[0.7671972182513193683206509376759640872478 +/- 4.86e-41]",
+        "radius": "0",
+        "lower": "[0.7671972182513193683206509376759640872478 +/- 4.86e-41]",
+        "upper": "[0.7671972182513193683206509376759640872478 +/- 4.86e-41]"
+      },
+      "support_radius": {
+        "value": "[1.534394436502638736641301875351928174496 +/- 3.03e-40]",
+        "radius": "0",
+        "lower": "[1.534394436502638736641301875351928174496 +/- 3.03e-40]",
+        "upper": "[1.534394436502638736641301875351928174496 +/- 3.03e-40]"
+      },
+      "kernel_at_inside_length": {
+        "value": "[0.2172409684260218520610855237 +/- 4.48e-29]",
+        "radius": "[2.212696747154515957389084817033535080630e-29 +/- 2.58e-69]",
+        "lower": "[0.2172409684260218520610855236551352336988 +/- 2.52e-41]",
+        "upper": "[0.2172409684260218520610855236997058748438 +/- 1.24e-41]"
+      },
+      "counts": {
+        "shortened_length_calls": 1,
+        "range_replacements": 0
+      },
+      "error": "ArithmeticError: trace (-3,0) not proved longer than witness",
+      "native_export_accepted": false,
+      "B": null,
+      "same_B": null,
+      "caveat": "Synthetic inconsistent trace-length fixture; no actual group geodesic or orbital weight is claimed."
+    },
+    {
+      "d": 11,
+      "truncated": true,
+      "prediction": "not visited; numerical sum unavailable",
+      "target_trace": [
+        -3,
+        0
+      ],
+      "synthetic_length": {
+        "value": "[0.7671972182513193683206509376759640872478 +/- 4.86e-41]",
+        "radius": "0",
+        "lower": "[0.7671972182513193683206509376759640872478 +/- 4.86e-41]",
+        "upper": "[0.7671972182513193683206509376759640872478 +/- 4.86e-41]"
+      },
+      "support_radius": {
+        "value": "[1.534394436502638736641301875351928174496 +/- 3.03e-40]",
+        "radius": "0",
+        "lower": "[1.534394436502638736641301875351928174496 +/- 3.03e-40]",
+        "upper": "[1.534394436502638736641301875351928174496 +/- 3.03e-40]"
+      },
+      "kernel_at_inside_length": {
+        "value": "[0.2172409684260218520610855237 +/- 4.48e-29]",
+        "radius": "[2.212696747154515957389084817033535080630e-29 +/- 2.58e-69]",
+        "lower": "[0.2172409684260218520610855236551352336988 +/- 2.52e-41]",
+        "upper": "[0.2172409684260218520610855236997058748438 +/- 1.24e-41]"
+      },
+      "counts": {
+        "shortened_length_calls": 0,
+        "range_replacements": 12
+      },
+      "error": null,
+      "native_export_accepted": true,
+      "B": {
+        "value": "[0.5293 +/- 5.64e-5]",
+        "radius": "1.927765310938411857932806015014648437500e-5",
+        "lower": "[0.5292436509472265025059841062950232075723 +/- 3.25e-42]",
+        "upper": "[0.5292822062534452707431427624153235005410 +/- 4.68e-41]"
+      },
+      "same_B": true,
+      "caveat": "Synthetic inconsistent trace-length fixture; no actual group geodesic or orbital weight is claimed."
+    }
+  ],
+  "volume": [
+    {
+      "d": 11,
+      "D": -11,
+      "N": 99990,
+      "character_residues": {
+        "1": 1,
+        "2": -1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": -1,
+        "7": -1,
+        "8": -1,
+        "9": 1,
+        "10": -1
+      },
+      "prefix_bounds": [
+        0,
+        3
+      ],
+      "L2": {
+        "value": "[0.909539105 +/- 5.24e-10]",
+        "radius": "[1.500270044915014144848441901558544486761e-10 +/- 9.32e-51]",
+        "lower": "[0.9095391052238636978656939048283144084612 +/- 1.35e-41]",
+        "upper": "[0.9095391055239177068486967337980027887729 +/- 4.55e-42]"
+      },
+      "zetaK2": {
+        "value": "[1.496131860 +/- 6.87e-10]",
+        "radius": "[2.467845320458517122119701525662094354630e-10 +/- 4.84e-50]",
+        "lower": "[1.496131859313387065405769194689119731302 +/- 4.79e-40]",
+        "upper": "[1.496131859806956129497472619113060036435 +/- 1.03e-40]"
+      },
+      "independent_volume": {
+        "value": "[1.382608308 +/- 2.50e-10]",
+        "radius": "[2.280624890327320741789662861265242099762e-10 +/- 3.72e-51]",
+        "lower": "[1.382608307750600010882502388653847447131 +/- 1.71e-40]",
+        "upper": "[1.382608308206724988947966537011780019384 +/- 1.23e-40]"
+      },
+      "production_volume": {
+        "value": "[1.3826083079026458736716533445 +/- 4.58e-29]",
+        "radius": "[3.518206039392440147587199315212247886076e-29 +/- 2.11e-69]",
+        "lower": "[1.382608307902645873671653344453168033299 +/- 4.90e-40]",
+        "upper": "[1.382608307902645873671653344525743236579 +/- 1.57e-40]"
+      },
+      "difference": {
+        "value": "[+/- 3.05e-10]",
+        "radius": "[2.280624892495725086760671729280147701502e-10 +/- 1.54e-50]",
+        "lower": "[-3.040791154931536270194252712466911982338e-10 +/- 3.10e-50]",
+        "upper": "[1.520458630059913903327090746093383420666e-10 +/- 2.34e-52]"
+      },
+      "overlap": true,
+      "production_contained_in_independent": true,
+      "volume_plus1_percent_overlaps": false,
+      "volume_minus1_percent_overlaps": false
+    }
+  ]
+}
