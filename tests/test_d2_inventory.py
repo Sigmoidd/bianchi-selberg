@@ -49,7 +49,7 @@ class D2InventoryTests(unittest.TestCase):
         C = G.elliptic_classes[0]
         for change in [dict(finite_centralizer_order=2), dict(norm=(3, 2, 2)),
                        dict(primitive_translation=C.representative),
-                       dict(flip=None), dict(normalization_status="historical")]:
+                       dict(flip=None), dict(norm_denominator=2), dict(normalization_status="historical")]:
             variants.append(replace(G, elliptic_classes=(replace(C, **change),)+G.elliptic_classes[1:]))
         variants.append(replace(G, ce_integral=1))
         for variant in variants:
@@ -57,7 +57,7 @@ class D2InventoryTests(unittest.TestCase):
                 evaluate(variant, verbose=False)
 
     def test_status_string_cannot_certify_another_field(self):
-        forged = replace(get_group(7), inventory_status="self-contained")
+        forged = replace(get_group(11), inventory_status="self-contained")
         with self.assertRaisesRegex(ValueError, "no self-contained inventory verifier"):
             evaluate(forged, verbose=False)
 

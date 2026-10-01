@@ -13,7 +13,7 @@ class EllipticClass:
     label: str
     m: int
     finite_centralizer_order: int
-    # N(T0) = a + b sqrt(c), stored exactly.
+    # N(T0) = (a + b sqrt(c))/norm_denominator, stored exactly.
     norm: tuple[int, int, int] | None
     cuspidal: bool
     provenance: str
@@ -22,6 +22,7 @@ class EllipticClass:
     representative: Matrix | None = None
     primitive_translation: Matrix | None = None
     flip: Matrix | None = None
+    norm_denominator: int = 1
 
     def coefficient(self):
         if self.cuspidal:
@@ -29,7 +30,10 @@ class EllipticClass:
         if self.m not in (2, 3) or self.finite_centralizer_order < 1:
             raise ValueError("invalid order-2/order-3 elliptic data")
         a, b, c = self.norm
-        N = arb(a)+b*arb(c).sqrt()
+        if (not isinstance(self.norm_denominator, int) or isinstance(self.norm_denominator, bool)
+                or self.norm_denominator <= 0):
+            raise ValueError("primitive norm denominator must be a positive integer")
+        N = (arb(a)+b*arb(c).sqrt())/self.norm_denominator
         if not N > 1:
             raise ValueError("primitive loxodromic norm must exceed 1")
         sin2 = arb(1) if self.m == 2 else arb(3)/4

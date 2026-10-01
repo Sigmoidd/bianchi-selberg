@@ -2,7 +2,7 @@
 
 The shared engine now separates three contracts: exact group identity,
 complete arithmetic inventory, and verified analytic geometry/cusp/scattering
-terms. d=2 is the working example. d=7,11,19 use the same engine once their
+terms. d=2 and d=7 are working examples. d=11,19 use the same engine once their
 arithmetic proofs are supplied. A congruence group uses the same contracts
 with its own analytic backend; the level-one formulas cannot be silently
 reused for it.
@@ -92,7 +92,9 @@ The factory sets `inventory_status="self-contained"`, a versioned
 `inventory_proof_id`, and `normalization_status="proved"` on its classes
 only after the arithmetic proof closes. Each non-cuspidal class supplies
 its SL representative, primitive translation, optional endpoint flip,
-finite-centralizer size and exact norm triple a+b√c. A cuspidal class can
+finite-centralizer size and exact norm triple a+b√c, with optional positive
+integer `norm_denominator` (default 1). The primitive norm is then
+(a+b√c)/norm_denominator. A cuspidal class can
 omit the loxodromic translation/norm; its centralizer and orbital term
 must be covered by the cusp backend.
 
@@ -109,7 +111,8 @@ Once a field module has these proved functions, register it:
 
 ```python
 from groups import GroupKey, InventoryBackend, default_registry
-from groups.d7_inventory import make_group, verify_group_records  # future proved module
+from groups.builtins import d7_group as make_group
+from groups.d7_inventory import verify_group_records  # implemented arithmetic replay
 
 key = GroupKey(7)
 backend = InventoryBackend(
@@ -124,7 +127,8 @@ def factory():
 default_registry().register(key, factory, backend, replace=True)
 ```
 
-`replace=True` explicitly replaces the current mechanical-only scaffold.
+`replace=True` explicitly replaces an existing registration (d=7 is already
+registered by the builtins; d=11,19 still have mechanical-only scaffolds).
 Ordinary duplicate registration is rejected. Replacing a factory clears
 its old proof binding. Keep this initialization in an adapter module or
 add it to `register_builtins` once the proof is part of the repo; it needs
@@ -206,3 +210,7 @@ parameters. Historical v1 artifacts remain frozen. The new d=2 v2 artifact
 has exactly the v1 arithmetic manifest, δ, integration cutoff and endpoint
 balls. The tests exercise real d=2 dispatch plus **synthetic, explicitly
 noncertifying** congruence fixtures, level membership and backend isolation.
+
+The implemented d=7 adapter is in `groups/builtins.py` and its proof replay
+is `groups/d7_inventory.py`. Exact finite quotient and adjacency interfaces
+are documented separately in [FINITE_QUOTIENTS.md](FINITE_QUOTIENTS.md).

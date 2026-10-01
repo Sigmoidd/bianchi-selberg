@@ -104,7 +104,7 @@ class TraceCoreTests(unittest.TestCase):
                 certificate_payload(E)
 
     def test_new_fields_block_full_assembly(self):
-        for d in [7, 11, 19]:
+        for d in [11, 19]:
             with self.assertRaisesRegex(ValueError, "inventory is incomplete"):
                 evaluate(d, verbose=False)
 

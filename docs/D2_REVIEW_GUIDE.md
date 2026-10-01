@@ -79,5 +79,5 @@ arithmetic manifest and both endpoint balls are identical.
 
 The original Picard and Eisenstein inputs retain legacy status. The
 Eisenstein normalization is still frozen at the user's request. Neither
-this proof nor the new interface asserts inventories for d=7,11,19 or a
+this proof nor the new interface asserts inventories for d=11,19 or a
 new congruence-level trace formula.

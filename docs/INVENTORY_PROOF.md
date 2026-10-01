@@ -26,7 +26,10 @@ lattice types and one trace-one GL type which splits into two SL types.
 The exact replay includes complete unit groups, primitive translations,
 full PSL finite centralizers, and the four element-class records.
 
-## Proof obligations (closed for d=2; next, d=7)
+The complete d=7 proof is in [D7_INVENTORY_PROOF.md](D7_INVENTORY_PROOF.md):
+two maximal orders, class number one, complete units and two PSL element classes.
+
+## Proof obligations (closed for d=2 and d=7; next, d=11)
 
 1. **All integral embeddings.** For each of the two characteristic
    polynomials, describe the associated quadratic extension L/K and every
@@ -66,8 +69,8 @@ and precise links to the completeness derivation. A final theorem ties
 those records to the trace-formula sum. Only then mark the inventory
 `self-contained` and each normalization `proved`.
 
-The code admits d=2 only after replaying its complete records, and rejects
-full d=7,11,19 assembly until their proofs are supplied. An empty
+The code admits d=2 and d=7 only after replaying their complete records,
+and rejects full d=11,19 assembly until their proofs are supplied. An empty
 inventory does not mean an elliptic-free group. The legacy search remains
 available for exploratory witnesses and is now labeled as bounded evidence.
 Neither stable component counts nor agreement with a Weyl coefficient

@@ -1,11 +1,11 @@
 # bianchi-selberg — certified trace-formula engine for Bianchi groups
 
-This repository proves, at level 1, that the d=2, Picard and Eisenstein–Picard
+This repository proves, at level 1, that the d=2, d=7, Picard and Eisenstein–Picard
 orbifolds have no exceptional Laplace eigenvalues.  The long calculations and
 literature notes below support this theorem; they are not the proof's primary
 organization.
 
-## Field extension and current proof ledger (2026-09-30)
+## Field extension and current proof ledger (2026-10-01)
 
 The M0 refactor introduces explicit `GroupData` and per-class elliptic inputs,
 shared analytic code, an exact `g''(0)` for every integer k >= 2, closed-form
@@ -36,8 +36,19 @@ levels have separate cusp/scattering backends. The current
 [schema-v2 d=2 certificate](certificates/d2-k2-v2.json) preserves the
 original numerical enclosure and adds group/backend metadata.
 
-The candidate fields d=7,11,19 still have only Arb mechanical screens:
-their complete self-contained inventories remain open.
+The d=7 extension also has a [self-contained inventory proof](docs/D7_INVENTORY_PROOF.md)
+and [frozen certificate](certificates/d7-k2.json): **B in
+[0.36394687, 0.36400056] < 1** for PSL₂(O₋₇). The selected sinc⁴ test
+minimizes the certified upper bound among the 55 evaluations in the
+[parameter comparison](certificates/d7-search.json); global optimality is
+not proved. Replay with `python examples/d7_certificate.py --output /tmp/d7.json`.
+The [review guide](docs/D7_REVIEW_GUIDE.md) maps the completeness arguments
+to exact checks. Candidate fields d=11,19 still have only mechanical screens.
+
+The independent [finite-quotient layer](docs/FINITE_QUOTIENTS.md) supplies
+exact residue arithmetic, complete generated images and regular adjacency
+operators without importing Arb. It provides the interface for future finite
+graph eigenvalue/Cheeger certificates; no expansion constant is claimed yet.
 [RIGOR_GAPS.md](RIGOR_GAPS.md) is the current proof ledger;
 `old_RIGOR_GAPS.md` is the unchanged historical record. Stable source
 citations and local derivations are in [docs/REFERENCES.md](docs/REFERENCES.md).
@@ -45,6 +56,7 @@ citations and local derivations are in [docs/REFERENCES.md](docs/REFERENCES.md).
 ## Main theorem
 
 Let \(\Gamma\) be \(\operatorname{PSL}_2(\mathbb Z[\sqrt{-2}])\),
+\(\operatorname{PSL}_2(\mathcal O_{-7})\),
 \(\operatorname{PSL}_2(\mathbb Z[i])\) or
 \(\operatorname{PSL}_2(\mathbb Z[\omega])\). For the admissible test
 function \(h(r)=\operatorname{sinc}^4(\delta r)\), the certified trace-formula
@@ -58,8 +70,8 @@ Grunewald, and Mennicke, *Groups Acting on Hyperbolic Space* (1998), Ch. 4,
 §4.3.  All field-specific reductions and numerical inequalities are recorded
 and checked in this repository.
 
-For d=2 the arithmetic classification and orbital normalization are proved
-locally in `docs/D2_INVENTORY_PROOF.md`, using the lattice correspondence,
+For d=2 and d=7 the arithmetic classification and orbital normalization are proved
+locally in `docs/D2_INVENTORY_PROOF.md` and `docs/D7_INVENTORY_PROOF.md`, using the lattice correspondence,
 Minkowski bounds, and exhaustive unit reduction with proved finite bounds.
 The historical two fields retain their earlier classification inputs.
 

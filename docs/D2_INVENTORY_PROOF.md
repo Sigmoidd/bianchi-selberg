@@ -325,8 +325,8 @@ inventory backend and invokes its verifier for the complete d=2
 records before full assembly. Export invokes it again and checks the
 systole/support and B<1. It compares every class, matrix, norm, finite
 centralizer size, and multiplicity against the arithmetic witnesses;
-merely changing a status string cannot admit another field. Fields d=7,
-11,19 still have incomplete inventories and remain blocked.
+merely changing a status string cannot admit another field. Fields d=11,19 still have incomplete inventories and remain blocked;
+d=7 now has its independent registered proof in `D7_INVENTORY_PROOF.md`.
 
 At k=2, R=40 and the support fraction 0.999, the actual certified enclosure
 has endpoints 0.42455184073929556… and 0.42957478093609095… . The displayed

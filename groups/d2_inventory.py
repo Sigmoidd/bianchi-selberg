@@ -239,6 +239,7 @@ def verify_group_records(group):
     proof = verify_inventory()
     require(len(group.elliptic_classes) == len(proof["classes"]), "inventory record count")
     for actual, expected in zip(group.elliptic_classes, proof["classes"]):
+        require(actual.norm_denominator == 1, "d2 primitive norm denominator")
         for name in ("label", "m", "finite_centralizer_order", "norm", "representative",
                      "primitive_translation", "flip"):
             require(getattr(actual, name) == expected[name], f"inventory record differs: {name}")
