@@ -3,12 +3,14 @@
 No bounded matrix-conjugator search, numerical root classification, or
 external class-count table is used. Finite unit boxes have proved bounds.
 """
-from dataclasses import dataclass
 from itertools import product
 from math import gcd
 
 from flint import arb, fmpz_mat
 from groups.arithmetic import QuadraticRing
+from groups.exact import Radical
+from groups.matrix import MatrixOps
+from groups.relative_orders import QuadraticOrder, BASIS, IDENTITY, ROOT, power
 
 RING = QuadraticRing(2)
 ZERO = (0, 0)
@@ -17,66 +19,13 @@ S = (0, 1)
 I2 = (ONE, ZERO, ZERO, ONE)
 
 
-@dataclass(frozen=True)
-class Radical:
-    a: int
-    b: int
-    d: int
-
-    def sign(self):
-        if self.d not in (2, 6):
-            raise ValueError("only the two nonsquare proof radicands are supported")
-        a, b, d = self.a, self.b, self.d
-        if b == 0:
-            return (a > 0)-(a < 0)
-        if a >= 0 and b > 0:
-            return 1
-        if a <= 0 and b < 0:
-            return -1
-        comparison = a*a-d*b*b
-        if comparison == 0:
-            raise ArithmeticError("a nontrivial rational square equals a nonsquare")
-        return ((comparison > 0)-(comparison < 0))*(1 if a > 0 else -1)
-
-    def compare(self, other):
-        if isinstance(other, int):
-            other = Radical(other, 0, self.d)
-        if self.d != other.d:
-            raise ValueError("radicands differ")
-        return Radical(self.a-other.a, self.b-other.b, self.d).sign()
-
-    def arb(self):
-        return arb(self.a)+self.b*arb(self.d).sqrt()
-
-
-class RelativeOrder:
-    """Basis 1,s,x,s*x; s^2=-2, x^2=t*x-n."""
+class RelativeOrder(QuadraticOrder):
+    """d=2 orders with their explicit archimedean modulus formulas."""
     PARAMETERS = {"A2": (ZERO, ONE), "S2": (S, (-1, 0)), "A3": (ONE, ONE)}
 
     def __init__(self, name):
         self.name = name
-        self.t, self.n = self.PARAMETERS[name]
-
-    @staticmethod
-    def pair(z):
-        return z[:2], z[2:]
-
-    def mul(self, z, w):
-        u, v = self.pair(z)
-        U, V = self.pair(w)
-        constant = RING.sub(RING.mul(u, U), RING.mul(self.n, RING.mul(v, V)))
-        linear = RING.add(RING.add(RING.mul(u, V), RING.mul(v, U)),
-                          RING.mul(self.t, RING.mul(v, V)))
-        return constant+linear
-
-    def norm(self, z):
-        u, v = self.pair(z)
-        return RING.add(RING.add(RING.mul(u, u), RING.mul(self.t, RING.mul(u, v))),
-                        RING.mul(self.n, RING.mul(v, v)))
-
-    def sigma(self, z):
-        u, v = self.pair(z)
-        return RING.add(u, RING.mul(self.t, v))+RING.neg(v)
+        super().__init__(RING, *self.PARAMETERS[name])
 
     def abs_square(self, z):
         a, b, c, d = z
@@ -87,53 +36,8 @@ class RelativeOrder:
             return Radical(base+2*(b*c-a*d), a*c+2*b*d, 2)
         return Radical(base+a*c+2*b*d, b*c-a*d, 6)
 
-    def matrix(self, z):
-        u, v = self.pair(z)
-        return u, RING.neg(RING.mul(self.n, v)), v, RING.add(u, RING.mul(self.t, v))
-
-    def multiplication_matrix(self, z):
-        columns = [self.mul(z, e) for e in BASIS]
-        return fmpz_mat([[columns[j][i] for j in range(4)] for i in range(4)])
-
-    def absolute_norm(self, z):
-        return int(self.multiplication_matrix(z).det())
-
-    def discriminant(self):
-        return int(fmpz_mat([[sum(self.multiplication_matrix(self.mul(e, f))[i, i]
-                                  for i in range(4)) for f in BASIS] for e in BASIS]).det())
-
-
-BASIS = tuple(tuple(int(i == j) for i in range(4)) for j in range(4))
-IDENTITY = BASIS[0]
-ROOT = BASIS[2]
-
-
-def power(order, z, exponent):
-    result = IDENTITY
-    for _ in range(exponent):
-        result = order.mul(result, z)
-    return result
-
-
-def mat_mul(A, B):
-    a, b, c, d = A
-    e, f, g, h = B
-    return (RING.add(RING.mul(a, e), RING.mul(b, g)),
-            RING.add(RING.mul(a, f), RING.mul(b, h)),
-            RING.add(RING.mul(c, e), RING.mul(d, g)),
-            RING.add(RING.mul(c, f), RING.mul(d, h)))
-
-
-def mat_neg(A):
-    return tuple(RING.neg(x) for x in A)
-
-
-def mat_det(A):
-    return RING.sub(RING.mul(A[0], A[3]), RING.mul(A[1], A[2]))
-
-
-def mat_canon(A):
-    return min(A, mat_neg(A))
+OPS = MatrixOps(RING)
+mat_mul, mat_neg, mat_det, mat_canon = OPS.mul, OPS.neg, OPS.det, OPS.canon
 
 
 def require(condition, message):
@@ -328,7 +232,8 @@ def verify_inventory():
 
 
 def verify_group_records(group):
-    require(group.field.d == 2 and group.inventory_status == "self-contained", "d2 proof binding")
+    from groups.identity import GroupKey
+    require(group.key == GroupKey(2) and group.inventory_status == "self-contained", "d2 proof binding")
     require(group.cusp_count == group.GG == 1 and group.ce_g0[0] == 0
             and group.ce_integral == 0 and group.ce_kernel == 1, "d2 cusp inputs")
     proof = verify_inventory()

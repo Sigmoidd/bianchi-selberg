@@ -10,6 +10,7 @@ Legacy regression reports and mechanical screens have
 | `m0-regression.json` | Current two-field assembly; exact systoles, Arb sinc, and unchanged historical elliptic normalization |
 | `mechanical-k2.json` | Arb mechanical bounds for d=2,7,11,19,43,67,163; elliptic terms deliberately omitted |
 | `d2-k2.json` | Full d=2 certificate, complete exact inventory and centralizers, with B in [0.42455184, 0.42957479] |
+| `d2-k2-v2.json` | Same d=2 numerical result and arithmetic manifest, with canonical group identity, volume and backend metadata |
 
 All endpoint strings retain Arb radii. Hexadecimal delta strings preserve
 the exact binary floating point test-function input.
@@ -26,9 +27,9 @@ that the full centralizer issue is settled is attached to these reports.
 Regenerate the current reports:
 
 ```sh
-python examples/trace_report.py i omega --output certificates/m0-regression.json
-python examples/trace_report.py 2 7 11 19 43 67 163 --mechanical --output certificates/mechanical-k2.json
-python examples/d2_certificate.py --output certificates/d2-k2.json
+python examples/trace_report.py i omega --output /tmp/current-regression.json
+python examples/trace_report.py 2 7 11 19 43 67 163 --mechanical --output /tmp/current-screens.json
+python examples/group_certificate.py 2 --output certificates/d2-k2-v2.json
 ```
 
 Reproducing `legacy-pre-m0.json` uses the original module at its recorded

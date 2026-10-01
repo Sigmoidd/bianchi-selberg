@@ -1,0 +1,420 @@
+{
+  "schema_version": 2,
+  "report_kind": "spectral-certificate",
+  "spectral_certificate": true,
+  "group": "PSL2(Z[sqrt(-2)])",
+  "group_identity": {
+    "d": 2,
+    "subgroup": "full",
+    "level": {
+      "hnf": [
+        1,
+        0,
+        1
+      ],
+      "norm": 1,
+      "basis": "standard-integral"
+    }
+  },
+  "inventory_backend": "d2-arithmetic-v1",
+  "analytic_backend": "level-one-v1",
+  "d": 2,
+  "D": -8,
+  "parameters": {
+    "k": 2,
+    "delta_hex": "0x1.50cdd836674d7p-2",
+    "R": 40,
+    "precision_bits": 100
+  },
+  "arithmetic": {
+    "python": "3.12.14",
+    "python_flint": "0.9.0"
+  },
+  "inventory_status": "self-contained",
+  "inventory_provenance": "docs/D2_INVENTORY_PROOF.md; groups/d2_inventory.py (d2-arithmetic-v1)",
+  "normalization_status": [
+    "proved",
+    "proved",
+    "proved",
+    "proved"
+  ],
+  "systole_trace": [
+    0,
+    1
+  ],
+  "systole_ball": "[1.31695789692481670862504634731 +/- 7.17e-30]",
+  "volume_ball": "[1.0038410033411981372723648858 +/- 4.78e-29]",
+  "bound_ball": "[0.43 +/- 5.45e-3]",
+  "lower_endpoint_ball": "[0.4245518407392955617061859991770204379294 +/- 4.93e-41]",
+  "upper_endpoint_ball": "[0.4295747809360909507623917486887391879294 +/- 4.93e-41]",
+  "terms": {
+    "I": "[1.1225169518384461447277387177 +/- 3.09e-29]",
+    "NCE": "[0.8512397064358460227347480057 +/- 5.95e-29]",
+    "CE": "0",
+    "Ch0": "0.5000000000000000000000000000000000000000",
+    "PARg0": "[-0.302983918567033719115065277 +/- 7.51e-28]",
+    "PSI": "[-0.53 +/- 1.39e-3]",
+    "PHIINT": "[-0.14 +/- 1.93e-3]",
+    "prime": "[0.081071834780764346985974157 +/- 2.71e-28]",
+    "hi": "[1.0745081188015224150694148924 +/- 5.43e-29]"
+  },
+  "notes": [
+    "Ball strings retain their radii; decimal endpoints are not exact scalars.",
+    "Completeness is proved in the derivation note; finite arithmetic witnesses replay exactly.",
+    "This is a mathematical proof with executable checks, not a proof-assistant formalization.",
+    "The two inverse order-3 element classes are counted separately."
+  ],
+  "inventory_proof": {
+    "proof_id": "d2-arithmetic-v1",
+    "number_theory": {
+      "discriminants": {
+        "A2": 1024,
+        "S2": 256,
+        "A3": 576
+      },
+      "maximal_class_numbers": {
+        "S2": 1,
+        "A3": 1
+      },
+      "principal_prime_norms": {
+        "S2": [
+          2
+        ],
+        "A3": [
+          3,
+          3
+        ]
+      }
+    },
+    "lattices": {
+      "trace_zero_GL_types": [
+        "A2",
+        "S2"
+      ],
+      "trace_one_GL_types": [
+        "A3"
+      ],
+      "conductor_quotient_size": 4,
+      "normalized_subspaces": 3
+    },
+    "units": [
+      {
+        "order": "A2",
+        "reduced_unit_count": 4,
+        "norm_equation_candidates": 4,
+        "coefficient_norm_bound": 2,
+        "generator": [
+          1,
+          0,
+          0,
+          -1
+        ],
+        "generator_relative_norm": [
+          -1,
+          0
+        ],
+        "generator_abs_square": [
+          3,
+          2,
+          2
+        ],
+        "torsion_order": 4,
+        "determinant_image": [
+          -1,
+          1
+        ]
+      },
+      {
+        "order": "S2",
+        "reduced_unit_count": 8,
+        "norm_equation_candidates": 16,
+        "coefficient_norm_bound": 4,
+        "generator": [
+          1,
+          -1,
+          2,
+          0
+        ],
+        "generator_relative_norm": [
+          -1,
+          0
+        ],
+        "generator_abs_square": [
+          3,
+          2,
+          2
+        ],
+        "torsion_order": 8,
+        "determinant_image": [
+          -1,
+          1
+        ]
+      },
+      {
+        "order": "A3",
+        "reduced_unit_count": 6,
+        "norm_equation_candidates": 10,
+        "coefficient_norm_bound": 4,
+        "generator": [
+          -1,
+          1,
+          2,
+          0
+        ],
+        "generator_relative_norm": [
+          1,
+          0
+        ],
+        "generator_abs_square": [
+          5,
+          2,
+          6
+        ],
+        "torsion_order": 6,
+        "determinant_image": [
+          1
+        ]
+      }
+    ],
+    "class_count": 4,
+    "classes": [
+      {
+        "label": "d2 order 2: multiplier A2",
+        "m": 2,
+        "finite_centralizer_order": 4,
+        "norm": [
+          17,
+          12,
+          2
+        ],
+        "representative": [
+          [
+            0,
+            0
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "primitive_translation": [
+          [
+            3,
+            0
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            -2
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "flip": [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            -1,
+            0
+          ]
+        ]
+      },
+      {
+        "label": "d2 order 2: multiplier S2",
+        "m": 2,
+        "finite_centralizer_order": 4,
+        "norm": [
+          3,
+          2,
+          2
+        ],
+        "representative": [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            -1,
+            0
+          ]
+        ],
+        "primitive_translation": [
+          [
+            2,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "flip": [
+          [
+            0,
+            0
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "label": "d2 order 3: alpha",
+        "m": 3,
+        "finite_centralizer_order": 3,
+        "norm": [
+          5,
+          2,
+          6
+        ],
+        "representative": [
+          [
+            0,
+            0
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "primitive_translation": [
+          [
+            -1,
+            1
+          ],
+          [
+            -2,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "flip": null
+      },
+      {
+        "label": "d2 order 3: alpha inverse",
+        "m": 3,
+        "finite_centralizer_order": 3,
+        "norm": [
+          5,
+          2,
+          6
+        ],
+        "representative": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "primitive_translation": [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            -2,
+            0
+          ],
+          [
+            -1,
+            1
+          ]
+        ],
+        "flip": null
+      }
+    ],
+    "orbital_normalization": "full-PSL-centralizer"
+  },
+  "inventory_derivations": [
+    "docs/D2_INVENTORY_PROOF.md"
+  ],
+  "support_ball": "[1.315640939027891809232073683233465999365 +/- 1.48e-40]",
+  "elliptic_coefficient_ball": "[0.83994435503481256508462567717 +/- 6.77e-30]",
+  "conclusion": "No discrete Laplace eigenvalue in (0,1) for PSL2(Z[sqrt(-2)]).",
+  "proof_dependencies": [
+    "Friedman, arXiv:math/0612807v1, Theorem 4.1.1 (standard trace formula)",
+    "docs/D2_INVENTORY_PROOF.md",
+    "Minkowski ideal-class bound and elementary local valuation theory",
+    "docs/SYSTOLES.md",
+    "docs/ANALYTIC_DERIVATIONS.md",
+    "Arb interval arithmetic and certified quadrature via python-flint"
+  ]
+}

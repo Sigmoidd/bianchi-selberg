@@ -16,7 +16,7 @@ class QuadraticField:
     d: int
 
     def __post_init__(self):
-        if self.d not in DISCRIMINANTS:
+        if not isinstance(self.d, int) or isinstance(self.d, bool) or self.d not in DISCRIMINANTS:
             raise ValueError(f"unsupported field d={self.d}")
 
     @property

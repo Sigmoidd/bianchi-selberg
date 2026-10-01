@@ -3,7 +3,9 @@ from fractions import Fraction
 
 from flint import arb
 
-from fields.quadratic import QuadraticField, get_field
+from fields.quadratic import QuadraticField
+from groups.identity import GroupKey
+from groups.matrix import Matrix
 
 
 @dataclass(frozen=True)
@@ -12,14 +14,14 @@ class EllipticClass:
     m: int
     finite_centralizer_order: int
     # N(T0) = a + b sqrt(c), stored exactly.
-    norm: tuple[int, int, int]
+    norm: tuple[int, int, int] | None
     cuspidal: bool
     provenance: str
     normalization_status: str = "historical"
     # Row-major 2x2 matrices; entries are integral-basis coordinate pairs.
-    representative: tuple | None = None
-    primitive_translation: tuple | None = None
-    flip: tuple | None = None
+    representative: Matrix | None = None
+    primitive_translation: Matrix | None = None
+    flip: Matrix | None = None
 
     def coefficient(self):
         if self.cuspidal:
@@ -39,7 +41,7 @@ class GroupData:
     field: QuadraticField
     name: str
     # Coordinates of tau in the integral basis documented in SYSTOLES.md.
-    systole_trace: tuple[int, int]
+    systole_trace: tuple[int, int] | None
     elliptic_classes: tuple[EllipticClass, ...]
     inventory_status: str
     inventory_provenance: str
@@ -48,11 +50,28 @@ class GroupData:
     ce_integral: Fraction = Fraction(0)
     ce_kernel: Fraction = Fraction(1)
 
+    key: GroupKey | None = None
+    inventory_proof_id: str | None = None
+    trace_backend_id: str = "level-one-v1"
+
+    def __post_init__(self):
+        if self.key is None:
+            object.__setattr__(self, "key", GroupKey(self.field.d))
+        if self.key.field_d != self.field.d:
+            raise ValueError("group key and field disagree")
+
+    def require_level_one(self):
+        if not self.key.is_full:
+            raise ValueError("level-one formulas require the full group; register a congruence analytic backend")
+
     @property
     def GG(self):
+        self.require_level_one()
         return self.field.units//2
 
     def systole(self):
+        if self.systole_trace is None:
+            raise ValueError("no trace witness supplied; obtain the systole from the analytic backend")
         a, b = self.systole_trace
         d = self.field.d
         x = Fraction(a) if self.field.D % 4 == 0 else Fraction(2*a+b, 2)
@@ -62,21 +81,20 @@ class GroupData:
         v = (_arb_fraction(A)+_arb_fraction(rad).sqrt())/4
         return (v+(v*v-1).sqrt()).log()
 
-    def require_inventory(self):
+    def require_inventory(self, registry=None):
         if self.inventory_status not in ("legacy", "self-contained"):
             raise ValueError(f"{self.name}: self-contained elliptic inventory is incomplete; "
                              "only a mechanical screen is available")
         if self.inventory_status == "self-contained":
-            self.verify_inventory()
+            self.verify_inventory(registry=registry)
 
-    def verify_inventory(self):
-        if self.field.d == 2 and self.inventory_status == "self-contained":
-            from groups.d2_inventory import verify_group_records
-            return verify_group_records(self)
-        raise ValueError("no self-contained inventory verifier is registered for this group")
+    def verify_inventory(self, registry=None):
+        from groups.registry import default_registry
+        return (registry or default_registry()).verify(self)
 
     def analytic_data(self, require_inventory=True):
         from fields.quadratic import volume, eta
+        self.require_level_one()
         if require_inventory:
             self.require_inventory()
         a, b, c = self.ce_g0
@@ -109,25 +127,7 @@ EISENSTEIN = GroupData(
     ce_g0=(2, 9, 3), ce_integral=Fraction(1, 3), ce_kernel=Fraction(1, 2))
 
 
-def _d2_group():
-    from groups.d2_inventory import expected_classes
-    provenance = "docs/D2_INVENTORY_PROOF.md; groups/d2_inventory.py (d2-arithmetic-v1)"
-    classes = tuple(EllipticClass(**C, cuspidal=False, provenance=provenance,
-                                  normalization_status="proved") for C in expected_classes())
-    return GroupData(QuadraticField(2), "PSL2(Z[sqrt(-2)])", (0, 1), classes,
-                     "self-contained", provenance)
-
-
-def get_group(kind):
-    if isinstance(kind, GroupData):
-        return kind
-    F = get_field(kind)
-    if F.d == 1:
-        return PICARD
-    if F.d == 3:
-        return EISENSTEIN
-    if F.d == 2:
-        return _d2_group()
-    witness = (0, 1) if F.d == 2 else ((0, 1) if F.d <= 19 else (3, 0))
-    return GroupData(F, f"PSL2(O_-{F.d})", witness, (), "incomplete",
-                     "docs/INVENTORY_PROOF.md (open completeness obligations)")
+def get_group(kind, registry=None):
+    """Resolve a field alias or exact group key through a registered factory."""
+    from groups.registry import default_registry
+    return (registry or default_registry()).get(kind)

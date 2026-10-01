@@ -23,3 +23,7 @@ contour reduction, prime-power normalization and tail bounds.
 the involution orbital derivation. `INVENTORY_PROOF.md` records the same
 obligations still required for d=7,11,19. No external class-count table is
 used by the d=2 proof.
+
+`D2_REVIEW_GUIDE.md` separates the general mathematical inputs, local
+completeness arguments, finite replay checks and analytic enclosure.
+`ADDING_GROUPS.md` gives the uniform implementation contracts.

@@ -15,7 +15,22 @@ Theorem 4.1.1, printed pp.41–42. Minkowski's ideal-class bound and elementary
 local valuation theory are the general number-theory inputs. Everything
 specific to these orders is established here.
 
-## The inventory and coefficient
+For a first review, use [D2_REVIEW_GUIDE.md](D2_REVIEW_GUIDE.md), which maps
+each lemma to its executable checks and distinguishes finite identities
+from the completeness argument. The two conclusions of this note are:
+
+1. **D2-inventory:** exactly the four elliptic element classes below, with
+   the displayed primitive norms and full centralizer normalization.
+2. **D2-gap:** for the full level-one group, the admissible sinc⁴ test has
+   B in [0.42455184, 0.42957479], so there is no discrete eigenvalue in (0,1).
+
+The proof runs in this order: base-ring reduction (L1), all trace-zero and
+trace-one lattices (L2–L3), complete units (L4), determinant and PSL class
+splitting (L5), primitive/full centralizers (L6), orbital factor (L7), then
+the independent analytic enclosure. The inventory theorem follows from
+L1–L7; the gap theorem additionally uses the trace formula and Arb bound.
+
+## Theorem D2-inventory: classes and coefficient
 
 There are four Γ-conjugacy classes of elliptic **elements**:
 
@@ -39,10 +54,10 @@ The non-cuspidal coefficient is
 \]
 
 The denominator 16 for each involution uses the full PSL centralizer.
-Section "Orbital normalization" derives this factor directly. Existing
+D2-L7 derives this factor directly. Existing
 Eisenstein input records remain frozen; this proof does not re-certify them.
 
-## Reduction to quadratic lattices
+## D2-L1: base ring and lattice correspondence
 
 O is norm-Euclidean: rounding the real coefficient and s-coefficient of
 any element of K gives error norm at most 1/4+2/4=3/4<1. Therefore O is a PID
@@ -71,7 +86,7 @@ that factor. The integral commuting ring is
 and the determinant of its multiplication action is N_{L/K}(x). This
 correspondence includes lattices that are not invertible over A.
 
-## Trace zero: two lattice types, including the nonmaximal order
+## D2-L2: trace-zero orders and all lattice types
 
 Put z=ζ₈=(1+i)/√2. Then s=z+z³, z²=s z+1, and i=1+s z. Define
 
@@ -126,7 +141,7 @@ involutions. They also cannot merge after negating a lift: modulo the ideal
 (s), R_A is non-scalar whereas R_S is scalar. Both properties are invariant
 under conjugation, and the residue characteristic is two.
 
-## Trace one: one GL₂ lattice type
+## D2-L3: trace-one order and all lattice types
 
 Put α=ζ₆=(1+√−3)/2 and A₃=O[α], with polynomial α²−α+1=0.
 The basis (1,s,α,sα) has discriminant 576. This order is maximal:
@@ -145,7 +160,7 @@ primes. Therefore A₃ has class number one. Every A₃-stable lattice is
 an ideal of this maximal order, so up to rescaling there is exactly one
 GL₂ lattice type. Multiplication by α gives R_α.
 
-## Complete unit groups from finite, proved bounds
+## D2-L4: complete unit groups from proved finite bounds
 
 The following computation proves the unit groups needed for both the
 SL₂ class splitting and the primitive translation lengths. It is not a
@@ -199,7 +214,7 @@ listed torsion group and ε^Z. In particular the relative determinant
 images are {±1}, {±1}, and {1}, respectively. No norm-minus-one unit
 exists in A₃.
 
-## GL₂ to SL₂ to PSL₂: four element classes
+## D2-L5: determinant splitting and PSL element classes
 
 The determinant map GL₂(O)→O×={±1} is onto. Within a GL₂ conjugacy
 orbit, SL₂ orbits are the determinant cosets modulo the determinant
@@ -221,7 +236,7 @@ fixing a cusp in P¹(K) would give a K eigenline and thus a K eigenvalue.
 Alternatively the single cusp stabilizer has trivial rotation quotient.
 This closes completeness for all elliptic elements of Γ.
 
-## Primitive translations and maximal finite centralizers
+## D2-L6: primitive translations and full centralizers
 
 SL centralizer elements are exactly norm-one units in the corresponding
 multiplier order. The unit description proves the following translation
@@ -264,7 +279,7 @@ trace zero and square −I. It has zero translation and is finite; it
 cannot give a smaller loxodromic norm than the orientation-preserving
 unit calculation.
 
-## Orbital normalization from the cylinder integral
+## D2-L7: orbital normalization from the cylinder integral
 
 Let C⁺ be the subgroup preserving both endpoints, q its rotation-kernel
 size, and e=[C:C⁺] (one without flips and two with flips). Let
@@ -303,14 +318,22 @@ involution q=2,e=2, not just q=2. For order three q=3,e=1 and
 sin²ϕ=3/4 for both inverse element classes. This proves the normalization
 used in the inventory table.
 
-## Certificate and replay boundary
+## Theorem D2-gap: certificate and replay
 
-`GroupData.require_inventory()` invokes the verifier for the complete d=2
+`GroupData.require_inventory()` resolves the registered, exact-group-bound
+inventory backend and invokes its verifier for the complete d=2
 records before full assembly. Export invokes it again and checks the
 systole/support and B<1. It compares every class, matrix, norm, finite
 centralizer size, and multiplicity against the arithmetic witnesses;
 merely changing a status string cannot admit another field. Fields d=7,
 11,19 still have incomplete inventories and remain blocked.
+
+At k=2, R=40 and the support fraction 0.999, the actual certified enclosure
+has endpoints 0.42455184073929556… and 0.42957478093609095… . The displayed
+8-decimal interval is rounded outward. See the original frozen
+[`d2-k2.json`](../certificates/d2-k2.json) and the current schema-v2
+[`d2-k2-v2.json`](../certificates/d2-k2-v2.json); their numerical endpoints
+are identical. The latter also records the exact group and backend ids.
 
 The certificate combines this proof with the systole proof, analytic
 reductions and rigorous two-sided quadrature tails documented in

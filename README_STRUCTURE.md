@@ -130,12 +130,19 @@ and [docs/SYSTOLES.md](docs/SYSTOLES.md). Private OCR files are not required.
 | Path | Role |
 |---|---|
 | `groups/` | Explicit group/class data, exact ring arithmetic, systole and class-number checks |
+| `groups/identity.py`, `registry.py` | Exact field/subgroup/level keys, ideal membership, group-bound proof backends |
+| `groups/relative_orders.py`, `matrix.py`, `exact.py` | Shared order, matrix and radical arithmetic for subsequent field proofs |
 | `fields/` | Characters, field constants, and prime splitting |
 | `core/` | Exact B-spline derivative, Arb quadrature, assembly, and proof gates |
+| `core/backends/` | Uniform analytic backend contract; existing one-cusp full-group formulas |
+| `docs/D2_REVIEW_GUIDE.md` | d=2 theorem, assumptions, lemma-to-check map and replay instructions |
+| `docs/ADDING_GROUPS.md` | How to add a field or congruence group without changing core assembly |
 | `scripts/feasibility/` | The four portable attached screening/evidence scripts |
 | `examples/field_screen.py` | Arb mechanical screen; no spectral conclusion |
-| `certificates/` | Frozen historical and current regression reports |
+| `examples/group_certificate.py` | Uniform certificate/mechanical CLI for registered group keys |
+| `certificates/` | Frozen historical reports and v1/v2 d=2 certificates |
 | `tests/test_trace_core.py` | Analytic regression, prime splitting, proof-gate, and portability checks |
+| `tests/test_group_interfaces.py` | Exact levels, subgroup membership, proof binding and analytic backend isolation |
 | `RIGOR_GAPS.md` | Current proof ledger, including open new-field inventories |
 
 ## 🎯 How to Navigate

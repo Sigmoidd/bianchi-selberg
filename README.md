@@ -23,9 +23,18 @@ classes with different primitive norms. Replay it with:
 
 ```sh
 python -m groups.d2_inventory
-python examples/d2_certificate.py --output certificates/d2-k2.json
+python examples/group_certificate.py 2 --output /tmp/d2-certificate.json
 python -m unittest discover -s tests -v
 ```
+
+Start with the [d=2 proof review guide](docs/D2_REVIEW_GUIDE.md) for a
+lemma-to-replay map. The [group extension guide](docs/ADDING_GROUPS.md)
+documents the uniform field/subgroup/level identity, arithmetic proof
+registration, and analytic backend contract. Adding a proved field does
+not require a new assembly or certificate exporter; proper congruence
+levels have separate cusp/scattering backends. The current
+[schema-v2 d=2 certificate](certificates/d2-k2-v2.json) preserves the
+original numerical enclosure and adds group/backend metadata.
 
 The candidate fields d=7,11,19 still have only Arb mechanical screens:
 their complete self-contained inventories remain open.

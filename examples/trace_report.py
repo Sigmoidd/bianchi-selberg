@@ -23,7 +23,7 @@ def main():
         E = evaluate(kind, k=args.k, R=args.R, verbose=False,
                      include_elliptic=not args.mechanical)
         reports.append(report_payload(E))
-    text = json.dumps(dict(schema_version=1, reports=reports), indent=2)+"\n"
+    text = json.dumps(dict(schema_version=2, reports=reports), indent=2)+"\n"
     if args.output:
         args.output.write_text(text)
         print(f"Wrote {args.output}; report only, not a new spectral certificate.")

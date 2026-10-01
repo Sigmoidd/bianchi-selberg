@@ -14,6 +14,7 @@ including its original Eisenstein normalization, and is retained unchanged.
 | Historical elliptic class counts | Existing external classification inputs retained; not replaced by a new proof | `old_RIGOR_GAPS.md`, `docs/REFERENCES.md` |
 | d=2 inventory completeness | Four element classes; complete lattice and unit proofs; full PSL orbital factor | `docs/D2_INVENTORY_PROOF.md`, `groups/d2_inventory.py` |
 | d=2 spectral certificate | B in [0.42455184, 0.42957479], excluding discrete eigenvalues in (0,1) | `certificates/d2-k2.json`, `examples/d2_certificate.py` |
+| Uniform identity and proof/analytic dispatch | Exact field/subgroup/ideal binding; full-group formulas reject proper subgroups | `docs/ADDING_GROUPS.md`, `tests/test_group_interfaces.py` |
 | d=7,11,19 inventory completeness | **Open. Self-contained arithmetic proofs required.** | `docs/INVENTORY_PROOF.md` |
 | Other new-field spectral certificates | **Blocked**, even if the mechanical bound is < 1 | `GroupData.require_inventory`, `core/certificate.py` |
 
@@ -28,3 +29,5 @@ existence of a flip must not be presented as a completed re-certification.
 The d=2 obligations are now closed by the local arithmetic proof and exact
 replay. Future work proceeds to d=7, then d=11 and d=19. These are ordinary
 mathematical proofs with executable checks, not proof-assistant formalizations.
+The current d=2 schema-v2 artifact is `certificates/d2-k2-v2.json`; its
+arithmetic manifest and numerical endpoints match the frozen v1 artifact.

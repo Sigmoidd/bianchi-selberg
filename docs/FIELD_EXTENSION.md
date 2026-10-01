@@ -23,6 +23,13 @@ and command remain compatible. Its Eisenstein elliptic coefficient remains
 log(7+4 sqrt(3))/8, labeled with the unresolved normalization issue.
 `picard_stf.py` remains the independent historical quadrature implementation.
 
+The uniform interfaces are now documented in [ADDING_GROUPS.md](ADDING_GROUPS.md):
+canonical field/subgroup/ideal keys, registered arithmetic replay and an
+independent analytic backend. The d=2 review map is
+[D2_REVIEW_GUIDE.md](D2_REVIEW_GUIDE.md). Higher-level backends can reuse the
+shared test functions, support gate, elliptic/identity assembly and export;
+their cusp and scattering proofs must be supplied separately.
+
 Install the trace dependencies and run:
 
 ```sh
@@ -32,7 +39,7 @@ python bianchi_omega_arb.py
 python picard_stf.py
 python -m groups.systoles
 python -m groups.d2_inventory
-python examples/d2_certificate.py --output certificates/d2-k2.json
+python examples/group_certificate.py 2 --output /tmp/d2-certificate.json
 python scripts/feasibility/flip_check.py --bound 2
 python scripts/feasibility/gpp_check.py
 python scripts/feasibility/screen.py 1 3 2 7 11 19
