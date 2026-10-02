@@ -11,11 +11,11 @@ The selected decisions are:
 | Milestone | State | Exit condition |
 |---|---|---|
 | M0: interface and safety net | Implemented | Two legacy enclosures reproduced within numerical quadrature variation; exact derivative; closed-form systoles; support gate; regression tests |
-| M1: complete exact class inventory | Closed for d=2,7,11; per-field proof replay implemented | Four d=2, two d=7 and three d=11 element classes; complete lattice/unit proofs and full PSL orbital factors in their inventory notes |
+| M1: complete exact class inventory | Closed for d=2,7,11,19; per-field proof replay implemented | Four d=2, two d=7 and three d=11 and two d=19 element classes; complete lattice/unit proofs and full PSL orbital factors in their inventory notes |
 | M2: d=2 | Full certificate frozen | `certificates/d2-k2.json`, B in [0.42455184, 0.42957479]; `examples/d2_certificate.py` |
 | M3: d=7 | Full certificate frozen | `certificates/d7-k2.json`, B in [0.36394687, 0.36400056]; complete two-class proof; 55-point sinc parameter comparison |
 | M4: d=11 | Full certificate frozen | `certificates/d11-k2.json`, B in [0.52924365, 0.52928221]; three-class proof; best-of-55 |
-| M5: d=19 | Mechanical screen ready; arithmetic proof open | Self-contained inventory and complete certificate |
+| M5: d=19 | Full certificate frozen | `certificates/d19-k2.json`, B in [0.89665300, 0.89668143]; two-class proof; best-of-55 |
 
 The new layout is `groups/` for explicit group inputs and exact arithmetic,
 `fields/` for characters and field constants, and `core/` for analytic
@@ -100,3 +100,7 @@ full finite centralizer of order 4 and primitive norm 199+60√11, and two
 distinct inverse order-3 classes with finite centralizer 3 and norm 23+4√33.
 See [D11_INVENTORY_PROOF.md](D11_INVENTORY_PROOF.md). The frozen full bound
 is [0.52924365, 0.52928221] <1, best-of-55 with no global optimum claim.
+
+The d=19 closure is recorded in [D19_REVIEW_GUIDE.md](D19_REVIEW_GUIDE.md).
+The remaining fields follow [TRACK_B_LAST_THREE_HANDOFF.md](TRACK_B_LAST_THREE_HANDOFF.md);
+no Track-B theorem for those fields is claimed here.

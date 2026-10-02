@@ -56,6 +56,23 @@ def d11_backend():
         notes=("The two inverse order-3 classes are distinct; the involution has an endpoint flip.",))
 
 
+def d19_group():
+    from groups.d19_inventory import expected_classes
+    provenance = "docs/D19_INVENTORY_PROOF.md; groups/d19_inventory.py (d19-arithmetic-v1)"
+    classes = tuple(EllipticClass(**C, cuspidal=False, provenance=provenance,
+                                  normalization_status="proved") for C in expected_classes())
+    return GroupData(QuadraticField(19), "PSL2(O_-19)", (0, 1), classes,
+                     "self-contained", provenance, inventory_proof_id="d19-arithmetic-v1")
+
+
+def d19_backend():
+    from groups.d19_inventory import verify_group_records
+    return InventoryBackend(
+        GroupKey(19), "d19-arithmetic-v1", ("docs/D19_INVENTORY_PROOF.md",), verify_group_records,
+        dependencies=("Minkowski ideal-class bound and elementary local valuation theory",),
+        notes=("Inverse order-3 classes merge; the involution has an endpoint flip.",))
+
+
 def incomplete_group(d):
     return GroupData(QuadraticField(d), f"PSL2(O_-{d})", (0, 1) if d <= 19 else (3, 0),
                      (), "incomplete", "docs/INVENTORY_PROOF.md (open completeness obligations)")
@@ -67,6 +84,7 @@ def register_builtins(registry):
     registry.register(GroupKey(2), d2_group, d2_backend())
     registry.register(GroupKey(7), d7_group, d7_backend())
     registry.register(GroupKey(11), d11_group, d11_backend())
+    registry.register(GroupKey(19), d19_group, d19_backend())
     for d in DISCRIMINANTS:
-        if d not in (1, 2, 3, 7, 11):
+        if d not in (1, 2, 3, 7, 11, 19):
             registry.register(GroupKey(d), lambda d=d: incomplete_group(d))

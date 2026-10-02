@@ -1,0 +1,9 @@
+test_import_has_no_analytic_dependencies (tests.test_quotients.QuotientTests.test_import_has_no_analytic_dependencies) ... ok
+test_ring_cosets_composite_level_and_signs (tests.test_quotients.QuotientTests.test_ring_cosets_composite_level_and_signs) ... ok
+test_size_cap_and_operator_input_fail_closed (tests.test_quotients.QuotientTests.test_size_cap_and_operator_input_fail_closed) ... ok
+test_split_primes_and_inert_prime_images (tests.test_quotients.QuotientTests.test_split_primes_and_inert_prime_images) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.185s
+
+OK

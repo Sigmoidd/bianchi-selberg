@@ -1,0 +1,10 @@
+test_coefficients_from_independent_matrix_trace_path (tests.test_d19_inventory.D19InventoryTests.test_coefficients_from_independent_matrix_trace_path) ... ok
+test_complete_inventory_and_inverse_obstruction (tests.test_d19_inventory.D19InventoryTests.test_complete_inventory_and_inverse_obstruction) ... ok
+test_frozen_full_certificate_exact_endpoints_and_support (tests.test_d19_inventory.D19InventoryTests.test_frozen_full_certificate_exact_endpoints_and_support) ... ok
+test_record_changes_are_rejected_before_evaluation (tests.test_d19_inventory.D19InventoryTests.test_record_changes_are_rejected_before_evaluation) ... ok
+test_search_claim_is_best_of_55_only (tests.test_d19_inventory.D19InventoryTests.test_search_claim_is_best_of_55_only) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 9.421s
+
+OK
