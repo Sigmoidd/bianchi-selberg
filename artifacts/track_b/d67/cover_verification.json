@@ -1,0 +1,25 @@
+{
+  "schema": "d67-ford-floor-cover/v1",
+  "d": 67,
+  "D": -67,
+  "group": "PSL2(O_-67),full,level-one",
+  "design_sha256": "b3eee3a531577904f29ec3e7fe3e917e5339082db1fdf19169c4905e886dc721",
+  "cover_sha256": "89cd32fce9968e4064a46deeeafb142b1b7be12d8d158c4e17615f788ce74336",
+  "leaves": 712,
+  "min_square_witness": "146711/4980736",
+  "floor_squared_lower": "1/34",
+  "candidate_c_norm_max": 29,
+  "candidate_l_norm_strict_upper": 169,
+  "first_omitted_c_norm": 36,
+  "forms": [
+    [
+      1,
+      1,
+      17
+    ]
+  ],
+  "cover_verified": true,
+  "faces_verified": false,
+  "stabilizers_verified": false,
+  "spectral_exclusion_verified": false
+}

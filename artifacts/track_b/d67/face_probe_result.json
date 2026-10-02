@@ -1,0 +1,17 @@
+{
+  "schema": "d67-face-probe/v1",
+  "candidate_rows": 1575,
+  "positive_area_faces": 37,
+  "projected_area": "1",
+  "lowest_vertex_squared": "2/67",
+  "active_denominator_norms": [
+    1,
+    4,
+    9,
+    16,
+    23
+  ],
+  "face_pairings_verified": false,
+  "stabilizers_verified": false,
+  "geometry_gate_certified": false
+}

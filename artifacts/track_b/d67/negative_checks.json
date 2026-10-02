@@ -1,0 +1,25 @@
+{
+  "baseline": true,
+  "checks": [
+    {
+      "name": "missing cover square",
+      "rejected": true,
+      "reason": "cover leaf count"
+    },
+    {
+      "name": "nonprimitive denominator",
+      "rejected": true,
+      "reason": "primitive row 0"
+    },
+    {
+      "name": "shifted witness square",
+      "rejected": true,
+      "reason": "floor bound 0"
+    },
+    {
+      "name": "wrong field witness",
+      "rejected": true,
+      "reason": "primitive row 0"
+    }
+  ]
+}
