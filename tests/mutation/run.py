@@ -23,7 +23,7 @@ def interval(x):
 
 
 CASES = {2: ('d2-k2-v2.json', .999, 40), 7: ('d7-k2.json', 1., 256),
-         11: ('d11-k2.json', 1., 256)}
+         11: ('d11-k2.json', 1., 256), 19: ('d19-k2.json', 1., 256)}
 
 
 def run(output, groups=(2, 7)):

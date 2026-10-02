@@ -821,3 +821,182 @@ The prediction file and three harness logs accompany their results under
 an output file/directory under `/tmp`. The full regressions and retained
 compatibility/Track-B failures remain as recorded in the
 [D11 review guide](D11_REVIEW_GUIDE.md); this audit does not repair them.
+
+## d=19: closure with the existing harness (2026-10-02)
+
+The d=19 proof/certificate commit is `9211fe9a80858b88293d5dd6b4df89c4e7722081`,
+stacked on d=11. Only CASES dispatch and an independent character table were
+added to the existing mutation harness; mutation algorithms are unchanged.
+No production code, certificate, historical report or failing test was
+modified for mutations. [Predictions](../tests/mutation/d19/PREDICTIONS.md)
+were written before execution. All optimized arithmetic and frozen d=2,7,11,19
+B/endpoint replays passed before mutation runs. Regression failures and exact
+commands are in [D19_REVIEW_GUIDE.md](D19_REVIEW_GUIDE.md).
+
+Baseline for **every d=19 row** is **[0.89665300, 0.89668143]**;
+true baseline Arb radius is 1.420867468482356343884…e−5. Table endpoints
+are rounded outward; full endpoint balls are retained in the linked JSON.
+D denotes an inventory-gate-bypassed diagnostic after native rejection,
+never a mutated certificate; N denotes the normal pipeline. Native rejection
+before assembly means B is unavailable, not zero. “Positivity check” below
+is the existing B<1 export gate, not a separate positivity theorem.
+
+### Predictions and standard results
+
+Decrease is predicted for class drops, denominator ×2 and volume −1%;
+increase for denominator ×1/2 and volume +1%. Each has a positive NCE or
+identity coefficient. Witness removals should reject natively and leave B
+unchanged only in the bypass diagnostic because the stored norm remains.
+Shrinking the trace box should be unchanged at the frozen support, where
+no geodesic contributes. Cusp omission/sign reversal should increase B
+because its baseline aggregate is negative. Suppressing an executing
+translation coefficient should decrease B visibly. These reasons and the
+inside-support probe prediction are in the pre-run predictions file.
+
+| Mutation | Predicted B | Mutated B (or D diagnostic) | Delta interval | Check rejecting native mutation | Mode | Flags |
+|---|---|---|---|---|---|---|
+| drop:0:d19 order 2: A2 with endpoint flip | decrease | [0.38746673, 0.38749515] | [-0.50921470, -0.50915785] | arithmetic replay | D | — |
+| drop:1:d19 order 3: inverse classes merged | decrease | [0.00983898, 0.00986740] | [-0.88684245, -0.88678560] | arithmetic replay | D | — |
+| centralizer:2 | decrease | [0.19865285, 0.19868128] | [-0.69802857, -0.69797173] | none | N | uncaught and B < 1 |
+| centralizer:0.5 | increase | [2.29265330, 2.29268173] | [1.39597188, 1.39602872] | positivity check | N | — |
+| centralizer_record:2 | decrease | [0.19865285, 0.19868128] | [-0.69802857, -0.69797173] | arithmetic replay | D | — |
+| centralizer_record:0.5 | increase | [2.29265330, 2.29268173] | [1.39597188, 1.39602872] | arithmetic replay | D | — |
+| translation:0:d19 order 2: A2 with endpoint flip | unchanged diagnostic | [0.89665300, 0.89668143] | [0E-8, 0E-8] | arithmetic replay | D | movement below baseline Arb radius (zero) |
+| translation:1:d19 order 3: inverse classes merged | unchanged diagnostic | [0.89665300, 0.89668143] | [0E-8, 0E-8] | arithmetic replay | D | movement below baseline Arb radius (zero) |
+| translation_all:None | unchanged diagnostic | [0.89665300, 0.89668143] | [0E-8, 0E-8] | arithmetic replay | D | movement below baseline Arb radius (zero) |
+| volume:1.01 | increase | [0.90638086, 0.90640929] | [0.00969944, 0.00975628] | none | N | uncaught and B < 1 |
+| volume:0.99 | decrease | [0.88692514, 0.88695357] | [-0.00975628, -0.00969944] | none | N | uncaught and B < 1 |
+| trace_box:None | unchanged diagnostic | [0.89665300, 0.89668143] | [0E-8, 0E-8] | none | N | movement below baseline Arb radius (zero); uncaught and B < 1 |
+| cusp:0 | increase | [1.20632429, 1.20632430] | [0.30964286, 0.30967129] | positivity check | N | — |
+| cusp:-1 | increase | [1.51596716, 1.51599558] | [0.61928573, 0.61934258] | positivity check | N | — |
+
+Both class drops move B well beyond its radius: midpoint decreases are
+0.509186273006565… and 0.886814024945719… . Their native errors are
+`ArithmeticError: complete d19 class count`. Centralizer record errors and
+other rejection messages are retained verbatim in
+[standard results](../tests/mutation/d19/results.json).
+
+### Translation consumers and executing removals
+
+The flow is the same as the d=2/7/11 map above, with d=19's own source:
+
+| Consumer in order | File/function | Certificate pipeline | Standalone arithmetic |
+|---|---|---|---|
+| Unit generator → squared multiplication matrix | `groups/d19_inventory.py: expected_classes` | yes | yes |
+| Construction of class records | `groups/builtins.py: d19_group` | yes | no |
+| Membership, determinant, commutation and loxodromic witness guard | `groups/registry.py: _verify_element_witnesses` | yes | no |
+| Primitive norm/unit minimality and exact matrices | `groups/d19_inventory.py: verify_witnesses_and_splitting` | yes | yes |
+| Record equality to proved inventory | `groups/d19_inventory.py: verify_group_records` | yes | no |
+| Stored-norm coefficient, selected by translation identity in this mutation | `groups/data.py: EllipticClass.coefficient` | yes | no |
+| Positive NCE assembly → final B | `core/assemble.py: evaluate` | yes | no |
+| Arithmetic recheck, support and B<1 export | `core/certificate.py: certificate_payload` | yes | no |
+
+The pipeline re-enters arithmetic at export; this list describes the logical
+flow, not a claim that every function is called only once. Profiles for both
+paths are in the [consumer results](../tests/mutation/d19/translation-consumers/translation-consumer-results.json).
+The matrix witness is a proof input; numerical assembly uses its separately
+proved stored norm. Each witness removal at the executing guard enters once,
+delivers one missing record (two for all), calls the original guard once,
+and has zero downstream coefficient calls. All three reject before B:
+`ArithmeticError: translation witness is missing or outside the specified group`.
+
+| Executing coefficient mutation | Baseline B | Mutated B | Delta interval | Calls / suppressed | Rejecting check | Zero movement |
+|---|---|---|---|---|---|---|
+| remove d19 order 2: A2 with endpoint flip | [0.89665300, 0.89668143] | [0.38746673, 0.38749515] | [-0.50921470, -0.50915785] | 10 / 5 | none | False |
+| remove d19 order 3: inverse classes merged | [0.89665300, 0.89668143] | [0.00983898, 0.00986740] | [-0.88684245, -0.88678560] | 10 / 5 | none | False |
+| remove all translations | [0.89665300, 0.89668143] | [-0.49934730, -0.49931887] | [-1.39602872, -1.39597188] | 10 / 10 | none | False |
+
+All executing coefficient removals lower B, all exceed its Arb radius,
+and none is rejected despite B<1. No zero coefficient movement remains.
+
+### Four zero-movement diagnostics, classified individually
+
+Class 1: expected zero because the term vanishes outside support.
+Class 2: nonzero movement below the Arb radius. Class 3: numerical target
+not reached natively (the arithmetic guard rejects before it). No class-2
+case occurred.
+
+| Mutation | Group | Target | Baseline term ball | Term Arb radius | Class | Counter evidence |
+|---|---|---|---|---|---|---|
+| translation:0:d19 order 2: A2 with endpoint flip | d=19 | NCE class contribution | `[0.50918627300656500661631855069 +/- 4.87e-30]` | `[3.503022512703264293376419408482124709773e-30 +/- 1.79e-70]` | 3 | native_inventory_calls=1, native_coefficient_calls=0, diagnostic_coefficient_calls=4, diagnostic_missing_witness_coefficient_calls=2 |
+| translation:1:d19 order 3: inverse classes merged | d=19 | NCE class contribution | `[0.88681402494571933693070679572 +/- 7.57e-30]` | `[6.557845016161161543074467950138313365135e-30 +/- 3.18e-70]` | 3 | native_inventory_calls=1, native_coefficient_calls=0, diagnostic_coefficient_calls=4, diagnostic_missing_witness_coefficient_calls=2 |
+| translation_all | d=19 | NCE | `[1.3960002979522843435470253464 +/- 1.85e-29]` | `[1.006086752886442583645088735862043807491e-29 +/- 1.51e-69]` | 3 | native_inventory_calls=1, native_coefficient_calls=0, diagnostic_coefficient_calls=4, diagnostic_missing_witness_coefficient_calls=4 |
+| trace_box | d=19 | omitted loxodromic/geodesic sum (not an Evaluation.terms entry) | `0` | `0` | 1 | range_replacements=12, systole_verifications=3 |
+
+Class-1 support radius is `[1.907925539233777056935537075332831591368 +/- 2.79e-40]`. The shortest removed
+trace [-3, 0] targets length `[1.92484730023841378999103565370 +/- 4.68e-30]`,
+strictly outside support. Its omitted contribution is zero by the rigorous
+systole bound, not a stored computed geodesic sum.
+
+The class-1 rerun shortens trace (−3,0) synthetically to support/2,
+0.953962769616888528467… . Its test-kernel value is 0.174709823040159…>0.
+The complete verifier executes the shortened path once and rejects before B:
+`ArithmeticError: trace (-3,0) not proved longer than witness`.
+The truncated verifier executes that path **zero** times (12 range replacements),
+misses it, and exports the unchanged baseline B. This is an inconsistent
+synthetic trace-length fixture, not an actual geodesic or an orbital-weight
+calculation. It illustrates the incompleteness risk, without altering the
+proved production lower bound.
+
+The complete and truncated actual trace length lists up to support are
+both `[]`, with an empty saved diff. The complete search checks 10
+loxodromic trace representatives; the truncated search checks 6.
+These are trace representatives, not primitive geodesic conjugacy classes.
+The rigorous no-geodesic claim is justified in D19-L4, independently of
+this empty-list comparison.
+
+### Explicit flags and soundness boundary
+
+- Three missing-witness bypass diagnostics and one truncated-trace mutation
+  have exactly zero movement, below the baseline radius. Their individual
+  classifications, term values and counters are above; do not interpret
+  missing-witness rejection before B as an accepted zero mutation.
+- No nonzero movement is opposite its pre-run prediction.
+- Uncaught normal-pipeline B<1 mutations are denominator ×2, volume ±1%,
+  the truncated trace search and all three executing coefficient removals.
+  The synthetic truncated inside-support probe also misses its target.
+- The two elliptic class drops and centralizer record perturbations are
+  rejected by arithmetic; their displayed intervals are diagnostics only.
+- Cusp omission and sign reversal both exceed one and are rejected.
+
+Dropping a positive contribution makes B look better, so B<1 can never
+protect against an undercount. Completeness guards protect the witness
+inventory; coefficient values are protected by the proof note and arithmetic
+replay, **not by B<1**. Altering the coefficient implementation while leaving
+records intact evades the record checks. Independent matrix-trace tests
+cover the primitive-length calculation through another code path, but still
+rely on the proved class orders, counts and centralizer normalization.
+No flagged mutation was repaired or used to alter a production certificate.
+
+The independent volume series uses an explicit χ₋₁₉ table, ζ(2)=π²/6,
+and an Abel tail through N=99997, then |D|^(3/2) ζ_K(2)/(4π²).
+The independent enclosure `[2.653148131 +/- 8.01e-10]` contains production
+`[2.653148131110697693242299598 +/- 3.94e-28]`; neither ±1% volume overlaps it.
+This separate independent check catches both perturbations, although the
+native mutation pipeline does not. Full radii and differences are in
+[zero-movement/volume evidence](../tests/mutation/d19/zero-movement-results.json).
+
+### Exact mutation reproduction commands
+
+Run from repository root, preserving the frozen inputs:
+
+```sh
+python -O -m groups.d19_inventory
+python tests/mutation/regression_checks.py replay
+python tests/d11_regressions.py replay
+python tests/d19_regressions.py replay
+python tests/mutation/run.py /tmp/d19-mutations.json --groups 19
+python tests/mutation/translation_consumers.py /tmp/d19-translation-consumers --groups 19
+python tests/mutation/zero_movement.py /tmp/d19-zero-movement.json --groups 19
+diff -u /tmp/d19-translation-consumers/d19-complete-up-to-support.json /tmp/d19-translation-consumers/d19-truncated-up-to-support.json
+python tests/d19_regressions.py protected
+python tests/mutation/regression_checks.py links --external
+git diff --check
+```
+
+The runs used `tests/mutation/d19/` instead of /tmp for persisted outputs;
+[run.log](../tests/mutation/d19/run.log),
+[translation-consumers.log](../tests/mutation/d19/translation-consumers.log),
+and [zero-movement.log](../tests/mutation/d19/zero-movement.log) preserve output.
+The scope is d=19 with the existing harness; no new campaign or d=43/67/163
+mutation run is claimed.
