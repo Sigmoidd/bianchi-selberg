@@ -1,0 +1,4 @@
+parameters PASS {'k': 2, 'delta_hex': '0x1.e86dcee236553p-2', 'R': 256, 'precision_bits': 100}
+bound_ball PASS [0.8967 +/- 4.70e-5]
+lower_endpoint_ball PASS [0.8966530054607105611801803788891943976403 +/- 2.36e-41]
+upper_endpoint_ball PASS [0.8966814228100802083070580593100699469567 +/- 2.99e-41]

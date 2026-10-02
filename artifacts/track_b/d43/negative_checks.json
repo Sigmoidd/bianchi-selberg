@@ -1,0 +1,45 @@
+{
+  "geometry_baseline": true,
+  "negative_checks": [
+    {
+      "name": "wrong field",
+      "rejected": true,
+      "reason": "field identity mismatch"
+    },
+    {
+      "name": "missing lower face",
+      "rejected": true,
+      "reason": "active face mismatch"
+    },
+    {
+      "name": "corrupt pairing matrix",
+      "rejected": true,
+      "reason": "face pairing determinant"
+    },
+    {
+      "name": "missing vertex stabilizer",
+      "rejected": true,
+      "reason": "stabilizer ledger incomplete"
+    },
+    {
+      "name": "corrupt edge stabilizer",
+      "rejected": true,
+      "reason": "edge pointwise stabilizer mismatch"
+    },
+    {
+      "name": "cover gap",
+      "rejected": true,
+      "reason": "cover witness count"
+    },
+    {
+      "name": "nonprimitive cover row",
+      "rejected": true,
+      "reason": "nonprimitive cover witness"
+    },
+    {
+      "name": "claimed taller minimum",
+      "rejected": true,
+      "reason": "minimum height mismatch"
+    }
+  ]
+}
