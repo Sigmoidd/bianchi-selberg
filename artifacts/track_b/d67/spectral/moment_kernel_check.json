@@ -1,0 +1,10 @@
+{
+  "schema": "d67-exact-moment-energy-kernel-check/v1",
+  "tetrahedra": 909276,
+  "identity_components": 9697,
+  "components_after_positive_row_merging": 1,
+  "passes": 2,
+  "constant_energy_kernel_proved": true,
+  "rows_sha256": "aff22736c1d8d356927ece7e9fae8d0d2b82583bd1a5c389e86cf5f5db34a5f1",
+  "spectral_exclusion_certified": false
+}

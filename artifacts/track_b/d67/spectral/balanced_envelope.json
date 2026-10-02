@@ -1,0 +1,16 @@
+{
+  "schema": "d67-balanced-envelope-scalar-budget/v1",
+  "d": 67,
+  "source_bound_sha256": "5486f73bc02fba040393cdd14fd9f757bf6a06dfd9f1869d7dc9dc03ae0cd50a",
+  "kappa_squared_upper": "1661/15000",
+  "inverse_metric_comparison": "9/8",
+  "combined_ratio": "44847/64000",
+  "gamma_squared_upper": "410295897281102131623951535214029518372118842858102882796047291/5855232148334476709089280000000000000000000000000000000000000000",
+  "gamma_squared_float": 0.07007337828574585,
+  "eta": "1/10",
+  "c0": "1341977278242353261225813112645675297906692728560868289243479799/5855232148334476709089280000000000000000000000000000000000000000",
+  "c0_float": 0.22919283885679567,
+  "scalar_budget_arithmetic_pass": true,
+  "threshold_matrix_positivity_verified": false,
+  "spectral_exclusion_certified": false
+}

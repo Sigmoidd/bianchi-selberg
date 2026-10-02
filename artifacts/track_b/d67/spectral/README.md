@@ -154,3 +154,41 @@ eigenvalue estimate cannot close the exclusion gate.
 The earlier geometry, Gaussian artifacts, d=19 certificates, historical
 reports and known failing tests are unchanged. No d=43/d=163 spectral
 statement follows from this checkpoint.
+
+
+## Latest balanced-enclosure and subcell-mass checkpoint
+
+D67_TRACK_B_BALANCED_ENVELOPE.md proves an exact 9/8 inverse-metric comparison
+with the original ledger. Combined with the centroid improvement it gives
+gamma² <= 0.070073378286 and a direct-index scalar margin > 0.22919.
+The comparison uses the original exact coefficient intervals and h0.
+The diagnostic's box/hull relaxation is not a certified replacement for
+those inputs.
+
+The exact energy-kernel check merges 9,697 identity-connected classes into
+one in two passes. Thus the local CR energy has only the constant kernel.
+This gives no threshold lower bound.
+
+The full balanced floating matrix still has a negative test direction.
+Two levels of integration-only red subdivision sharpen its finite mass
+upper bound without changing P or gamma. The total upper mass falls from
+about 5.75509 to 4.14379; the previously negative trial becomes positive.
+The whole-matrix diagnostic nevertheless reaches a negative estimate
+-0.02982259 by iteration 16. It is not a rigorous bound or a completed
+spectral replay. The command runner stopped responding before the next
+refinement could be completed. latest_progress_status.json records the
+remaining gates and keeps the spectral flag false.
+
+Reproduce in a fresh directory after the exact moment replay:
+
+~~~sh
+python -O artifacts/track_b/d67/spectral/balanced_envelope.py
+g++ -std=c++17 -O2 artifacts/track_b/d67/spectral/moment_kernel_check.cpp -o /tmp/d67-kernel
+/tmp/d67-kernel /tmp/d67-moments/full.rows.bin
+OPENBLAS_NUM_THREADS=1 python -u artifacts/track_b/d67/spectral/adaptive_matrix_probe.py /tmp/d67-moments/full --balanced --mass-depth 2
+OPENBLAS_NUM_THREADS=1 python -u artifacts/track_b/d67/spectral/adaptive_matrix_probe.py /tmp/d67-moments/full --eigenprobe --iterations 20
+~~~
+
+The probe additionally needs pyamg 5.2.1. Floating matrix data and eigenvectors
+are reproducible intermediates. Neither positive polynomial trials nor a
+floating eigenvalue estimate can issue a spectral certificate.
