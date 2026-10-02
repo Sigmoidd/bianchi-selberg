@@ -1,0 +1,54 @@
+{
+  "schema": "d67-adaptive-vertical-polynomial-probe/v1",
+  "degree": 6,
+  "leaves": 909276,
+  "master_dofs": 2042568,
+  "minimum_restricted_eigenvalue": 0.07514334738079555,
+  "trial_polynomial_coefficients": [
+    0.45353253398348325,
+    -0.3171588162097806,
+    -5.380901095306265,
+    17.10941758492774,
+    -26.374235093931986,
+    19.970366359807674,
+    -5.894510376776286
+  ],
+  "normalized_trial_threshold_form": 0.07514334738072496,
+  "vertical_energy_fraction": 0.75,
+  "gamma_squared_diagnostic": 0.0709173405406512,
+  "sigma_squared_diagnostic": 0.1591945969571414,
+  "scalar_c_e_diagnostic": 0.13146781129886936,
+  "discrete_index_scalar_margin_diagnostic": 0.2199092540528368,
+  "arbitrary_rank_one_penalty_restricted_minimum": 0.6946603577641604,
+  "coarse_mean_error_squared_diagnostic": 0.4688374518618163,
+  "coarse_mean_enclosure_trials": [
+    {
+      "nu": 0.01,
+      "mass_factor": 24.307453867159907,
+      "minimum_restricted_eigenvalue": -22.88352296931774
+    },
+    {
+      "nu": 0.025,
+      "mass_factor": 10.242330311305418,
+      "minimum_restricted_eigenvalue": -8.830900234185327
+    },
+    {
+      "nu": 0.05,
+      "mass_factor": 5.553955792687255,
+      "minimum_restricted_eigenvalue": -4.164467864736463
+    },
+    {
+      "nu": 0.1,
+      "mass_factor": 3.2097685333781736,
+      "minimum_restricted_eigenvalue": -1.8683532334186193
+    },
+    {
+      "nu": 0.2,
+      "mass_factor": 2.037674903723633,
+      "minimum_restricted_eigenvalue": -0.8086932903602413
+    }
+  ],
+  "floating_quadrature": true,
+  "coefficient_envelope": "floating conservative box/hull envelope",
+  "spectral_exclusion_certified": false
+}

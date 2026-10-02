@@ -9,6 +9,7 @@ import gzip
 import hashlib
 import json
 import time
+from pathlib import Path
 from itertools import groupby
 from adaptive_error_bounds import hull, subdivide
 from coefficient_bounds import h_bounds, interval_product, metric_diameter, volume
@@ -40,7 +41,7 @@ def envelope(row, tet, fraction):
     return alower,blower,mid,mass
 
 
-def run(fraction=F(3,4)):
+def run(fraction=F(3,4),checkpoint=None):
     require(0<fraction<1,'invalid vertical retention')
     verify_plan()
     raw=(ROOT/'adaptive_refinement_plan.json.gz').read_bytes()
@@ -56,8 +57,16 @@ def run(fraction=F(3,4)):
             w0,w1,w2=[(*p,hi) for p in (a,b,c)]
             for tet in ((v0,v1,v2,w2),(v0,v1,w1,w2),(v0,w0,w1,w2)):
                 initial.append((row,tet))
-    gamma=F();sigma=F();count=0;worst=None;start=time.monotonic();last=start
+    gamma=F();sigma=F();count=0;worst=None;start=time.monotonic();last=start;resume_root=0
+    binding=dict(plan_sha256=hashlib.sha256(raw).hexdigest(),vertical_fraction=str(fraction),
+                 source_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest())
+    if checkpoint and checkpoint.exists():
+        saved=json.loads(checkpoint.read_text())
+        require(saved['binding']==binding,'scalar checkpoint binding mismatch')
+        gamma=F(saved['gamma']);sigma=F(saved['sigma']);count=saved['count']
+        worst=saved['worst'];resume_root=saved['next_root']
     for root,paths in groupby(plan['leaves'],key=lambda r:r[0]):
+        if root<resume_root:continue
         row,base=initial[root];base_volume=volume(base)
         # Share reconstructed prefixes, never round coordinates.
         cache={'':base}
@@ -80,12 +89,19 @@ def run(fraction=F(3,4)):
                 print(json.dumps(dict(leaves=count,total=len(plan['leaves']),
                     gamma_squared_upper=float(gamma),elapsed_seconds=now-start)),flush=True)
                 last=now
+        if checkpoint:
+            saved=dict(binding=binding,gamma=str(gamma),sigma=str(sigma),count=count,
+                       worst=worst,next_root=root+1)
+            temporary=checkpoint.with_suffix('.tmp')
+            temporary.write_text(json.dumps(saved))
+            temporary.replace(checkpoint)
     require(count==len(plan['leaves']),'incomplete scalar replay')
     eta=F(1,10);theta=F(9,10);rho=F(5)
     c_e=1-(1+1/eta)*gamma-rho*(1/theta-1)*sigma
     return dict(schema='d67-tuned-exact-scalar-ledger/v1',d=67,
         vertical_energy_fraction=str(fraction),kappa_squared_upper='1661/15000',
         plan_sha256=hashlib.sha256(raw).hexdigest(),leaf_tetrahedra=count,
+        scalar_producer_sha256=binding['source_sha256'],
         gamma_squared_upper=str(gamma),sigma_squared_upper=str(sigma),
         gamma_squared_float=float(gamma),sigma_squared_float=float(sigma),
         eta=str(eta),theta=str(theta),rho=str(rho),c_e=str(c_e),c_e_float=float(c_e),
@@ -94,7 +110,7 @@ def run(fraction=F(3,4)):
 
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--vertical-fraction',default='3/4');p.add_argument('--output',type=lambda x:__import__('pathlib').Path(x));args=p.parse_args()
-    result=run(F(args.vertical_fraction));data=json.dumps(result,indent=2)+'\n'
+    p=argparse.ArgumentParser();p.add_argument('--vertical-fraction',default='3/4');p.add_argument('--output',type=Path);p.add_argument('--checkpoint',type=Path);args=p.parse_args()
+    result=run(F(args.vertical_fraction),args.checkpoint);data=json.dumps(result,indent=2)+'\n'
     if args.output:args.output.write_text(data)
     print(data,end='')

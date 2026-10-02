@@ -1,7 +1,7 @@
 # d=67 threshold route checkpoint
 
-**Spectral exclusion remains OPEN.** The first remaining gate is an exact
-adaptive face-fragment moment map. No interval threshold matrices, verified
+**Spectral exclusion remains OPEN.** The adaptive face-fragment moment map
+and tuned exact scalar budget now pass. No interval threshold matrices, verified
 positivity certificate, or independent final spectral replay exist.
 
 `docs/D67_TRACK_B_THRESHOLD_THEORY.md` proves a conditional exhaustive
@@ -88,6 +88,8 @@ There are 4,084,872 prolongation entries; the largest row has 994 entries.
 python -O artifacts/track_b/d67/spectral/replay_moment_map.py /tmp/d67-moments --rebuild
 python artifacts/track_b/d67/spectral/moment_negative_checks.py /tmp/d67-moments
 python artifacts/track_b/d67/spectral/centroid_bound.py
+python -O artifacts/track_b/d67/spectral/tuned_error_bounds.py --checkpoint /tmp/d67-scalar-checkpoint.json --output /tmp/d67-tuned.json
+python -O artifacts/track_b/d67/spectral/index_budget.py
 ```
 
 The C++ producer propagates barycentric coordinates; its separate verifier
@@ -109,22 +111,45 @@ issue. Retaining half the vertical energy gives a negative restricted form;
 retaining three quarters gives a positive restricted form and a positive
 floating scalar margin. These are floating diagnostics on a conservative
 box/hull envelope. They prove neither positivity of the full matrix nor an
-obstruction for the frozen exact envelope. A three-quarter envelope needs a
-new exact scalar ledger before it can replace the original.
+obstruction for the frozen exact envelope. The three-quarter envelope now has
+a new exact scalar ledger in `tuned_error_bounds.json`: gamma² <= 0.070917340541
+and sigma² <= 0.159181690860. The old-style exact scalar margin is >0.13147.
 
 ## Next required evidence
 
-Recompute exact coefficient/scalar bounds with a stronger vertical envelope.
-Then assemble and enclose, on the verified P and frozen leaf mesh,
+The direct negative-index transfer in `docs/D67_TRACK_B_DISCRETE_INDEX.md`
+removes the weighted-mean enclosure requirement and the sigma penalty. Its
+exact scalar margin is c0 > 0.21990 (`index_budget.py`). On the verified P
+and frozen leaf mesh, assemble and enclose
 
-    Q_h+(1/2)b_h-(3/4)t_h^2+(1/2)L_h^2-(11/10)M_h.
+    C_h = Q_h+(1/2)b_h-(3/4)t_h^2-(11/10)M_h.
 
-Certify this matrix is positive semidefinite. P already has a verified trivial
-representation kernel. Reconstruct all coefficient/mean-vector bounds and
-matrix entries in an independent verifier. Only that completed evidence
+Prove C_h has at most one negative direction, for example by certifying
+C_h+alpha*z*z^T is positive semidefinite for any explicit rational z and
+alpha>0. The candidate z=M_h*1+t_h/4 needs only rational mass and top-area
+data, not geometric mean integration. Its polynomial subspace diagnostic
+is positive; it is not a full matrix certificate. P already has a verified
+trivial representation kernel. Reconstruct all coefficient bounds and matrix
+entries in an independent verifier. Only that completed evidence
 can connect the scalar pass to the threshold theorem. The earlier
 `certify_status.py` and `status.json` remain frozen historical progress gates;
 their face-map missing condition is superseded by the later independent replay.
+
+The complete floating sparse matrix is assembled by `adaptive_matrix_probe.py`.
+`matrix_assembly.json` records 30,786,620 energy entries and 30,786,664 mass
+entries. Top area is 1 and constant energy is 1/2 to floating precision;
+the maximum symmetry defect is below 9e-16. All are diagnostics, never
+interval enclosures or positivity evidence.
+
+```sh
+OPENBLAS_NUM_THREADS=1 python artifacts/track_b/d67/spectral/adaptive_matrix_probe.py /tmp/d67-moments/full
+# The optional eigenprobe additionally requires pyamg 5.2.1.
+OPENBLAS_NUM_THREADS=1 python -u artifacts/track_b/d67/spectral/adaptive_matrix_probe.py /tmp/d67-moments/full --eigenprobe
+```
+
+The two dense rank updates stay factored. The sparse matrices and eigenvectors
+are reproducible intermediate files and are not committed. A floating
+eigenvalue estimate cannot close the exclusion gate.
 
 The earlier geometry, Gaussian artifacts, d=19 certificates, historical
 reports and known failing tests are unchanged. No d=43/d=163 spectral

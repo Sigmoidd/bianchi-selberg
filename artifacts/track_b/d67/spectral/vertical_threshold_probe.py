@@ -47,7 +47,7 @@ def probe(prefix, degree=6, vertical_fraction=.5):
     centers = np.array(centers); inverse_norms = np.array(inverse_norms)
     dim = degree + 1
     Q = np.zeros((dim, dim)); M = Q.copy(); mean = np.zeros(dim)
-    gamma=0.; sigma=0.
+    gamma=0.; sigma=0.; mean_error_squared=0.; midpoint_mean=np.zeros(dim)
     qa=(5+3*np.sqrt(5))/20; qb=(5-np.sqrt(5))/20
     bary = np.full((4,4), qb); np.fill_diagonal(bary, qa)
     GI = np.array([[68,-2],[-2,4]]) / 67
@@ -110,6 +110,10 @@ def probe(prefix, degree=6, vertical_fraction=.5):
         M+=np.einsum('bfk,bfl,b->kl',values,values,.45*volume*mass)
         total=values.sum(axis=1)
         M-=np.einsum('bk,bl,b->kl',total,total,.05*volume*mass)
+        mass_lower=dmin/(2*gmax*gmax)
+        midpoint_mass=(mass+mass_lower)/2
+        midpoint_mean+=np.einsum('bk,b->k',total,volume*midpoint_mass/4)
+        mean_error_squared+=float(np.sum(volume*(mass-mass_lower)**2/(4*mass)))
         for weights in bary:
             point=np.einsum('i,bij->bj',weights,pts)
             a,b=point[:,0]-centers[owner,0],point[:,1]-centers[owner,1]
@@ -121,6 +125,16 @@ def probe(prefix, degree=6, vertical_fraction=.5):
     top=np.ones(dim); ell=mean+.25*top
     N=Q-.25*np.outer(top,top)+.5*np.outer(ell,ell)-1.1*M
     eigen, vectors=eigh(N,M)
+    arbitrary_penalty=M[:,0]+.25*top
+    discrete_index_N=Q-.25*np.outer(top,top)+.5*np.outer(arbitrary_penalty,arbitrary_penalty)-1.1*M
+    discrete_index_eigen=eigh(discrete_index_N,M,eigvals_only=True)
+    enclosure_trials=[]
+    approximate_ell=midpoint_mean+.25*top
+    for nu in (.01,.025,.05,.1,.2):
+        mass_factor=1.1+.5*(1/nu-1)*mean_error_squared
+        approximate_N=Q-.25*np.outer(top,top)+.5*(1-nu)*np.outer(approximate_ell,approximate_ell)-mass_factor*M
+        enclosure_trials.append(dict(nu=nu,mass_factor=mass_factor,
+            minimum_restricted_eigenvalue=float(eigh(approximate_N,M,eigvals_only=True)[0])))
     return dict(schema='d67-adaptive-vertical-polynomial-probe/v1',degree=degree,
                 leaves=len(leaves),master_dofs=nd,minimum_restricted_eigenvalue=float(eigen[0]),
                 trial_polynomial_coefficients=vectors[:,0].tolist(),
@@ -128,6 +142,10 @@ def probe(prefix, degree=6, vertical_fraction=.5):
                 vertical_energy_fraction=vertical_fraction,
                 gamma_squared_diagnostic=gamma,sigma_squared_diagnostic=sigma,
                 scalar_c_e_diagnostic=1-11*gamma-(5/9)*sigma,
+                discrete_index_scalar_margin_diagnostic=1-11*gamma,
+                arbitrary_rank_one_penalty_restricted_minimum=float(discrete_index_eigen[0]),
+                coarse_mean_error_squared_diagnostic=mean_error_squared,
+                coarse_mean_enclosure_trials=enclosure_trials,
                 floating_quadrature=True,coefficient_envelope='floating conservative box/hull envelope',
                 spectral_exclusion_certified=False)
 
