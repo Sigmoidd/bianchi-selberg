@@ -1,0 +1,91 @@
+{
+  "schema": "d67-adaptive-error-bound-diagnostic/v1",
+  "d": 67,
+  "target_gamma_squared": "1/20",
+  "layers": 12,
+  "max_leaves": 200000,
+  "max_depth": 8,
+  "initial_tetrahedra": 8208,
+  "leaf_tetrahedra": 199994,
+  "subdivisions": 27398,
+  "depth_counts": {
+    "4": 51567,
+    "5": 59078,
+    "3": 30857,
+    "2": 20024,
+    "0": 6809,
+    "1": 8091,
+    "6": 23568
+  },
+  "gamma_squared_upper": "3664842686131349433443639524318313908396353411006355372424094667/9400299178758932997666776080744592053751290176691646823797882880",
+  "sigma_squared_upper": "639173800031/549755813888",
+  "gamma_squared_float": 0.3898644730810788,
+  "sigma_squared_float": 1.1626503692805272,
+  "unresolved": 129009,
+  "example_failures": [
+    {
+      "c": [
+        1,
+        0
+      ],
+      "l": [
+        0,
+        0
+      ],
+      "depth": 4,
+      "gamma_squared_upper": 0.3898644730810788
+    },
+    {
+      "c": [
+        1,
+        0
+      ],
+      "l": [
+        0,
+        0
+      ],
+      "depth": 5,
+      "gamma_squared_upper": 0.3898339503459232
+    },
+    {
+      "c": [
+        1,
+        0
+      ],
+      "l": [
+        0,
+        0
+      ],
+      "depth": 4,
+      "gamma_squared_upper": 0.38977437102002166
+    },
+    {
+      "c": [
+        1,
+        0
+      ],
+      "l": [
+        0,
+        0
+      ],
+      "depth": 5,
+      "gamma_squared_upper": 0.3897215506943424
+    },
+    {
+      "c": [
+        1,
+        0
+      ],
+      "l": [
+        0,
+        0
+      ],
+      "depth": 5,
+      "gamma_squared_upper": 0.3898339503459232
+    }
+  ],
+  "elapsed_seconds": 101.15016651153564,
+  "adaptive_face_moment_mesh_verified": false,
+  "matrix_positivity_verified": false,
+  "spectral_exclusion_certified": false
+}

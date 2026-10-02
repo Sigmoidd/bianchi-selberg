@@ -1,0 +1,47 @@
+{
+  "schema": "d67-reference-mesh-negative-checks/v1",
+  "all_rejected": true,
+  "checks": [
+    {
+      "name": "wrong_field",
+      "rejected": true,
+      "reason": "mesh identity"
+    },
+    {
+      "name": "wrong_group",
+      "rejected": true,
+      "reason": "mesh identity"
+    },
+    {
+      "name": "unearned_spectral_claim",
+      "rejected": true,
+      "reason": "unearned spectral claim"
+    },
+    {
+      "name": "geometry_hash",
+      "rejected": true,
+      "reason": "geometry hash"
+    },
+    {
+      "name": "missing_floor_triangle",
+      "rejected": true,
+      "reason": "area/count"
+    },
+    {
+      "name": "wrong_pairing",
+      "rejected": true,
+      "reason": "entire paired triangle mismatch"
+    },
+    {
+      "name": "missing_periodic_edge",
+      "rejected": true,
+      "reason": "periodic edge ledger"
+    },
+    {
+      "name": "floor_vertex_changed",
+      "rejected": true,
+      "reason": "triangle outside active face"
+    }
+  ],
+  "spectral_exclusion_certified": false
+}

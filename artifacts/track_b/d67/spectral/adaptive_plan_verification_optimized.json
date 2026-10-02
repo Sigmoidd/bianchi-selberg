@@ -1,0 +1,10 @@
+{
+  "verified": true,
+  "d": 67,
+  "initial_tetrahedra": 8208,
+  "leaf_tetrahedra": 909276,
+  "maximum_depth": 7,
+  "coverage_verified": true,
+  "hanging_face_moment_map_verified": false,
+  "spectral_exclusion_certified": false
+}

@@ -1,0 +1,36 @@
+{
+  "schema": "d67-threshold-route-status/v1",
+  "d": 67,
+  "subgroup": "full",
+  "level_hnf": [
+    1,
+    0,
+    1
+  ],
+  "target_interval": "(0,1)",
+  "exact_reference_mesh": {
+    "verified": true,
+    "d": 67,
+    "triangles": 228,
+    "edges": 356,
+    "paired_floor_triangles": 228,
+    "periodic_boundary_edges": 28,
+    "spectral_exclusion_certified": false
+  },
+  "local_bound_report": "adaptive_error_bounds.json",
+  "local_bound_sha256": "5486f73bc02fba040393cdd14fd9f757bf6a06dfd9f1869d7dc9dc03ae0cd50a",
+  "eta": "1/5",
+  "theta": "9/10",
+  "rho": "5",
+  "finite_mean_penalty": "1/2",
+  "c_e": "33685487564152484618323983378598195765841735642567693638223/137232003476589297869280000000000000000000000000000000000000",
+  "c_e_float": 0.24546378913646746,
+  "local_scalar_budget_arithmetic_pass": true,
+  "failed_conditions": [
+    "ADAPTIVE_FACE_MOMENT_MAP_NOT_VERIFIED",
+    "ENCLOSED_THRESHOLD_MATRICES_AND_MEAN_VECTOR_MISSING",
+    "VERIFIED_THRESHOLD_MATRIX_POSITIVITY_MISSING",
+    "INDEPENDENT_FULL_SPECTRAL_REPLAY_MISSING"
+  ],
+  "spectral_exclusion_certified": false
+}

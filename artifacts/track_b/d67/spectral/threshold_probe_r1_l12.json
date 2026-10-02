@@ -1,0 +1,36 @@
+{
+  "schema": "d67-mapped-cr-threshold-diagnostic/v1",
+  "d": 67,
+  "refinements": 1,
+  "layers": 12,
+  "rho": 3.0,
+  "alpha": 0.5,
+  "tetrahedra": 32832,
+  "dofs": 66120,
+  "paired_floor_faces": 912,
+  "paired_translation_faces": 672,
+  "eigenvalues": [
+    1.5156762970472641,
+    2.649736211158927,
+    2.832961703363007,
+    2.9662861348635365
+  ],
+  "residuals": [
+    1.0890599892398093e-11,
+    6.552568718390085e-11,
+    2.065910719777557e-10,
+    1.0833897551802066e-09
+  ],
+  "elapsed_seconds": 58.46654534339905,
+  "core_mass": 3.594707855624355,
+  "ell_of_constant": 3.844707855624355,
+  "penalty_functional": "core_mean_plus_top_quarter",
+  "diagnostic_only": true,
+  "spectral_exclusion_certified": false,
+  "missing": [
+    "interval coefficient enclosures",
+    "CR error scalar bound",
+    "verified matrix positivity",
+    "independent mesh and matrix replay"
+  ]
+}
