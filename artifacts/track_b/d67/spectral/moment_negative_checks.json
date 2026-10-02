@@ -1,0 +1,21 @@
+{
+  "schema": "d67-face-moment-negative-checks/v1",
+  "checks": [
+    {
+      "mutation": "wrong_schema",
+      "rejected": true,
+      "reason": "wrong topology schema"
+    },
+    {
+      "mutation": "moved_initial_vertex",
+      "rejected": true,
+      "reason": "initial point mismatch"
+    },
+    {
+      "mutation": "changed_face_weight",
+      "rejected": true,
+      "reason": "row weight mismatch"
+    }
+  ],
+  "spectral_exclusion_certified": false
+}

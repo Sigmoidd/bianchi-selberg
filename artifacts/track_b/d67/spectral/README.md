@@ -74,18 +74,57 @@ leaf coordinates or scalar bounds on trust. Exact gamma/sigma bounds and
 leaf paths are reproducible; timing and floating renderings are not proof
 inputs. The companion replay plan is saved alongside the requested output.
 
+## Independent adaptive face-moment replay
+
+The later checkpoint now verifies the global prolongation P on the frozen
+909,276-leaf plan. `moment_map_verification.json` binds the input, topology,
+rows and producer/verifier sources by SHA-256. Replay regenerates the input
+from exact geometry, verifies the initial-root ordering and the refinement
+coverage, then checks the complete topology and rows. All 2,042,568 master
+variables have identity-row witnesses, which proves P has full column rank.
+There are 4,084,872 prolongation entries; the largest row has 994 entries.
+
+```sh
+python -O artifacts/track_b/d67/spectral/replay_moment_map.py /tmp/d67-moments --rebuild
+python artifacts/track_b/d67/spectral/moment_negative_checks.py /tmp/d67-moments
+python artifacts/track_b/d67/spectral/centroid_bound.py
+```
+
+The C++ producer propagates barycentric coordinates; its separate verifier
+recovers them geometrically from exact integer coordinate minors. It also
+reconstructs each leaf from its root/path and checks exact quarter partitions,
+physical incidence, canonical partitions and every dyadic row weight.
+`replay_moment_map.py` binds the root pairing frames to independently checked
+Ford geometry. Binaries are reproducible intermediates, generated outside
+the repository. The binary format requires a little-endian GCC-compatible
+host with signed 128-bit integer support. Undefined-behavior sanitizer replay
+also passed before the final additional canonical-child validation.
+
+`docs/D67_TRACK_B_CENTROID_CR_BOUND.md` proves the sharper self-contained
+constant 1661/15000. This gives c_e > 0.21858 with eta=1/10 on the original
+coefficient envelope, changing the finite mass factor to 11/10.
+
+The full-mesh vertical polynomial diagnostics identify a remaining coefficient
+issue. Retaining half the vertical energy gives a negative restricted form;
+retaining three quarters gives a positive restricted form and a positive
+floating scalar margin. These are floating diagnostics on a conservative
+box/hull envelope. They prove neither positivity of the full matrix nor an
+obstruction for the frozen exact envelope. A three-quarter envelope needs a
+new exact scalar ledger before it can replace the original.
+
 ## Next required evidence
 
-Reconstruct the nested face-fragment partition, every pairing orbit
-(including self-pairings), and its exact area-weighted prolongation P.
-Then assemble and enclose, on that same P and frozen leaf mesh,
+Recompute exact coefficient/scalar bounds with a stronger vertical envelope.
+Then assemble and enclose, on the verified P and frozen leaf mesh,
 
-    Q_h+(1/2)b_h-(3/4)t_h^2+(1/2)L_h^2-(6/5)M_h.
+    Q_h+(1/2)b_h-(3/4)t_h^2+(1/2)L_h^2-(11/10)M_h.
 
-Certify this matrix is positive semidefinite after an exact removal of any
+Certify this matrix is positive semidefinite. P already has a verified trivial
 representation kernel. Reconstruct all coefficient/mean-vector bounds and
 matrix entries in an independent verifier. Only that completed evidence
-can connect the scalar pass to the threshold theorem.
+can connect the scalar pass to the threshold theorem. The earlier
+`certify_status.py` and `status.json` remain frozen historical progress gates;
+their face-map missing condition is superseded by the later independent replay.
 
 The earlier geometry, Gaussian artifacts, d=19 certificates, historical
 reports and known failing tests are unchanged. No d=43/d=163 spectral
