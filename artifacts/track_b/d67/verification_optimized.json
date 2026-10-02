@@ -1,0 +1,16 @@
+{
+  "verified": true,
+  "candidate_rows": 1575,
+  "cover_leaves": 712,
+  "active_faces": 37,
+  "edges": 102,
+  "vertices": 66,
+  "lowest_height_squared": "2/67",
+  "stabilizer_orders": [
+    1,
+    2,
+    3,
+    6,
+    12
+  ]
+}

@@ -1,0 +1,18 @@
+local path targets: 105 broken: []
+scope: Markdown inline-link file targets; heading fragments not validated
+external: https://arxiv.org/abs/1108.4608 200 https://arxiv.org/abs/1108.4608
+external: https://arxiv.org/abs/1204.6697 200 https://arxiv.org/abs/1204.6697
+external: https://arxiv.org/abs/1712.00880v2 200 https://arxiv.org/abs/1712.00880v2
+external: https://arxiv.org/abs/gr-qc/0404020 200 https://arxiv.org/abs/gr-qc/0404020
+external: https://arxiv.org/abs/math/0612807v1 200 https://arxiv.org/abs/math/0612807v1
+external: https://arxiv.org/html/1207.6460v7#S6 200 https://arxiv.org/html/1207.6460v7#S6
+external: https://arxiv.org/html/1207.6460v7#S7 200 https://arxiv.org/html/1207.6460v7#S7
+external: https://arxiv.org/html/1207.6460v7#S8 200 https://arxiv.org/html/1207.6460v7#S8
+external: https://arxiv.org/html/1207.7133v1 200 https://arxiv.org/html/1207.7133v1
+external: https://arxiv.org/pdf/1112.4262 200 https://arxiv.org/pdf/1112.4262
+external: https://dlmf.nist.gov/5.11 200 https://dlmf.nist.gov/5.11
+external: https://doi.org/10.1007/978-3-662-03626-6 200 https://link.springer.com/book/10.1007/978-3-662-03626-6?error=cookies_not_supported&code=41216a80-93e6-434b-9871-a7e77877822f
+external: https://github.com/Sigmoidd/bianchi-selberg/pull/5 200 https://github.com/Sigmoidd/bianchi-selberg/pull/5
+external: https://theses.hal.science/tel-00628809/document 200 https://theses.hal.science/tel-00628809/document
+external: https://warwick.ac.uk/fac/sci/maths/people/staff/karen_vogtmann/research/1983.0058.pdf 200 https://warwick.ac.uk/fac/sci/maths/people/staff/karen_vogtmann/research/1983.0058.pdf
+external: https://www.numdam.org/item/AST_1982__94__43_0/ 200 https://www.numdam.org/item/AST_1982__94__43_0/

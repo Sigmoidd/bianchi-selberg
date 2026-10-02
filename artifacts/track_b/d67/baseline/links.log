@@ -1,0 +1,18 @@
+local path targets: 105 broken: []
+scope: Markdown inline-link file targets; heading fragments not validated
+external: https://arxiv.org/abs/1108.4608 UNVERIFIED <urlopen error [Errno 1] Operation not permitted>
+external: https://arxiv.org/abs/1204.6697 UNVERIFIED <urlopen error [Errno 1] Operation not permitted>
+external: https://arxiv.org/abs/1712.00880v2 UNVERIFIED <urlopen error [Errno 1] Operation not permitted>
+external: https://arxiv.org/abs/gr-qc/0404020 UNVERIFIED <urlopen error [Errno 1] Operation not permitted>
+external: https://arxiv.org/abs/math/0612807v1 UNVERIFIED <urlopen error [Errno 1] Operation not permitted>
+external: https://arxiv.org/html/1207.6460v7#S6 UNVERIFIED <urlopen error [Errno 1] Operation not permitted>
+external: https://arxiv.org/html/1207.6460v7#S7 UNVERIFIED <urlopen error [Errno 1] Operation not permitted>
+external: https://arxiv.org/html/1207.6460v7#S8 UNVERIFIED <urlopen error [Errno 1] Operation not permitted>
+external: https://arxiv.org/html/1207.7133v1 UNVERIFIED <urlopen error [Errno 1] Operation not permitted>
+external: https://arxiv.org/pdf/1112.4262 UNVERIFIED <urlopen error [Errno 1] Operation not permitted>
+external: https://dlmf.nist.gov/5.11 UNVERIFIED <urlopen error [Errno 1] Operation not permitted>
+external: https://doi.org/10.1007/978-3-662-03626-6 UNVERIFIED <urlopen error [Errno 1] Operation not permitted>
+external: https://github.com/Sigmoidd/bianchi-selberg/pull/5 UNVERIFIED <urlopen error [Errno 1] Operation not permitted>
+external: https://theses.hal.science/tel-00628809/document UNVERIFIED <urlopen error [Errno 1] Operation not permitted>
+external: https://warwick.ac.uk/fac/sci/maths/people/staff/karen_vogtmann/research/1983.0058.pdf UNVERIFIED <urlopen error [Errno 1] Operation not permitted>
+external: https://www.numdam.org/item/AST_1982__94__43_0/ UNVERIFIED <urlopen error [Errno 1] Operation not permitted>

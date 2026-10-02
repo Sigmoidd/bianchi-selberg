@@ -1,26 +1,43 @@
-# d67 start record
+# d67 Track B evidence
 
-The d67 spectral target and geometry gate are OPEN. The frozen initial
-design is [D67_TRACK_B_DESIGN.md](../../../docs/D67_TRACK_B_DESIGN.md).
-Run from the repository root:
+**Geometry gate: proved. Spectral exclusion: OPEN.**
+
+[Review guide and baseline record](../../../docs/D67_TRACK_B_REVIEW.md).
+
+The original [frozen design](../../../docs/D67_TRACK_B_DESIGN.md) is
+unchanged. The [geometry proof](../../../docs/D67_TRACK_B_GEOMETRY.md)
+closes its finite-domain dependency. The
+[exclusion status](../../../docs/D67_TRACK_B_EXCLUSION_STATUS.md)
+proves a compact-core obstruction to relaxing all face identifications
+and identifies the first missing theorem input.
+
+From repository root:
 
 ```sh
 python artifacts/track_b/d67/verify_cover.py
-python -O artifacts/track_b/d67/verify_cover.py
+python artifacts/track_b/d67/geometry_certify.py
+python artifacts/track_b/d67/verify_geometry.py
+python -O artifacts/track_b/d67/verify_geometry.py
+python artifacts/track_b/d67/geometry_negative_checks.py
 python artifacts/track_b/d67/negative_checks.py
-python artifacts/track_b/d67/face_probe.py
+python artifacts/track_b/d67/relaxation_obstruction.py
+python tests/d19_regressions.py replay
+python tests/d19_regressions.py protected
 ```
 
-The independent cover verifier checks 712 rational leaf squares and
-unimodular witnesses, proves `H(z)>=1/34` across the full translation
-cell, and proves that omitted denominators have norm at least 36.
-Thus the finite candidate limits are `N(c)<=29` and `N(l)<169`.
-The exact face probe reports 37 positive-area patches, total projected
-area 1, and minimum enumerated vertex height squared `2/67`.
-It remains diagnostic until face pairings and stabilizers have an
-independent field-specific replay. `cover_verification.json` and
-`negative_checks.json` state the precise passed and open gates.
+The replay reconstructs all 1,575 candidates, 37 positive-area floor
+patches, 102 edges, 66 vertices, pairing matrices and pointwise stabilizer
+groups. The minimum floor height squared is 2/67. Normal and optimized
+replays agree. Geometry mutations have their own semantic checks.
+The older `face_probe_result.json` remains a diagnostic historical
+record; `geometry_result.json` and `verification.json` supersede its
+open geometry flags. The cover result certifies only the cover scope.
 
-The optimized interpreter reproduces the cover result byte-for-byte;
-all four negative controls are rejected. The frozen d19 replay still
-passes (`d19_replay.log`). Historical artifacts are unchanged.
+`relaxation_obstruction.json` certifies B_(1/2)<0 for v=b on all H¹(K).
+This trial does not descend to the quotient; it excludes the relaxed
+criterion, not the spectral target. No Gaussian or d43 geometry or
+numerical constants transfer. Only the exact polygon algorithm, group
+relation checks, and analytic cusp reduction are reused.
+
+Historical certificates and known failing tests are preserved. The
+frozen d19 replay and protected-file check pass; see their logs.
