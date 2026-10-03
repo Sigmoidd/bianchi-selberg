@@ -16,6 +16,10 @@ class EllipticClass:
     cuspidal: bool
     provenance: str
     normalization_status: str = "historical"
+    # Row-major 2x2 matrices; entries are integral-basis coordinate pairs.
+    representative: tuple | None = None
+    primitive_translation: tuple | None = None
+    flip: tuple | None = None
 
     def coefficient(self):
         if self.cuspidal:
@@ -62,6 +66,14 @@ class GroupData:
         if self.inventory_status not in ("legacy", "self-contained"):
             raise ValueError(f"{self.name}: self-contained elliptic inventory is incomplete; "
                              "only a mechanical screen is available")
+        if self.inventory_status == "self-contained":
+            self.verify_inventory()
+
+    def verify_inventory(self):
+        if self.field.d == 2 and self.inventory_status == "self-contained":
+            from groups.d2_inventory import verify_group_records
+            return verify_group_records(self)
+        raise ValueError("no self-contained inventory verifier is registered for this group")
 
     def analytic_data(self, require_inventory=True):
         from fields.quadratic import volume, eta
@@ -97,6 +109,15 @@ EISENSTEIN = GroupData(
     ce_g0=(2, 9, 3), ce_integral=Fraction(1, 3), ce_kernel=Fraction(1, 2))
 
 
+def _d2_group():
+    from groups.d2_inventory import expected_classes
+    provenance = "docs/D2_INVENTORY_PROOF.md; groups/d2_inventory.py (d2-arithmetic-v1)"
+    classes = tuple(EllipticClass(**C, cuspidal=False, provenance=provenance,
+                                  normalization_status="proved") for C in expected_classes())
+    return GroupData(QuadraticField(2), "PSL2(Z[sqrt(-2)])", (0, 1), classes,
+                     "self-contained", provenance)
+
+
 def get_group(kind):
     if isinstance(kind, GroupData):
         return kind
@@ -105,6 +126,8 @@ def get_group(kind):
         return PICARD
     if F.d == 3:
         return EISENSTEIN
+    if F.d == 2:
+        return _d2_group()
     witness = (0, 1) if F.d == 2 else ((0, 1) if F.d <= 19 else (3, 0))
     return GroupData(F, f"PSL2(O_-{F.d})", witness, (), "incomplete",
                      "docs/INVENTORY_PROOF.md (open completeness obligations)")

@@ -19,5 +19,7 @@ third-party source texts.
 `ANALYTIC_DERIVATIONS.md` supplies the B-spline derivative, field constants,
 contour reduction, prime-power normalization and tail bounds.
 `NORMALIZATION_ISSUE.md` identifies exactly what the flip witness proves.
-`INVENTORY_PROOF.md` records the arithmetic completeness proof that is
-still required before extending the theorem to a new field.
+`D2_INVENTORY_PROOF.md` supplies the self-contained d=2 arithmetic proof and
+the involution orbital derivation. `INVENTORY_PROOF.md` records the same
+obligations still required for d=7,11,19. No external class-count table is
+used by the d=2 proof.

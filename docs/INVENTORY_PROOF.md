@@ -20,9 +20,13 @@ This restricts the types; it does **not** count their conjugacy classes.
 `EllipticClass` records coefficients separately for each element-conjugacy
 class. `QuadraticRing` provides exact multiplication in each integral basis.
 The exact Klein-four witness addresses one local centralizer issue.
-No complete new-field representative list has been established in this PR.
+The complete d=2 list and proofs are now in
+[D2_INVENTORY_PROOF.md](D2_INVENTORY_PROOF.md). There are two trace-zero
+lattice types and one trace-one GL type which splits into two SL types.
+The exact replay includes complete unit groups, primitive translations,
+full PSL finite centralizers, and the four element-class records.
 
-## Proof obligations for d=2, then d=7
+## Proof obligations (closed for d=2; next, d=7)
 
 1. **All integral embeddings.** For each of the two characteristic
    polynomials, describe the associated quadratic extension L/K and every
@@ -62,7 +66,8 @@ and precise links to the completeness derivation. A final theorem ties
 those records to the trace-formula sum. Only then mark the inventory
 `self-contained` and each normalization `proved`.
 
-The code deliberately rejects a full d=2,7,11,19 assembly today. An empty
+The code admits d=2 only after replaying its complete records, and rejects
+full d=7,11,19 assembly until their proofs are supplied. An empty
 inventory does not mean an elliptic-free group. The legacy search remains
 available for exploratory witnesses and is now labeled as bounded evidence.
 Neither stable component counts nor agreement with a Weyl coefficient

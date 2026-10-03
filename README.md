@@ -1,6 +1,6 @@
 # bianchi-selberg — certified trace-formula engine for Bianchi groups
 
-This repository proves, at level 1, that the Picard and Eisenstein–Picard
+This repository proves, at level 1, that the d=2, Picard and Eisenstein–Picard
 orbifolds have no exceptional Laplace eigenvalues.  The long calculations and
 literature notes below support this theorem; they are not the proof's primary
 organization.
@@ -15,16 +15,29 @@ The two historical numerical bounds reproduce. Their elliptic data retain
 legacy status; the [Eisenstein flip issue](docs/NORMALIZATION_ISSUE.md) is
 recorded while its original coefficient stays frozen.
 
-The candidate fields d=2,7,11,19 have Arb mechanical screens, but **no new
-spectral certificate**: complete self-contained elliptic inventories remain
-open. [RIGOR_GAPS.md](RIGOR_GAPS.md) is the current proof ledger;
+The d=2 extension now has a [self-contained arithmetic inventory proof](docs/D2_INVENTORY_PROOF.md)
+and a [frozen full certificate](certificates/d2-k2.json):
+**B in [0.42455184, 0.42957479] < 1** for PSL₂(Z[√−2]). Its four elliptic
+element classes include two inverse order-3 classes and two involution
+classes with different primitive norms. Replay it with:
+
+```sh
+python -m groups.d2_inventory
+python examples/d2_certificate.py --output certificates/d2-k2.json
+python -m unittest discover -s tests -v
+```
+
+The candidate fields d=7,11,19 still have only Arb mechanical screens:
+their complete self-contained inventories remain open.
+[RIGOR_GAPS.md](RIGOR_GAPS.md) is the current proof ledger;
 `old_RIGOR_GAPS.md` is the unchanged historical record. Stable source
 citations and local derivations are in [docs/REFERENCES.md](docs/REFERENCES.md).
 
 ## Main theorem
 
-Let \(\Gamma\) be either \(\operatorname{PSL}_2(\mathbb Z[i])\) or
-\(\operatorname{PSL}_2(\mathbb Z[\omega])\).  For the admissible test
+Let \(\Gamma\) be \(\operatorname{PSL}_2(\mathbb Z[\sqrt{-2}])\),
+\(\operatorname{PSL}_2(\mathbb Z[i])\) or
+\(\operatorname{PSL}_2(\mathbb Z[\omega])\). For the admissible test
 function \(h(r)=\operatorname{sinc}^4(\delta r)\), the certified trace-formula
 right side minus the constant-eigenvalue contribution satisfies \(B<1\).
 Therefore \(\Gamma\backslash\mathbb H^3\) has no discrete eigenvalue in
@@ -35,6 +48,11 @@ The argument invokes the standard cofinite-Kleinian trace formula and, for
 Grunewald, and Mennicke, *Groups Acting on Hyperbolic Space* (1998), Ch. 4,
 §4.3.  All field-specific reductions and numerical inequalities are recorded
 and checked in this repository.
+
+For d=2 the arithmetic classification and orbital normalization are proved
+locally in `docs/D2_INVENTORY_PROOF.md`, using the lattice correspondence,
+Minkowski bounds, and exhaustive unit reduction with proved finite bounds.
+The historical two fields retain their earlier classification inputs.
 
 ## Proof dependency graph
 
