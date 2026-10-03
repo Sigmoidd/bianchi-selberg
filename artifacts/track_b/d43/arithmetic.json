@@ -1,0 +1,75 @@
+{
+  "schema": "d43-track-b-design-input-check/v1",
+  "d": 43,
+  "D": -43,
+  "group": {
+    "d": 43,
+    "subgroup": "full",
+    "level": {
+      "hnf": [
+        1,
+        0,
+        1
+      ],
+      "norm": 1,
+      "basis": "standard-integral"
+    }
+  },
+  "design_sha256": "74f6a6813d851e7409c09267fa41975158eaadded84b8befa68681870ede6258",
+  "exact_checks_passed": true,
+  "reduced_forms": [
+    [
+      1,
+      1,
+      11
+    ]
+  ],
+  "translation_matrices": {
+    "T1": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "Ttau": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ]
+  },
+  "area_squared": "43/4",
+  "shortest_dual_squared": "4/43",
+  "truncation_Y": 2,
+  "nonzero_mode_margin_using_pi_gt_3": "533/43",
+  "pid_correspondence_source_verified": false,
+  "fundamental_domain_proved": false,
+  "mesh_certified": false,
+  "all_windows_certified": false,
+  "exclusion_certified": false,
+  "first_unproved_field_input": "fundamental domain coverage/nonoverlap"
+}

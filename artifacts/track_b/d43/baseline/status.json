@@ -1,0 +1,117 @@
+{
+  "base_commit": "86048a49dafb10345993152ef7a69682822ee393",
+  "commands": [
+    {
+      "name": "root-tests",
+      "argv": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-v"
+      ],
+      "exit_code": 1,
+      "seconds": 1.27
+    },
+    {
+      "name": "tests-suite",
+      "argv": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 1,
+      "seconds": 23.17
+    },
+    {
+      "name": "two-cusp",
+      "argv": [
+        "python",
+        "-m",
+        "unittest",
+        "test_track_b_two_cusp",
+        "-v"
+      ],
+      "exit_code": 1,
+      "seconds": 0.32
+    },
+    {
+      "name": "triage",
+      "argv": [
+        "python",
+        "tests/mutation/regression_checks.py",
+        "triage"
+      ],
+      "exit_code": 0,
+      "seconds": 0.267
+    },
+    {
+      "name": "systoles",
+      "argv": [
+        "python",
+        "-O",
+        "-m",
+        "groups.systoles"
+      ],
+      "exit_code": 0,
+      "seconds": 0.214
+    },
+    {
+      "name": "d19-inventory",
+      "argv": [
+        "python",
+        "-O",
+        "-m",
+        "groups.d19_inventory"
+      ],
+      "exit_code": 0,
+      "seconds": 0.515
+    },
+    {
+      "name": "d19-replay",
+      "argv": [
+        "python",
+        "tests/d19_regressions.py",
+        "replay"
+      ],
+      "exit_code": 0,
+      "seconds": 4.475
+    },
+    {
+      "name": "protected",
+      "argv": [
+        "python",
+        "tests/d19_regressions.py",
+        "protected"
+      ],
+      "exit_code": 0,
+      "seconds": 0.816
+    },
+    {
+      "name": "links",
+      "argv": [
+        "python",
+        "tests/mutation/regression_checks.py",
+        "links",
+        "--external"
+      ],
+      "exit_code": 0,
+      "seconds": 47.49
+    },
+    {
+      "name": "diff-check",
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 0.008
+    }
+  ],
+  "mutations_run": false
+}

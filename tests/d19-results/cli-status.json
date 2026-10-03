@@ -1,0 +1,108 @@
+[
+  {
+    "command": [
+      "python",
+      "examples/d2_certificate.py",
+      "--output",
+      "/tmp/d19-regression-cli/d2-script.json"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "python",
+      "-m",
+      "examples.d2_certificate",
+      "--output",
+      "/tmp/d19-regression-cli/d2-module.json"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "python",
+      "examples/d7_certificate.py",
+      "--output",
+      "/tmp/d19-regression-cli/d7-script.json"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "python",
+      "-m",
+      "examples.d7_certificate",
+      "--output",
+      "/tmp/d19-regression-cli/d7-module.json"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "python",
+      "examples/d11_certificate.py",
+      "--output",
+      "/tmp/d19-regression-cli/d11-script.json"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "python",
+      "-m",
+      "examples.d11_certificate",
+      "--output",
+      "/tmp/d19-regression-cli/d11-module.json"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "python",
+      "examples/d19_certificate.py",
+      "--output",
+      "/tmp/d19-regression-cli/d19-script.json"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "python",
+      "-m",
+      "examples.d19_certificate",
+      "--output",
+      "/tmp/d19-regression-cli/d19-module.json"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "python",
+      "tests/d11_regressions.py",
+      "cli",
+      "--output-dir",
+      "/tmp/d19-regression-cli"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "python",
+      "tests/d19_regressions.py",
+      "cli",
+      "--output-dir",
+      "/tmp/d19-regression-cli"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "python",
+      "tests/mutation/regression_checks.py",
+      "cli",
+      "--output-dir",
+      "/tmp/d19-regression-cli"
+    ],
+    "exit": 0
+  }
+]

@@ -1,5 +1,10 @@
 # bianchi-selberg — certified trace-formula engine for Bianchi groups
 
+The d=19 level-one certificate is closed: **B ∈ [0.89665300, 0.89668143] < 1**,
+with a complete two-class inventory and best-of-55 parameter selection. See
+[the review guide](docs/D19_REVIEW_GUIDE.md) and the
+[Track-B handoff for d=43,67,163](docs/TRACK_B_LAST_THREE_HANDOFF.md).
+
 This repository proves, at level 1, that the d=2, d=7, d=11, Picard and Eisenstein–Picard
 orbifolds have no exceptional Laplace eigenvalues.  The long calculations and
 literature notes below support this theorem; they are not the proof's primary

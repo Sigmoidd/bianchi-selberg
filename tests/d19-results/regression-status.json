@@ -1,0 +1,64 @@
+[
+  {
+    "check": "root-tests",
+    "command": [
+      "python",
+      "-m",
+      "unittest",
+      "discover",
+      "-v"
+    ],
+    "exit": 1
+  },
+  {
+    "check": "tests-suite",
+    "command": [
+      "python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "exit": 1
+  },
+  {
+    "check": "quotients",
+    "command": [
+      "python",
+      "-m",
+      "unittest",
+      "tests.test_finite_quotients",
+      "-v"
+    ],
+    "exit": 1
+  },
+  {
+    "check": "old-frozen",
+    "command": [
+      "python",
+      "tests/mutation/regression_checks.py",
+      "replay"
+    ],
+    "exit": 0
+  },
+  {
+    "check": "d11-frozen",
+    "command": [
+      "python",
+      "tests/d11_regressions.py",
+      "replay"
+    ],
+    "exit": 0
+  },
+  {
+    "check": "triage",
+    "command": [
+      "python",
+      "tests/mutation/regression_checks.py",
+      "triage"
+    ],
+    "exit": 0
+  }
+]

@@ -26,7 +26,8 @@ def independent_volume(G):
     # Independent character tables, not production character_data/zetaK2.
     q=abs(G.field.D)
     residues={8:{1:1,3:1,5:-1,7:-1},7:{1:1,2:1,3:-1,4:1,5:-1,6:-1},
-              11:{a:(1 if a in (1,3,4,5,9) else -1) for a in range(1,11)}}[q]
+              11:{a:(1 if a in (1,3,4,5,9) else -1) for a in range(1,11)},
+              19:{a:(1 if a in (1,4,5,6,7,9,11,16,17) else -1) for a in range(1,19)}}[q]
     N=q*(100000//q)
     prefixes=[sum(residues.get(n%q,0) for n in range(1,j+1)) for j in range(q+1)]
     if prefixes[-1] != 0: raise RuntimeError('nonzero period mean')

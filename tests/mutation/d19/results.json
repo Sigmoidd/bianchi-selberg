@@ -1,0 +1,421 @@
+[
+  {
+    "d": 19,
+    "mutation": "drop:0:d19 order 2: A2 with endpoint flip",
+    "prediction": -1,
+    "baseline": {
+      "ball": "[0.8967 +/- 4.70e-5]",
+      "lower": "[0.8966530054607105611801803788891943976403 +/- 2.36e-41]",
+      "upper": "[0.8966814228100802083070580593100699469567 +/- 2.99e-41]"
+    },
+    "baseline_radius": "[1.420867468482356343884021043777465820313e-5 +/- 5.00e-45]",
+    "mutated": {
+      "ball": "[0.3875 +/- 3.33e-5]",
+      "lower": "[0.3874667324541455545638618281997719993286 +/- 2.34e-41]",
+      "upper": "[0.3874951498035152016907395086206475486450 +/- 1.71e-41]"
+    },
+    "delta": {
+      "ball": "[-0.5092 +/- 4.22e-5]",
+      "lower": "[-0.5092146903559346537431962311102979476282 +/- 4.69e-41]",
+      "upper": "[-0.5091578556571953594894408702685468489953 +/- 4.07e-41]"
+    },
+    "midpoint_delta": "[-0.5091862730065650066163185506894223983117 +/- 4.69e-41]",
+    "check": "arithmetic replay",
+    "error": "ArithmeticError: complete d19 class count",
+    "interval_source": "diagnostic evaluation: inventory gate bypassed; no certificate",
+    "native_export_accepted": false,
+    "flags": []
+  },
+  {
+    "d": 19,
+    "mutation": "drop:1:d19 order 3: inverse classes merged",
+    "prediction": -1,
+    "baseline": {
+      "ball": "[0.8967 +/- 4.70e-5]",
+      "lower": "[0.8966530054607105611801803788891943976403 +/- 2.36e-41]",
+      "upper": "[0.8966814228100802083070580593100699469567 +/- 2.99e-41]"
+    },
+    "baseline_radius": "[1.420867468482356343884021043777465820313e-5 +/- 5.00e-45]",
+    "mutated": {
+      "ball": "[0.0099 +/- 6.11e-5]",
+      "lower": "[0.009838980514991224249473583170203067976710 +/- 2.32e-43]",
+      "upper": "[0.009867397864360871376351263591078617293116 +/- 1.87e-44]"
+    },
+    "delta": {
+      "ball": "[-0.8868 +/- 4.25e-5]",
+      "lower": "[-0.8868424422950889840575844761398668789800 +/- 2.01e-41]",
+      "upper": "[-0.8867856075963496898038291152981157803472 +/- 7.57e-42]"
+    },
+    "midpoint_delta": "[-0.8868140249457193369307067957189913296636 +/- 1.39e-41]",
+    "check": "arithmetic replay",
+    "error": "ArithmeticError: complete d19 class count",
+    "interval_source": "diagnostic evaluation: inventory gate bypassed; no certificate",
+    "native_export_accepted": false,
+    "flags": []
+  },
+  {
+    "d": 19,
+    "mutation": "centralizer:2",
+    "prediction": -1,
+    "baseline": {
+      "ball": "[0.8967 +/- 4.70e-5]",
+      "lower": "[0.8966530054607105611801803788891943976403 +/- 2.36e-41]",
+      "upper": "[0.8966814228100802083070580593100699469567 +/- 2.99e-41]"
+    },
+    "baseline_radius": "[1.420867468482356343884021043777465820313e-5 +/- 5.00e-45]",
+    "mutated": {
+      "ball": "[0.1987 +/- 4.72e-5]",
+      "lower": "[0.1986528564845683894066677056841986727474 +/- 2.23e-41]",
+      "upper": "[0.1986812738339380365335453861050742220638 +/- 2.85e-41]"
+    },
+    "delta": {
+      "ball": "[-0.6980 +/- 2.86e-5]",
+      "lower": "[-0.6980285663255118189003903536258712742093 +/- 7.61e-42]",
+      "upper": "[-0.6979717316267725246466349927841201755765 +/- 4.90e-42]"
+    },
+    "midpoint_delta": "[-0.6980001489761421717735126732049957248929 +/- 1.36e-42]",
+    "check": "none",
+    "error": null,
+    "interval_source": "native evaluation",
+    "native_export_accepted": true,
+    "flags": [
+      "uncaught and B < 1"
+    ]
+  },
+  {
+    "d": 19,
+    "mutation": "centralizer:0.5",
+    "prediction": 1,
+    "baseline": {
+      "ball": "[0.8967 +/- 4.70e-5]",
+      "lower": "[0.8966530054607105611801803788891943976403 +/- 2.36e-41]",
+      "upper": "[0.8966814228100802083070580593100699469567 +/- 2.99e-41]"
+    },
+    "baseline_radius": "[1.420867468482356343884021043777465820313e-5 +/- 5.00e-45]",
+    "mutated": {
+      "ball": "[2.2927 +/- 4.67e-5]",
+      "lower": "[2.292653303412980693872490523287579815889 +/- 4.36e-40]",
+      "upper": "[2.292681720762378762708798607715890210176 +/- 3.27e-40]"
+    },
+    "delta": {
+      "ball": "[1.3960 +/- 2.88e-5]",
+      "lower": "[1.395971880602886274710717261973792446446 +/- 4.84e-40]",
+      "upper": "[1.396028715301682412383333430830413235021 +/- 2.99e-40]"
+    },
+    "midpoint_delta": "[1.396000297952284343547025346402102840734 +/- 4.08e-40]",
+    "check": "positivity check",
+    "error": "ValueError: this test function does not prove B < 1",
+    "interval_source": "native evaluation",
+    "native_export_accepted": false,
+    "flags": []
+  },
+  {
+    "d": 19,
+    "mutation": "centralizer_record:2",
+    "prediction": -1,
+    "baseline": {
+      "ball": "[0.8967 +/- 4.70e-5]",
+      "lower": "[0.8966530054607105611801803788891943976403 +/- 2.36e-41]",
+      "upper": "[0.8966814228100802083070580593100699469567 +/- 2.99e-41]"
+    },
+    "baseline_radius": "[1.420867468482356343884021043777465820313e-5 +/- 5.00e-45]",
+    "mutated": {
+      "ball": "[0.1987 +/- 4.72e-5]",
+      "lower": "[0.1986528564845683894066677056841986727474 +/- 2.23e-41]",
+      "upper": "[0.1986812738339380365335453861050742220638 +/- 2.85e-41]"
+    },
+    "delta": {
+      "ball": "[-0.6980 +/- 2.86e-5]",
+      "lower": "[-0.6980285663255118189003903536258712742093 +/- 7.61e-42]",
+      "upper": "[-0.6979717316267725246466349927841201755765 +/- 4.90e-42]"
+    },
+    "midpoint_delta": "[-0.6980001489761421717735126732049957248929 +/- 1.36e-42]",
+    "check": "arithmetic replay",
+    "error": "ArithmeticError: d19 record differs: finite_centralizer_order",
+    "interval_source": "diagnostic evaluation: inventory gate bypassed; no certificate",
+    "native_export_accepted": false,
+    "flags": []
+  },
+  {
+    "d": 19,
+    "mutation": "centralizer_record:0.5",
+    "prediction": 1,
+    "baseline": {
+      "ball": "[0.8967 +/- 4.70e-5]",
+      "lower": "[0.8966530054607105611801803788891943976403 +/- 2.36e-41]",
+      "upper": "[0.8966814228100802083070580593100699469567 +/- 2.99e-41]"
+    },
+    "baseline_radius": "[1.420867468482356343884021043777465820313e-5 +/- 5.00e-45]",
+    "mutated": {
+      "ball": "[2.2927 +/- 4.67e-5]",
+      "lower": "[2.292653303412980693872490523287579815889 +/- 4.36e-40]",
+      "upper": "[2.292681720762378762708798607715890210176 +/- 3.27e-40]"
+    },
+    "delta": {
+      "ball": "[1.3960 +/- 2.88e-5]",
+      "lower": "[1.395971880602886274710717261973792446446 +/- 4.84e-40]",
+      "upper": "[1.396028715301682412383333430830413235021 +/- 2.99e-40]"
+    },
+    "midpoint_delta": "[1.396000297952284343547025346402102840734 +/- 4.08e-40]",
+    "check": "arithmetic replay",
+    "error": "ArithmeticError: d19 record differs: finite_centralizer_order",
+    "interval_source": "diagnostic evaluation: inventory gate bypassed; no certificate",
+    "native_export_accepted": false,
+    "flags": []
+  },
+  {
+    "d": 19,
+    "mutation": "translation:0:d19 order 2: A2 with endpoint flip",
+    "prediction": 0,
+    "baseline": {
+      "ball": "[0.8967 +/- 4.70e-5]",
+      "lower": "[0.8966530054607105611801803788891943976403 +/- 2.36e-41]",
+      "upper": "[0.8966814228100802083070580593100699469567 +/- 2.99e-41]"
+    },
+    "baseline_radius": "[1.420867468482356343884021043777465820313e-5 +/- 5.00e-45]",
+    "mutated": {
+      "ball": "[0.8967 +/- 4.70e-5]",
+      "lower": "[0.8966530054607105611801803788891943976403 +/- 2.36e-41]",
+      "upper": "[0.8966814228100802083070580593100699469567 +/- 2.99e-41]"
+    },
+    "delta": {
+      "ball": "0",
+      "lower": "0",
+      "upper": "0"
+    },
+    "midpoint_delta": "0",
+    "check": "arithmetic replay",
+    "error": "ArithmeticError: translation witness is missing or outside the specified group",
+    "interval_source": "diagnostic evaluation: inventory gate bypassed; no certificate",
+    "native_export_accepted": false,
+    "flags": [
+      "movement below baseline Arb radius (zero)"
+    ]
+  },
+  {
+    "d": 19,
+    "mutation": "translation:1:d19 order 3: inverse classes merged",
+    "prediction": 0,
+    "baseline": {
+      "ball": "[0.8967 +/- 4.70e-5]",
+      "lower": "[0.8966530054607105611801803788891943976403 +/- 2.36e-41]",
+      "upper": "[0.8966814228100802083070580593100699469567 +/- 2.99e-41]"
+    },
+    "baseline_radius": "[1.420867468482356343884021043777465820313e-5 +/- 5.00e-45]",
+    "mutated": {
+      "ball": "[0.8967 +/- 4.70e-5]",
+      "lower": "[0.8966530054607105611801803788891943976403 +/- 2.36e-41]",
+      "upper": "[0.8966814228100802083070580593100699469567 +/- 2.99e-41]"
+    },
+    "delta": {
+      "ball": "0",
+      "lower": "0",
+      "upper": "0"
+    },
+    "midpoint_delta": "0",
+    "check": "arithmetic replay",
+    "error": "ArithmeticError: translation witness is missing or outside the specified group",
+    "interval_source": "diagnostic evaluation: inventory gate bypassed; no certificate",
+    "native_export_accepted": false,
+    "flags": [
+      "movement below baseline Arb radius (zero)"
+    ]
+  },
+  {
+    "d": 19,
+    "mutation": "translation_all:None",
+    "prediction": 0,
+    "baseline": {
+      "ball": "[0.8967 +/- 4.70e-5]",
+      "lower": "[0.8966530054607105611801803788891943976403 +/- 2.36e-41]",
+      "upper": "[0.8966814228100802083070580593100699469567 +/- 2.99e-41]"
+    },
+    "baseline_radius": "[1.420867468482356343884021043777465820313e-5 +/- 5.00e-45]",
+    "mutated": {
+      "ball": "[0.8967 +/- 4.70e-5]",
+      "lower": "[0.8966530054607105611801803788891943976403 +/- 2.36e-41]",
+      "upper": "[0.8966814228100802083070580593100699469567 +/- 2.99e-41]"
+    },
+    "delta": {
+      "ball": "0",
+      "lower": "0",
+      "upper": "0"
+    },
+    "midpoint_delta": "0",
+    "check": "arithmetic replay",
+    "error": "ArithmeticError: translation witness is missing or outside the specified group",
+    "interval_source": "diagnostic evaluation: inventory gate bypassed; no certificate",
+    "native_export_accepted": false,
+    "flags": [
+      "movement below baseline Arb radius (zero)"
+    ]
+  },
+  {
+    "d": 19,
+    "mutation": "volume:1.01",
+    "prediction": 1,
+    "baseline": {
+      "ball": "[0.8967 +/- 4.70e-5]",
+      "lower": "[0.8966530054607105611801803788891943976403 +/- 2.36e-41]",
+      "upper": "[0.8966814228100802083070580593100699469567 +/- 2.99e-41]"
+    },
+    "baseline_radius": "[1.420867468482356343884021043777465820313e-5 +/- 5.00e-45]",
+    "mutated": {
+      "ball": "[0.9064 +/- 1.92e-5]",
+      "lower": "[0.9063808662774006573992108636932853227751 +/- 4.58e-41]",
+      "upper": "[0.9064092836267703045260885441141608720915 +/- 3.95e-41]"
+    },
+    "delta": {
+      "ball": "[0.0097 +/- 5.63e-5]",
+      "lower": "[0.009699443467320449092152804383215375818324 +/- 4.29e-43]",
+      "upper": "[0.009756278166059743345908165224966474451137 +/- 7.14e-44]"
+    },
+    "midpoint_delta": "[0.009727860816690096219030484804090925134731 +/- 3.22e-43]",
+    "check": "none",
+    "error": null,
+    "interval_source": "native evaluation",
+    "native_export_accepted": true,
+    "flags": [
+      "uncaught and B < 1"
+    ]
+  },
+  {
+    "d": 19,
+    "mutation": "volume:0.99",
+    "prediction": -1,
+    "baseline": {
+      "ball": "[0.8967 +/- 4.70e-5]",
+      "lower": "[0.8966530054607105611801803788891943976403 +/- 2.36e-41]",
+      "upper": "[0.8966814228100802083070580593100699469567 +/- 2.99e-41]"
+    },
+    "baseline_radius": "[1.420867468482356343884021043777465820313e-5 +/- 5.00e-45]",
+    "mutated": {
+      "ball": "[0.8869 +/- 5.36e-5]",
+      "lower": "[0.8869251446440204649611498940819480288847 +/- 8.86e-42]",
+      "upper": "[0.8869535619933901120880275745028235782011 +/- 1.52e-41]"
+    },
+    "delta": {
+      "ball": "[-0.0097 +/- 5.63e-5]",
+      "lower": "[-0.009756278166059743345908165228121918072021 +/- 2.42e-44]",
+      "upper": "[-0.009699443467320449092152804386370819439208 +/- 4.77e-43]"
+    },
+    "midpoint_delta": "[-0.009727860816690096219030484807246368755615 +/- 2.75e-43]",
+    "check": "none",
+    "error": null,
+    "interval_source": "native evaluation",
+    "native_export_accepted": true,
+    "flags": [
+      "uncaught and B < 1"
+    ]
+  },
+  {
+    "d": 19,
+    "mutation": "trace_box:None",
+    "prediction": 0,
+    "baseline": {
+      "ball": "[0.8967 +/- 4.70e-5]",
+      "lower": "[0.8966530054607105611801803788891943976403 +/- 2.36e-41]",
+      "upper": "[0.8966814228100802083070580593100699469567 +/- 2.99e-41]"
+    },
+    "baseline_radius": "[1.420867468482356343884021043777465820313e-5 +/- 5.00e-45]",
+    "mutated": {
+      "ball": "[0.8967 +/- 4.70e-5]",
+      "lower": "[0.8966530054607105611801803788891943976403 +/- 2.36e-41]",
+      "upper": "[0.8966814228100802083070580593100699469567 +/- 2.99e-41]"
+    },
+    "delta": {
+      "ball": "0",
+      "lower": "0",
+      "upper": "0"
+    },
+    "midpoint_delta": "0",
+    "check": "none",
+    "error": null,
+    "interval_source": "native evaluation",
+    "native_export_accepted": true,
+    "flags": [
+      "movement below baseline Arb radius (zero)",
+      "uncaught and B < 1"
+    ],
+    "truncated_trace_check": {
+      "d": 19,
+      "trace": [
+        0,
+        1
+      ],
+      "checked": 6,
+      "ties": [
+        [
+          -1,
+          1
+        ],
+        [
+          0,
+          -1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          -1
+        ]
+      ]
+    }
+  },
+  {
+    "d": 19,
+    "mutation": "cusp:0",
+    "prediction": 1,
+    "baseline": {
+      "ball": "[0.8967 +/- 4.70e-5]",
+      "lower": "[0.8966530054607105611801803788891943976403 +/- 2.36e-41]",
+      "upper": "[0.8966814228100802083070580593100699469567 +/- 2.99e-41]"
+    },
+    "baseline_radius": "[1.420867468482356343884021043777465820313e-5 +/- 5.00e-45]",
+    "mutated": {
+      "ball": "[1.206324291485873316330830848 +/- 3.05e-28]",
+      "lower": "[1.206324291485873316330830847695702219329 +/- 1.25e-40]",
+      "upper": "[1.206324291485873316330830847837697182269 +/- 9.31e-41]"
+    },
+    "delta": {
+      "ball": "[0.3097 +/- 5.72e-5]",
+      "lower": "[0.3096428686757788971690575864529123313569 +/- 3.46e-41]",
+      "upper": "[0.3096712860251769660053656708812227256440 +/- 4.40e-41]"
+    },
+    "midpoint_delta": "[0.3096570773504779315872116286670675285005 +/- 1.08e-41]",
+    "check": "positivity check",
+    "error": "ValueError: this test function does not prove B < 1",
+    "interval_source": "native evaluation",
+    "native_export_accepted": false,
+    "flags": []
+  },
+  {
+    "d": 19,
+    "mutation": "cusp:-1",
+    "prediction": 1,
+    "baseline": {
+      "ball": "[0.8967 +/- 4.70e-5]",
+      "lower": "[0.8966530054607105611801803788891943976403 +/- 2.36e-41]",
+      "upper": "[0.8966814228100802083070580593100699469567 +/- 2.99e-41]"
+    },
+    "baseline_radius": "[1.420867468482356343884021043777465820313e-5 +/- 5.00e-45]",
+    "mutated": {
+      "ball": "[1.5160 +/- 3.29e-5]",
+      "lower": "[1.515967160161595370081027626195276011352 +/- 1.08e-40]",
+      "upper": "[1.515995577511107125755057326653325785522 +/- 1.87e-40]"
+    },
+    "delta": {
+      "ball": "[0.6193 +/- 4.26e-5]",
+      "lower": "[0.6192857373515009509192543648814886419098 +/- 1.08e-41]",
+      "upper": "[0.6193425720504107754295921497678488103668 +/- 4.20e-41]"
+    },
+    "midpoint_delta": "[0.6193141547009558631744232573246687261383 +/- 2.64e-41]",
+    "check": "positivity check",
+    "error": "ValueError: this test function does not prove B < 1",
+    "interval_source": "native evaluation",
+    "native_export_accepted": false,
+    "flags": []
+  }
+]

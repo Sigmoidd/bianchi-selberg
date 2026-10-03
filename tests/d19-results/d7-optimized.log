@@ -1,0 +1,217 @@
+{
+  "proof_id": "d7-arithmetic-v1",
+  "number_theory": {
+    "discriminants": {
+      "A2": 784,
+      "A3": 441
+    },
+    "maximal_class_numbers": {
+      "A2": 1,
+      "A3": 1
+    },
+    "GL_lattice_types": {
+      "trace_zero": [
+        "A2"
+      ],
+      "trace_one": [
+        "A3"
+      ]
+    },
+    "minkowski_cutoffs": {
+      "A2": 4,
+      "A3": 3
+    },
+    "principal_prime_norms": {
+      "A2": [
+        2,
+        2
+      ],
+      "A3": []
+    }
+  },
+  "units": [
+    {
+      "order": "A2",
+      "coefficient_norm_bound": [
+        9,
+        2
+      ],
+      "generator": [
+        1,
+        1,
+        2,
+        -1
+      ],
+      "generator_relative_norm": [
+        1,
+        0
+      ],
+      "generator_abs_square": [
+        8,
+        3,
+        7,
+        1
+      ],
+      "norm_equation_candidates": 12,
+      "reduced_unit_count": 4,
+      "torsion_order": 4,
+      "determinant_image": [
+        1
+      ]
+    },
+    {
+      "order": "A3",
+      "coefficient_norm_bound": [
+        7,
+        3
+      ],
+      "generator": [
+        -1,
+        1,
+        1,
+        0
+      ],
+      "generator_relative_norm": [
+        -1,
+        0
+      ],
+      "generator_abs_square": [
+        5,
+        1,
+        21,
+        2
+      ],
+      "norm_equation_candidates": 18,
+      "reduced_unit_count": 6,
+      "torsion_order": 6,
+      "determinant_image": [
+        -1,
+        1
+      ]
+    }
+  ],
+  "class_count": 2,
+  "classes": [
+    {
+      "label": "d7 order 2: A2",
+      "m": 2,
+      "finite_centralizer_order": 2,
+      "norm": [
+        8,
+        3,
+        7
+      ],
+      "norm_denominator": 1,
+      "representative": [
+        [
+          0,
+          0
+        ],
+        [
+          -1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "primitive_translation": [
+        [
+          1,
+          1
+        ],
+        [
+          -2,
+          1
+        ],
+        [
+          2,
+          -1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "flip": null
+    },
+    {
+      "label": "d7 order 3: inverse classes merged",
+      "m": 3,
+      "finite_centralizer_order": 3,
+      "norm": [
+        23,
+        5,
+        21
+      ],
+      "norm_denominator": 2,
+      "representative": [
+        [
+          0,
+          0
+        ],
+        [
+          -1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "primitive_translation": [
+        [
+          -2,
+          -1
+        ],
+        [
+          1,
+          -2
+        ],
+        [
+          -1,
+          2
+        ],
+        [
+          -3,
+          1
+        ]
+      ],
+      "flip": null
+    }
+  ],
+  "splitting": {
+    "trace_zero_GL_to_SL": 2,
+    "trace_zero_PSL_classes": 1,
+    "trace_one_GL_to_SL": 1,
+    "trace_one_PSL_classes": 1,
+    "inverse_conjugator": [
+      [
+        0,
+        1
+      ],
+      [
+        -1,
+        1
+      ],
+      [
+        -1,
+        0
+      ],
+      [
+        0,
+        -1
+      ]
+    ]
+  },
+  "orbital_normalization": "full-PSL-centralizer; no endpoint flip in involution centralizer"
+}

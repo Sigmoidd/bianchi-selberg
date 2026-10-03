@@ -32,7 +32,7 @@ two maximal orders, class number one, complete units and two PSL element classes
 The complete d=11 proof is in [D11_INVENTORY_PROOF.md](D11_INVENTORY_PROOF.md):
 two maximal orders of class number one, complete units and three PSL element classes.
 
-## Proof obligations (closed for d=2,7,11; next, d=19)
+## Proof obligations (closed for d=2,7,11,19)
 
 1. **All integral embeddings.** For each of the two characteristic
    polynomials, describe the associated quadratic extension L/K and every
@@ -72,8 +72,9 @@ and precise links to the completeness derivation. A final theorem ties
 those records to the trace-formula sum. Only then mark the inventory
 `self-contained` and each normalization `proved`.
 
-The code admits d=2,7,11 only after replaying their complete records,
-and rejects full d=19 assembly until their proofs are supplied. An empty
+The code admits d=2,7,11,19 only after replaying their complete records.
+The d=19 proof is [D19_INVENTORY_PROOF.md](D19_INVENTORY_PROOF.md);
+full assembly for d=43,67,163 remains blocked on their own proofs. An empty
 inventory does not mean an elliptic-free group. The legacy search remains
 available for exploratory witnesses and is now labeled as bounded evidence.
 Neither stable component counts nor agreement with a Weyl coefficient

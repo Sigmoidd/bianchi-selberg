@@ -1,0 +1,25 @@
+test_status_string_cannot_certify_another_field (tests.test_d2_inventory.D2InventoryTests.test_status_string_cannot_certify_another_field) ... FAIL
+test_new_fields_block_full_assembly (tests.test_trace_core.TraceCoreTests.test_new_fields_block_full_assembly) ... FAIL
+
+======================================================================
+FAIL: test_status_string_cannot_certify_another_field (tests.test_d2_inventory.D2InventoryTests.test_status_string_cannot_certify_another_field)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/bianchi-d19-base/tests/test_d2_inventory.py", line 61, in test_status_string_cannot_certify_another_field
+    with self.assertRaisesRegex(ValueError, "no self-contained inventory verifier"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_new_fields_block_full_assembly (tests.test_trace_core.TraceCoreTests.test_new_fields_block_full_assembly)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/bianchi-d19-base/tests/test_trace_core.py", line 108, in test_new_fields_block_full_assembly
+    with self.assertRaisesRegex(ValueError, "inventory is incomplete"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 2 tests in 1.475s
+
+FAILED (failures=2)

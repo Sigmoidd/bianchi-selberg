@@ -1,0 +1,30 @@
+{
+  "source": "https://theses.hal.science/tel-00628809/document",
+  "sha256": "6804880395f5eec77e8be873f93c7cd8cddceaedcc2d3bc6719e977e6f05202f",
+  "table": "27.26",
+  "printed_page": 189,
+  "pdf_page": 197,
+  "d": 19,
+  "row": [
+    0,
+    1,
+    1,
+    2,
+    0,
+    0,
+    1,
+    2
+  ],
+  "PSL_subgroup_classes": {
+    "C2": 1,
+    "C3": 1,
+    "V4_total": 2,
+    "S3": 2,
+    "A4": 2
+  },
+  "PSL_element_classes": {
+    "order2": 1,
+    "order3": 1
+  },
+  "method": "Visual reading of original scan; exact inverse conjugator from independent arithmetic proof."
+}

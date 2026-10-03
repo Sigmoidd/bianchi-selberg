@@ -1,0 +1,372 @@
+{
+  "proof_id": "d11-arithmetic-v1",
+  "number_theory": {
+    "discriminants": {
+      "A2": 1936,
+      "A3": 1089
+    },
+    "maximal_class_numbers": {
+      "A2": 1,
+      "A3": 1
+    },
+    "GL_lattice_types": {
+      "trace_zero": [
+        "A2"
+      ],
+      "trace_one": [
+        "A3"
+      ]
+    },
+    "minkowski_cutoffs": {
+      "A2": 6,
+      "A3": 5
+    },
+    "principal_prime_norms": {
+      "A2": [
+        4,
+        5,
+        5,
+        5,
+        5
+      ],
+      "A3": [
+        3,
+        3,
+        4,
+        4
+      ]
+    },
+    "A2_norm_five_generators": [
+      [
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        -1,
+        0
+      ],
+      [
+        1,
+        -1,
+        1,
+        0
+      ],
+      [
+        1,
+        -1,
+        -1,
+        0
+      ]
+    ],
+    "A2_norm_five_residues": [
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        4,
+        2
+      ]
+    ],
+    "A3_norm_three_generators": [
+      [
+        -2,
+        0,
+        0,
+        1
+      ],
+      [
+        -2,
+        0,
+        1,
+        -1
+      ]
+    ],
+    "A3_norm_four_generators": [
+      [
+        0,
+        1,
+        -1,
+        0
+      ],
+      [
+        -1,
+        1,
+        1,
+        0
+      ]
+    ]
+  },
+  "units": [
+    {
+      "order": "A2",
+      "coefficient_norm_bound": [
+        11,
+        2
+      ],
+      "coordinate_bounds": {
+        "a": 2,
+        "b": 1
+      },
+      "generator": [
+        1,
+        1,
+        2,
+        -1
+      ],
+      "generator_relative_norm": [
+        -1,
+        0
+      ],
+      "generator_abs_square": [
+        10,
+        3,
+        11,
+        1
+      ],
+      "norm_equation_candidates": 12,
+      "reduced_unit_count": 4,
+      "torsion_order": 4,
+      "determinant_image": [
+        -1,
+        1
+      ]
+    },
+    {
+      "order": "A3",
+      "coefficient_norm_bound": [
+        16,
+        1
+      ],
+      "coordinate_bounds": {
+        "a": 4,
+        "b": 2
+      },
+      "generator": [
+        -3,
+        2,
+        4,
+        0
+      ],
+      "generator_relative_norm": [
+        1,
+        0
+      ],
+      "generator_abs_square": [
+        46,
+        8,
+        33,
+        2
+      ],
+      "norm_equation_candidates": 10,
+      "reduced_unit_count": 6,
+      "torsion_order": 6,
+      "determinant_image": [
+        1
+      ]
+    }
+  ],
+  "class_count": 3,
+  "classes": [
+    {
+      "label": "d11 order 2: A2 with endpoint flip",
+      "m": 2,
+      "finite_centralizer_order": 4,
+      "norm": [
+        199,
+        60,
+        11
+      ],
+      "norm_denominator": 1,
+      "representative": [
+        [
+          0,
+          0
+        ],
+        [
+          -1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "primitive_translation": [
+        [
+          -3,
+          6
+        ],
+        [
+          -10,
+          0
+        ],
+        [
+          10,
+          0
+        ],
+        [
+          -3,
+          6
+        ]
+      ],
+      "flip": [
+        [
+          1,
+          1
+        ],
+        [
+          -2,
+          1
+        ],
+        [
+          -2,
+          1
+        ],
+        [
+          -1,
+          -1
+        ]
+      ]
+    },
+    {
+      "label": "d11 order 3: alpha",
+      "m": 3,
+      "finite_centralizer_order": 3,
+      "norm": [
+        23,
+        4,
+        33
+      ],
+      "norm_denominator": 1,
+      "representative": [
+        [
+          0,
+          0
+        ],
+        [
+          -1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "primitive_translation": [
+        [
+          -3,
+          2
+        ],
+        [
+          -4,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "flip": null
+    },
+    {
+      "label": "d11 order 3: alpha inverse",
+      "m": 3,
+      "finite_centralizer_order": 3,
+      "norm": [
+        23,
+        4,
+        33
+      ],
+      "norm_denominator": 1,
+      "representative": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          -1,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "primitive_translation": [
+        [
+          1,
+          2
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          -4,
+          0
+        ],
+        [
+          -3,
+          2
+        ]
+      ],
+      "flip": null
+    }
+  ],
+  "splitting": {
+    "trace_zero_GL_to_SL": 1,
+    "trace_zero_PSL_classes": 1,
+    "trace_one_GL_to_SL": 2,
+    "trace_one_PSL_classes": 2,
+    "inverse_conjugator": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        -1,
+        0
+      ]
+    ],
+    "inverse_conjugator_determinant": -1,
+    "order_three_inverse_classes_merge": false
+  },
+  "orbital_normalization": "full-PSL-centralizer; involution endpoint flip included"
+}
