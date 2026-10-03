@@ -1,0 +1,5821 @@
+{
+  "schema": "d67-finite-ford-geometry/v1",
+  "d": 67,
+  "D": -67,
+  "subgroup": "full",
+  "level_hnf": [
+    1,
+    0,
+    1
+  ],
+  "design_sha256": "b3eee3a531577904f29ec3e7fe3e917e5339082db1fdf19169c4905e886dc721",
+  "cover_sha256": "89cd32fce9968e4064a46deeeafb142b1b7be12d8d158c4e17615f788ce74336",
+  "c_norm_max": 29,
+  "lambda_norm_strict_upper": 169,
+  "omitted_norm_min": 36,
+  "cover_threshold": "1/34",
+  "candidate_count": 1575,
+  "active_face_count": 37,
+  "vertex_count": 66,
+  "edge_count": 102,
+  "edges": [
+    {
+      "endpoints": [
+        [
+          "-1/2",
+          "-1/2"
+        ],
+        [
+          "-1/2",
+          "-7/18"
+        ]
+      ],
+      "incidence": 1,
+      "vertical_boundary": true,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-1/2",
+          "-1/2"
+        ],
+        [
+          "-1/4",
+          "-1/2"
+        ]
+      ],
+      "incidence": 1,
+      "vertical_boundary": true,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-1/2",
+          "-7/18"
+        ],
+        [
+          "-1/2",
+          "-1/3"
+        ]
+      ],
+      "incidence": 1,
+      "vertical_boundary": true,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-1/2",
+          "-7/18"
+        ],
+        [
+          "-95/201",
+          "-26/67"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-1/2",
+          "-1/3"
+        ],
+        [
+          "-1/2",
+          "-9/32"
+        ]
+      ],
+      "incidence": 1,
+      "vertical_boundary": true,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-1/2",
+          "-1/3"
+        ],
+        [
+          "-95/201",
+          "-26/67"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-1/2",
+          "-9/32"
+        ],
+        [
+          "-1/2",
+          "-7/32"
+        ]
+      ],
+      "incidence": 1,
+      "vertical_boundary": true,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-1/2",
+          "-9/32"
+        ],
+        [
+          "-49/134",
+          "-18/67"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-1/2",
+          "-7/32"
+        ],
+        [
+          "-1/2",
+          "0"
+        ]
+      ],
+      "incidence": 1,
+      "vertical_boundary": true,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-1/2",
+          "-7/32"
+        ],
+        [
+          "-191/402",
+          "-29/134"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-1/2",
+          "0"
+        ],
+        [
+          "-1/2",
+          "7/32"
+        ]
+      ],
+      "incidence": 1,
+      "vertical_boundary": true,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-1/2",
+          "0"
+        ],
+        [
+          "-133/335",
+          "-69/335"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": [
+        [
+          [
+            -1,
+            0
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            0
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      ]
+    },
+    {
+      "endpoints": [
+        [
+          "-1/2",
+          "7/32"
+        ],
+        [
+          "-1/2",
+          "9/32"
+        ]
+      ],
+      "incidence": 1,
+      "vertical_boundary": true,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-1/2",
+          "7/32"
+        ],
+        [
+          "-49/134",
+          "31/134"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-1/2",
+          "9/32"
+        ],
+        [
+          "-1/2",
+          "1/3"
+        ]
+      ],
+      "incidence": 1,
+      "vertical_boundary": true,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-1/2",
+          "9/32"
+        ],
+        [
+          "-191/402",
+          "19/67"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-1/2",
+          "1/3"
+        ],
+        [
+          "-1/2",
+          "7/18"
+        ]
+      ],
+      "incidence": 1,
+      "vertical_boundary": true,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-1/2",
+          "1/3"
+        ],
+        [
+          "-191/402",
+          "19/67"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-1/2",
+          "7/18"
+        ],
+        [
+          "-1/2",
+          "1/2"
+        ]
+      ],
+      "incidence": 1,
+      "vertical_boundary": true,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-1/2",
+          "7/18"
+        ],
+        [
+          "-113/402",
+          "53/134"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-1/2",
+          "1/2"
+        ],
+        [
+          "-1/4",
+          "1/2"
+        ]
+      ],
+      "incidence": 1,
+      "vertical_boundary": true,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-191/402",
+          "-29/134"
+        ],
+        [
+          "-133/335",
+          "-69/335"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-191/402",
+          "-29/134"
+        ],
+        [
+          "-155/402",
+          "-46/201"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-191/402",
+          "19/67"
+        ],
+        [
+          "-155/402",
+          "109/402"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-95/201",
+          "-26/67"
+        ],
+        [
+          "-20/67",
+          "-27/67"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": [
+        [
+          [
+            -8,
+            0
+          ],
+          [
+            -3,
+            -3
+          ],
+          [
+            2,
+            -1
+          ],
+          [
+            7,
+            0
+          ]
+        ],
+        [
+          [
+            -7,
+            0
+          ],
+          [
+            -3,
+            -3
+          ],
+          [
+            2,
+            -1
+          ],
+          [
+            8,
+            0
+          ]
+        ]
+      ]
+    },
+    {
+      "endpoints": [
+        [
+          "-133/335",
+          "-69/335"
+        ],
+        [
+          "-155/402",
+          "-46/201"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-133/335",
+          "-69/335"
+        ],
+        [
+          "-62/201",
+          "-29/134"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-155/402",
+          "-46/201"
+        ],
+        [
+          "-49/134",
+          "-18/67"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-155/402",
+          "-46/201"
+        ],
+        [
+          "-62/201",
+          "-29/134"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-155/402",
+          "109/402"
+        ],
+        [
+          "-49/134",
+          "31/134"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-155/402",
+          "109/402"
+        ],
+        [
+          "-28/201",
+          "56/201"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-49/134",
+          "-18/67"
+        ],
+        [
+          "-77/402",
+          "-19/67"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-49/134",
+          "31/134"
+        ],
+        [
+          "-8/67",
+          "16/67"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": [
+        [
+          [
+            -4,
+            0
+          ],
+          [
+            -1,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            4,
+            0
+          ]
+        ]
+      ]
+    },
+    {
+      "endpoints": [
+        [
+          "-62/201",
+          "-29/134"
+        ],
+        [
+          "-9/67",
+          "-31/134"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-20/67",
+          "-27/67"
+        ],
+        [
+          "-1/4",
+          "-1/2"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": [
+        [
+          [
+            -1,
+            -1
+          ],
+          [
+            8,
+            -1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            0,
+            -1
+          ],
+          [
+            8,
+            -1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      ]
+    },
+    {
+      "endpoints": [
+        [
+          "-20/67",
+          "-27/67"
+        ],
+        [
+          "-28/201",
+          "-26/67"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": [
+        [
+          [
+            6,
+            -1
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            -7,
+            1
+          ]
+        ],
+        [
+          [
+            7,
+            -1
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            -6,
+            1
+          ]
+        ]
+      ]
+    },
+    {
+      "endpoints": [
+        [
+          "-113/402",
+          "53/134"
+        ],
+        [
+          "-68/335",
+          "136/335"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-113/402",
+          "53/134"
+        ],
+        [
+          "-77/402",
+          "77/201"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-1/4",
+          "-1/2"
+        ],
+        [
+          "1/4",
+          "-1/2"
+        ]
+      ],
+      "incidence": 1,
+      "vertical_boundary": true,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-1/4",
+          "1/2"
+        ],
+        [
+          "-68/335",
+          "136/335"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": [
+        [
+          [
+            -1,
+            1
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            -1
+          ]
+        ],
+        [
+          [
+            0,
+            1
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            1,
+            -1
+          ]
+        ]
+      ]
+    },
+    {
+      "endpoints": [
+        [
+          "-1/4",
+          "1/2"
+        ],
+        [
+          "1/4",
+          "1/2"
+        ]
+      ],
+      "incidence": 1,
+      "vertical_boundary": true,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-68/335",
+          "136/335"
+        ],
+        [
+          "-77/402",
+          "77/201"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-68/335",
+          "136/335"
+        ],
+        [
+          "-23/201",
+          "53/134"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-77/402",
+          "-19/67"
+        ],
+        [
+          "-28/201",
+          "-26/67"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-77/402",
+          "-19/67"
+        ],
+        [
+          "-23/201",
+          "-109/402"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-77/402",
+          "77/201"
+        ],
+        [
+          "-28/201",
+          "56/201"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-77/402",
+          "77/201"
+        ],
+        [
+          "-23/201",
+          "53/134"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-28/201",
+          "-26/67"
+        ],
+        [
+          "23/201",
+          "-53/134"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-28/201",
+          "56/201"
+        ],
+        [
+          "-8/67",
+          "16/67"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": [
+        [
+          [
+            -1,
+            1
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            0,
+            -1
+          ]
+        ],
+        [
+          [
+            0,
+            1
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            1,
+            -1
+          ]
+        ]
+      ]
+    },
+    {
+      "endpoints": [
+        [
+          "-28/201",
+          "56/201"
+        ],
+        [
+          "23/201",
+          "109/402"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-9/67",
+          "-31/134"
+        ],
+        [
+          "-23/201",
+          "-109/402"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-9/67",
+          "-31/134"
+        ],
+        [
+          "8/67",
+          "-16/67"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": [
+        [
+          [
+            -4,
+            0
+          ],
+          [
+            0,
+            -1
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            4,
+            0
+          ]
+        ]
+      ]
+    },
+    {
+      "endpoints": [
+        [
+          "-8/67",
+          "16/67"
+        ],
+        [
+          "9/67",
+          "31/134"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": [
+        [
+          [
+            4,
+            0
+          ],
+          [
+            0,
+            -1
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            -4,
+            0
+          ]
+        ]
+      ]
+    },
+    {
+      "endpoints": [
+        [
+          "-23/201",
+          "-109/402"
+        ],
+        [
+          "28/201",
+          "-56/201"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "-23/201",
+          "53/134"
+        ],
+        [
+          "28/201",
+          "26/67"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "23/201",
+          "-53/134"
+        ],
+        [
+          "77/402",
+          "-77/201"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "23/201",
+          "-53/134"
+        ],
+        [
+          "68/335",
+          "-136/335"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "23/201",
+          "109/402"
+        ],
+        [
+          "9/67",
+          "31/134"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "23/201",
+          "109/402"
+        ],
+        [
+          "77/402",
+          "19/67"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "8/67",
+          "-16/67"
+        ],
+        [
+          "28/201",
+          "-56/201"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": [
+        [
+          [
+            0,
+            -1
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            -1,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            -1
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ]
+    },
+    {
+      "endpoints": [
+        [
+          "8/67",
+          "-16/67"
+        ],
+        [
+          "49/134",
+          "-31/134"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": [
+        [
+          [
+            4,
+            0
+          ],
+          [
+            -1,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            -4,
+            0
+          ]
+        ]
+      ]
+    },
+    {
+      "endpoints": [
+        [
+          "9/67",
+          "31/134"
+        ],
+        [
+          "62/201",
+          "29/134"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "28/201",
+          "-56/201"
+        ],
+        [
+          "77/402",
+          "-77/201"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "28/201",
+          "-56/201"
+        ],
+        [
+          "155/402",
+          "-109/402"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "28/201",
+          "26/67"
+        ],
+        [
+          "77/402",
+          "19/67"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "28/201",
+          "26/67"
+        ],
+        [
+          "20/67",
+          "27/67"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": [
+        [
+          [
+            -7,
+            1
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            6,
+            -1
+          ]
+        ],
+        [
+          [
+            -6,
+            1
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            7,
+            -1
+          ]
+        ]
+      ]
+    },
+    {
+      "endpoints": [
+        [
+          "77/402",
+          "-77/201"
+        ],
+        [
+          "68/335",
+          "-136/335"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "77/402",
+          "-77/201"
+        ],
+        [
+          "113/402",
+          "-53/134"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "77/402",
+          "19/67"
+        ],
+        [
+          "49/134",
+          "18/67"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "68/335",
+          "-136/335"
+        ],
+        [
+          "1/4",
+          "-1/2"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": [
+        [
+          [
+            0,
+            -1
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            -1,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            -1
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ]
+    },
+    {
+      "endpoints": [
+        [
+          "68/335",
+          "-136/335"
+        ],
+        [
+          "113/402",
+          "-53/134"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "1/4",
+          "-1/2"
+        ],
+        [
+          "1/2",
+          "-1/2"
+        ]
+      ],
+      "incidence": 1,
+      "vertical_boundary": true,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "1/4",
+          "1/2"
+        ],
+        [
+          "20/67",
+          "27/67"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            8,
+            -1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            -1,
+            -1
+          ]
+        ],
+        [
+          [
+            1,
+            1
+          ],
+          [
+            8,
+            -1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            -1
+          ]
+        ]
+      ]
+    },
+    {
+      "endpoints": [
+        [
+          "1/4",
+          "1/2"
+        ],
+        [
+          "1/2",
+          "1/2"
+        ]
+      ],
+      "incidence": 1,
+      "vertical_boundary": true,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "113/402",
+          "-53/134"
+        ],
+        [
+          "1/2",
+          "-7/18"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "20/67",
+          "27/67"
+        ],
+        [
+          "95/201",
+          "26/67"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": [
+        [
+          [
+            7,
+            0
+          ],
+          [
+            -3,
+            -3
+          ],
+          [
+            2,
+            -1
+          ],
+          [
+            -8,
+            0
+          ]
+        ],
+        [
+          [
+            8,
+            0
+          ],
+          [
+            -3,
+            -3
+          ],
+          [
+            2,
+            -1
+          ],
+          [
+            -7,
+            0
+          ]
+        ]
+      ]
+    },
+    {
+      "endpoints": [
+        [
+          "62/201",
+          "29/134"
+        ],
+        [
+          "155/402",
+          "46/201"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "62/201",
+          "29/134"
+        ],
+        [
+          "133/335",
+          "69/335"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "49/134",
+          "-31/134"
+        ],
+        [
+          "155/402",
+          "-109/402"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "49/134",
+          "-31/134"
+        ],
+        [
+          "1/2",
+          "-7/32"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "49/134",
+          "18/67"
+        ],
+        [
+          "155/402",
+          "46/201"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "49/134",
+          "18/67"
+        ],
+        [
+          "1/2",
+          "9/32"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "155/402",
+          "-109/402"
+        ],
+        [
+          "191/402",
+          "-19/67"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "155/402",
+          "46/201"
+        ],
+        [
+          "133/335",
+          "69/335"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "155/402",
+          "46/201"
+        ],
+        [
+          "191/402",
+          "29/134"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "133/335",
+          "69/335"
+        ],
+        [
+          "191/402",
+          "29/134"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "133/335",
+          "69/335"
+        ],
+        [
+          "1/2",
+          "0"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            -1,
+            0
+          ]
+        ],
+        [
+          [
+            1,
+            0
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ]
+    },
+    {
+      "endpoints": [
+        [
+          "95/201",
+          "26/67"
+        ],
+        [
+          "1/2",
+          "1/3"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "95/201",
+          "26/67"
+        ],
+        [
+          "1/2",
+          "7/18"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "191/402",
+          "-19/67"
+        ],
+        [
+          "1/2",
+          "-1/3"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "191/402",
+          "-19/67"
+        ],
+        [
+          "1/2",
+          "-9/32"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "191/402",
+          "29/134"
+        ],
+        [
+          "1/2",
+          "7/32"
+        ]
+      ],
+      "incidence": 2,
+      "vertical_boundary": false,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "1/2",
+          "-1/2"
+        ],
+        [
+          "1/2",
+          "-7/18"
+        ]
+      ],
+      "incidence": 1,
+      "vertical_boundary": true,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "1/2",
+          "-7/18"
+        ],
+        [
+          "1/2",
+          "-1/3"
+        ]
+      ],
+      "incidence": 1,
+      "vertical_boundary": true,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "1/2",
+          "-1/3"
+        ],
+        [
+          "1/2",
+          "-9/32"
+        ]
+      ],
+      "incidence": 1,
+      "vertical_boundary": true,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "1/2",
+          "-9/32"
+        ],
+        [
+          "1/2",
+          "-7/32"
+        ]
+      ],
+      "incidence": 1,
+      "vertical_boundary": true,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "1/2",
+          "-7/32"
+        ],
+        [
+          "1/2",
+          "0"
+        ]
+      ],
+      "incidence": 1,
+      "vertical_boundary": true,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "1/2",
+          "0"
+        ],
+        [
+          "1/2",
+          "7/32"
+        ]
+      ],
+      "incidence": 1,
+      "vertical_boundary": true,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "1/2",
+          "7/32"
+        ],
+        [
+          "1/2",
+          "9/32"
+        ]
+      ],
+      "incidence": 1,
+      "vertical_boundary": true,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "1/2",
+          "9/32"
+        ],
+        [
+          "1/2",
+          "1/3"
+        ]
+      ],
+      "incidence": 1,
+      "vertical_boundary": true,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "1/2",
+          "1/3"
+        ],
+        [
+          "1/2",
+          "7/18"
+        ]
+      ],
+      "incidence": 1,
+      "vertical_boundary": true,
+      "pointwise_stabilizer": []
+    },
+    {
+      "endpoints": [
+        [
+          "1/2",
+          "7/18"
+        ],
+        [
+          "1/2",
+          "1/2"
+        ]
+      ],
+      "incidence": 1,
+      "vertical_boundary": true,
+      "pointwise_stabilizer": []
+    }
+  ],
+  "lowest_vertex_height_squared": "2/67",
+  "vertical_pairings": [
+    "T_1",
+    "T_tau"
+  ],
+  "faces": [
+    {
+      "c": [
+        1,
+        0
+      ],
+      "l": [
+        -1,
+        0
+      ],
+      "matrix": [
+        [
+          0,
+          0
+        ],
+        [
+          -1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "polygon": [
+        [
+          "-1/2",
+          "0"
+        ],
+        [
+          "-1/2",
+          "-7/32"
+        ],
+        [
+          "-191/402",
+          "-29/134"
+        ],
+        [
+          "-133/335",
+          "-69/335"
+        ]
+      ],
+      "area": "727/64320"
+    },
+    {
+      "c": [
+        1,
+        0
+      ],
+      "l": [
+        0,
+        0
+      ],
+      "matrix": [
+        [
+          0,
+          0
+        ],
+        [
+          -1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "polygon": [
+        [
+          "1/2",
+          "-7/32"
+        ],
+        [
+          "1/2",
+          "0"
+        ],
+        [
+          "133/335",
+          "69/335"
+        ],
+        [
+          "62/201",
+          "29/134"
+        ],
+        [
+          "9/67",
+          "31/134"
+        ],
+        [
+          "-8/67",
+          "16/67"
+        ],
+        [
+          "-49/134",
+          "31/134"
+        ],
+        [
+          "-1/2",
+          "7/32"
+        ],
+        [
+          "-1/2",
+          "0"
+        ],
+        [
+          "-133/335",
+          "-69/335"
+        ],
+        [
+          "-62/201",
+          "-29/134"
+        ],
+        [
+          "-9/67",
+          "-31/134"
+        ],
+        [
+          "8/67",
+          "-16/67"
+        ],
+        [
+          "49/134",
+          "-31/134"
+        ]
+      ],
+      "area": "13897/32160"
+    },
+    {
+      "c": [
+        1,
+        0
+      ],
+      "l": [
+        1,
+        0
+      ],
+      "matrix": [
+        [
+          0,
+          0
+        ],
+        [
+          -1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          -1,
+          0
+        ]
+      ],
+      "polygon": [
+        [
+          "1/2",
+          "0"
+        ],
+        [
+          "1/2",
+          "7/32"
+        ],
+        [
+          "191/402",
+          "29/134"
+        ],
+        [
+          "133/335",
+          "69/335"
+        ]
+      ],
+      "area": "727/64320"
+    },
+    {
+      "c": [
+        2,
+        0
+      ],
+      "l": [
+        -1,
+        -1
+      ],
+      "matrix": [
+        [
+          0,
+          -1
+        ],
+        [
+          8,
+          -1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "polygon": [
+        [
+          "-1/2",
+          "-1/2"
+        ],
+        [
+          "-1/4",
+          "-1/2"
+        ],
+        [
+          "-20/67",
+          "-27/67"
+        ],
+        [
+          "-95/201",
+          "-26/67"
+        ],
+        [
+          "-1/2",
+          "-7/18"
+        ]
+      ],
+      "area": "683/28944"
+    },
+    {
+      "c": [
+        2,
+        0
+      ],
+      "l": [
+        -1,
+        1
+      ],
+      "matrix": [
+        [
+          0,
+          -1
+        ],
+        [
+          -9,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          1,
+          -1
+        ]
+      ],
+      "polygon": [
+        [
+          "-1/4",
+          "1/2"
+        ],
+        [
+          "-1/2",
+          "1/2"
+        ],
+        [
+          "-1/2",
+          "7/18"
+        ],
+        [
+          "-113/402",
+          "53/134"
+        ],
+        [
+          "-68/335",
+          "136/335"
+        ]
+      ],
+      "area": "4217/144720"
+    },
+    {
+      "c": [
+        2,
+        0
+      ],
+      "l": [
+        0,
+        -1
+      ],
+      "matrix": [
+        [
+          -1,
+          1
+        ],
+        [
+          -9,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "polygon": [
+        [
+          "-1/4",
+          "-1/2"
+        ],
+        [
+          "1/4",
+          "-1/2"
+        ],
+        [
+          "68/335",
+          "-136/335"
+        ],
+        [
+          "23/201",
+          "-53/134"
+        ],
+        [
+          "-28/201",
+          "-26/67"
+        ],
+        [
+          "-20/67",
+          "-27/67"
+        ]
+      ],
+      "area": "53/1005"
+    },
+    {
+      "c": [
+        2,
+        0
+      ],
+      "l": [
+        0,
+        1
+      ],
+      "matrix": [
+        [
+          -1,
+          1
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          -1
+        ]
+      ],
+      "polygon": [
+        [
+          "1/4",
+          "1/2"
+        ],
+        [
+          "-1/4",
+          "1/2"
+        ],
+        [
+          "-68/335",
+          "136/335"
+        ],
+        [
+          "-23/201",
+          "53/134"
+        ],
+        [
+          "28/201",
+          "26/67"
+        ],
+        [
+          "20/67",
+          "27/67"
+        ]
+      ],
+      "area": "53/1005"
+    },
+    {
+      "c": [
+        2,
+        0
+      ],
+      "l": [
+        1,
+        -1
+      ],
+      "matrix": [
+        [
+          0,
+          -1
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          -1,
+          1
+        ]
+      ],
+      "polygon": [
+        [
+          "1/4",
+          "-1/2"
+        ],
+        [
+          "1/2",
+          "-1/2"
+        ],
+        [
+          "1/2",
+          "-7/18"
+        ],
+        [
+          "113/402",
+          "-53/134"
+        ],
+        [
+          "68/335",
+          "-136/335"
+        ]
+      ],
+      "area": "4217/144720"
+    },
+    {
+      "c": [
+        2,
+        0
+      ],
+      "l": [
+        1,
+        1
+      ],
+      "matrix": [
+        [
+          0,
+          -1
+        ],
+        [
+          -9,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          -1,
+          -1
+        ]
+      ],
+      "polygon": [
+        [
+          "1/2",
+          "7/18"
+        ],
+        [
+          "1/2",
+          "1/2"
+        ],
+        [
+          "1/4",
+          "1/2"
+        ],
+        [
+          "20/67",
+          "27/67"
+        ],
+        [
+          "95/201",
+          "26/67"
+        ]
+      ],
+      "area": "683/28944"
+    },
+    {
+      "c": [
+        2,
+        1
+      ],
+      "l": [
+        -7,
+        1
+      ],
+      "matrix": [
+        [
+          -3,
+          1
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          7,
+          -1
+        ]
+      ],
+      "polygon": [
+        [
+          "-23/201",
+          "53/134"
+        ],
+        [
+          "-68/335",
+          "136/335"
+        ],
+        [
+          "-77/402",
+          "77/201"
+        ]
+      ],
+      "area": "23/24120"
+    },
+    {
+      "c": [
+        2,
+        1
+      ],
+      "l": [
+        -3,
+        1
+      ],
+      "matrix": [
+        [
+          -7,
+          1
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          -1
+        ]
+      ],
+      "polygon": [
+        [
+          "62/201",
+          "29/134"
+        ],
+        [
+          "133/335",
+          "69/335"
+        ],
+        [
+          "155/402",
+          "46/201"
+        ]
+      ],
+      "area": "23/24120"
+    },
+    {
+      "c": [
+        2,
+        1
+      ],
+      "l": [
+        3,
+        -1
+      ],
+      "matrix": [
+        [
+          7,
+          -1
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          -3,
+          1
+        ]
+      ],
+      "polygon": [
+        [
+          "-62/201",
+          "-29/134"
+        ],
+        [
+          "-133/335",
+          "-69/335"
+        ],
+        [
+          "-155/402",
+          "-46/201"
+        ]
+      ],
+      "area": "23/24120"
+    },
+    {
+      "c": [
+        2,
+        1
+      ],
+      "l": [
+        7,
+        -1
+      ],
+      "matrix": [
+        [
+          3,
+          -1
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          -7,
+          1
+        ]
+      ],
+      "polygon": [
+        [
+          "23/201",
+          "-53/134"
+        ],
+        [
+          "68/335",
+          "-136/335"
+        ],
+        [
+          "77/402",
+          "-77/201"
+        ]
+      ],
+      "area": "23/24120"
+    },
+    {
+      "c": [
+        3,
+        -1
+      ],
+      "l": [
+        -6,
+        -1
+      ],
+      "matrix": [
+        [
+          -2,
+          -1
+        ],
+        [
+          7,
+          -1
+        ],
+        [
+          3,
+          -1
+        ],
+        [
+          6,
+          1
+        ]
+      ],
+      "polygon": [
+        [
+          "113/402",
+          "-53/134"
+        ],
+        [
+          "77/402",
+          "-77/201"
+        ],
+        [
+          "68/335",
+          "-136/335"
+        ]
+      ],
+      "area": "23/24120"
+    },
+    {
+      "c": [
+        3,
+        -1
+      ],
+      "l": [
+        -5,
+        0
+      ],
+      "matrix": [
+        [
+          -6,
+          -1
+        ],
+        [
+          1,
+          -2
+        ],
+        [
+          3,
+          -1
+        ],
+        [
+          5,
+          0
+        ]
+      ],
+      "polygon": [
+        [
+          "-133/335",
+          "-69/335"
+        ],
+        [
+          "-191/402",
+          "-29/134"
+        ],
+        [
+          "-155/402",
+          "-46/201"
+        ]
+      ],
+      "area": "23/24120"
+    },
+    {
+      "c": [
+        3,
+        -1
+      ],
+      "l": [
+        5,
+        0
+      ],
+      "matrix": [
+        [
+          6,
+          1
+        ],
+        [
+          1,
+          -2
+        ],
+        [
+          3,
+          -1
+        ],
+        [
+          -5,
+          0
+        ]
+      ],
+      "polygon": [
+        [
+          "155/402",
+          "46/201"
+        ],
+        [
+          "133/335",
+          "69/335"
+        ],
+        [
+          "191/402",
+          "29/134"
+        ]
+      ],
+      "area": "23/24120"
+    },
+    {
+      "c": [
+        3,
+        -1
+      ],
+      "l": [
+        6,
+        1
+      ],
+      "matrix": [
+        [
+          2,
+          1
+        ],
+        [
+          7,
+          -1
+        ],
+        [
+          3,
+          -1
+        ],
+        [
+          -6,
+          -1
+        ]
+      ],
+      "polygon": [
+        [
+          "-113/402",
+          "53/134"
+        ],
+        [
+          "-77/402",
+          "77/201"
+        ],
+        [
+          "-68/335",
+          "136/335"
+        ]
+      ],
+      "area": "23/24120"
+    },
+    {
+      "c": [
+        3,
+        0
+      ],
+      "l": [
+        -2,
+        -1
+      ],
+      "matrix": [
+        [
+          0,
+          1
+        ],
+        [
+          -6,
+          1
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "polygon": [
+        [
+          "-1/2",
+          "-1/3"
+        ],
+        [
+          "-1/2",
+          "-7/18"
+        ],
+        [
+          "-95/201",
+          "-26/67"
+        ]
+      ],
+      "area": "11/14472"
+    },
+    {
+      "c": [
+        3,
+        0
+      ],
+      "l": [
+        -2,
+        1
+      ],
+      "matrix": [
+        [
+          -2,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          2,
+          -1
+        ]
+      ],
+      "polygon": [
+        [
+          "-1/2",
+          "1/3"
+        ],
+        [
+          "-1/2",
+          "9/32"
+        ],
+        [
+          "-191/402",
+          "19/67"
+        ]
+      ],
+      "area": "25/38592"
+    },
+    {
+      "c": [
+        3,
+        0
+      ],
+      "l": [
+        -1,
+        -1
+      ],
+      "matrix": [
+        [
+          -1,
+          -1
+        ],
+        [
+          5,
+          -1
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "polygon": [
+        [
+          "-1/2",
+          "-9/32"
+        ],
+        [
+          "-1/2",
+          "-1/3"
+        ],
+        [
+          "-95/201",
+          "-26/67"
+        ],
+        [
+          "-20/67",
+          "-27/67"
+        ],
+        [
+          "-28/201",
+          "-26/67"
+        ],
+        [
+          "-77/402",
+          "-19/67"
+        ],
+        [
+          "-49/134",
+          "-18/67"
+        ]
+      ],
+      "area": "1511/38592"
+    },
+    {
+      "c": [
+        3,
+        0
+      ],
+      "l": [
+        -1,
+        1
+      ],
+      "matrix": [
+        [
+          0,
+          -1
+        ],
+        [
+          -6,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          1,
+          -1
+        ]
+      ],
+      "polygon": [
+        [
+          "-113/402",
+          "53/134"
+        ],
+        [
+          "-1/2",
+          "7/18"
+        ],
+        [
+          "-1/2",
+          "1/3"
+        ],
+        [
+          "-191/402",
+          "19/67"
+        ],
+        [
+          "-155/402",
+          "109/402"
+        ],
+        [
+          "-28/201",
+          "56/201"
+        ],
+        [
+          "-77/402",
+          "77/201"
+        ]
+      ],
+      "area": "547/14472"
+    },
+    {
+      "c": [
+        3,
+        0
+      ],
+      "l": [
+        0,
+        -1
+      ],
+      "matrix": [
+        [
+          -1,
+          1
+        ],
+        [
+          -6,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "polygon": [
+        [
+          "28/201",
+          "-56/201"
+        ],
+        [
+          "-23/201",
+          "-109/402"
+        ],
+        [
+          "-77/402",
+          "-19/67"
+        ],
+        [
+          "-28/201",
+          "-26/67"
+        ],
+        [
+          "23/201",
+          "-53/134"
+        ],
+        [
+          "77/402",
+          "-77/201"
+        ]
+      ],
+      "area": "31/804"
+    },
+    {
+      "c": [
+        3,
+        0
+      ],
+      "l": [
+        0,
+        1
+      ],
+      "matrix": [
+        [
+          1,
+          -1
+        ],
+        [
+          -6,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          0,
+          -1
+        ]
+      ],
+      "polygon": [
+        [
+          "28/201",
+          "26/67"
+        ],
+        [
+          "-23/201",
+          "53/134"
+        ],
+        [
+          "-77/402",
+          "77/201"
+        ],
+        [
+          "-28/201",
+          "56/201"
+        ],
+        [
+          "23/201",
+          "109/402"
+        ],
+        [
+          "77/402",
+          "19/67"
+        ]
+      ],
+      "area": "31/804"
+    },
+    {
+      "c": [
+        3,
+        0
+      ],
+      "l": [
+        1,
+        -1
+      ],
+      "matrix": [
+        [
+          0,
+          1
+        ],
+        [
+          -6,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          -1,
+          1
+        ]
+      ],
+      "polygon": [
+        [
+          "1/2",
+          "-7/18"
+        ],
+        [
+          "1/2",
+          "-1/3"
+        ],
+        [
+          "191/402",
+          "-19/67"
+        ],
+        [
+          "155/402",
+          "-109/402"
+        ],
+        [
+          "28/201",
+          "-56/201"
+        ],
+        [
+          "77/402",
+          "-77/201"
+        ],
+        [
+          "113/402",
+          "-53/134"
+        ]
+      ],
+      "area": "547/14472"
+    },
+    {
+      "c": [
+        3,
+        0
+      ],
+      "l": [
+        1,
+        1
+      ],
+      "matrix": [
+        [
+          -2,
+          1
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          -1,
+          -1
+        ]
+      ],
+      "polygon": [
+        [
+          "1/2",
+          "9/32"
+        ],
+        [
+          "1/2",
+          "1/3"
+        ],
+        [
+          "95/201",
+          "26/67"
+        ],
+        [
+          "20/67",
+          "27/67"
+        ],
+        [
+          "28/201",
+          "26/67"
+        ],
+        [
+          "77/402",
+          "19/67"
+        ],
+        [
+          "49/134",
+          "18/67"
+        ]
+      ],
+      "area": "1511/38592"
+    },
+    {
+      "c": [
+        3,
+        0
+      ],
+      "l": [
+        2,
+        -1
+      ],
+      "matrix": [
+        [
+          -1,
+          -1
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          -2,
+          1
+        ]
+      ],
+      "polygon": [
+        [
+          "1/2",
+          "-1/3"
+        ],
+        [
+          "1/2",
+          "-9/32"
+        ],
+        [
+          "191/402",
+          "-19/67"
+        ]
+      ],
+      "area": "25/38592"
+    },
+    {
+      "c": [
+        3,
+        0
+      ],
+      "l": [
+        2,
+        1
+      ],
+      "matrix": [
+        [
+          0,
+          -1
+        ],
+        [
+          -6,
+          1
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          -2,
+          -1
+        ]
+      ],
+      "polygon": [
+        [
+          "1/2",
+          "1/3"
+        ],
+        [
+          "1/2",
+          "7/18"
+        ],
+        [
+          "95/201",
+          "26/67"
+        ]
+      ],
+      "area": "11/14472"
+    },
+    {
+      "c": [
+        4,
+        0
+      ],
+      "l": [
+        -2,
+        -1
+      ],
+      "matrix": [
+        [
+          1,
+          1
+        ],
+        [
+          -4,
+          1
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "polygon": [
+        [
+          "-1/2",
+          "-7/32"
+        ],
+        [
+          "-1/2",
+          "-9/32"
+        ],
+        [
+          "-49/134",
+          "-18/67"
+        ],
+        [
+          "-155/402",
+          "-46/201"
+        ],
+        [
+          "-191/402",
+          "-29/134"
+        ]
+      ],
+      "area": "4/603"
+    },
+    {
+      "c": [
+        4,
+        0
+      ],
+      "l": [
+        -2,
+        1
+      ],
+      "matrix": [
+        [
+          -1,
+          -1
+        ],
+        [
+          -5,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          2,
+          -1
+        ]
+      ],
+      "polygon": [
+        [
+          "-155/402",
+          "109/402"
+        ],
+        [
+          "-191/402",
+          "19/67"
+        ],
+        [
+          "-1/2",
+          "9/32"
+        ],
+        [
+          "-1/2",
+          "7/32"
+        ],
+        [
+          "-49/134",
+          "31/134"
+        ]
+      ],
+      "area": "4/603"
+    },
+    {
+      "c": [
+        4,
+        0
+      ],
+      "l": [
+        -1,
+        -1
+      ],
+      "matrix": [
+        [
+          -2,
+          1
+        ],
+        [
+          -5,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "polygon": [
+        [
+          "-23/201",
+          "-109/402"
+        ],
+        [
+          "-9/67",
+          "-31/134"
+        ],
+        [
+          "-62/201",
+          "-29/134"
+        ],
+        [
+          "-155/402",
+          "-46/201"
+        ],
+        [
+          "-49/134",
+          "-18/67"
+        ],
+        [
+          "-77/402",
+          "-19/67"
+        ]
+      ],
+      "area": "8/603"
+    },
+    {
+      "c": [
+        4,
+        0
+      ],
+      "l": [
+        -1,
+        1
+      ],
+      "matrix": [
+        [
+          0,
+          1
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          1,
+          -1
+        ]
+      ],
+      "polygon": [
+        [
+          "-28/201",
+          "56/201"
+        ],
+        [
+          "-155/402",
+          "109/402"
+        ],
+        [
+          "-49/134",
+          "31/134"
+        ],
+        [
+          "-8/67",
+          "16/67"
+        ]
+      ],
+      "area": "2/201"
+    },
+    {
+      "c": [
+        4,
+        0
+      ],
+      "l": [
+        0,
+        -1
+      ],
+      "matrix": [
+        [
+          1,
+          -1
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "polygon": [
+        [
+          "8/67",
+          "-16/67"
+        ],
+        [
+          "-9/67",
+          "-31/134"
+        ],
+        [
+          "-23/201",
+          "-109/402"
+        ],
+        [
+          "28/201",
+          "-56/201"
+        ]
+      ],
+      "area": "2/201"
+    },
+    {
+      "c": [
+        4,
+        0
+      ],
+      "l": [
+        0,
+        1
+      ],
+      "matrix": [
+        [
+          -1,
+          1
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          -1
+        ]
+      ],
+      "polygon": [
+        [
+          "23/201",
+          "109/402"
+        ],
+        [
+          "-28/201",
+          "56/201"
+        ],
+        [
+          "-8/67",
+          "16/67"
+        ],
+        [
+          "9/67",
+          "31/134"
+        ]
+      ],
+      "area": "2/201"
+    },
+    {
+      "c": [
+        4,
+        0
+      ],
+      "l": [
+        1,
+        -1
+      ],
+      "matrix": [
+        [
+          0,
+          -1
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          -1,
+          1
+        ]
+      ],
+      "polygon": [
+        [
+          "49/134",
+          "-31/134"
+        ],
+        [
+          "8/67",
+          "-16/67"
+        ],
+        [
+          "28/201",
+          "-56/201"
+        ],
+        [
+          "155/402",
+          "-109/402"
+        ]
+      ],
+      "area": "2/201"
+    },
+    {
+      "c": [
+        4,
+        0
+      ],
+      "l": [
+        1,
+        1
+      ],
+      "matrix": [
+        [
+          2,
+          -1
+        ],
+        [
+          -5,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          -1,
+          -1
+        ]
+      ],
+      "polygon": [
+        [
+          "23/201",
+          "109/402"
+        ],
+        [
+          "9/67",
+          "31/134"
+        ],
+        [
+          "62/201",
+          "29/134"
+        ],
+        [
+          "155/402",
+          "46/201"
+        ],
+        [
+          "49/134",
+          "18/67"
+        ],
+        [
+          "77/402",
+          "19/67"
+        ]
+      ],
+      "area": "8/603"
+    },
+    {
+      "c": [
+        4,
+        0
+      ],
+      "l": [
+        2,
+        -1
+      ],
+      "matrix": [
+        [
+          1,
+          1
+        ],
+        [
+          -5,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          -2,
+          1
+        ]
+      ],
+      "polygon": [
+        [
+          "1/2",
+          "-9/32"
+        ],
+        [
+          "1/2",
+          "-7/32"
+        ],
+        [
+          "49/134",
+          "-31/134"
+        ],
+        [
+          "155/402",
+          "-109/402"
+        ],
+        [
+          "191/402",
+          "-19/67"
+        ]
+      ],
+      "area": "4/603"
+    },
+    {
+      "c": [
+        4,
+        0
+      ],
+      "l": [
+        2,
+        1
+      ],
+      "matrix": [
+        [
+          -1,
+          -1
+        ],
+        [
+          -4,
+          1
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          -2,
+          -1
+        ]
+      ],
+      "polygon": [
+        [
+          "1/2",
+          "7/32"
+        ],
+        [
+          "1/2",
+          "9/32"
+        ],
+        [
+          "49/134",
+          "18/67"
+        ],
+        [
+          "155/402",
+          "46/201"
+        ],
+        [
+          "191/402",
+          "29/134"
+        ]
+      ],
+      "area": "4/603"
+    }
+  ],
+  "vertex_stabilizers": [
+    {
+      "z": [
+        "-1/2",
+        "-1/2"
+      ],
+      "y2": "1/4",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "-1/2",
+        "-7/18"
+      ],
+      "y2": "13/324",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "-1/2",
+        "-1/3"
+      ],
+      "y2": "1/12",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "-1/2",
+        "-9/32"
+      ],
+      "y2": "47/1024",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "-1/2",
+        "-7/32"
+      ],
+      "y2": "47/1024",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "-1/2",
+        "0"
+      ],
+      "y2": "3/4",
+      "order_psl": 3,
+      "matrices": [
+        [
+          [
+            -1,
+            0
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            0
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      ]
+    },
+    {
+      "z": [
+        "-1/2",
+        "7/32"
+      ],
+      "y2": "47/1024",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "-1/2",
+        "9/32"
+      ],
+      "y2": "47/1024",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "-1/2",
+        "1/3"
+      ],
+      "y2": "1/12",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "-1/2",
+        "7/18"
+      ],
+      "y2": "13/324",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "-1/2",
+        "1/2"
+      ],
+      "y2": "1/4",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "-191/402",
+        "-29/134"
+      ],
+      "y2": "101/2412",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "-191/402",
+        "19/67"
+      ],
+      "y2": "101/2412",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "-95/201",
+        "-26/67"
+      ],
+      "y2": "20/603",
+      "order_psl": 3,
+      "matrices": [
+        [
+          [
+            -8,
+            0
+          ],
+          [
+            -3,
+            -3
+          ],
+          [
+            2,
+            -1
+          ],
+          [
+            7,
+            0
+          ]
+        ],
+        [
+          [
+            -7,
+            0
+          ],
+          [
+            -3,
+            -3
+          ],
+          [
+            2,
+            -1
+          ],
+          [
+            8,
+            0
+          ]
+        ]
+      ]
+    },
+    {
+      "z": [
+        "-133/335",
+        "-69/335"
+      ],
+      "y2": "66/1675",
+      "order_psl": 3,
+      "matrices": [
+        [
+          [
+            -1,
+            0
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            0
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      ]
+    },
+    {
+      "z": [
+        "-155/402",
+        "-46/201"
+      ],
+      "y2": "95/2412",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "-155/402",
+        "109/402"
+      ],
+      "y2": "95/2412",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "-49/134",
+        "-18/67"
+      ],
+      "y2": "11/268",
+      "order_psl": 2,
+      "matrices": [
+        [
+          [
+            -1,
+            -1
+          ],
+          [
+            5,
+            -1
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      ]
+    },
+    {
+      "z": [
+        "-49/134",
+        "31/134"
+      ],
+      "y2": "11/268",
+      "order_psl": 2,
+      "matrices": [
+        [
+          [
+            -4,
+            0
+          ],
+          [
+            -1,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            4,
+            0
+          ]
+        ]
+      ]
+    },
+    {
+      "z": [
+        "-62/201",
+        "-29/134"
+      ],
+      "y2": "101/2412",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "-20/67",
+        "-27/67"
+      ],
+      "y2": "2/67",
+      "order_psl": 12,
+      "matrices": [
+        [
+          [
+            6,
+            -1
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            -7,
+            1
+          ]
+        ],
+        [
+          [
+            7,
+            -1
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            -6,
+            1
+          ]
+        ],
+        [
+          [
+            -8,
+            0
+          ],
+          [
+            -3,
+            -3
+          ],
+          [
+            2,
+            -1
+          ],
+          [
+            7,
+            0
+          ]
+        ],
+        [
+          [
+            -7,
+            0
+          ],
+          [
+            -3,
+            -3
+          ],
+          [
+            2,
+            -1
+          ],
+          [
+            8,
+            0
+          ]
+        ],
+        [
+          [
+            -1,
+            -1
+          ],
+          [
+            8,
+            -1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            0,
+            -1
+          ],
+          [
+            8,
+            -1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          [
+            -1,
+            -1
+          ],
+          [
+            5,
+            -1
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          [
+            6,
+            -2
+          ],
+          [
+            16,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            -6,
+            2
+          ]
+        ],
+        [
+          [
+            -8,
+            -1
+          ],
+          [
+            5,
+            -4
+          ],
+          [
+            4,
+            -1
+          ],
+          [
+            8,
+            1
+          ]
+        ],
+        [
+          [
+            -2,
+            -2
+          ],
+          [
+            13,
+            -2
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          [
+            -1,
+            -2
+          ],
+          [
+            13,
+            -2
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            2,
+            2
+          ]
+        ]
+      ]
+    },
+    {
+      "z": [
+        "-113/402",
+        "53/134"
+      ],
+      "y2": "95/2412",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "-1/4",
+        "-1/2"
+      ],
+      "y2": "3/16",
+      "order_psl": 3,
+      "matrices": [
+        [
+          [
+            -1,
+            -1
+          ],
+          [
+            8,
+            -1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            0,
+            -1
+          ],
+          [
+            8,
+            -1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      ]
+    },
+    {
+      "z": [
+        "-1/4",
+        "1/2"
+      ],
+      "y2": "3/16",
+      "order_psl": 3,
+      "matrices": [
+        [
+          [
+            -1,
+            1
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            -1
+          ]
+        ],
+        [
+          [
+            0,
+            1
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            1,
+            -1
+          ]
+        ]
+      ]
+    },
+    {
+      "z": [
+        "-68/335",
+        "136/335"
+      ],
+      "y2": "66/1675",
+      "order_psl": 3,
+      "matrices": [
+        [
+          [
+            -1,
+            1
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            -1
+          ]
+        ],
+        [
+          [
+            0,
+            1
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            1,
+            -1
+          ]
+        ]
+      ]
+    },
+    {
+      "z": [
+        "-77/402",
+        "-19/67"
+      ],
+      "y2": "101/2412",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "-77/402",
+        "77/201"
+      ],
+      "y2": "101/2412",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "-28/201",
+        "-26/67"
+      ],
+      "y2": "20/603",
+      "order_psl": 3,
+      "matrices": [
+        [
+          [
+            6,
+            -1
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            -7,
+            1
+          ]
+        ],
+        [
+          [
+            7,
+            -1
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            -6,
+            1
+          ]
+        ]
+      ]
+    },
+    {
+      "z": [
+        "-28/201",
+        "56/201"
+      ],
+      "y2": "20/603",
+      "order_psl": 3,
+      "matrices": [
+        [
+          [
+            -1,
+            1
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            0,
+            -1
+          ]
+        ],
+        [
+          [
+            0,
+            1
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            1,
+            -1
+          ]
+        ]
+      ]
+    },
+    {
+      "z": [
+        "-9/67",
+        "-31/134"
+      ],
+      "y2": "11/268",
+      "order_psl": 2,
+      "matrices": [
+        [
+          [
+            -4,
+            0
+          ],
+          [
+            0,
+            -1
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            4,
+            0
+          ]
+        ]
+      ]
+    },
+    {
+      "z": [
+        "-8/67",
+        "16/67"
+      ],
+      "y2": "3/67",
+      "order_psl": 6,
+      "matrices": [
+        [
+          [
+            -4,
+            0
+          ],
+          [
+            -1,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        [
+          [
+            4,
+            0
+          ],
+          [
+            0,
+            -1
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            -4,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            0
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          [
+            -1,
+            1
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            0,
+            -1
+          ]
+        ],
+        [
+          [
+            0,
+            1
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            1,
+            -1
+          ]
+        ]
+      ]
+    },
+    {
+      "z": [
+        "-23/201",
+        "-109/402"
+      ],
+      "y2": "95/2412",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "-23/201",
+        "53/134"
+      ],
+      "y2": "95/2412",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "23/201",
+        "-53/134"
+      ],
+      "y2": "95/2412",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "23/201",
+        "109/402"
+      ],
+      "y2": "95/2412",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "8/67",
+        "-16/67"
+      ],
+      "y2": "3/67",
+      "order_psl": 6,
+      "matrices": [
+        [
+          [
+            4,
+            0
+          ],
+          [
+            -1,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            -4,
+            0
+          ]
+        ],
+        [
+          [
+            -4,
+            0
+          ],
+          [
+            0,
+            -1
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            0
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            -1
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            -1,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            -1
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ]
+    },
+    {
+      "z": [
+        "9/67",
+        "31/134"
+      ],
+      "y2": "11/268",
+      "order_psl": 2,
+      "matrices": [
+        [
+          [
+            4,
+            0
+          ],
+          [
+            0,
+            -1
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            -4,
+            0
+          ]
+        ]
+      ]
+    },
+    {
+      "z": [
+        "28/201",
+        "-56/201"
+      ],
+      "y2": "20/603",
+      "order_psl": 3,
+      "matrices": [
+        [
+          [
+            0,
+            -1
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            -1,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            -1
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ]
+    },
+    {
+      "z": [
+        "28/201",
+        "26/67"
+      ],
+      "y2": "20/603",
+      "order_psl": 3,
+      "matrices": [
+        [
+          [
+            -7,
+            1
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            6,
+            -1
+          ]
+        ],
+        [
+          [
+            -6,
+            1
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            7,
+            -1
+          ]
+        ]
+      ]
+    },
+    {
+      "z": [
+        "77/402",
+        "-77/201"
+      ],
+      "y2": "101/2412",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "77/402",
+        "19/67"
+      ],
+      "y2": "101/2412",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "68/335",
+        "-136/335"
+      ],
+      "y2": "66/1675",
+      "order_psl": 3,
+      "matrices": [
+        [
+          [
+            0,
+            -1
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            -1,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            -1
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ]
+    },
+    {
+      "z": [
+        "1/4",
+        "-1/2"
+      ],
+      "y2": "3/16",
+      "order_psl": 3,
+      "matrices": [
+        [
+          [
+            0,
+            -1
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            -1,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            -1
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      ]
+    },
+    {
+      "z": [
+        "1/4",
+        "1/2"
+      ],
+      "y2": "3/16",
+      "order_psl": 3,
+      "matrices": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            8,
+            -1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            -1,
+            -1
+          ]
+        ],
+        [
+          [
+            1,
+            1
+          ],
+          [
+            8,
+            -1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            -1
+          ]
+        ]
+      ]
+    },
+    {
+      "z": [
+        "113/402",
+        "-53/134"
+      ],
+      "y2": "95/2412",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "20/67",
+        "27/67"
+      ],
+      "y2": "2/67",
+      "order_psl": 12,
+      "matrices": [
+        [
+          [
+            -7,
+            1
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            6,
+            -1
+          ]
+        ],
+        [
+          [
+            -6,
+            1
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            7,
+            -1
+          ]
+        ],
+        [
+          [
+            7,
+            0
+          ],
+          [
+            -3,
+            -3
+          ],
+          [
+            2,
+            -1
+          ],
+          [
+            -8,
+            0
+          ]
+        ],
+        [
+          [
+            8,
+            0
+          ],
+          [
+            -3,
+            -3
+          ],
+          [
+            2,
+            -1
+          ],
+          [
+            -7,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            1
+          ],
+          [
+            8,
+            -1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            -1,
+            -1
+          ]
+        ],
+        [
+          [
+            1,
+            1
+          ],
+          [
+            8,
+            -1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            -1
+          ]
+        ],
+        [
+          [
+            1,
+            1
+          ],
+          [
+            5,
+            -1
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            -1,
+            -1
+          ]
+        ],
+        [
+          [
+            -6,
+            2
+          ],
+          [
+            16,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            6,
+            -2
+          ]
+        ],
+        [
+          [
+            8,
+            1
+          ],
+          [
+            5,
+            -4
+          ],
+          [
+            4,
+            -1
+          ],
+          [
+            -8,
+            -1
+          ]
+        ],
+        [
+          [
+            1,
+            2
+          ],
+          [
+            13,
+            -2
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            -2,
+            -2
+          ]
+        ],
+        [
+          [
+            2,
+            2
+          ],
+          [
+            13,
+            -2
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            -1,
+            -2
+          ]
+        ]
+      ]
+    },
+    {
+      "z": [
+        "62/201",
+        "29/134"
+      ],
+      "y2": "101/2412",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "49/134",
+        "-31/134"
+      ],
+      "y2": "11/268",
+      "order_psl": 2,
+      "matrices": [
+        [
+          [
+            4,
+            0
+          ],
+          [
+            -1,
+            1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            -4,
+            0
+          ]
+        ]
+      ]
+    },
+    {
+      "z": [
+        "49/134",
+        "18/67"
+      ],
+      "y2": "11/268",
+      "order_psl": 2,
+      "matrices": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            5,
+            -1
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            -1,
+            -1
+          ]
+        ]
+      ]
+    },
+    {
+      "z": [
+        "155/402",
+        "-109/402"
+      ],
+      "y2": "95/2412",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "155/402",
+        "46/201"
+      ],
+      "y2": "95/2412",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "133/335",
+        "69/335"
+      ],
+      "y2": "66/1675",
+      "order_psl": 3,
+      "matrices": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            -1,
+            0
+          ]
+        ],
+        [
+          [
+            1,
+            0
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ]
+    },
+    {
+      "z": [
+        "95/201",
+        "26/67"
+      ],
+      "y2": "20/603",
+      "order_psl": 3,
+      "matrices": [
+        [
+          [
+            7,
+            0
+          ],
+          [
+            -3,
+            -3
+          ],
+          [
+            2,
+            -1
+          ],
+          [
+            -8,
+            0
+          ]
+        ],
+        [
+          [
+            8,
+            0
+          ],
+          [
+            -3,
+            -3
+          ],
+          [
+            2,
+            -1
+          ],
+          [
+            -7,
+            0
+          ]
+        ]
+      ]
+    },
+    {
+      "z": [
+        "191/402",
+        "-19/67"
+      ],
+      "y2": "101/2412",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "191/402",
+        "29/134"
+      ],
+      "y2": "101/2412",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "1/2",
+        "-1/2"
+      ],
+      "y2": "1/4",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "1/2",
+        "-7/18"
+      ],
+      "y2": "13/324",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "1/2",
+        "-1/3"
+      ],
+      "y2": "1/12",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "1/2",
+        "-9/32"
+      ],
+      "y2": "47/1024",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "1/2",
+        "-7/32"
+      ],
+      "y2": "47/1024",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "1/2",
+        "0"
+      ],
+      "y2": "3/4",
+      "order_psl": 3,
+      "matrices": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            -1,
+            0
+          ]
+        ],
+        [
+          [
+            1,
+            0
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ]
+    },
+    {
+      "z": [
+        "1/2",
+        "7/32"
+      ],
+      "y2": "47/1024",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "1/2",
+        "9/32"
+      ],
+      "y2": "47/1024",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "1/2",
+        "1/3"
+      ],
+      "y2": "1/12",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "1/2",
+        "7/18"
+      ],
+      "y2": "13/324",
+      "order_psl": 1,
+      "matrices": []
+    },
+    {
+      "z": [
+        "1/2",
+        "1/2"
+      ],
+      "y2": "1/4",
+      "order_psl": 1,
+      "matrices": []
+    }
+  ]
+}

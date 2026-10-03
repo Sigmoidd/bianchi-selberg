@@ -1,0 +1,105 @@
+[
+  {
+    "name": "root_unittest",
+    "command": [
+      "python",
+      "-m",
+      "unittest",
+      "discover",
+      "-v"
+    ],
+    "exit_code": 1
+  },
+  {
+    "name": "tests_unittest",
+    "command": [
+      "python",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "exit_code": 1
+  },
+  {
+    "name": "two_cusp",
+    "command": [
+      "python",
+      "-m",
+      "unittest",
+      "test_track_b_two_cusp",
+      "-v"
+    ],
+    "exit_code": 1
+  },
+  {
+    "name": "triage",
+    "command": [
+      "python",
+      "tests/mutation/regression_checks.py",
+      "triage"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "systoles",
+    "command": [
+      "python",
+      "-O",
+      "-m",
+      "groups.systoles"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "d19_inventory",
+    "command": [
+      "python",
+      "-O",
+      "-m",
+      "groups.d19_inventory"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "links",
+    "command": [
+      "python",
+      "tests/mutation/regression_checks.py",
+      "links",
+      "--external"
+    ],
+    "exit_code": 1
+  },
+  {
+    "name": "links_external_retry",
+    "command": [
+      "python",
+      "tests/mutation/regression_checks.py",
+      "links",
+      "--external"
+    ],
+    "exit_code": 0,
+    "network_access": true
+  },
+  {
+    "name": "d19_replay",
+    "command": [
+      "python",
+      "tests/d19_regressions.py",
+      "replay"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "protected",
+    "command": [
+      "python",
+      "tests/d19_regressions.py",
+      "protected"
+    ],
+    "exit_code": 0
+  }
+]

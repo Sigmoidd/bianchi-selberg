@@ -1,0 +1,45 @@
+{
+  "baseline": true,
+  "checks": [
+    {
+      "name": "wrong field",
+      "rejected": true,
+      "reason": "field identity mismatch"
+    },
+    {
+      "name": "wrong level",
+      "rejected": true,
+      "reason": "full level-one identity mismatch"
+    },
+    {
+      "name": "incomplete denominator cutoff",
+      "rejected": true,
+      "reason": "finite termination bounds mismatch"
+    },
+    {
+      "name": "missing face",
+      "rejected": true,
+      "reason": "active face mismatch"
+    },
+    {
+      "name": "nonunimodular face map",
+      "rejected": true,
+      "reason": "face pairing determinant"
+    },
+    {
+      "name": "missing vertex isotropy",
+      "rejected": true,
+      "reason": "vertex stabilizer mismatch"
+    },
+    {
+      "name": "missing edge",
+      "rejected": true,
+      "reason": "edge ledger count mismatch"
+    },
+    {
+      "name": "altered minimum height",
+      "rejected": true,
+      "reason": "minimum height mismatch"
+    }
+  ]
+}

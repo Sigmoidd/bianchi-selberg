@@ -1,0 +1,18 @@
+{
+  "schema": "d67-relaxed-core-obstruction/v1",
+  "d": 67,
+  "grid": 16,
+  "candidate_rows": 1575,
+  "trial": "v=b",
+  "s": "1/2",
+  "design_sha256": "b3eee3a531577904f29ec3e7fe3e917e5339082db1fdf19169c4905e886dc721",
+  "cover_sha256": "89cd32fce9968e4064a46deeeafb142b1b7be12d8d158c4e17615f788ce74336",
+  "Q_over_cusp_area_strict_upper": "10/67",
+  "M_over_cusp_area_strict_lower": "6/25",
+  "exact_cell_mass_lower": "26011859635418228145409591076431949294805463568092943444197505902313/107514860022318707968031727323826107180364055640723608472230760448000",
+  "B_over_cusp_area_strict_upper": "-103/3350",
+  "exp5_rational_lower": "58918733/399168",
+  "relaxed_H1_criterion_obstructed": true,
+  "trial_satisfies_quotient_face_identifications": false,
+  "spectral_exclusion_verified": false
+}
