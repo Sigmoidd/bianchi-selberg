@@ -1,0 +1,320 @@
+{
+  "schema_version": 1,
+  "reports": [
+    {
+      "schema_version": 1,
+      "report_kind": "mechanical-screen",
+      "spectral_certificate": false,
+      "group": "PSL2(O_-2)",
+      "d": 2,
+      "D": -8,
+      "parameters": {
+        "k": 2,
+        "delta_hex": "0x1.50cdd836674d7p-2",
+        "R": 40,
+        "precision_bits": 100
+      },
+      "arithmetic": {
+        "python": "3.12.14",
+        "python_flint": "0.9.0"
+      },
+      "inventory_status": "incomplete",
+      "inventory_provenance": "docs/INVENTORY_PROOF.md (open completeness obligations)",
+      "normalization_status": [],
+      "systole_trace": [
+        0,
+        1
+      ],
+      "systole_ball": "[1.31695789692481670862504634731 +/- 7.17e-30]",
+      "bound_ball": "[-0.42 +/- 6.69e-3]",
+      "lower_endpoint_ball": "[-0.4266878656965504610285620065684161238203 +/- 2.96e-41]",
+      "upper_endpoint_ball": "[-0.4216649254997550719723562570566973738203 +/- 2.96e-41]",
+      "terms": {
+        "I": "[1.1225169518384461447277387177 +/- 3.09e-29]",
+        "NCE": "0",
+        "CE": "0",
+        "Ch0": "0.5000000000000000000000000000000000000000",
+        "PARg0": "[-0.302983918567033719115065277 +/- 7.51e-28]",
+        "PSI": "[-0.53 +/- 1.39e-3]",
+        "PHIINT": "[-0.14 +/- 1.93e-3]",
+        "hi": "[1.0745081188015224150694148924 +/- 5.43e-29]",
+        "prime": "[0.081071834780764346985974157 +/- 2.71e-28]"
+      },
+      "notes": [
+        "Ball strings retain their radii; decimal endpoints are not exact scalars.",
+        "Historical reports preserve the existing elliptic normalization.",
+        "Mechanical screens omit elliptics and do not imply a spectral gap."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "report_kind": "mechanical-screen",
+      "spectral_certificate": false,
+      "group": "PSL2(O_-7)",
+      "d": 7,
+      "D": -7,
+      "parameters": {
+        "k": 2,
+        "delta_hex": "0x1.43c23ea859fcfp-2",
+        "R": 40,
+        "precision_bits": 100
+      },
+      "arithmetic": {
+        "python": "3.12.14",
+        "python_flint": "0.9.0"
+      },
+      "inventory_status": "incomplete",
+      "inventory_provenance": "docs/INVENTORY_PROOF.md (open completeness obligations)",
+      "normalization_status": [],
+      "systole_trace": [
+        0,
+        1
+      ],
+      "systole_ball": "[1.26594863840189490029636649216 +/- 4.67e-30]",
+      "bound_ball": "[-0.37 +/- 7.05e-3]",
+      "lower_endpoint_ball": "[-0.3687764459405455995854035987429022680850 +/- 7.76e-42]",
+      "upper_endpoint_ball": "[-0.3629553784644825641568795814089178930850 +/- 7.76e-42]",
+      "terms": {
+        "I": "[1.1190657168389088016764636578 +/- 6.14e-29]",
+        "NCE": "0",
+        "CE": "0",
+        "Ch0": "0.5000000000000000000000000000000000000000",
+        "PARg0": "[-0.296032082172766481201551854 +/- 8.76e-28]",
+        "PSI": "[-0.58 +/- 4.58e-3]",
+        "PHIINT": "[-0.04 +/- 5.06e-3]",
+        "hi": "[1.0686775326035026132270825410 +/- 3.22e-29]",
+        "prime": "[0.1348955274449305857913089231 +/- 7.53e-29]"
+      },
+      "notes": [
+        "Ball strings retain their radii; decimal endpoints are not exact scalars.",
+        "Historical reports preserve the existing elliptic normalization.",
+        "Mechanical screens omit elliptics and do not imply a spectral gap."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "report_kind": "mechanical-screen",
+      "spectral_certificate": false,
+      "group": "PSL2(O_-11)",
+      "d": 11,
+      "D": -11,
+      "parameters": {
+        "k": 2,
+        "delta_hex": "0x1.8869840604ecdp-2",
+        "R": 40,
+        "precision_bits": 100
+      },
+      "arithmetic": {
+        "python": "3.12.14",
+        "python_flint": "0.9.0"
+      },
+      "inventory_status": "incomplete",
+      "inventory_provenance": "docs/INVENTORY_PROOF.md (open completeness obligations)",
+      "normalization_status": [],
+      "systole_trace": [
+        0,
+        1
+      ],
+      "systole_ball": "[1.53439443650263888665805753704 +/- 6.68e-30]",
+      "bound_ball": "[-0.53 +/- 5.13e-3]",
+      "lower_endpoint_ball": "[-0.5351296605266061925430913523794833986519 +/- 2.04e-41]",
+      "upper_endpoint_ball": "[-0.5322622422507511765797753886343662111519 +/- 2.04e-41]",
+      "terms": {
+        "I": "[0.9775337629229494781995540688 +/- 3.58e-29]",
+        "NCE": "0",
+        "CE": "0",
+        "Ch0": "0.5000000000000000000000000000000000000000",
+        "PARg0": "[-0.28766878081794932005477416 +/- 5.23e-27]",
+        "PSI": "[-0.353 +/- 7.51e-4]",
+        "PHIINT": "[-0.27 +/- 2.93e-3]",
+        "hi": "[1.1023317082567560856840439339 +/- 4.78e-29]",
+        "prime": "[0.029495458713279478203727656 +/- 2.98e-28]"
+      },
+      "notes": [
+        "Ball strings retain their radii; decimal endpoints are not exact scalars.",
+        "Historical reports preserve the existing elliptic normalization.",
+        "Mechanical screens omit elliptics and do not imply a spectral gap."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "report_kind": "mechanical-screen",
+      "spectral_certificate": false,
+      "group": "PSL2(O_-19)",
+      "d": 19,
+      "D": -19,
+      "parameters": {
+        "k": 2,
+        "delta_hex": "0x1.e7f0c5346b03bp-2",
+        "R": 40,
+        "precision_bits": 100
+      },
+      "arithmetic": {
+        "python": "3.12.14",
+        "python_flint": "0.9.0"
+      },
+      "inventory_status": "incomplete",
+      "inventory_provenance": "docs/INVENTORY_PROOF.md (open completeness obligations)",
+      "normalization_status": [],
+      "systole_trace": [
+        0,
+        1
+      ],
+      "systole_ball": "[1.90792553923377728769810387807 +/- 5.34e-30]",
+      "bound_ball": "[-0.50 +/- 3.29e-3]",
+      "lower_endpoint_ball": "[-0.4980520401137571430945625336244051806897 +/- 2.57e-41]",
+      "upper_endpoint_ball": "[-0.4967163299048795712360968620850985400647 +/- 2.57e-41]",
+      "terms": {
+        "I": "[0.9757102863729797656915018806 +/- 8.44e-29]",
+        "NCE": "0",
+        "CE": "0",
+        "Ch0": "0.5000000000000000000000000000000000000000",
+        "PARg0": "[-0.23159259457412224069678197 +/- 5.22e-27]",
+        "PSI": "[-0.174 +/- 4.17e-4]",
+        "PHIINT": "[-0.405 +/- 6.39e-4]",
+        "hi": "[1.1621149128307483198917844322 +/- 4.16e-29]",
+        "prime": "[0.013223720127748811905852540 +/- 2.49e-28]"
+      },
+      "notes": [
+        "Ball strings retain their radii; decimal endpoints are not exact scalars.",
+        "Historical reports preserve the existing elliptic normalization.",
+        "Mechanical screens omit elliptics and do not imply a spectral gap."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "report_kind": "mechanical-screen",
+      "spectral_certificate": false,
+      "group": "PSL2(O_-43)",
+      "d": 43,
+      "D": -43,
+      "parameters": {
+        "k": 2,
+        "delta_hex": "0x1.ec44a5581d126p-2",
+        "R": 40,
+        "precision_bits": 100
+      },
+      "arithmetic": {
+        "python": "3.12.14",
+        "python_flint": "0.9.0"
+      },
+      "inventory_status": "incomplete",
+      "inventory_provenance": "docs/INVENTORY_PROOF.md (open completeness obligations)",
+      "normalization_status": [],
+      "systole_trace": [
+        3,
+        0
+      ],
+      "systole_ball": "[1.92484730023841378999103565370 +/- 5.05e-30]",
+      "bound_ball": "[1.271 +/- 8.99e-4]",
+      "lower_endpoint_ball": "[1.270101209257120122817568841354514045359 +/- 4.15e-40]",
+      "upper_endpoint_ball": "[1.271397912682516240199320378677512092234 +/- 4.15e-40]",
+      "terms": {
+        "I": "[2.905599547983340354809732908 +/- 4.71e-28]",
+        "NCE": "0",
+        "CE": "0",
+        "Ch0": "0.5000000000000000000000000000000000000000",
+        "PARg0": "[-0.11362335051638717262258948 +/- 2.52e-27]",
+        "PSI": "[-0.168 +/- 6.32e-4]",
+        "PHIINT": "[-0.688 +/- 8.40e-4]",
+        "hi": "[1.1652063783749285801138883851 +/- 2.87e-29]",
+        "prime": "[0.0104456946620435641102552560 +/- 6.37e-29]"
+      },
+      "notes": [
+        "Ball strings retain their radii; decimal endpoints are not exact scalars.",
+        "Historical reports preserve the existing elliptic normalization.",
+        "Mechanical screens omit elliptics and do not imply a spectral gap."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "report_kind": "mechanical-screen",
+      "spectral_certificate": false,
+      "group": "PSL2(O_-67)",
+      "d": 67,
+      "D": -67,
+      "parameters": {
+        "k": 2,
+        "delta_hex": "0x1.ec44a5581d126p-2",
+        "R": 40,
+        "precision_bits": 100
+      },
+      "arithmetic": {
+        "python": "3.12.14",
+        "python_flint": "0.9.0"
+      },
+      "inventory_status": "incomplete",
+      "inventory_provenance": "docs/INVENTORY_PROOF.md (open completeness obligations)",
+      "normalization_status": [],
+      "systole_trace": [
+        3,
+        0
+      ],
+      "systole_ball": "[1.92484730023841378999103565370 +/- 5.05e-30]",
+      "bound_ball": "[3.875 +/- 7.27e-4]",
+      "lower_endpoint_ball": "[3.874273362717697108931705251100224866399 +/- 1.88e-40]",
+      "upper_endpoint_ball": "[3.875570099854423842228814854982060803899 +/- 1.88e-40]",
+      "terms": {
+        "I": "[5.521768474756933066696216421 +/- 6.51e-28]",
+        "NCE": "0",
+        "CE": "0",
+        "Ch0": "0.5000000000000000000000000000000000000000",
+        "PARg0": "[0.02813359067095126346598529 +/- 4.78e-27]",
+        "PSI": "[-0.168 +/- 6.32e-4]",
+        "PHIINT": "[-0.841 +/- 7.91e-4]",
+        "hi": "[1.1652063783749285801138883851 +/- 2.87e-29]",
+        "prime": "[0.0104456946620435641102552560 +/- 6.37e-29]"
+      },
+      "notes": [
+        "Ball strings retain their radii; decimal endpoints are not exact scalars.",
+        "Historical reports preserve the existing elliptic normalization.",
+        "Mechanical screens omit elliptics and do not imply a spectral gap."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "report_kind": "mechanical-screen",
+      "spectral_certificate": false,
+      "group": "PSL2(O_-163)",
+      "d": 163,
+      "D": -163,
+      "parameters": {
+        "k": 2,
+        "delta_hex": "0x1.ec44a5581d126p-2",
+        "R": 40,
+        "precision_bits": 100
+      },
+      "arithmetic": {
+        "python": "3.12.14",
+        "python_flint": "0.9.0"
+      },
+      "inventory_status": "incomplete",
+      "inventory_provenance": "docs/INVENTORY_PROOF.md (open completeness obligations)",
+      "normalization_status": [],
+      "systole_trace": [
+        3,
+        0
+      ],
+      "systole_ball": "[1.92484730023841378999103565370 +/- 5.05e-30]",
+      "bound_ball": "[19.14 +/- 2.13e-3]",
+      "lower_endpoint_ball": "[19.13787099578597780641576636945476893998 +/- 3.73e-39]",
+      "upper_endpoint_ball": "[19.13916884827425610132923711454143886185 +/- 1.28e-39]",
+      "terms": {
+        "I": "[20.57009657178081828979384280 +/- 9.23e-27]",
+        "NCE": "0",
+        "CE": "0",
+        "Ch0": "0.5000000000000000000000000000000000000000",
+        "PARg0": "[0.55162961701023156908235105 +/- 6.37e-27]",
+        "PSI": "[-0.168 +/- 6.32e-4]",
+        "PHIINT": "[-1.150 +/- 8.61e-4]",
+        "hi": "[1.1652063783749285801138883851 +/- 2.87e-29]",
+        "prime": "[0.0104456946620435641102552560 +/- 6.37e-29]"
+      },
+      "notes": [
+        "Ball strings retain their radii; decimal endpoints are not exact scalars.",
+        "Historical reports preserve the existing elliptic normalization.",
+        "Mechanical screens omit elliptics and do not imply a spectral gap."
+      ]
+    }
+  ]
+}

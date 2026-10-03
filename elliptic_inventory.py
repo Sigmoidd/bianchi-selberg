@@ -11,18 +11,22 @@ In the counting-function limit g(0)=k/pi, so a3-elliptic = (1/pi) C_ell.
 Validation target (Matthies, via Aurich-Steiner-Then):
    Q(i):  C_ell = (1/9) log(7+4 sqrt3) = (2/9) log(2+sqrt3).
 
-Method (exact O_K arithmetic, no floats in the group theory):
+Legacy bounded evidence (NOT a self-contained inventory proof):
  1. Enumerate primitive non-cuspidal elliptic elements M in PSL(2,O_K)
     (trace t: t=+-1 order 3 for Q(i); t=0 order 2 for Q(omega)), bounded entries.
  2. Cluster into Gamma-conjugacy classes by conjugating with a bounded generating
     set (union-find). [Validated: must give ONE class for Q(i) order 3.]
- 3. Per class rep M:
+ 3. One centralizer_data computation per trace, shared across the observed
+    components (NOT class-aware; cannot be used for new-field certificates):
       - m(R) = order (2 or 3), sin^2(pi/m).
       - |E(R)| = # elliptic elements in the centralizer C(M) (mod +-I): count
         (u,v) in O_K^2 with u^2 + t u v + v^2 = 1 and |u + v e^{i theta}| = 1.
       - N(T0) = min |u + v e^{i theta}|^2 > 1 over the SAME (u,v) solutions
         (loxodromic units of the order O_K[M]); the fundamental unit.
- 4. C_ell = sum over classes of logN(T0)/(4|E(R)| sin^2(pi/m)).
+ 4. The norm/elliptic tests use floating point tolerances. The search in
+    O_K[M] need not exhaust an individual representative's integral
+    centralizer. Sign-flipping lifts of PSL involutions are omitted.
+    See docs/NORMALIZATION_ISSUE.md and docs/INVENTORY_PROOF.md.
 """
 import math, cmath, itertools
 from fractions import Fraction
@@ -31,6 +35,8 @@ from fractions import Fraction
 class Ring:
     """O_K = Z[g].  Q(i): g=i, g^2=-1.  Q(omega): g=omega, g^2=-g-1."""
     def __init__(self, kind):
+        if kind not in ("i", "omega"):
+            raise ValueError("legacy inventory supports only 'i' and 'omega'")
         self.kind = kind
         self.g = 1j if kind == "i" else cmath.exp(2j*math.pi/3)
     def mul(self, x, y):
@@ -124,7 +130,10 @@ def cluster(MM, elts, gs):
     return list(classes.values())
 
 def centralizer_data(R, t, theta, B2=4):
-    """|E(R)| (mod +-I) and N(T0) via (u,v) in O_K^2, u^2+t uv+v^2 = 1."""
+    """Bounded, numerical evidence from the commuting SL order O_K[M].
+
+    Does not prove the full PSL centralizer or primitive norm for each class.
+    """
     e_ith = cmath.exp(1j*theta)
     tw=(t,0)
     fin=set(); Nmin=None
@@ -164,12 +173,14 @@ def run(kind, verbose=True):
     if verbose:
         print(f"K=Q({kind}): non-cuspidal elliptic order {m}")
         print(f"  #elliptic elements enumerated (mod +-I): {len(elts)}")
-        print(f"  #conjugacy classes (clustered): {nclasses}")
+        print(f"  #bounded conjugacy components (not a completeness proof): {nclasses}")
         print(f"  |E(R)| (elliptic centralizer, mod +-I): {nE}")
         print(f"  N(T0) = {Nmin:.6f}   (log = {logN:.6f})")
         print(f"  sin^2(pi/{m}) = {sin2:.6f}")
         print(f"  C_ell = {nclasses} * log N(T0) / (4*{nE}*{sin2:.4f}) = {C_ell:.8f}")
-    return dict(m=m, nclasses=nclasses, nE=nE, Nmin=Nmin, C_ell=C_ell)
+        print("  EVIDENCE ONLY: shared per-trace centralizer search; floats; bounded conjugators.")
+    return dict(m=m, nclasses=nclasses, nE=nE, Nmin=Nmin, C_ell=C_ell,
+                status="bounded-evidence")
 
 if __name__ == "__main__":
     print("="*66)
@@ -186,6 +197,7 @@ if __name__ == "__main__":
     print("="*66)
     rw = run("omega")
     if ok:
-        print(f"\n  => C_ell(Z[omega]) = {rw['C_ell']:.8f}  [trusting validated method]")
+        print(f"\n  => historical C_ell(Z[omega]) = {rw['C_ell']:.8f}; "
+              "normalization unresolved (docs/NORMALIZATION_ISSUE.md)")
     else:
         print("\n  method NOT validated on Q(i); Z[omega] number withheld.")

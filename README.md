@@ -5,6 +5,22 @@ orbifolds have no exceptional Laplace eigenvalues.  The long calculations and
 literature notes below support this theorem; they are not the proof's primary
 organization.
 
+## Field extension and current proof ledger (2026-09-30)
+
+The M0 refactor introduces explicit `GroupData` and per-class elliptic inputs,
+shared analytic code, an exact `g''(0)` for every integer k >= 2, closed-form
+systoles with exhaustive checks, and an Arb support gate. See
+[the field-extension record](docs/FIELD_EXTENSION.md) for commands and milestone status.
+The two historical numerical bounds reproduce. Their elliptic data retain
+legacy status; the [Eisenstein flip issue](docs/NORMALIZATION_ISSUE.md) is
+recorded while its original coefficient stays frozen.
+
+The candidate fields d=2,7,11,19 have Arb mechanical screens, but **no new
+spectral certificate**: complete self-contained elliptic inventories remain
+open. [RIGOR_GAPS.md](RIGOR_GAPS.md) is the current proof ledger;
+`old_RIGOR_GAPS.md` is the unchanged historical record. Stable source
+citations and local derivations are in [docs/REFERENCES.md](docs/REFERENCES.md).
+
 ## Main theorem
 
 Let \(\Gamma\) be either \(\operatorname{PSL}_2(\mathbb Z[i])\) or
@@ -153,14 +169,14 @@ the Arb upper bound 0.3199):
 | −h(i) | −1.03919 | −1.03137 |
 | **B** | **0.31055** | **0.53396** |
 
-The identity term uses the exact Fourier identity ∫h·r²dr = 2π(−g″(0)) (g″(0)
-from a one-sided 4-point formula, since x=0 is a B-spline knot) — no slow r⁻²
+The identity term uses the exact Fourier identity ∫h·r²dr = 2π(−g″(0)),
+with g″(0) computed by the exact polynomial derivative in `core/bspline.py` — no slow r⁻²
 tail. Every other term was cross-checked term-by-term against the Arb engine on
 ℤ[i] (NCE, CE, PSI, PHIINT, h(i) all match to ≥6 digits).
 
 The positivity criterion needs only ONE admissible test function with B<1, and
 h=sinc⁴ (k=2, max support) is the optimal we found: B≈0.534, margin ~0.46. Weaker
-test functions still clear the bar but by less (k=3: B=0.992; k=2, 85% support:
+test functions still clear the bar but by less (k=3: B≈0.78 after the derivative correction; k=2, 85% support:
 0.805) — so k=2 is doing the work; the certified enclosure above is at k=2.
 
 ### Mechanical constants (derived + certified in Arb, `verify_eisenstein.py`)
@@ -275,12 +291,9 @@ reflected honestly.
   stable at maximal support for k = 2, 3).
 - `final_run.py` — the headline certified run.
 
-Source texts pulled this session (in-repo, text-extracted): Friedman thesis
-(`friedman_thesis.txt`), Balkanova et al. PGT (`pgt_paper.txt`), EGM Astérisque
-1982 (`egm_asterisque1982.txt`), Şengün survey (`sengun_survey.txt`), Rahm
-homological torsion (`rahm_torsion.txt`), Then's Picard Maass waveforms
-(`then_picard_maass.txt` — source of the Matthies constants and the computed
-spectrum), Then's PSL(2,ℤ) Maass paper (`then.txt`).
+Reference citations, source roles, and local derivations are now maintained in
+[docs/REFERENCES.md](docs/REFERENCES.md). The old OCR extracts are not required
+for reproduction and are not distributed as part of the trace engine.
 
 ## The formula (assembled, with sources)
 

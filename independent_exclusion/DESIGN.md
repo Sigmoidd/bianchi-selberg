@@ -41,8 +41,8 @@ quotient. ∎
 
 **Spectral facts (pinned citations).** The spectral decomposition of
 L²(Γ\ℍ³) for cofinite Kleinian groups: Friedman, *The Selberg trace
-formula for PSL(2,O_K)* (arXiv:math/0612807, in-repo
-`friedman_thesis.txt`), **Theorem 3.8.1** — every f in the domain expands
+formula for PSL(2,O_K)* ([arXiv:math/0612807](https://arxiv.org/abs/math/0612807)),
+**Theorem 3.8.1** — every f in the domain expands
 into discrete eigenfunctions e_m plus Eisenstein integrals E_α(·, it);
 the underlying eigenpacket theory is [EGM98, §6.2] (Elstrodt–Grunewald–
 Mennicke, *Groups Acting on Hyperbolic Space*, Ch. 6). Since E_α(·, it)

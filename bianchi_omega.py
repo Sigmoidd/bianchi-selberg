@@ -32,12 +32,14 @@ def field(kind):
                     C_ell=mp.log(7+4*mp.sqrt(3))/9,
                     CEg0=mp.mpf(5)/16*mp.log(2), CEint=mp.mpf(1)/4, ckern=mp.mpf(1),
                     GG=2, eta=eta_i(), D=4)
-    else:
+    elif kind=="omega":
         return dict(kind=kind, vol=3*mp.sqrt(3)*zetaK(2,"omega")/(4*mp.pi**2),
-                    systole=mp.log(mp.mpf("2.36920540706690")),   # min loxodromic N(T)
+                    systole=mp.acosh((1+mp.sqrt(21))/4),  # exact trace omega; docs/SYSTOLES.md
                     C_ell=mp.log(7+4*mp.sqrt(3))/8,
                     CEg0=mp.mpf(2)/9*mp.log(3), CEint=mp.mpf(1)/3, ckern=mp.mpf(1)/2,
                     GG=3, eta=eta_omega(), D=3)
+
+    raise ValueError(f"unknown field {kind!r}")
 
 # Dirichlet characters
 CHI = {"i":(4,{1:1,3:-1}), "omega":(3,{1:1,2:-1})}
@@ -91,12 +93,13 @@ def compute_B(kind, k=2, frac=0.999, R=60, verbose=True):
     supp = 2*k*d
 
     # I = vol/(4pi^2) int_R h(r) r^2 dr.  By Fourier, int_R h r^2 dr = 2pi(-g''(0))
-    # (h = FT of g), so I = vol/(2pi)(-g''(0)).  x=0 is a B-spline KNOT, so g''(0) must
-    # be taken from ONE side (g is a single cubic on (0,2delta)); exact 4-point formula:
-    hh = d/2            # 3*hh = 1.5*delta < 2*delta, inside the right cubic piece
-    g0,g1,g2,g3 = (gfun(mp.mpf(0),k,d), gfun(hh,k,d), gfun(2*hh,k,d), gfun(3*hh,k,d))
-    gpp0 = (2*g0 - 5*g1 + 4*g2 - g3)/hh**2          # p''(0) for the right cubic
-    I = F["vol"]/(2*mp.pi)*(-gpp0)
+    from core.bspline import second_derivative_coefficient, validate_k
+    validate_k(k)
+    if not (0 < frac <= 1) or supp > syst:
+        raise ValueError("support fraction must lie in (0, 1] and support <= systole")
+    c = second_derivative_coefficient(k)
+    gpp = mp.mpf(c.numerator)/c.denominator/d**3
+    I = F["vol"]/(2*mp.pi)*(-gpp)
     NCE = g0*F["C_ell"]
     CEint = F["CEint"]*mp.quad(lambda x: gfun(x,k,d)*mp.sinh(x)/(mp.cosh(x)+F["ckern"]),[0,supp])
     CE = F["CEg0"]*g0 + CEint

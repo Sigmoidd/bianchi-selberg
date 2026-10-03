@@ -121,19 +121,22 @@
 
 ---
 
-## 📖 Reference Materials (In-Repo Text Extracts)
+## Reference materials and shared trace engine
 
-| File | Source |
-|------|--------|
-| `friedman_thesis.txt` | Friedman, arXiv:math/0612807 (Selberg trace formula for Kleinian groups) |
-| `pgt_paper.txt` | Balkanova et al., arXiv:1712.00880 (trace formula, PGT) |
-| `egm_asterisque1982.txt` | EGM, Astérisque 1982 (foundational) |
-| `then_picard_maass.txt` | Then, gr-qc/0404020 (Picard spectrum, Matthies constants) |
-| `then.txt` | Then, PSL(2,ℤ) Maass paper |
-| `sengun_survey.txt` | Şengün survey (Bianchi groups, volumes) |
-| `rahm_torsion.txt` | Rahm, homological torsion |
+Stable citations and source roles are in [docs/REFERENCES.md](docs/REFERENCES.md).
+Local derivations are in [docs/ANALYTIC_DERIVATIONS.md](docs/ANALYTIC_DERIVATIONS.md)
+and [docs/SYSTOLES.md](docs/SYSTOLES.md). Private OCR files are not required.
 
----
+| Path | Role |
+|---|---|
+| `groups/` | Explicit group/class data, exact ring arithmetic, systole and class-number checks |
+| `fields/` | Characters, field constants, and prime splitting |
+| `core/` | Exact B-spline derivative, Arb quadrature, assembly, and proof gates |
+| `scripts/feasibility/` | The four portable attached screening/evidence scripts |
+| `examples/field_screen.py` | Arb mechanical screen; no spectral conclusion |
+| `certificates/` | Frozen historical and current regression reports |
+| `tests/test_trace_core.py` | Analytic regression, prime splitting, proof-gate, and portability checks |
+| `RIGOR_GAPS.md` | Current proof ledger, including open new-field inventories |
 
 ## 🎯 How to Navigate
 
