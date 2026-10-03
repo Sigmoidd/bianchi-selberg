@@ -1,0 +1,81 @@
+test_child_partition_has_exact_cartesian_cardinality (test_track_b_floor_adaptive.TrackBFloorAdaptiveTests.test_child_partition_has_exact_cartesian_cardinality) ... ok
+test_contribution_selection_is_minimal_prefix (test_track_b_floor_adaptive.TrackBFloorAdaptiveTests.test_contribution_selection_is_minimal_prefix) ... ok
+test_summary_uses_disjoint_l2_squares (test_track_b_floor_adaptive.TrackBFloorAdaptiveTests.test_summary_uses_disjoint_l2_squares) ... ok
+test_coordinate_inversion_identity (test_track_b_floor_taylor.TrackBFloorTaylorTests.test_coordinate_inversion_identity) ... ok
+test_legendre_polynomial_integral (test_track_b_floor_taylor.TrackBFloorTaylorTests.test_legendre_polynomial_integral) ... ok
+test_measure_identity (test_track_b_floor_taylor.TrackBFloorTaylorTests.test_measure_identity) ... ok
+test_no_bessel_fallback (test_track_b_floor_taylor.TrackBFloorTaylorTests.test_no_bessel_fallback) ... ok
+test_point_commutator_agrees_with_legacy_jet (test_track_b_floor_taylor.TrackBFloorTaylorTests.test_point_commutator_agrees_with_legacy_jet) ... ok
+test_projected_zero_relations_are_algebraic (test_track_b_floor_taylor.TrackBFloorTaylorTests.test_projected_zero_relations_are_algebraic) ... ok
+test_remainder_contains_direct_interior_values (test_track_b_floor_taylor.TrackBFloorTaylorTests.test_remainder_contains_direct_interior_values) ... ok
+test_tensor_degree_retains_mixed_index (test_track_b_floor_taylor.TrackBFloorTaylorTests.test_tensor_degree_retains_mixed_index) ... ok
+test_collocation_substituted_for_continuum (test_track_b_global_hejhal.TrackBGlobalHejhalFailClosedTests.test_collocation_substituted_for_continuum) ... ok
+test_cutoff_stability_failure (test_track_b_global_hejhal.TrackBGlobalHejhalFailClosedTests.test_cutoff_stability_failure) ... ok
+test_duplicated_face_contribution (test_track_b_global_hejhal.TrackBGlobalHejhalFailClosedTests.test_duplicated_face_contribution) ... ok
+test_floor_certificate_incompatible (test_track_b_global_hejhal.TrackBGlobalHejhalFailClosedTests.test_floor_certificate_incompatible) ... ok
+test_global_threshold_replaced_by_local_floor_budget (test_track_b_global_hejhal.TrackBGlobalHejhalFailClosedTests.test_global_threshold_replaced_by_local_floor_budget) ... ok
+test_independent_verifier_total_mismatch (test_track_b_global_hejhal.TrackBGlobalHejhalFailClosedTests.test_independent_verifier_total_mismatch) ... ok
+test_missing_cusp_zero_continuum_channel (test_track_b_global_hejhal.TrackBGlobalHejhalFailClosedTests.test_missing_cusp_zero_continuum_channel) ... ok
+test_missing_nonfloor_face (test_track_b_global_hejhal.TrackBGlobalHejhalFailClosedTests.test_missing_nonfloor_face) ... ok
+test_quadratic_aggregation_without_disjointness (test_track_b_global_hejhal.TrackBGlobalHejhalFailClosedTests.test_quadratic_aggregation_without_disjointness) ... ok
+test_reprojection_hash_mismatch (test_track_b_global_hejhal.TrackBGlobalHejhalFailClosedTests.test_reprojection_hash_mismatch) ... ok
+test_synthetic_complete_structure_is_internally_consistent (test_track_b_global_hejhal.TrackBGlobalHejhalFailClosedTests.test_synthetic_complete_structure_is_internally_consistent) ... ok
+test_tail_majorant_applied_to_retained_modes (test_track_b_global_hejhal.TrackBGlobalHejhalFailClosedTests.test_tail_majorant_applied_to_retained_modes) ... ok
+test_uncertified_fourier_tail (test_track_b_global_hejhal.TrackBGlobalHejhalFailClosedTests.test_uncertified_fourier_tail) ... ok
+test_wrong_gradient_pullback (test_track_b_global_hejhal.TrackBGlobalHejhalFailClosedTests.test_wrong_gradient_pullback) ... ok
+test_bounds_ball_preserves_nonzero_endpoints (test_track_b_global_partition.TrackBGlobalPartitionTests.test_bounds_ball_preserves_nonzero_endpoints) ... ok
+test_each_global_gate_fails_closed (test_track_b_global_partition.TrackBGlobalPartitionTests.test_each_global_gate_fails_closed) ... ok
+test_exact_stabilizer_averaging_ledger (test_track_b_global_partition.TrackBGlobalPartitionTests.test_exact_stabilizer_averaging_ledger) ... ok
+test_exact_tensor_partition_identity (test_track_b_global_partition.TrackBGlobalPartitionTests.test_exact_tensor_partition_identity) ... ok
+test_floor_weight_formula_consistency (test_track_b_global_partition.TrackBGlobalPartitionTests.test_floor_weight_formula_consistency) ... ok
+test_independent_verifier_rejects_ledger_faults (test_track_b_global_partition.TrackBGlobalPartitionTests.test_independent_verifier_rejects_ledger_faults) ... ok
+test_metric_conversion_from_s_coordinate (test_track_b_global_partition.TrackBGlobalPartitionTests.test_metric_conversion_from_s_coordinate) ... ok
+test_project_laplacian_quotient_rule (test_track_b_global_partition.TrackBGlobalPartitionTests.test_project_laplacian_quotient_rule) ... ok
+test_certified_interval_but_counting_fails_closed (test_track_b_integrator.TrackBIntegratorTests.test_certified_interval_but_counting_fails_closed) ... ok
+test_each_floor_dependency_fails_closed (test_track_b_integrator.TrackBIntegratorTests.test_each_floor_dependency_fails_closed) ... ok
+test_floor_endpoint_comparison_is_consumed_as_interval (test_track_b_integrator.TrackBIntegratorTests.test_floor_endpoint_comparison_is_consumed_as_interval) ... ok
+test_floor_fallback_and_budget_overlap_fail_closed (test_track_b_integrator.TrackBIntegratorTests.test_floor_fallback_and_budget_overlap_fail_closed) ... ok
+test_missing_global_weight_proof_fails_closed (test_track_b_integrator.TrackBIntegratorTests.test_missing_global_weight_proof_fails_closed) ... ok
+test_partition_audit_and_compatibility_fail_closed (test_track_b_integrator.TrackBIntegratorTests.test_partition_audit_and_compatibility_fail_closed) ... ok
+test_transition_mismatch_fails_closed (test_track_b_integrator.TrackBIntegratorTests.test_transition_mismatch_fails_closed) ... ok
+test_bessel_fallback_is_rejected (test_track_b_observable_collocation.TrackBObservableCollocationTests.test_bessel_fallback_is_rejected) ... ok
+test_deficient_full_candidate_matrix_rejects_freeze (test_track_b_observable_collocation.TrackBObservableCollocationTests.test_deficient_full_candidate_matrix_rejects_freeze) ... ok
+test_delta_failure_keeps_trial_unfrozen (test_track_b_observable_collocation.TrackBObservableCollocationTests.test_delta_failure_keeps_trial_unfrozen) ... ok
+test_duplicate_candidate_points_are_rejected (test_track_b_observable_collocation.TrackBObservableCollocationTests.test_duplicate_candidate_points_are_rejected) ... ok
+test_exact_phase_aliases_are_detected (test_track_b_observable_collocation.TrackBObservableCollocationTests.test_exact_phase_aliases_are_detected) ... ok
+test_identical_transformed_height_signatures_are_detected (test_track_b_observable_collocation.TrackBObservableCollocationTests.test_identical_transformed_height_signatures_are_detected) ... ok
+test_new_family_has_no_exact_phase_alias (test_track_b_observable_collocation.TrackBObservableCollocationTests.test_new_family_has_no_exact_phase_alias) ... ok
+test_nonphysical_synthetic_enrichment_row_is_rejected (test_track_b_observable_collocation.TrackBObservableCollocationTests.test_nonphysical_synthetic_enrichment_row_is_rejected) ... ok
+test_normalization_change_between_cutoffs_is_rejected (test_track_b_observable_collocation.TrackBObservableCollocationTests.test_normalization_change_between_cutoffs_is_rejected) ... ok
+test_old_M4_nullspace_is_high_shell_dominated (test_track_b_observable_collocation.TrackBObservableCollocationTests.test_old_M4_nullspace_is_high_shell_dominated) ... ok
+test_old_floor_certificate_is_not_imported (test_track_b_observable_collocation.TrackBObservableCollocationTests.test_old_floor_certificate_is_not_imported) ... ok
+test_selected_rows_fit_but_omitted_rows_fail (test_track_b_observable_collocation.TrackBObservableCollocationTests.test_selected_rows_fit_but_omitted_rows_fail) ... ok
+test_unrecorded_complex_phase_alignment_is_rejected (test_track_b_observable_collocation.TrackBObservableCollocationTests.test_unrecorded_complex_phase_alignment_is_rejected) ... ok
+test_all_four_blocks_and_slow_direct_rows_agree (test_track_b_two_cusp.TrackBTwoCuspTests.test_all_four_blocks_and_slow_direct_rows_agree) ... ok
+test_closing_artifacts_verify_independently (test_track_b_two_cusp.TrackBTwoCuspTests.test_closing_artifacts_verify_independently) ... FAIL
+test_each_certification_gate_fails_closed (test_track_b_two_cusp.TrackBTwoCuspTests.test_each_certification_gate_fails_closed) ... ok
+test_forced_bessel_failure_is_fail_closed (test_track_b_two_cusp.TrackBTwoCuspTests.test_forced_bessel_failure_is_fail_closed) ... ok
+test_identity_reduction_commutes_with_matrix (test_track_b_two_cusp.TrackBTwoCuspTests.test_identity_reduction_commutes_with_matrix) ... ok
+test_scaling_and_physical_residual_round_trip (test_track_b_two_cusp.TrackBTwoCuspTests.test_scaling_and_physical_residual_round_trip) ... ok
+test_sigma0_direct_and_specialized_actions_agree (test_track_b_two_cusp.TrackBTwoCuspTests.test_sigma0_direct_and_specialized_actions_agree) ... ok
+test_spectral_parameter_dependence (test_track_b_two_cusp.TrackBTwoCuspTests.test_spectral_parameter_dependence) ... ok
+test_balanced_physical_cutoff (test_verified_hejhal.CuspLatticeTests.test_balanced_physical_cutoff) ... ok
+test_dual_scale (test_verified_hejhal.CuspLatticeTests.test_dual_scale) ... ok
+test_S_box_contains_corner_images (test_verified_hejhal.IntervalActionTests.test_S_box_contains_corner_images) ... ok
+test_exact_generator_actions (test_verified_hejhal.IntervalActionTests.test_exact_generator_actions) ... ok
+test_fail_closed_domain (test_verified_hejhal.VerifiedKirTests.test_fail_closed_domain) ... ok
+test_r_dependence (test_verified_hejhal.VerifiedKirTests.test_r_dependence) ... ok
+test_reference_value (test_verified_hejhal.VerifiedKirTests.test_reference_value) ... ok
+
+======================================================================
+FAIL: test_closing_artifacts_verify_independently (test_track_b_two_cusp.TrackBTwoCuspTests.test_closing_artifacts_verify_independently)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/dc8fd2e64d69/bianchi-selberg/test_track_b_two_cusp.py", line 148, in test_closing_artifacts_verify_independently
+    self.assertTrue(verify_from_paths(result_path, ledger_path)["verified"])
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 68 tests in 0.912s
+
+FAILED (failures=1)
