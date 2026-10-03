@@ -23,7 +23,8 @@ Repository: https://github.com/Sigmoidd/bianchi-selberg
 Resume branch: `track-b/d67-spectral-exclusion`.
 Published code checkpoint before this handoff:
 `299375b908b7a90e74b2f50da39dd8bc70b50826`.
-Draft spectral PR: https://github.com/Sigmoidd/bianchi-selberg/pull/10
+Merged spectral checkpoint PR: https://github.com/Sigmoidd/bianchi-selberg/pull/10
+Draft swarm handoff continuation: https://github.com/Sigmoidd/bianchi-selberg/pull/11
 Geometry PR: https://github.com/Sigmoidd/bianchi-selberg/pull/9
 Use the latest commit containing this handoff; inspect changes since the
 pinned checkpoint before using an existing ledger.
@@ -332,6 +333,8 @@ The all-nine manifest may mark the project complete only when every field has
 such evidence. Publish source, compact certificates and verified logs at each
 completed phase. Save restartable long-run checkpoints with strong bindings;
 regenerate large deterministic binaries rather than trusting transient storage.
-Keep PR #10 draft until the d=67 theorem gate actually passes. Publishing
+PR #10 was already merged when this handoff was published. Keep PR #11
+and subsequent spectral-proof follow-ups draft until their actual theorem
+gates pass; merging a checkpoint does not certify a theorem. Publishing
 checkpoints is authorized; merging unrelated PRs or paid compute is outside
 this handoff. Do not broaden to congruence levels or other fields.
