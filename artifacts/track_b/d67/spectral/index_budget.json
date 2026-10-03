@@ -1,0 +1,15 @@
+{
+  "schema": "d67-direct-index-scalar-budget/v1",
+  "d": 67,
+  "ledger_sha256": "37b5782607628eff2c9b450541efdfb21b0691fa583309ed26ac70286c19a033",
+  "eta": "1/10",
+  "gamma_squared_upper": "110198720717248263191420384206278118572967513140739101959/1553903740285921116271637844295273364095125246821007360000",
+  "c0": "341717812396190221166013618026214059792482602272877238451/1553903740285921116271637844295273364095125246821007360000",
+  "c0_float": 0.21990925405283696,
+  "scalar_budget_arithmetic_pass": true,
+  "finite_matrix": "Q_h + b_h/2 - 3*t_h*t_h^T/4 - 11*M_h/10",
+  "sufficient_check": "finite_matrix + alpha*z*z^T is PSD for any rational z and alpha > 0",
+  "weighted_mean_enclosure_required": false,
+  "threshold_matrix_positivity_verified": false,
+  "spectral_exclusion_certified": false
+}

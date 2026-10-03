@@ -1,0 +1,25 @@
+{
+  "schema": "d67-tuned-exact-scalar-ledger/v1",
+  "d": 67,
+  "vertical_energy_fraction": "3/4",
+  "kappa_squared_upper": "1661/15000",
+  "plan_sha256": "8d17dd752d3c58ba2b18c850690f3bbf8f61840497a5483967fb3781d53cee18",
+  "leaf_tetrahedra": 909276,
+  "scalar_producer_sha256": "f46e11dc3e62842e8677bbd48f6d4f59c492371ebc9f048a0277c0926081e4eb",
+  "gamma_squared_upper": "110198720717248263191420384206278118572967513140739101959/1553903740285921116271637844295273364095125246821007360000",
+  "sigma_squared_upper": "175022120029/1099511627776",
+  "gamma_squared_float": 0.07091734054065119,
+  "sigma_squared_float": 0.159181690859441,
+  "eta": "1/10",
+  "theta": "9/10",
+  "rho": "5",
+  "c_e": "6694484878251709765533581105210849695236587853976196195865493/50918317761689063137989028881867517594669064087830769172480000",
+  "c_e_float": 0.13147498135314753,
+  "worst_root_and_path": [
+    474,
+    "4"
+  ],
+  "scalar_budget_pass": true,
+  "threshold_matrix_positivity_verified": false,
+  "spectral_exclusion_certified": false
+}

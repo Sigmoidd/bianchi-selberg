@@ -1,0 +1,20 @@
+{
+  "schema": "d67-adaptive-vertical-polynomial-probe/v1",
+  "degree": 6,
+  "leaves": 909276,
+  "master_dofs": 2042568,
+  "minimum_restricted_eigenvalue": -0.32289372512467,
+  "trial_polynomial_coefficients": [
+    0.3712094510447234,
+    -0.6193629677737147,
+    -14.585723405676031,
+    42.99370107022332,
+    -64.18834038135863,
+    47.79994095372753,
+    -13.964521594509813
+  ],
+  "normalized_trial_threshold_form": -0.32289372512488307,
+  "floating_quadrature": true,
+  "coefficient_envelope": "floating conservative box/hull envelope",
+  "spectral_exclusion_certified": false
+}

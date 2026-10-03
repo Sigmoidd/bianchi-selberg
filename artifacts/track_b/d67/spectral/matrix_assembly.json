@@ -1,0 +1,15 @@
+{
+  "schema": "d67-full-adaptive-floating-matrix/v1",
+  "d": 67,
+  "master_dofs": 2042568,
+  "leaves": 909276,
+  "energy_nonzeros": 30786620,
+  "mass_nonzeros": 30786664,
+  "top_area": 1.0000000000000002,
+  "symmetry_defect_K": 8.881784197001252e-16,
+  "symmetry_defect_M": 0.0,
+  "constant_energy": 0.5000000000001594,
+  "floating_arithmetic": true,
+  "matrix_positivity_verified": false,
+  "spectral_exclusion_certified": false
+}

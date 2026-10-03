@@ -1,0 +1,26 @@
+{
+  "schema": "d67-spectral-progress-status/v2",
+  "d": 67,
+  "target_interval": "(0,1)",
+  "adaptive_face_moment_map_verified": true,
+  "master_identity_rank_witnesses_verified": true,
+  "constant_energy_kernel_checked": true,
+  "balanced_scalar_budget_arithmetic_pass": true,
+  "balanced_scalar_margin": 0.22919283885679567,
+  "full_subcell_mass_matrix_assembled": true,
+  "last_observed_eigenprobe_iteration": 22,
+  "last_observed_eigenprobe_minimum": -0.0383453501006837,
+  "last_observed_eigenprobe_residual": 0.011612364496371813,
+  "eigenprobe_completed_and_verified": false,
+  "command_runner_responsive": true,
+  "remaining_conditions": [
+    "RIGOROUS_FINITE_MATRIX_ENCLOSURES",
+    "VERIFIED_DISCRETE_NEGATIVE_INDEX_AT_MOST_ONE",
+    "INDEPENDENT_FULL_SPECTRAL_REPLAY"
+  ],
+  "matrix_positivity_verified": false,
+  "spectral_exclusion_certified": false,
+  "subcell_mass_rule_exact_check_pass": true,
+  "eta13_scalar_margin": 0.01897270399955813,
+  "diagnostic_eigenprobe_completed": true
+}

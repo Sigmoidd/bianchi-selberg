@@ -1,0 +1,39 @@
+{
+  "schema": "d67-exact-mapped-cr-error-bounds/v1",
+  "d": 67,
+  "refinements": 1,
+  "layers": 12,
+  "tetrahedra": 32832,
+  "gamma_squared": "34673707921216788869470332995688325357208802721/475913872500000000000000000000000000000000000",
+  "sigma_squared": "75327611758411/549755813888",
+  "gamma_squared_float": 72.85710697835728,
+  "sigma_squared_float": 137.02012758296587,
+  "worst": {
+    "c": [
+      1,
+      0
+    ],
+    "l": [
+      0,
+      0
+    ],
+    "rlo": "0",
+    "rhi": "5400642809194103/500000000000000000",
+    "triangle": [
+      [
+        "-49/134",
+        "31/134"
+      ],
+      [
+        "-49/268",
+        "31/268"
+      ],
+      [
+        "-65/268",
+        "63/268"
+      ]
+    ]
+  },
+  "scalar_feasibility_for_any_eta": false,
+  "spectral_exclusion_certified": false
+}

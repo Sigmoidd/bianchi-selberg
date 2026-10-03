@@ -1,0 +1,22 @@
+{
+  "schema": "d67-independent-face-moment-replay/v1",
+  "leaves": 909276,
+  "master_dofs": 2042568,
+  "prolongation_nonzeros": 4084872,
+  "maximum_row_support": 994,
+  "naive_local_assembly_pairs": 32828982,
+  "geometric_barycentric_replay": true,
+  "leaf_path_replay": true,
+  "exact_prolongation_replay": true,
+  "full_column_rank_verified": true,
+  "source_geometry_binding_requires_wrapper": false,
+  "matrix_positivity_verified": false,
+  "spectral_exclusion_certified": false,
+  "geometry_and_pairing_binding_verified": true,
+  "input_sha256": "71276662d562e35a6508bfce9f00e40ffe8da9ddd0029ae9a0fb45f1ff6a84b6",
+  "plan_sha256": "8d17dd752d3c58ba2b18c850690f3bbf8f61840497a5483967fb3781d53cee18",
+  "topology_sha256": "5778bae2f5c4358c85e0efb37b933736c5c26d62c46b925e9b9b39353b5e59da",
+  "rows_sha256": "aff22736c1d8d356927ece7e9fae8d0d2b82583bd1a5c389e86cf5f5db34a5f1",
+  "producer_source_sha256": "c89d5fc8d1c9ece13a566821551e47799557a4c4e2cd1d7d5e903861637b397f",
+  "verifier_source_sha256": "a3b7b6555ff58a1defe8ded34ee9451185bc2dfeb95537d86c7b90202bfbdc5a"
+}

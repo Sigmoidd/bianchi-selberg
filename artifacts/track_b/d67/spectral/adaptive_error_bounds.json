@@ -1,0 +1,32 @@
+{
+  "schema": "d67-adaptive-error-bound-diagnostic/v1",
+  "d": 67,
+  "target_gamma_squared": "1/10",
+  "layers": 12,
+  "max_leaves": 1000000,
+  "max_depth": 8,
+  "initial_tetrahedra": 8208,
+  "leaf_tetrahedra": 909276,
+  "subdivisions": 128724,
+  "depth_counts": {
+    "5": 259873,
+    "6": 262740,
+    "3": 88361,
+    "1": 14818,
+    "2": 47884,
+    "4": 143393,
+    "0": 5391,
+    "7": 86816
+  },
+  "gamma_squared_upper": "82339132506743353727463683566933477497916685301646173549277/823392020859535787215680000000000000000000000000000000000000",
+  "sigma_squared_upper": "152923426407/549755813888",
+  "gamma_squared_float": 0.0999999154968612,
+  "sigma_squared_float": 0.2781660921882576,
+  "unresolved": 0,
+  "example_failures": [],
+  "elapsed_seconds": 465.8373372554779,
+  "adaptive_face_moment_mesh_verified": false,
+  "matrix_positivity_verified": false,
+  "spectral_exclusion_certified": false,
+  "refinement_plan_gzip_sha256": "8d17dd752d3c58ba2b18c850690f3bbf8f61840497a5483967fb3781d53cee18"
+}
