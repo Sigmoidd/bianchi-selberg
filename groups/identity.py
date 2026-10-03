@@ -4,7 +4,7 @@ An ideal uses column Hermite form ((a,0),(b,c)), a,c>0 and 0<=b<a,
 relative to the standard integral basis in groups.arithmetic (integer d).
 """
 from dataclasses import dataclass
-from fields.quadratic import get_field
+from fields.arithmetic import get_field
 from groups.arithmetic import QuadraticRing
 
 

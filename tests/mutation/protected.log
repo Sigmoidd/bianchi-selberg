@@ -1,0 +1,7 @@
+PASS certificates/d2-k2.json 4de4c40f635298f961eb39f90404c4d99c2cfe36dbe861703d7a428650622ac1
+PASS certificates/d2-k2-v2.json d9ac7d83fc04f30dd0c10bfbcb09f6df9785e1b04929fafb58a37e5d6691f4d6
+PASS certificates/legacy-pre-m0.json 0c87bd2775bd192ff06980a8c07ab412706e9ce1c49107df8fbc6a22cbee5543
+PASS certificates/m0-regression.json 77dfb1a3801e230ed81c33bf6f8d6c96ba5a466cdbd7743f438319d0df0f23a2
+PASS certificates/mechanical-k2.json 65a96b53150378e602c379216031b0007775948f87d31f13c379baaffd410a9d
+PASS old_RIGOR_GAPS.md 82abf41191a55ce8331c93997ba2b16d3cbe4bf3c7ae4320648eaa3e34d3c143
+all pre-existing JSON/JSONL artifacts: 134 changed: []

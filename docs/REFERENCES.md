@@ -21,8 +21,8 @@ contour reduction, prime-power normalization and tail bounds.
 `NORMALIZATION_ISSUE.md` identifies exactly what the flip witness proves.
 `D2_INVENTORY_PROOF.md` supplies the self-contained d=2 arithmetic proof and
 the involution orbital derivation. `INVENTORY_PROOF.md` records the same
-obligations still required for d=7,11,19. No external class-count table is
-used by the d=2 proof.
+obligations still required for d=11,19. `D7_INVENTORY_PROOF.md` supplies
+the complete d=7 argument. Neither new-field proof uses an external class-count table.
 
 `D2_REVIEW_GUIDE.md` separates the general mathematical inputs, local
 completeness arguments, finite replay checks and analytic enclosure.

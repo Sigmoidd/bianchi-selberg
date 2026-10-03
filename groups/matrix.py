@@ -1,15 +1,22 @@
 """Shared exact 2x2 matrix operations in an integral quadratic ring."""
 from dataclasses import dataclass
-from groups.arithmetic import QuadraticRing
+from typing import Protocol
 
 Entry = tuple[int, int]
 Matrix = tuple[Entry, Entry, Entry, Entry]
+class RingOps(Protocol):
+    def add(self, x: Entry, y: Entry) -> Entry: ...
+    def sub(self, x: Entry, y: Entry) -> Entry: ...
+    def mul(self, x: Entry, y: Entry) -> Entry: ...
+    def neg(self, x: Entry) -> Entry: ...
+
+
 IDENTITY: Matrix = ((1, 0), (0, 0), (0, 0), (1, 0))
 
 
 @dataclass(frozen=True)
 class MatrixOps:
-    ring: QuadraticRing
+    ring: RingOps
 
     @staticmethod
     def validate(matrix):

@@ -1,6 +1,6 @@
 """Integral quadratic-ring arithmetic without a floating point embedding."""
 from dataclasses import dataclass
-from fields.quadratic import get_field
+from fields.arithmetic import get_field
 
 
 @dataclass(frozen=True)

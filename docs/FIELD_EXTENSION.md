@@ -11,9 +11,9 @@ The selected decisions are:
 | Milestone | State | Exit condition |
 |---|---|---|
 | M0: interface and safety net | Implemented | Two legacy enclosures reproduced within numerical quadrature variation; exact derivative; closed-form systoles; support gate; regression tests |
-| M1: complete exact class inventory | Closed for d=2; per-field proof replay implemented | Four element classes; nonmaximal lattice included; SL splitting, complete units, primitive norms, full PSL orbital factor proved in `D2_INVENTORY_PROOF.md` |
+| M1: complete exact class inventory | Closed for d=2 and d=7; per-field proof replay implemented | Four d=2 and two d=7 element classes; complete lattice/unit proofs and full PSL orbital factors in their inventory notes |
 | M2: d=2 | Full certificate frozen | `certificates/d2-k2.json`, B in [0.42455184, 0.42957479]; `examples/d2_certificate.py` |
-| M3: d=7 | Mechanical screen ready; spectral certificate blocked | Same, after d=2 |
+| M3: d=7 | Full certificate frozen | `certificates/d7-k2.json`, B in [0.36394687, 0.36400056]; complete two-class proof; 55-point sinc parameter comparison |
 | M4: d=11,19 | Mechanical screens ready; later work | Same, after d=2 and d=7 |
 
 The new layout is `groups/` for explicit group inputs and exact arithmetic,
@@ -79,3 +79,16 @@ not every member of the sinc^(2k) family or every possible admissible
 function. A universal impossibility claim needs a separate optimization
 argument. Positive NCE budgets for the smaller fields also do not prove
 feasibility without the inventory.
+
+The d=7 proof uses two maximal multiplier orders, both class number one.
+A2 units have determinant image {1}, so its two SL involution lift classes
+merge only on passing to PSL; there is no SL endpoint flip. A3 units have
+determinant image {±1}, merging inverse order-3 elements. Primitive norms
+are 8+3√7 and (23+5√21)/2, with finite centralizers 2 and 3. See
+[D7_INVENTORY_PROOF.md](D7_INVENTORY_PROOF.md). The best certified upper bound
+among 55 tested sinc parameters is frozen; global optimality is not proved.
+
+`quotients/` now provides exact finite generated images and adjacency actions
+independently of analytic dependencies. See [FINITE_QUOTIENTS.md](FINITE_QUOTIENTS.md).
+This is infrastructure for future expansion certification, not a new
+congruence-level spectral theorem.
