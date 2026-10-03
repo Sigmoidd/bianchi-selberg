@@ -214,3 +214,13 @@ remains eta=1/10. Depth-three assembly uses smaller batches to limit memory.
 
 The exact coefficient-interval binding, rigorous finite matrix enclosures,
 verified index at most one, and independent spectral replay remain open.
+
+
+## Swarm continuation
+
+See docs/CLASS_NUMBER_ONE_SWARM_HANDOFF.md for current dependency gates,
+all-nine scope, worker ownership, exact replay commands and resource limits.
+pre_handoff_observations.json preserves process outputs observed before
+workspace maintenance removed raw intermediates. Its positive depth-three
+estimate is a floating diagnostic with no retained matrix hashes, not a
+positivity certificate. Reconstruct inputs before continuing.

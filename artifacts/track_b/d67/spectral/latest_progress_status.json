@@ -14,6 +14,7 @@
   "eigenprobe_completed_and_verified": false,
   "command_runner_responsive": true,
   "remaining_conditions": [
+    "COEFFICIENT_SCALAR_IDENTITY_BINDING",
     "RIGOROUS_FINITE_MATRIX_ENCLOSURES",
     "VERIFIED_DISCRETE_NEGATIVE_INDEX_AT_MOST_ONE",
     "INDEPENDENT_FULL_SPECTRAL_REPLAY"
@@ -22,5 +23,7 @@
   "spectral_exclusion_certified": false,
   "subcell_mass_rule_exact_check_pass": true,
   "eta13_scalar_margin": 0.01897270399955813,
-  "diagnostic_eigenprobe_completed": true
+  "diagnostic_eigenprobe_completed": true,
+  "raw_diagnostic_workspace_pruned": true,
+  "recovered_observations_file": "pre_handoff_observations.json"
 }

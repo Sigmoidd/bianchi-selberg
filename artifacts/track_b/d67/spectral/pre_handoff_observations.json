@@ -1,0 +1,37 @@
+{
+  "schema": "d67-pre-handoff-recovered-observations/v1",
+  "d": 67,
+  "provenance": "Recovered conversation/process observations, some completed and some interrupted; raw intermediates were removed by workspace maintenance and these observations are not independently verifiable without reconstruction.",
+  "raw_matrix_hashes_available": false,
+  "completed_depth3_diagnostic": {
+    "mass_upper_volume": 3.9009611474015085,
+    "eta": "1/13",
+    "mass_inflation": "14/13",
+    "minimum_estimate": 0.0020864741982754556,
+    "first_residual": 0.002068555513554218,
+    "history_entries": 43,
+    "completed_process_report_observed": true
+  },
+  "interrupted_single_mode_diagnostic": {
+    "requested_iterations": 100,
+    "last_visible_iteration": 21,
+    "last_visible_minimum_estimate": 0.00148711,
+    "last_visible_residual": 0.00143669,
+    "completed_report_available": false
+  },
+  "floating_boxed_scalar_diagnostic": {
+    "gamma_squared_maximum_estimate": 0.06911955763127157,
+    "leaf_index": 905133,
+    "completed_process_report_observed": true
+  },
+  "symbolic_storage_diagnostic": {
+    "strict_lower_factor_entries": 409801053,
+    "double_and_int64_bytes": 6556816848,
+    "point128_and_int64_bytes": 9835225272,
+    "workspace_and_enclosure_storage_included": false,
+    "proof_of_inertia": false,
+    "completed_process_report_observed": true
+  },
+  "matrix_positivity_verified": false,
+  "spectral_exclusion_certified": false
+}
