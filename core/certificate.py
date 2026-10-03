@@ -3,15 +3,22 @@ import platform
 import flint
 
 
-def report_payload(evaluation):
+def report_payload(evaluation, *, analytic_registry=None):
     E = evaluation
+    from core.backends import get_backend, validate_geometry
+    backend = get_backend(E.group, registry=analytic_registry)
+    geometry = backend.geometry(E.group)
+    validate_geometry(E.group, geometry)
     return dict(
-        schema_version=1,
+        schema_version=2,
         report_kind=("mechanical-screen" if not E.include_elliptic else
                      "legacy-regression" if E.group.inventory_status == "legacy" else
                      "proved-inventory-evaluation"),
         spectral_certificate=False,
         group=E.group.name,
+        group_identity=E.group.key.payload(),
+        inventory_backend=E.group.inventory_proof_id,
+        analytic_backend=E.group.trace_backend_id,
         d=E.group.field.d,
         D=E.group.field.D,
         parameters=dict(k=E.k, delta_hex=E.delta.hex(), R=E.R, precision_bits=E.precision_bits),
@@ -19,8 +26,9 @@ def report_payload(evaluation):
         inventory_status=E.group.inventory_status,
         inventory_provenance=E.group.inventory_provenance,
         normalization_status=[e.normalization_status for e in E.group.elliptic_classes],
-        systole_trace=list(E.group.systole_trace),
-        systole_ball=E.group.systole().str(40),
+        systole_trace=list(E.group.systole_trace) if E.group.systole_trace is not None else None,
+        systole_ball=geometry.systole.str(40),
+        volume_ball=geometry.volume.str(40),
         bound_ball=E.bound.str(40),
         lower_endpoint_ball=E.bound.lower().str(40),
         upper_endpoint_ball=E.bound.upper().str(40),
@@ -31,38 +39,43 @@ def report_payload(evaluation):
     )
 
 
-def certificate_payload(evaluation):
+def certificate_payload(evaluation, *, group_registry=None, analytic_registry=None):
     E = evaluation
     if not E.include_elliptic or E.group.inventory_status != "self-contained":
         raise ValueError("a new certificate requires a self-contained complete inventory")
     if any(e.normalization_status != "proved" for e in E.group.elliptic_classes):
         raise ValueError("all elliptic normalizations must be proved")
-    proof = E.group.verify_inventory()
-    from groups.systoles import verify_systole
+    from groups.registry import default_registry
+    from core.backends import get_backend, validate_geometry
     from flint import arb
-    verify_systole(E.group)
-    if not (arb(E.delta) > 0 and (2*E.k*arb(E.delta)).upper() <= E.group.systole().lower()):
+    inventory = (group_registry or default_registry()).inventory_backend(E.group)
+    proof = inventory.verify(E.group)
+    backend = get_backend(E.group, registry=analytic_registry)
+    geometry = backend.geometry(E.group)
+    validate_geometry(E.group, geometry)
+    if not (arb(E.delta) > 0 and (2*E.k*arb(E.delta)).upper() <= geometry.systole.lower()):
         raise ValueError("certificate support is outside the proved systole")
     if not E.bound.upper() < 1:
         raise ValueError("this test function does not prove B < 1")
-    payload = report_payload(E)
+    payload = report_payload(E, analytic_registry=analytic_registry)
     payload.update(report_kind="spectral-certificate", spectral_certificate=True)
     payload.update(
         inventory_proof=proof,
+        inventory_derivations=list(inventory.documentation),
         support_ball=(2*E.k*arb(E.delta)).str(40),
-        elliptic_coefficient_ball=E.group.analytic_data()["C_ell"].str(40),
-        conclusion="No discrete Laplace eigenvalue in (0,1) at level 1.",
+        elliptic_coefficient_ball=sum((C.coefficient() for C in E.group.elliptic_classes
+                                     if not C.cuspidal), arb(0)).str(40),
+        conclusion=f"No discrete Laplace eigenvalue in (0,1) for {E.group.name}.",
         proof_dependencies=[
             "Friedman, arXiv:math/0612807v1, Theorem 4.1.1 (standard trace formula)",
-            "docs/D2_INVENTORY_PROOF.md (arithmetic and orbital derivation)",
-            "Minkowski ideal-class bound and elementary local valuation theory",
-            "docs/SYSTOLES.md; docs/ANALYTIC_DERIVATIONS.md (analytic reductions)",
+            *inventory.documentation,
+            *inventory.dependencies,
+            *backend.documentation,
             "Arb interval arithmetic and certified quadrature via python-flint",
         ],
         notes=["Ball strings retain their radii; decimal endpoints are not exact scalars.",
                "Completeness is proved in the derivation note; finite arithmetic witnesses replay exactly.",
                "This is a mathematical proof with executable checks, not a proof-assistant formalization.",
-               "The two inverse order-3 element classes are counted separately.",
-               "Existing Eisenstein coefficients and frozen historical reports are unchanged."],
+               *inventory.notes],
     )
     return payload

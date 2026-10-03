@@ -22,6 +22,7 @@ def cosh_length(pair):
 
 def verify_systole(kind):
     group = get_group(kind)
+    group.require_level_one()
     target = trace_pair(group, *group.systole_trace)
     v0 = cosh_length(target)
     # |tau| > 3 => cosh(length) > 7/2. All chosen targets are <= 7/2.
