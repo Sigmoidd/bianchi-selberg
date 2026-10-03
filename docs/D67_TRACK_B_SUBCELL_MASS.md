@@ -34,3 +34,9 @@ inequality uses M_h^sharp(Iv), while M(e) still uses the old m_T error envelope.
 The finite matrix must still be assembled and independently enclosed with
 exact rational or rigorous interval arithmetic. adaptive_matrix_probe.py is
 a floating diagnostic and cannot supply those enclosures.
+
+
+verify_subcell_mass_rule.py checks the rational red subdivision and exact
+constant-density Gram identity for depths zero through three. It also
+cross-checks the floating barycentric/Gram implementation. This is a rule
+check, not a replay of all variable-density coefficients or assembled entries.

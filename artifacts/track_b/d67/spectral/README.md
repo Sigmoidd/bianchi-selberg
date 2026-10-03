@@ -192,3 +192,25 @@ OPENBLAS_NUM_THREADS=1 python -u artifacts/track_b/d67/spectral/adaptive_matrix_
 The probe additionally needs pyamg 5.2.1. Floating matrix data and eigenvectors
 are reproducible intermediates. Neither positive polynomial trials nor a
 floating eigenvalue estimate can issue a spectral certificate.
+
+
+## Recovered runner and exact integration-rule check
+
+The completed depth-two mass diagnostic has minimum estimate
+-0.0383453501006837 (residual 0.011612364496371813). The earlier iteration-16
+number was incomplete. It does not close finite positivity.
+
+verify_subcell_mass_rule.py independently reconstructs the red partition
+with rational coordinates, checks every subcell volume, and proves exact
+constant-density CR Gram conservation through depth three (512 subcells).
+The floating implementation agrees on this rule. This check does not enclose
+the full variable-density mass matrix.
+
+The exact inherited scalar bound also permits eta=1/13, with
+c0=0.01897270399955813...>0. balanced_eta13_budget.json records the exact
+rational value. --eta 1/13 selects mass inflation 14/13 in the diagnostic,
+recomputing z=(1+eta)M_h 1+t_h/4 from the loaded mass matrix. The default
+remains eta=1/10. Depth-three assembly uses smaller batches to limit memory.
+
+The exact coefficient-interval binding, rigorous finite matrix enclosures,
+verified index at most one, and independent spectral replay remain open.

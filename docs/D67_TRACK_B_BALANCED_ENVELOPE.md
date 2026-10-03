@@ -43,3 +43,10 @@ scalar bound.
 
 The finite matrix still needs independent rigorous enclosures and a verified
 negative-index bound. This note does not certify spectral exclusion.
+
+
+A second valid choice is eta=1/13. The same exact inherited gamma bound is
+less than 1/14, giving c0=1-14 gamma²>0.0189727. This reduces finite mass
+inflation to 14/13, with a smaller positive interpolation-error margin.
+The exact budget is recorded separately in balanced_eta13_budget.json;
+it retains the same coefficient-interval and h0 requirements.

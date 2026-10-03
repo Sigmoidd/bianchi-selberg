@@ -1,0 +1,37 @@
+{
+  "schema": "d67-subcell-mass-rule-check/v1",
+  "d": 67,
+  "checks": [
+    {
+      "depth": 0,
+      "subcells": 1,
+      "exact_volume_conservation": true,
+      "exact_constant_density_gram_conservation": true,
+      "floating_gram_maximum_difference": 0.0
+    },
+    {
+      "depth": 1,
+      "subcells": 8,
+      "exact_volume_conservation": true,
+      "exact_constant_density_gram_conservation": true,
+      "floating_gram_maximum_difference": 0.0
+    },
+    {
+      "depth": 2,
+      "subcells": 64,
+      "exact_volume_conservation": true,
+      "exact_constant_density_gram_conservation": true,
+      "floating_gram_maximum_difference": 0.0
+    },
+    {
+      "depth": 3,
+      "subcells": 512,
+      "exact_volume_conservation": true,
+      "exact_constant_density_gram_conservation": true,
+      "floating_gram_maximum_difference": 0.0
+    }
+  ],
+  "full_finite_mass_enclosure_verified": false,
+  "matrix_positivity_verified": false,
+  "spectral_exclusion_certified": false
+}

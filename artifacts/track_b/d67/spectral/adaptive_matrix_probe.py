@@ -5,6 +5,7 @@ and eigenvalue calculations here are floating. Rank updates remain factored.
 """
 import argparse,json,subprocess,time
 from pathlib import Path
+from fractions import Fraction
 from itertools import combinations
 import numpy as np
 from scipy.sparse import csr_matrix,diags,save_npz,load_npz
@@ -124,8 +125,9 @@ def assemble(prefix,balanced=False,mass_depth=0):
     qdata=np.empty((nt,4,4));mass=np.empty(nt);top=np.zeros((nt,4))
     mdata=np.empty((nt,4,4)) if mass_depth else None
     rule=integration_rule(mass_depth)
-    for i in range(0,nt,10000):
-        batch=leaves[i:i+10000];pts=x[batch['nodes']]
+    batch_size=1000 if mass_depth>=3 else 10000
+    for i in range(0,nt,batch_size):
+        batch=leaves[i:i+batch_size];pts=x[batch['nodes']]
         qdata[i:i+len(batch)],mass[i:i+len(batch)]=coefficient_batch(pts,batch['root']//36,centers,norms,'balanced' if balanced else .75)
         if mass_depth:mdata[i:i+len(batch)]=integrated_mass(pts,batch['root']//36,centers,norms,rule)
         for omit in range(4):
@@ -165,13 +167,15 @@ def assemble(prefix,balanced=False,mass_depth=0):
     print(json.dumps(report,indent=2),flush=True)
 
 
-def eigenprobe(directory,iterations=100,initial_vectors=None):
+def eigenprobe(directory,iterations=100,initial_vectors=None,eta=Fraction(1,10)):
     import pyamg
     K=load_npz(directory/'matrix_K.npz');M=load_npz(directory/'matrix_M.npz')
-    vectors=np.load(directory/'matrix_vectors.npz');t,z,x=vectors['t'],vectors['z'],vectors['coords'];nd=K.shape[0]
+    vectors=np.load(directory/'matrix_vectors.npz');t,x=vectors['t'],vectors['coords'];nd=K.shape[0]
+    inflation=float(1+eta)
+    z=inflation*np.asarray(M@np.ones(nd)).ravel()+.25*t
     def apply(v):
-        if v.ndim==1:return K@v-1.1*(M@v)-.75*t*(t@v)+.5*z*(z@v)
-        return K@v-1.1*(M@v)-.75*t[:,None]*(t@v)[None,:]+.5*z[:,None]*(z@v)[None,:]
+        if v.ndim==1:return K@v-inflation*(M@v)-.75*t*(t@v)+.5*z*(z@v)
+        return K@v-inflation*(M@v)-.75*t[:,None]*(t@v)[None,:]+.5*z[:,None]*(z@v)[None,:]
     A=LinearOperator((nd,nd),matvec=apply,matmat=apply,dtype=float)
     print('building algebraic multigrid preconditioner',flush=True)
     mg=pyamg.smoothed_aggregation_solver(K,max_coarse=500,symmetry='symmetric')
@@ -185,14 +189,16 @@ def eigenprobe(directory,iterations=100,initial_vectors=None):
     np.save(directory/'diagnostic_eigenvectors.npy',vecs)
     report=dict(schema='d67-full-adaptive-floating-eigenprobe/v1',d=67,master_dofs=nd,
         eigenvalues=list(map(float,vals)),residuals=list(map(float,residuals[-1])),
-        iterations=len(history),floating_arithmetic=True,matrix_positivity_verified=False,
+        iterations=len(history),eta=str(eta),mass_inflation=str(1+eta),
+        stabilization='z=(1+eta)*M_h*1+t_h/4; alpha=1/2',floating_arithmetic=True,matrix_positivity_verified=False,
         spectral_exclusion_certified=False)
     (directory/'matrix_eigenprobe.json').write_text(json.dumps(report,indent=2)+'\n')
     print(json.dumps(report,indent=2))
 
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('prefix',type=Path);p.add_argument('--eigenprobe',action='store_true');p.add_argument('--balanced',action='store_true');p.add_argument('--mass-depth',type=int,default=0);p.add_argument('--iterations',type=int,default=100);p.add_argument('--initial-vectors',type=Path);args=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('prefix',type=Path);p.add_argument('--eigenprobe',action='store_true');p.add_argument('--balanced',action='store_true');p.add_argument('--mass-depth',type=int,default=0);p.add_argument('--iterations',type=int,default=100);p.add_argument('--initial-vectors',type=Path);p.add_argument('--eta',type=Fraction,default=Fraction(1,10));args=p.parse_args()
     if not 0<=args.mass_depth<=3:raise ValueError('diagnostic mass depth must lie between 0 and 3')
-    if args.eigenprobe:eigenprobe(args.prefix.parent,args.iterations,args.initial_vectors)
+    if args.eta<=0:raise ValueError('eta must be positive')
+    if args.eigenprobe:eigenprobe(args.prefix.parent,args.iterations,args.initial_vectors,args.eta)
     else:assemble(args.prefix,args.balanced,args.mass_depth)
