@@ -1,0 +1,250 @@
+Python: 3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ] python-flint: 0.9.0 FLINT (includes Arb): 3.6.0
+file: /workspace/scratch/5332e74d4d90/bianchi-selberg/track_b_two_cusp_result.json exists: True git tracked: True
+file: /workspace/scratch/5332e74d4d90/bianchi-selberg/track_b_hejhal_rows.jsonl exists: True git tracked: True
+{
+  "schema": "track-b-two-cusp-verification/v1",
+  "verified": false,
+  "independently_reassembled_matrix": true,
+  "serialized_matrix_entries_used": false,
+  "expected_row_count": 96,
+  "row_count": 96,
+  "exact_once": true,
+  "exact_row_order": true,
+  "all_four_blocks": true,
+  "glue_permutations_exact": true,
+  "transformed_coordinates_agree": true,
+  "coefficient_count_correct": true,
+  "selected_system_contains_zero": true,
+  "scaling_roundtrip_certified": true,
+  "deterministic_hashes_match": false,
+  "endpoint_agreement": true,
+  "endpoint_checks": {
+    "component": true,
+    "l2": true,
+    "normalization": true
+  },
+  "maximum_component_residual_upper": "[1.89163664668937907236703204765920042932579288666450345602e-5 +/- 2.12e-62]",
+  "euclidean_residual_norm_upper": "[2.58087647509165044939555867282344480396638693263042348218e-5 +/- 1.26e-62]",
+  "normalization_residual_upper": "[6.54780884117714889817692472395727065759274410083889961243e-16 +/- 3.25e-73]",
+  "worst_row_index": 90,
+  "worst_row_type": "S",
+  "worst_cusp_transition": "infinity->zero",
+  "physical_residual_certified": false,
+  "rung4_certified": false
+}
+assembly_hash PASS actual: d7129a5a28f8ae169b0faeb7091b05d2df75822e6f678d51470a4af788a737b3 stored: d7129a5a28f8ae169b0faeb7091b05d2df75822e6f678d51470a4af788a737b3
+cusp_data_hash PASS actual: 52fadb7254406d51400f92666c9e69bb608f31bdab0c9ec24722dd7fa528c3f4 stored: 52fadb7254406d51400f92666c9e69bb608f31bdab0c9ec24722dd7fa528c3f4
+coefficient_vector_hash PASS actual: 549511efb90233d9dacdd3f9c8e299d597603b079eb34001c32e43e596b9105e stored: 549511efb90233d9dacdd3f9c8e299d597603b079eb34001c32e43e596b9105e
+collocation_ledger_hash FAIL actual: 8ddb66397840d9ebddca7ac2d4e8810076ec031c0931ea4c21cc0940c66c6486 stored: 383557121919fcddfb8a3a6b8592238f612eca6b1f6bba3bc4583d15611281a4
+artifact cusp data: {
+  "schema": "track-b-exact-two-cusp-data/v1",
+  "level": [
+    2,
+    1
+  ],
+  "index": 6,
+  "scaling_matrices": {
+    "infinity": [
+      [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    ],
+    "zero": [
+      [
+        [
+          0,
+          0
+        ],
+        [
+          -1,
+          0
+        ]
+      ],
+      [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    ]
+  },
+  "scaling_convention": "sigma_infinity=I; sigma_zero=S; local cusp coordinate is sigma_a^{-1}P.  In PSL2, S^{-1}=S.",
+  "cusp_lattices": {
+    "infinity": "Z[i]",
+    "zero": "(2+i) Z[i]",
+    "zero_dual": "(1/conj(2+i)) Z[i] = ((2+i)/5) Z[i]",
+    "zero_covolume": "5"
+  },
+  "coset_representatives": [
+    "I",
+    "S",
+    "S T_1",
+    "S T_2",
+    "S T_3",
+    "S T_4"
+  ],
+  "component_cusp_classes": [
+    "infinity",
+    "zero",
+    "zero",
+    "zero",
+    "zero",
+    "zero"
+  ],
+  "component_zero_translates": [
+    null,
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "generators": {
+    "T1": [
+      [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    ],
+    "R": [
+      [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          -1
+        ]
+      ]
+    ],
+    "TiR": [
+      [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          -1
+        ]
+      ]
+    ],
+    "S": [
+      [
+        [
+          0,
+          0
+        ],
+        [
+          -1,
+          0
+        ]
+      ],
+      [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    ]
+  },
+  "glue": {
+    "T1": [
+      0,
+      5,
+      1,
+      2,
+      3,
+      4
+    ],
+    "R": [
+      0,
+      1,
+      5,
+      4,
+      3,
+      2
+    ],
+    "TiR": [
+      0,
+      3,
+      2,
+      1,
+      5,
+      4
+    ],
+    "S": [
+      1,
+      0,
+      5,
+      3,
+      4,
+      2
+    ]
+  },
+  "cusp_data_hash": "52fadb7254406d51400f92666c9e69bb608f31bdab0c9ec24722dd7fa528c3f4"
+}
+discovery: . count: 68 two_cusp: ['test_track_b_two_cusp.TrackBTwoCuspTests.test_all_four_blocks_and_slow_direct_rows_agree', 'test_track_b_two_cusp.TrackBTwoCuspTests.test_closing_artifacts_verify_independently', 'test_track_b_two_cusp.TrackBTwoCuspTests.test_each_certification_gate_fails_closed', 'test_track_b_two_cusp.TrackBTwoCuspTests.test_forced_bessel_failure_is_fail_closed', 'test_track_b_two_cusp.TrackBTwoCuspTests.test_identity_reduction_commutes_with_matrix', 'test_track_b_two_cusp.TrackBTwoCuspTests.test_scaling_and_physical_residual_round_trip', 'test_track_b_two_cusp.TrackBTwoCuspTests.test_sigma0_direct_and_specialized_actions_agree', 'test_track_b_two_cusp.TrackBTwoCuspTests.test_spectral_parameter_dependence']
+discovery: tests count: 49 two_cusp: []

@@ -2,7 +2,7 @@
 
 The shared engine now separates three contracts: exact group identity,
 complete arithmetic inventory, and verified analytic geometry/cusp/scattering
-terms. d=2 and d=7 are working examples. d=11,19 use the same engine once their
+terms. d=2,7,11 are working examples. d=19 uses the same engine once its
 arithmetic proofs are supplied. A congruence group uses the same contracts
 with its own analytic backend; the level-one formulas cannot be silently
 reused for it.
@@ -128,7 +128,7 @@ default_registry().register(key, factory, backend, replace=True)
 ```
 
 `replace=True` explicitly replaces an existing registration (d=7 is already
-registered by the builtins; d=11,19 still have mechanical-only scaffolds).
+registered by the builtins; d=11 is also registered; d=19 still has a mechanical-only scaffold).
 Ordinary duplicate registration is rejected. Replacing a factory clears
 its old proof binding. Keep this initialization in an adapter module or
 add it to `register_builtins` once the proof is part of the repo; it needs
@@ -214,3 +214,8 @@ noncertifying** congruence fixtures, level membership and backend isolation.
 The implemented d=7 adapter is in `groups/builtins.py` and its proof replay
 is `groups/d7_inventory.py`. Exact finite quotient and adjacency interfaces
 are documented separately in [FINITE_QUOTIENTS.md](FINITE_QUOTIENTS.md).
+
+The d=11 adapter follows the same interface in `groups/builtins.py`. Its
+proof and replay are [D11_INVENTORY_PROOF.md](D11_INVENTORY_PROOF.md) and
+`groups/d11_inventory.py`; [D11_REVIEW_GUIDE.md](D11_REVIEW_GUIDE.md) records
+the finite parameter comparison and regression scope.

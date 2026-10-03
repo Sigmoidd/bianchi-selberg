@@ -25,7 +25,8 @@ def ball(x):
 def independent_volume(G):
     # Independent character tables, not production character_data/zetaK2.
     q=abs(G.field.D)
-    residues={8:{1:1,3:1,5:-1,7:-1},7:{1:1,2:1,3:-1,4:1,5:-1,6:-1}}[q]
+    residues={8:{1:1,3:1,5:-1,7:-1},7:{1:1,2:1,3:-1,4:1,5:-1,6:-1},
+              11:{a:(1 if a in (1,3,4,5,9) else -1) for a in range(1,11)}}[q]
     N=q*(100000//q)
     prefixes=[sum(residues.get(n%q,0) for n in range(1,j+1)) for j in range(q+1)]
     if prefixes[-1] != 0: raise RuntimeError('nonzero period mean')
@@ -45,9 +46,11 @@ def independent_volume(G):
             'volume_minus1_percent_overlaps':bool((production*arb('0.99')).overlaps(V))}
 
 
-def run(output):
+def run(output, groups=(2, 7)):
     report={'zero_mutations':[],'inside_support':[],'volume':[]}
-    for d,frac,R in [(2,.999,40),(7,1.,256)]:
+    from tests.mutation.run import CASES
+    for d in groups:
+        _, frac, R = CASES[d]
         G=get_group(d);base=evaluate(G,frac=frac,R=R,verbose=False)
         support=2*base.k*arb(base.delta)
         coefficient=EllipticClass.coefficient
@@ -150,5 +153,10 @@ def run(output):
 
 
 if __name__=='__main__':
-    if len(sys.argv)!=2:raise SystemExit('Usage: python tests/mutation/zero_movement.py OUTPUT_JSON')
-    run(sys.argv[1])
+    import argparse
+    from tests.mutation.run import CASES
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('output', type=Path)
+    parser.add_argument('--groups', type=int, nargs='+', choices=sorted(CASES), default=[2, 7])
+    args = parser.parse_args()
+    run(args.output, args.groups)

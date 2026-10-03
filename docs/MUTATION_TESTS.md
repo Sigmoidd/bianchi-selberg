@@ -677,3 +677,147 @@ diff -u /workspace/scratch/31144417503a/translation-consumers/d7-complete-up-to-
 
 All completed. Production math, certificates, historical reports and
 existing tests remain unchanged; no flagged behavior was fixed.
+
+
+## d=11: existing harness extension (2026-10-01)
+
+Tested production/certificate commit: `cc1324313189c91c1374d12f1c3b88681a7d1c3a`,
+draft PR #6. This runs the **same existing harness**, with d=11 selected.
+The only harness changes add group/parameter selection (defaults remain d=2,7)
+and the explicit χ₋₁₁ table for the existing independent-volume diagnostic.
+No mutation algorithm, production math, existing test, frozen certificate or
+historical JSON/JSONL artifact was changed. Predictions were saved in
+[the d=11 prediction file](../tests/mutation/d11/PREDICTIONS.md) **before**
+the runs. Python 3.12.14, python-flint 0.9.0, FLINT 3.6.0.
+
+Optimized baseline replay passed with exactly unchanged B and both endpoint
+ball strings, as did each harness's own frozen-baseline gate.
+[Published count cross-check](D11_PUBLISHED_COUNTS.md): C₂=1, C₃=1, V₄=2,
+S₃=0, A₄=2 subgroup classes, yielding **one involution and two inverse
+order-3 element classes**. The source note identifies the exact Krämer
+theorems, Rahm's reproduction of the cyclic formulas, the Schwermer–Vogtmann
+d=11 diagram, and the substitutions. No discrepancy was found.
+
+### Standard mutation results
+
+All intervals below are rounded outward to eight decimal places. Exact
+balls are in [results.json](../tests/mutation/d11/results.json). **D** means
+native arithmetic rejects before B exists; its shown mutated B/delta comes
+from the existing gate-bypassed diagnostic and is not a certificate. **N**
+means native B exists and export was attempted. Positivity means the B<1
+criterion. The baseline for every row is **[0.52924365, 0.52928221]**.
+
+| d=11 mutation | Predicted direction | Mutated B | Delta interval | Check | Source | Flags |
+|---|---|---|---|---|---|---|
+| drop:0:d11 order 2: A2 with endpoint flip | decrease | [0.20411833, 0.20415690] | [-0.32516388, -0.32508675] | arithmetic replay | D | — |
+| drop:1:d11 order 3: alpha | decrease | [0.15962808, 0.15966664] | [-0.36965413, -0.36957701] | arithmetic replay | D | — |
+| drop:2:d11 order 3: alpha inverse | decrease | [0.15962808, 0.15966664] | [-0.36965413, -0.36957701] | arithmetic replay | D | — |
+| centralizer denominator ×2 | decrease | [-0.00293458, -0.00289601] | [-0.53221678, -0.53213966] | none | N | uncaught and B < 1 |
+| centralizer denominator ×0.5 | increase | [1.59360010, 1.59363866] | [1.06431789, 1.06439501] | positivity check | N | — |
+| centralizer records:2 | decrease | [-0.00293458, -0.00289601] | [-0.53221678, -0.53213966] | arithmetic replay | D | — |
+| centralizer records:0.5 | increase | [1.59360010, 1.59363866] | [1.06431789, 1.06439501] | arithmetic replay | D | — |
+| translation:0:d11 order 2: A2 with endpoint flip | zero diagnostic movement | [0.52924365, 0.52928221] | [0E-8, 0E-8] | arithmetic replay | D | movement below baseline Arb radius (zero) |
+| translation:1:d11 order 3: alpha | zero diagnostic movement | [0.52924365, 0.52928221] | [0E-8, 0E-8] | arithmetic replay | D | movement below baseline Arb radius (zero) |
+| translation:2:d11 order 3: alpha inverse | zero diagnostic movement | [0.52924365, 0.52928221] | [0E-8, 0E-8] | arithmetic replay | D | movement below baseline Arb radius (zero) |
+| all translation witnesses | zero diagnostic movement | [0.52924365, 0.52928221] | [0E-8, 0E-8] | arithmetic replay | D | movement below baseline Arb radius (zero) |
+| volume:1.01 | increase | [0.53898969, 0.53902825] | [0.00970748, 0.00978460] | none | N | uncaught and B < 1 |
+| volume:0.99 | decrease | [0.51949761, 0.51953617] | [-0.00978460, -0.00970748] | none | N | uncaught and B < 1 |
+| trace box [-6,6] → [-1,1] | zero diagnostic movement | [0.52924365, 0.52928221] | [0E-8, 0E-8] | none | N | movement below baseline Arb radius (zero); uncaught and B < 1 |
+| omit cusp/scattering | increase | [0.93641473, 0.93641474] | [0.40713253, 0.40717109] | none | N | uncaught and B < 1 |
+| flip cusp/scattering | increase | [1.34354726, 1.34358583] | [0.81426506, 0.81434218] | positivity check | N | — |
+
+Each class removal visibly lowers diagnostic B: midpoint deltas are
+−0.325125314903694…, −0.369615567115718…, and −0.369615567115718….
+All three native runs are rejected with `ArithmeticError: complete d11 class count`.
+There are **no opposite-prediction cases**. The positivity check rejects
+centralizer denominator ×1/2 and the cusp sign flip; record perturbations
+are rejected by arithmetic. Full errors are preserved in
+[run.log](../tests/mutation/d11/run.log) and the exact results JSON.
+
+### Executing translation-coefficient consumer
+
+Baseline B is the same for all four rows. Original witness records remain
+intact, and `EllipticClass.coefficient` suppresses the selected positive term.
+All four native exports are accepted and B<1; **none is caught**, and
+**none has zero movement**. Counters prove the patched path ran.
+
+| Suppressed coefficient | Mutated B | Delta interval | Calls / suppression hits | Check |
+|---|---|---|---|---|
+| remove d11 order 2: A2 with endpoint flip | [0.20411833, 0.20415690] | [-0.32516388, -0.32508675] | 15 / 5 | none |
+| remove d11 order 3: alpha | [0.15962808, 0.15966664] | [-0.36965413, -0.36957701] | 15 / 5 | none |
+| remove d11 order 3: alpha inverse | [0.15962808, 0.15966664] | [-0.36965413, -0.36957701] | 15 / 5 | none |
+| remove all translations | [-0.53511280, -0.53507424] | [-1.06439501, -1.06431789] | 15 / 15 | none |
+
+The separate witness guard runs execute once each and reject before B:
+wrapper entries=1, original guard calls=1, delivered missing witnesses=1
+for an individual removal or 3 for all; downstream coefficient calls=0.
+Native mutated B and delta are **unavailable**, not zero.
+[Consumer results and profiles](../tests/mutation/d11/translation-consumers/translation-consumer-results.json)
+retain exact intervals, errors and counters. The complete and truncated length
+lists up to support are both `[]` and the saved diff is empty. These are trace
+representatives, not an independent primitive geodesic class enumeration.
+
+### Five zero-movement diagnostics: classifications and counters
+
+Class 1 means the term vanishes at these support parameters; class 2 means
+a small effect below the Arb radius; class 3 means the native numerical path
+is not reached. No case is classified as class 2. The baseline B radius is
+1.927765310938411857932806015014648437500e-5.
+
+| Mutation | Target term | Baseline term ball | Arb radius | Class | Execution evidence |
+|---|---|---|---|---|---|
+| translation:0:d11 order 2: A2 with endpoint flip | NCE class contribution | [0.32512531490369418856878575741 +/- 5.88e-30] | [3.128959027863410590719873845705605390224e-30 +/- 1.65e-70] | 3 | native_inventory_calls=1; native_coefficient_calls=0; diagnostic_coefficient_calls=6; diagnostic_missing_witness_coefficient_calls=2 |
+| translation:1:d11 order 3: alpha | NCE class contribution | [0.36961556711571846092960262515 +/- 6.88e-30] | [3.860961106765939234250903509059836385347e-30 +/- 1.13e-70] | 3 | native_inventory_calls=1; native_coefficient_calls=0; diagnostic_coefficient_calls=6; diagnostic_missing_witness_coefficient_calls=2 |
+| translation:2:d11 order 3: alpha inverse | NCE class contribution | [0.36961556711571846092960262515 +/- 6.88e-30] | [3.860961106765939234250903509059836385347e-30 +/- 1.13e-70] | 3 | native_inventory_calls=1; native_coefficient_calls=0; diagnostic_coefficient_calls=6; diagnostic_missing_witness_coefficient_calls=2 |
+| translation_all | NCE | [1.0643564491351311104279910077 +/- 1.82e-29] | [1.261629495188466131803788601821841429321e-29 +/- 1.53e-69] | 3 | native_inventory_calls=1; native_coefficient_calls=0; diagnostic_coefficient_calls=6; diagnostic_missing_witness_coefficient_calls=6 |
+| trace_box | omitted loxodromic/geodesic sum (not an Evaluation.terms entry) | 0 | 0 | 1 | range_replacements=12; systole_verifications=3 |
+
+Class-1 support is [1.534394436502638736641301875351928174496 +/- 3.03e-40], while the shortest
+removed trace [-2, 1] targets length [1.73659607992264932343451988479 +/- 3.42e-30].
+The term is exactly zero by the proved support bound, not because an
+uncomputed geodesic sum has been independently evaluated.
+
+The existing inside-support rerun synthetically shortens the first omitted
+trace (-3,0) to support/2. Full search: shortened-length counter=1; rejected
+with `ArithmeticError: trace (-3,0) not proved longer than witness`. Truncated
+search: shortened-length counter=0, range replacements=12; the target is
+not reached, unchanged B exported. This is a deliberately inconsistent
+trace-length fixture, not an actual group geodesic.
+
+### Flags and volume check
+
+- Movement below baseline Arb radius: four gate-bypassed missing-witness
+  diagnostics (class 3) and one trace truncation (class 1). All four witness
+  removals are rejected natively before B; all four executing coefficient
+  removals move B. No unaccounted zero movement remains.
+- Opposite to prediction: **none**.
+- Uncaught with B<1: coefficient normalization denominator ×2; volume +1%
+  and −1%; trace truncation; cusp/scattering omission; all four executing
+  coefficient removals. These are flagged, not repaired.
+
+Undercounting a positive contribution lowers B, so B<1 cannot detect it.
+The proof note, record-bound arithmetic replay and independent coefficient
+checks protect the coefficient values; the B<1 test does not.
+
+The existing independent volume diagnostic, with χ₋₁₁ residues supplied,
+sums through N=99990 and uses the Abel tail bound. It reproduces an enclosure
+for |D|^(3/2)ζ_K(2)/(4π²) containing the production volume; neither ±1%
+perturbation overlaps it. This is a diagnostic check, not a native gate.
+
+### Exact commands and saved output
+
+```sh
+python -O tests/d11_regressions.py replay
+python tests/mutation/run.py tests/mutation/d11/results.json --groups 11
+python tests/mutation/translation_consumers.py tests/mutation/d11/translation-consumers --groups 11
+python tests/mutation/zero_movement.py tests/mutation/d11/zero-movement-results.json --groups 11
+python tests/d11_regressions.py protected
+python tests/mutation/regression_checks.py links --external
+git diff --check
+```
+
+The prediction file and three harness logs accompany their results under
+`tests/mutation/d11/`. For reruns without replacing this evidence, substitute
+an output file/directory under `/tmp`. The full regressions and retained
+compatibility/Track-B failures remain as recorded in the
+[D11 review guide](D11_REVIEW_GUIDE.md); this audit does not repair them.

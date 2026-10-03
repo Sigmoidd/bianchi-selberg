@@ -11,10 +11,11 @@ The selected decisions are:
 | Milestone | State | Exit condition |
 |---|---|---|
 | M0: interface and safety net | Implemented | Two legacy enclosures reproduced within numerical quadrature variation; exact derivative; closed-form systoles; support gate; regression tests |
-| M1: complete exact class inventory | Closed for d=2 and d=7; per-field proof replay implemented | Four d=2 and two d=7 element classes; complete lattice/unit proofs and full PSL orbital factors in their inventory notes |
+| M1: complete exact class inventory | Closed for d=2,7,11; per-field proof replay implemented | Four d=2, two d=7 and three d=11 element classes; complete lattice/unit proofs and full PSL orbital factors in their inventory notes |
 | M2: d=2 | Full certificate frozen | `certificates/d2-k2.json`, B in [0.42455184, 0.42957479]; `examples/d2_certificate.py` |
 | M3: d=7 | Full certificate frozen | `certificates/d7-k2.json`, B in [0.36394687, 0.36400056]; complete two-class proof; 55-point sinc parameter comparison |
-| M4: d=11,19 | Mechanical screens ready; later work | Same, after d=2 and d=7 |
+| M4: d=11 | Full certificate frozen | `certificates/d11-k2.json`, B in [0.52924365, 0.52928221]; three-class proof; best-of-55 |
+| M5: d=19 | Mechanical screen ready; arithmetic proof open | Self-contained inventory and complete certificate |
 
 The new layout is `groups/` for explicit group inputs and exact arithmetic,
 `fields/` for characters and field constants, and `core/` for analytic
@@ -92,3 +93,10 @@ among 55 tested sinc parameters is frozen; global optimality is not proved.
 independently of analytic dependencies. See [FINITE_QUOTIENTS.md](FINITE_QUOTIENTS.md).
 This is infrastructure for future expansion certification, not a new
 congruence-level spectral theorem.
+
+The d=11 proof uses maximal A2 and A3 of class number one. Their determinant
+images are {±1} and {1}, respectively. There is one involution class with a
+full finite centralizer of order 4 and primitive norm 199+60√11, and two
+distinct inverse order-3 classes with finite centralizer 3 and norm 23+4√33.
+See [D11_INVENTORY_PROOF.md](D11_INVENTORY_PROOF.md). The frozen full bound
+is [0.52924365, 0.52928221] <1, best-of-55 with no global optimum claim.

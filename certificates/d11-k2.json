@@ -1,0 +1,452 @@
+{
+  "schema_version": 2,
+  "report_kind": "spectral-certificate",
+  "spectral_certificate": true,
+  "group": "PSL2(O_-11)",
+  "group_identity": {
+    "d": 11,
+    "subgroup": "full",
+    "level": {
+      "hnf": [
+        1,
+        0,
+        1
+      ],
+      "norm": 1,
+      "basis": "standard-integral"
+    }
+  },
+  "inventory_backend": "d11-arithmetic-v1",
+  "analytic_backend": "level-one-v1",
+  "d": 11,
+  "D": -11,
+  "parameters": {
+    "k": 2,
+    "delta_hex": "0x1.88ce12e3f1746p-2",
+    "R": 256,
+    "precision_bits": 100
+  },
+  "arithmetic": {
+    "python": "3.12.14",
+    "python_flint": "0.9.0"
+  },
+  "inventory_status": "self-contained",
+  "inventory_provenance": "docs/D11_INVENTORY_PROOF.md; groups/d11_inventory.py (d11-arithmetic-v1)",
+  "normalization_status": [
+    "proved",
+    "proved",
+    "proved"
+  ],
+  "systole_trace": [
+    0,
+    1
+  ],
+  "systole_ball": "[1.53439443650263888665805753704 +/- 6.68e-30]",
+  "volume_ball": "[1.3826083079026458736716533445 +/- 4.58e-29]",
+  "bound_ball": "[0.5293 +/- 5.64e-5]",
+  "lower_endpoint_ball": "[0.5292436509472265025059841062950232075723 +/- 3.25e-42]",
+  "upper_endpoint_ball": "[0.5292822062534452707431427624153235005410 +/- 4.68e-41]",
+  "terms": {
+    "I": "[0.9746040932579354857597746142 +/- 5.64e-29]",
+    "NCE": "[1.0643564491351311104279910077 +/- 1.82e-29]",
+    "CE": "0",
+    "Ch0": "0.5000000000000000000000000000000000000000",
+    "PARg0": "[-0.28738111203713135599805458 +/- 4.60e-27]",
+    "PSI": "[-0.3523 +/- 4.83e-5]",
+    "PHIINT": "[-0.2674 +/- 4.18e-5]",
+    "prime": "[0.029701244975400907862651129 +/- 4.05e-28]",
+    "hi": "[1.1025458060801587247696782027 +/- 5.83e-29]"
+  },
+  "notes": [
+    "Ball strings retain their radii; decimal endpoints are not exact scalars.",
+    "Completeness is proved in the derivation note; finite arithmetic witnesses replay exactly.",
+    "This is a mathematical proof with executable checks, not a proof-assistant formalization.",
+    "The two inverse order-3 classes are distinct; the involution has an endpoint flip."
+  ],
+  "inventory_proof": {
+    "proof_id": "d11-arithmetic-v1",
+    "number_theory": {
+      "discriminants": {
+        "A2": 1936,
+        "A3": 1089
+      },
+      "maximal_class_numbers": {
+        "A2": 1,
+        "A3": 1
+      },
+      "GL_lattice_types": {
+        "trace_zero": [
+          "A2"
+        ],
+        "trace_one": [
+          "A3"
+        ]
+      },
+      "minkowski_cutoffs": {
+        "A2": 6,
+        "A3": 5
+      },
+      "principal_prime_norms": {
+        "A2": [
+          4,
+          5,
+          5,
+          5,
+          5
+        ],
+        "A3": [
+          3,
+          3,
+          4,
+          4
+        ]
+      },
+      "A2_norm_five_generators": [
+        [
+          0,
+          1,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          -1,
+          0
+        ],
+        [
+          1,
+          -1,
+          1,
+          0
+        ],
+        [
+          1,
+          -1,
+          -1,
+          0
+        ]
+      ],
+      "A2_norm_five_residues": [
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          2
+        ]
+      ],
+      "A3_norm_three_generators": [
+        [
+          -2,
+          0,
+          0,
+          1
+        ],
+        [
+          -2,
+          0,
+          1,
+          -1
+        ]
+      ],
+      "A3_norm_four_generators": [
+        [
+          0,
+          1,
+          -1,
+          0
+        ],
+        [
+          -1,
+          1,
+          1,
+          0
+        ]
+      ]
+    },
+    "units": [
+      {
+        "order": "A2",
+        "coefficient_norm_bound": [
+          11,
+          2
+        ],
+        "coordinate_bounds": {
+          "a": 2,
+          "b": 1
+        },
+        "generator": [
+          1,
+          1,
+          2,
+          -1
+        ],
+        "generator_relative_norm": [
+          -1,
+          0
+        ],
+        "generator_abs_square": [
+          10,
+          3,
+          11,
+          1
+        ],
+        "norm_equation_candidates": 12,
+        "reduced_unit_count": 4,
+        "torsion_order": 4,
+        "determinant_image": [
+          -1,
+          1
+        ]
+      },
+      {
+        "order": "A3",
+        "coefficient_norm_bound": [
+          16,
+          1
+        ],
+        "coordinate_bounds": {
+          "a": 4,
+          "b": 2
+        },
+        "generator": [
+          -3,
+          2,
+          4,
+          0
+        ],
+        "generator_relative_norm": [
+          1,
+          0
+        ],
+        "generator_abs_square": [
+          46,
+          8,
+          33,
+          2
+        ],
+        "norm_equation_candidates": 10,
+        "reduced_unit_count": 6,
+        "torsion_order": 6,
+        "determinant_image": [
+          1
+        ]
+      }
+    ],
+    "class_count": 3,
+    "classes": [
+      {
+        "label": "d11 order 2: A2 with endpoint flip",
+        "m": 2,
+        "finite_centralizer_order": 4,
+        "norm": [
+          199,
+          60,
+          11
+        ],
+        "norm_denominator": 1,
+        "representative": [
+          [
+            0,
+            0
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "primitive_translation": [
+          [
+            -3,
+            6
+          ],
+          [
+            -10,
+            0
+          ],
+          [
+            10,
+            0
+          ],
+          [
+            -3,
+            6
+          ]
+        ],
+        "flip": [
+          [
+            1,
+            1
+          ],
+          [
+            -2,
+            1
+          ],
+          [
+            -2,
+            1
+          ],
+          [
+            -1,
+            -1
+          ]
+        ]
+      },
+      {
+        "label": "d11 order 3: alpha",
+        "m": 3,
+        "finite_centralizer_order": 3,
+        "norm": [
+          23,
+          4,
+          33
+        ],
+        "norm_denominator": 1,
+        "representative": [
+          [
+            0,
+            0
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "primitive_translation": [
+          [
+            -3,
+            2
+          ],
+          [
+            -4,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "flip": null
+      },
+      {
+        "label": "d11 order 3: alpha inverse",
+        "m": 3,
+        "finite_centralizer_order": 3,
+        "norm": [
+          23,
+          4,
+          33
+        ],
+        "norm_denominator": 1,
+        "representative": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "primitive_translation": [
+          [
+            1,
+            2
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            -4,
+            0
+          ],
+          [
+            -3,
+            2
+          ]
+        ],
+        "flip": null
+      }
+    ],
+    "splitting": {
+      "trace_zero_GL_to_SL": 1,
+      "trace_zero_PSL_classes": 1,
+      "trace_one_GL_to_SL": 2,
+      "trace_one_PSL_classes": 2,
+      "inverse_conjugator": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          -1,
+          0
+        ]
+      ],
+      "inverse_conjugator_determinant": -1,
+      "order_three_inverse_classes_merge": false
+    },
+    "orbital_normalization": "full-PSL-centralizer; involution endpoint flip included"
+  },
+  "inventory_derivations": [
+    "docs/D11_INVENTORY_PROOF.md"
+  ],
+  "support_ball": "[1.534394436502638736641301875351928174496 +/- 3.03e-40]",
+  "elliptic_coefficient_ball": "[1.22485696050648672667538652172 +/- 5.07e-30]",
+  "conclusion": "No discrete Laplace eigenvalue in (0,1) for PSL2(O_-11).",
+  "proof_dependencies": [
+    "Friedman, arXiv:math/0612807v1, Theorem 4.1.1 (standard trace formula)",
+    "docs/D11_INVENTORY_PROOF.md",
+    "Minkowski ideal-class bound and elementary local valuation theory",
+    "docs/SYSTOLES.md",
+    "docs/ANALYTIC_DERIVATIONS.md",
+    "Arb interval arithmetic and certified quadrature via python-flint"
+  ]
+}

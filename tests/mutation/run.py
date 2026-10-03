@@ -22,9 +22,14 @@ def interval(x):
     return dict(ball=x.str(40), lower=x.lower().str(40), upper=x.upper().str(40))
 
 
-def run(output):
+CASES = {2: ('d2-k2-v2.json', .999, 40), 7: ('d7-k2.json', 1., 256),
+         11: ('d11-k2.json', 1., 256)}
+
+
+def run(output, groups=(2, 7)):
     rows = []
-    for d, filename, frac, R in [(2,'d2-k2-v2.json',.999,40),(7,'d7-k2.json',1.,256)]:
+    for d in groups:
+        filename, frac, R = CASES[d]
         G = get_group(d)
         baseline = evaluate(G, frac=frac, R=R, verbose=False)
         frozen = json.loads((ROOT/'certificates'/filename).read_text())
@@ -121,6 +126,9 @@ def run(output):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) != 2:
-        raise SystemExit('Usage: python tests/mutation/run.py OUTPUT_JSON')
-    run(sys.argv[1])
+    import argparse
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('output', type=Path)
+    parser.add_argument('--groups', type=int, nargs='+', choices=sorted(CASES), default=[2, 7])
+    args = parser.parse_args()
+    run(args.output, args.groups)

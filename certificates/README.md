@@ -1,7 +1,7 @@
 # Frozen baseline and current reports
 
 Legacy regression reports and mechanical screens have
-`spectral_certificate: false`. The new d=2 and d=7 results have
+`spectral_certificate: false`. The new d=2, d=7 and d=11 results have
 `spectral_certificate: true` and include their arithmetic proof manifests.
 
 | Report | Contents |
@@ -13,6 +13,8 @@ Legacy regression reports and mechanical screens have
 | `d2-k2-v2.json` | Same d=2 numerical result and arithmetic manifest, with canonical group identity, volume and backend metadata |
 | `d7-k2.json` | Complete d=7 inventory and full certificate: B in [0.36394687, 0.36400056] |
 | `d7-search.json` | All 55 sinc-family evaluations and selected parameters; no global optimum claim |
+| `d11-k2.json` | Complete d=11 inventory and full certificate: B in [0.52924365, 0.52928221] |
+| `d11-search.json` | All 55 d=11 evaluations; best-of-55, no global optimum claim |
 
 All endpoint strings retain Arb radii. Hexadecimal delta strings preserve
 the exact binary floating point test-function input.
@@ -34,6 +36,8 @@ python examples/trace_report.py 2 7 11 19 43 67 163 --mechanical --output /tmp/c
 python examples/group_certificate.py 2 --output /tmp/d2-k2-v2.json
 python examples/d7_certificate.py --output /tmp/d7-k2.json
 python examples/d7_search.py --output-dir /tmp/d7-search
+python examples/d11_certificate.py --output /tmp/d11-k2.json
+python examples/d11_search.py --output-dir /tmp/d11-search
 ```
 
 Reproducing `legacy-pre-m0.json` uses the original module at its recorded
@@ -41,8 +45,8 @@ base commit. The original `old_RIGOR_GAPS.md` remains unchanged. The current
 proof ledger is `RIGOR_GAPS.md`; the new-field completeness boundary is in
 `docs/INVENTORY_PROOF.md`.
 
-The d=2 and d=7 proofs are in their `docs/D*_INVENTORY_PROOF.md` notes;
-the d=11,19 obligations remain open. The frozen d=2 file includes all four elliptic
+The d=2, d=7 and d=11 proofs are in their `docs/D*_INVENTORY_PROOF.md` notes;
+the d=19 obligations remain open. The frozen d=2 file includes all four elliptic
 element representatives, primitive translation matrices, flip witnesses,
 unit reduction bounds and class-number checks. Re-exporting it reruns the
 arithmetic proof and the full Arb assembly. Its theorem statement excludes

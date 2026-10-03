@@ -52,12 +52,14 @@ def lists(G,support,truncated):
     return {'all':all_rows,'up_to_support':inside,'boundary_ambiguous':ambiguous}
 
 
-def run(outdir):
+def run(outdir, groups=(2, 7)):
     out=Path(outdir);out.mkdir(parents=True,exist_ok=True)
     report={'profiles':{},'guard_mutations':[],'coefficient_mutations':[],'length_searches':[]}
     original_coefficient=EllipticClass.coefficient
     original_guard=registry._verify_element_witnesses
-    for d,frac,R,name in [(2,.999,40,'d2-k2-v2.json'),(7,1.,256,'d7-k2.json')]:
+    from tests.mutation.run import CASES
+    for d in groups:
+        name, frac, R = CASES[d]
         def pipeline():
             group=get_group(d)
             E=evaluate(group,frac=frac,R=R,verbose=False)
@@ -129,5 +131,10 @@ def run(outdir):
 
 
 if __name__=='__main__':
-    if len(sys.argv)!=2:raise SystemExit('Usage: python tests/mutation/translation_consumers.py OUTPUT_DIR')
-    run(sys.argv[1])
+    import argparse
+    from tests.mutation.run import CASES
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('output', type=Path)
+    parser.add_argument('--groups', type=int, nargs='+', choices=sorted(CASES), default=[2, 7])
+    args = parser.parse_args()
+    run(args.output, args.groups)
