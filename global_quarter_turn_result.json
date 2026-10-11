@@ -1,0 +1,151 @@
+{
+  "accounting": {
+    "M1": {
+      "box_is_rotation_invariant": true,
+      "cutoff_M": 1,
+      "modes_infinity": 4,
+      "modes_zero": 20,
+      "orbits_all_size_4": true,
+      "orbits_infinity": 1,
+      "orbits_zero": 5,
+      "reduction_factor_vs_full": 4.0,
+      "unknowns_after_R_only": 12,
+      "unknowns_full": 24,
+      "unknowns_per_Q_parity_sector": 6
+    },
+    "M2": {
+      "box_is_rotation_invariant": true,
+      "cutoff_M": 2,
+      "modes_infinity": 8,
+      "modes_zero": 36,
+      "orbits_all_size_4": true,
+      "orbits_infinity": 2,
+      "orbits_zero": 9,
+      "reduction_factor_vs_full": 4.0,
+      "unknowns_after_R_only": 22,
+      "unknowns_full": 44,
+      "unknowns_per_Q_parity_sector": 11
+    },
+    "M3": {
+      "box_is_rotation_invariant": true,
+      "cutoff_M": 3,
+      "modes_infinity": 8,
+      "modes_zero": 44,
+      "orbits_all_size_4": true,
+      "orbits_infinity": 2,
+      "orbits_zero": 11,
+      "reduction_factor_vs_full": 4.0,
+      "unknowns_after_R_only": 26,
+      "unknowns_full": 52,
+      "unknowns_per_Q_parity_sector": 13
+    },
+    "M4": {
+      "box_is_rotation_invariant": true,
+      "cutoff_M": 4,
+      "modes_infinity": 12,
+      "modes_zero": 68,
+      "orbits_all_size_4": true,
+      "orbits_infinity": 3,
+      "orbits_zero": 17,
+      "reduction_factor_vs_full": 4.0,
+      "unknowns_after_R_only": 40,
+      "unknowns_full": 80,
+      "unknowns_per_Q_parity_sector": 20
+    },
+    "M5": {
+      "box_is_rotation_invariant": true,
+      "cutoff_M": 5,
+      "modes_infinity": 20,
+      "modes_zero": 80,
+      "orbits_all_size_4": true,
+      "orbits_infinity": 5,
+      "orbits_zero": 20,
+      "reduction_factor_vs_full": 4.0,
+      "unknowns_after_R_only": 50,
+      "unknowns_full": 100,
+      "unknowns_per_Q_parity_sector": 25
+    },
+    "M6": {
+      "box_is_rotation_invariant": true,
+      "cutoff_M": 6,
+      "modes_infinity": 20,
+      "modes_zero": 96,
+      "orbits_all_size_4": true,
+      "orbits_infinity": 5,
+      "orbits_zero": 24,
+      "reduction_factor_vs_full": 4.0,
+      "unknowns_after_R_only": 58,
+      "unknowns_full": 116,
+      "unknowns_per_Q_parity_sector": 29
+    }
+  },
+  "all_exact_checks_pass": true,
+  "bundle_action": {
+    "bundle_map_squares_to_identity_using_Q2_equals_R_on_base": true,
+    "finite_q_squared_is_nontrivial_so_fiber_map_alone_is_not_an_involution": true,
+    "generator_images": {
+      "Q R Q^-1 equals R": true,
+      "Q S Q^-1 is S' = [[0,-i],[-i,0]]": true,
+      "Q T1 Q^-1": true,
+      "Q Ti Q^-1 equals T1^-1": true
+    },
+    "intertwining_on_generators": {
+      "R": true,
+      "S": true,
+      "T1": true,
+      "Ti": true,
+      "TiR": true
+    },
+    "intertwining_on_random_words": true,
+    "rho_q_squared_times_rho_R_is_identity": true
+  },
+  "cusp_lattices": {
+    "Lambda_infinity_is_Z_i_on_box": true,
+    "Lambda_zero_covolume": "5",
+    "Lambda_zero_is_pi_Z_i_on_box": true,
+    "dual_generator_identity": true,
+    "dual_zero_lattice_generator": "pi/5 = 1/conj(pi)",
+    "rotation_by_i_preserves_Lambda_infinity": true,
+    "rotation_by_i_preserves_Lambda_zero_on_box": true
+  },
+  "field_level_check": {
+    "bits": 192,
+    "cutoff_M": 2,
+    "even_sector_all_differences_contain_zero": true,
+    "largest_difference_enclosure_upper_bound": "[1.8751552631511118929688698654036607423",
+    "negative_control_identity_instead_of_q_detected": {
+      "-1": true,
+      "1": true
+    },
+    "negative_control_wrong_sign_detected": {
+      "-1": true,
+      "1": true
+    },
+    "odd_sector_all_differences_contain_zero": true,
+    "passes": true,
+    "r": "6.7439020359331625",
+    "tier": "EXPERIMENTAL (Arb sample-point check of the sector relations on the repository field map)"
+  },
+  "fourier_rotation_identity": {
+    "phi_beta_o_Q_equals_phi_minus_i_beta_at_zero": true,
+    "phi_mu_o_Q_equals_phi_minus_i_mu_at_infinity": true
+  },
+  "normalization": {
+    "Q_normalizes_Gamma": true,
+    "Q_normalizes_H_pi": true,
+    "Q_squared_conjugation_equals_R_conjugation": true,
+    "R_acts_as_z_to_minus_z": true,
+    "R_is_diag_i_minus_i_and_lies_in_H_pi": true,
+    "det_Q_is_i_so_Q_is_not_in_PSL2_Z_i": true,
+    "lower_left_entry_is_minus_i_c": true
+  },
+  "point_actions": {
+    "Q_S_equals_S_Q0_with_Q0_rotation_by_minus_i": true,
+    "Q_T_b_Qinv_equals_T_ib": true,
+    "Q_fixes_cusp_infinity_and_cusp_zero_as_points": true,
+    "Q_intertwines_gamma_and_conjugate_on_H3": true,
+    "Q_matrix_acts_as_rotation_z_to_iz": true
+  },
+  "schema": "global-quarter-turn/v1",
+  "status": "PROVED for exact algebra blocks; field-level block is EXPERIMENTAL"
+}

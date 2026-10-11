@@ -1,0 +1,20 @@
+{
+  "all_checks_pass": true,
+  "checks": {
+    "Fricke_W_normalizes_H_pi": true,
+    "Q_commutes_with_g": true,
+    "U_W_commutes_with_U_Q_on_H_pi_quotient": true,
+    "W_equals_S_g": true,
+    "W_inverse_Q_W_Q_inverse_is_unit_diagonal_so_lies_in_H_pi": true,
+    "gMg_inverse_in_Gamma_iff_pi_divides_lower_left": true,
+    "g_T_b_g_inverse_is_T_pi_b": true,
+    "second_lift_is_equivariant_in_six_copy_convention": true,
+    "six_Hecke_cosets_g_gamma_c_are_distinct": true
+  },
+  "not_certified": [
+    "computable P_old,full on a given trial (needs certified level-one spectral data)",
+    "newness of any quasimode"
+  ],
+  "schema": "global-oldspace/v1",
+  "status": "PROVED (exact arithmetic) for the listed algebraic identities only"
+}

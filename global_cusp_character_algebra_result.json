@@ -1,0 +1,157 @@
+{
+  "A_T_commutes_with": {
+    "R": true,
+    "S": false,
+    "T1": true,
+    "TiR": true
+  },
+  "A_T_equals_repository_singular_projector": true,
+  "A_T_idempotent": true,
+  "A_T_rank": 2,
+  "A_T_symmetric": true,
+  "I_minus_A_T_rank": 4,
+  "R_exchanges_k_and_5_minus_k": {
+    "1": true,
+    "2": true,
+    "3": true,
+    "4": true
+  },
+  "T1_eigenvector_equations": {
+    "1": true,
+    "2": true,
+    "3": true,
+    "4": true
+  },
+  "Ti_forward_from_matrix": [
+    0,
+    3,
+    2,
+    1,
+    5,
+    4
+  ],
+  "V4_dimension": 4,
+  "V4_group_invariant": false,
+  "all_checks_pass": true,
+  "all_elements_even_on_6_points": true,
+  "class_sizes": [
+    1,
+    12,
+    12,
+    15,
+    20
+  ],
+  "class_sizes_equal_A5": true,
+  "commutant_dimension": 2,
+  "commutant_equals_span_I_J": true,
+  "commutator_A_T_rho_S": [
+    [
+      "0",
+      "4/5",
+      "-1/5",
+      "-1/5",
+      "-1/5",
+      "-1/5"
+    ],
+    [
+      "-4/5",
+      "0",
+      "1/5",
+      "1/5",
+      "1/5",
+      "1/5"
+    ],
+    [
+      "1/5",
+      "-1/5",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "1/5",
+      "-1/5",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "1/5",
+      "-1/5",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "1/5",
+      "-1/5",
+      "0",
+      "0",
+      "0",
+      "0"
+    ]
+  ],
+  "commutator_A_T_rho_S_nonzero": true,
+  "constant_equivariant_annihilators_of_singular_subspace": 0,
+  "dim_span_of_group_orbit_of_V4": 5,
+  "doubly_transitive": true,
+  "first_principles_perms_match_repository": {
+    "R": true,
+    "S": true,
+    "T1": true,
+    "TiR": true
+  },
+  "group_generated_with_q_order": 120,
+  "group_order": 60,
+  "inner_product_chi_chi": "2",
+  "inner_product_chi_trivial": "1",
+  "matrix_level_rho_q_rho_T1_rho_qinv": {
+    "equals_rho_T1_cubed": false,
+    "equals_rho_T1_squared": true
+  },
+  "no_proper_normal_subgroup_by_class_union": true,
+  "q_T1_qinv_equals_T1_cubed_as_permutations": true,
+  "q_conjugates_each_generator_into_the_order_60_group": {
+    "R": true,
+    "S": true,
+    "T1": true,
+    "TiR": true
+  },
+  "q_in_order_60_group": false,
+  "q_is_odd_permutation": true,
+  "q_orbit_on_nontrivial_characters": [
+    1,
+    3,
+    4,
+    2
+  ],
+  "q_squared_equals_rho_R": true,
+  "quarter_turn_perm_derived": [
+    0,
+    1,
+    4,
+    2,
+    5,
+    3
+  ],
+  "quarter_turn_perm_equals_candidate": true,
+  "rho_q_w_k_equals_w_3k": {
+    "1": true,
+    "2": true,
+    "3": true,
+    "4": true
+  },
+  "schema": "global-cusp-character-algebra/v1",
+  "stabilizer_of_a_point_order": 10,
+  "status": "PROVED (exact finite arithmetic)",
+  "zeta_sums_exact": {
+    "0": true,
+    "1": true,
+    "2": true,
+    "3": true,
+    "4": true
+  }
+}

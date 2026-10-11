@@ -1,0 +1,66 @@
+{
+  "all_checks_pass": true,
+  "cusp_lattices": {
+    "Lambda_zero_pi_equals_conj_of_Lambda_zero_pibar": true,
+    "dual_generator_pi_over_5": [
+      "2/5",
+      "1/5"
+    ],
+    "dual_generator_pibar_over_5": [
+      "2/5",
+      "-1/5"
+    ],
+    "dual_generators_are_conjugate": true,
+    "zero_cusp_frequency_conjugation": true
+  },
+  "fiber_level": {
+    "Gaussian_conjugation_is_not_a_cyclotomic_Galois_relabeling": true,
+    "T1_S_R_permutations_agree_for_pi_and_pibar": true,
+    "Ti_permutation_pi_is_T1_cubed": true,
+    "Ti_permutation_pibar_is_T1_squared": true,
+    "fiber_intertwiner_is_the_identity_permutation_matrix": true,
+    "label_map_of_Gaussian_conjugation": {
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4
+    },
+    "label_map_of_Q_twist_pi": {
+      "1": 3,
+      "2": 1,
+      "3": 4,
+      "4": 2
+    },
+    "label_map_of_Q_twist_pibar": {
+      "1": 2,
+      "2": 4,
+      "3": 1,
+      "4": 3
+    },
+    "quarter_turn_perm_pibar_is_inverse_of_pi": true,
+    "rho_pibar_of_conjugate_equals_rho_pi_on_random_words": true,
+    "rho_q_acts_on_characters_as_k_to_3k": true,
+    "rho_qbar_acts_on_characters_as_k_to_2k": true
+  },
+  "levels_and_action": {
+    "C_Q_Cinv_equals_Q_inverse": true,
+    "C_gamma_p_equals_conj_gamma_C_p": true,
+    "H_pi_and_H_pibar_are_different_subgroups": true,
+    "Q_inverse_equals_Q_on_H_pi_quotients_since_Q2_in_H_pi": true,
+    "conj_maps_H_pi_into_H_pibar": true,
+    "conj_maps_H_pibar_into_H_pi": true,
+    "sample_counts_H_pi_H_pibar": [
+      26,
+      26
+    ]
+  },
+  "residue_fields": {
+    "conjugation_induces_identity_F5_to_F5": true,
+    "i_is_2_mod_pibar": true,
+    "i_is_3_mod_pi": true,
+    "pi_times_pibar_is_5": true
+  },
+  "schema": "global-conjugate-prime/v1",
+  "spectral_equivalence_statement": "U_C f = f o C is a unitary L^2(H_pibar\\H^3) -> L^2(H_pi\\H^3) commuting with the Laplacians and mapping Q-odd to Q-odd; f -> conj(f o C) is the antiunitary version. Spectra of Delta on the two quotients coincide with multiplicity; conjugate-prime eigenvalues are NOT independent discoveries.",
+  "status": "PROVED (exact arithmetic)"
+}

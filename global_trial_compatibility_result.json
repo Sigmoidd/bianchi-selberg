@@ -1,0 +1,57 @@
+{
+  "artifacts": {
+    "floor": {
+      "carries_spectral_parameter": false,
+      "carries_trial_hash": false,
+      "r": null,
+      "trial_identity": null
+    },
+    "physical_two_cusp_solve": {
+      "fourier_cutoff_M": 1,
+      "r": "6.7439020359331625",
+      "trial_identity": "549511efb90233d9dacdd3f9c8e299d597603b079eb34001c32e43e596b9105e"
+    },
+    "projected_mass": {
+      "M_infinity": 8,
+      "M_zero": 40,
+      "r": "6.62208",
+      "trial_identity": "c77b711b500cae0442376eec1f9ba79f0fb66889e6c3fdd67dac6c6c5e7c733a"
+    }
+  },
+  "balanced_coeffs_file_hashes": {
+    "sha256_bytes_on_disk": "3f572f3609d4f4029e417977ad92a416bb9797205a8225fa70f66eed9d3da48b",
+    "sha256_crlf": "c77b711b500cae0442376eec1f9ba79f0fb66889e6c3fdd67dac6c6c5e7c733a",
+    "sha256_lf": "3f572f3609d4f4029e417977ad92a416bb9797205a8225fa70f66eed9d3da48b"
+  },
+  "blockers": [
+    "spectral parameters differ: physical r=6.7439020359331625, mass/floor trial r=6.62208",
+    "physical solve and projected-mass certificate refer to different coefficient vectors",
+    "floor certificate carries no trial hash",
+    "floor certificate carries no spectral parameter"
+  ],
+  "compatible": false,
+  "defect_flags": {
+    "all_nonfloor_faces_certified": false,
+    "both_cusp_continuum_certified": false,
+    "floor_certificate_compatible": false,
+    "global_hejhal_defect_certified": false,
+    "global_threshold_certified": false,
+    "rung4_certified": false
+  },
+  "hash_note": {
+    "recorded_mass_trial_sha_matches_CRLF_bytes": true,
+    "recorded_mass_trial_sha_matches_LF_bytes": false
+  },
+  "parity_of_balanced_trial": {
+    "M_infinity": 8,
+    "M_zero": 40,
+    "even_fraction": 0.0007339402908829701,
+    "odd_fraction": 0.9999997306657884,
+    "r": 6.62208,
+    "tier": "EXPERIMENTAL (coefficient-norm fractions; not L2 mass fractions)"
+  },
+  "same_spectral_parameter": false,
+  "same_trial": false,
+  "schema": "global-trial-compatibility/v1",
+  "tier": "AUDIT (read-only)"
+}
