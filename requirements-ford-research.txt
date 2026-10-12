@@ -1,0 +1,6 @@
+# Numerical stack used for the replay and audits (Python 3.12).
+python-flint==0.9.0
+numpy==2.3.5
+scipy==1.17.0
+sympy==1.14.0
+pytest==9.1.1

@@ -1,0 +1,32 @@
+{
+  "schema": "ford-cusp-mass-independent-verification/v1",
+  "verified": true,
+  "checks": {
+    "candidate_hash": true,
+    "witness_hash": true,
+    "same_candidate": true,
+    "coefficient_hash": true,
+    "same_parameter": true,
+    "rational_decimal_parameter": true,
+    "exact_lambda_formula": true,
+    "witness_height_interval": true,
+    "schemas": true,
+    "same_cutoff": true,
+    "exact_normalization": true,
+    "atlas_hash": true,
+    "partition_hash": true,
+    "global_gates_false": true,
+    "unit_orbit:(1, 0)": true,
+    "unit_orbit:(0, 1)": true,
+    "unit_orbit:(-1, 0)": true,
+    "unit_orbit:(0, -1)": true,
+    "finer_grid_positive": true,
+    "claimed_mass_lower_independently_valid": true
+  },
+  "arb_bits": 256,
+  "segments": 512,
+  "reconstructed_mass_lower": "[2.530415680352965226760776730476619199445374347877738720068934401147937721085e-6 +/- 4.60e-82]",
+  "conditional_on_same_infinity_cusp_field": true,
+  "global_projected_mass_certified": false,
+  "hejhal_existence_certified": false
+}

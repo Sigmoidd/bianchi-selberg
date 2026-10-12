@@ -20,6 +20,7 @@ from typing import Any, Iterable
 
 from flint import acb, arb, ctx
 import numpy as np
+from certificate_hashes import TEXT_HASH_POLICY, text_hash
 
 from track_b_two_cusp_data import (
     GENERATORS, GLUE, arb_fraction, canonical_hash, cusp_data, cusp_modes,
@@ -535,7 +536,7 @@ def run(ns: argparse.Namespace) -> dict[str, Any]:
         "theorem_defect_definition_hash"
     )
     ledger_bytes = ns.collocation_ledger.read_bytes()
-    ledger_hash = hashlib.sha256(ledger_bytes).hexdigest()
+    ledger_hash = text_hash(ledger_bytes)
     assembly_definition = {
         "schema": "track-b-two-cusp-assembly-definition/v1",
         "r_interval": ns.r_interval,
@@ -640,7 +641,8 @@ def run(ns: argparse.Namespace) -> dict[str, Any]:
             * abs(serialized_coefficients[normalization_index] - 1).upper()
         ).upper()
     result: dict[str, Any] = {
-        "schema": "track-b-two-cusp-hejhal/v1",
+        "schema": "track-b-two-cusp-hejhal/v2",
+        "collocation_ledger_hash_policy": TEXT_HASH_POLICY,
         "label": "TWO-CUSP HEJHAL ASSEMBLY",
         "arb_bits": int(ctx.prec),
         "spectral_parameter_interval": str(r),
