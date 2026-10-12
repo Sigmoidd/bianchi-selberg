@@ -1,0 +1,142 @@
+{
+  "schema": "ford-numerical-stability-assessment/v1",
+  "criterion": {
+    "last_two_coefficient_deltas_below": 0.1,
+    "last_two_r_changes_below": 0.0001,
+    "heldout_rms_below": 1e-06,
+    "interior_minima_required": true,
+    "full_rank_required": true
+  },
+  "systems": {
+    "baseline": {
+      "numerical_gate_passed": false,
+      "checks": {
+        "exact_cutoff_records": true,
+        "exact_transition_records": true,
+        "provenance": true,
+        "two_small_deltas": true,
+        "two_small_r_changes": false,
+        "interior_minima": true,
+        "observable_numerical_rank": true,
+        "heldout_margin": true
+      },
+      "last_two_drift": [
+        {
+          "from_M": 6,
+          "to_M": 7,
+          "delta_l2": 0.0008333579741447845,
+          "infinity_delta_l2": 0.0007111561233357689,
+          "zero_delta_l2": 0.000434445026801712,
+          "smaller_coefficient_l2": 4.772833452527933,
+          "relative_delta": 0.00017460445298031428,
+          "phase_alignment_used": false,
+          "rescaling_used": false,
+          "r_change": 5.769988931092485e-10
+        },
+        {
+          "from_M": 7,
+          "to_M": 8,
+          "delta_l2": 0.02760030173630085,
+          "infinity_delta_l2": 0.019431062741563827,
+          "zero_delta_l2": 0.019601287117642602,
+          "smaller_coefficient_l2": 4.773103131253606,
+          "relative_delta": 0.00578246498710199,
+          "phase_alignment_used": false,
+          "rescaling_used": false,
+          "r_change": 0.00031352060855649455
+        }
+      ],
+      "interpretation": "bounded numerical stabilization; not certified cutoff convergence",
+      "includes_new_infinity_shell_at_M8": true
+    },
+    "odd": {
+      "numerical_gate_passed": true,
+      "checks": {
+        "exact_cutoff_records": true,
+        "exact_transition_records": true,
+        "provenance": true,
+        "two_small_deltas": true,
+        "two_small_r_changes": true,
+        "interior_minima": true,
+        "observable_numerical_rank": true,
+        "heldout_margin": true
+      },
+      "last_two_drift": [
+        {
+          "from_M": 6,
+          "to_M": 7,
+          "delta_l2": 4.077048452498597e-05,
+          "infinity_delta_l2": 3.332480189443086e-05,
+          "zero_delta_l2": 2.3488081809697826e-05,
+          "smaller_coefficient_l2": 4.758311749952351,
+          "relative_delta": 8.568266786091567e-06,
+          "phase_alignment_used": false,
+          "rescaling_used": false,
+          "r_change": 3.157918371243795e-11
+        },
+        {
+          "from_M": 7,
+          "to_M": 8,
+          "delta_l2": 0.0026778892762113053,
+          "infinity_delta_l2": 0.002297248859940082,
+          "zero_delta_l2": 0.001376131770998512,
+          "smaller_coefficient_l2": 4.758325995328845,
+          "relative_delta": 0.0005627797000121757,
+          "phase_alignment_used": false,
+          "rescaling_used": false,
+          "r_change": 6.747772427928567e-06
+        }
+      ],
+      "interpretation": "bounded numerical stabilization; not certified cutoff convergence",
+      "includes_new_infinity_shell_at_M8": true
+    },
+    "odd_vertex_jets": {
+      "numerical_gate_passed": true,
+      "checks": {
+        "exact_cutoff_records": true,
+        "exact_transition_records": true,
+        "provenance": true,
+        "two_small_deltas": true,
+        "two_small_r_changes": true,
+        "interior_minima": true,
+        "observable_numerical_rank": true,
+        "heldout_margin": true
+      },
+      "last_two_drift": [
+        {
+          "from_M": 6,
+          "to_M": 7,
+          "delta_l2": 0.00013112539632692536,
+          "infinity_delta_l2": 0.00011487138544726557,
+          "zero_delta_l2": 6.323317457884747e-05,
+          "smaller_coefficient_l2": 4.766639661792423,
+          "relative_delta": 2.7508980252477827e-05,
+          "phase_alignment_used": false,
+          "rescaling_used": false,
+          "r_change": 1.1028600255258425e-10
+        },
+        {
+          "from_M": 7,
+          "to_M": 8,
+          "delta_l2": 0.001793890768185721,
+          "infinity_delta_l2": 0.0014306025704241825,
+          "zero_delta_l2": 0.0010823217514573371,
+          "smaller_coefficient_l2": 4.766686847119147,
+          "relative_delta": 0.0003763391273059816,
+          "phase_alignment_used": false,
+          "rescaling_used": false,
+          "r_change": 2.5275622306253354e-07
+        }
+      ],
+      "interpretation": "bounded numerical stabilization; not certified cutoff convergence",
+      "includes_new_infinity_shell_at_M8": true
+    }
+  },
+  "global_certificate_gate_passed": false,
+  "provenance_checks": {
+    "primary_hash": true,
+    "extension_hash": true,
+    "primary_extension_link": true,
+    "identical_physical_points": true
+  }
+}

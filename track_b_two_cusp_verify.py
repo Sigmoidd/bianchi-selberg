@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any
 
 from flint import acb, arb, ctx
+from certificate_hashes import ledger_hash_evidence
 
 from track_b_two_cusp_data import (
     GENERATORS, GLUE, arb_fraction, canonical_hash, cusp_data, cusp_modes,
@@ -223,8 +224,17 @@ def verify(result: dict[str, Any], ledger: list[dict[str, Any]], ledger_hash: st
 def verify_from_paths(result_path: Path, ledger_path: Path) -> dict[str, Any]:
     result = json.loads(result_path.read_text(encoding="utf-8"))
     ledger = load_jsonl(ledger_path)
-    ledger_hash = hashlib.sha256(ledger_path.read_bytes()).hexdigest()
-    return verify(result, ledger, ledger_hash)
+    evidence = ledger_hash_evidence(
+        ledger_path.read_bytes(), result.get("collocation_ledger_hash", ""),
+        result.get("collocation_ledger_hash_policy"), result.get("schema"))
+    # Preserve the stored legacy digest; expose the explicit compatibility rule.
+    ledger_hash = result.get("collocation_ledger_hash", "") if evidence["matches"] else evidence["raw_sha256"]
+    output = verify(result, ledger, ledger_hash)
+    output["ledger_hash_evidence"] = evidence
+    if not evidence["matches"]:
+        output["verified"] = output["physical_residual_certified"] = False
+        output["deterministic_hashes_match"] = False
+    return output
 
 
 def main() -> int:

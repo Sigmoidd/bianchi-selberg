@@ -1,0 +1,840 @@
+{
+  "schema": "ford-constraint-rank-arb/v1",
+  "results": [
+    {
+      "M": 2,
+      "r": "6.62208",
+      "arb_bits": 192,
+      "selected_rows": [
+        0,
+        8,
+        2,
+        5,
+        1,
+        4,
+        12,
+        3,
+        7
+      ],
+      "selected_columns": [
+        3,
+        2,
+        8,
+        10,
+        5,
+        7,
+        6,
+        4,
+        0
+      ],
+      "determinant": {
+        "real": "[8.06919637886917204964425187659293680307958783355556e-35 +/- 2.96e-86]",
+        "imag": "[+/- 1.60e-86]"
+      },
+      "certified_rank_lower": 9,
+      "exact_rank_upper": 9,
+      "exact_rank_certified": true,
+      "exact_zero_jet_columns": [
+        1,
+        9
+      ],
+      "numerical_rank_diagnostic": 9,
+      "reconstructed_Arb_jet_entries": true,
+      "numerical_matrix_entries_used_for_determinant": false,
+      "work": {
+        "direct": 24,
+        "validated_asymptotic": 0,
+        "validated_recurrence": 54,
+        "validated_majorant": 0,
+        "failed": 0
+      },
+      "constraint_kernel_certified": false,
+      "spectral_certificate": false
+    },
+    {
+      "M": 3,
+      "r": "6.62208",
+      "arb_bits": 192,
+      "selected_rows": [
+        0,
+        12,
+        2,
+        8,
+        4,
+        6,
+        5,
+        3,
+        11,
+        7,
+        1
+      ],
+      "selected_columns": [
+        3,
+        2,
+        8,
+        5,
+        10,
+        11,
+        12,
+        6,
+        7,
+        4,
+        0
+      ],
+      "determinant": {
+        "real": "[-2.45371223409603572496425044034780022531190114563441e-42 +/- 6.93e-93]",
+        "imag": "[+/- 5.54e-93]"
+      },
+      "certified_rank_lower": 11,
+      "exact_rank_upper": 11,
+      "exact_rank_certified": true,
+      "exact_zero_jet_columns": [
+        1,
+        9
+      ],
+      "numerical_rank_diagnostic": 11,
+      "reconstructed_Arb_jet_entries": true,
+      "numerical_matrix_entries_used_for_determinant": false,
+      "work": {
+        "direct": 27,
+        "validated_asymptotic": 0,
+        "validated_recurrence": 60,
+        "validated_majorant": 0,
+        "failed": 0
+      },
+      "constraint_kernel_certified": false,
+      "spectral_certificate": false
+    },
+    {
+      "M": 4,
+      "r": "6.62208",
+      "arb_bits": 192,
+      "selected_rows": [
+        2,
+        1,
+        0,
+        8,
+        11,
+        4,
+        12,
+        13,
+        3,
+        6,
+        10,
+        7,
+        9,
+        5
+      ],
+      "selected_columns": [
+        4,
+        3,
+        9,
+        6,
+        11,
+        12,
+        7,
+        14,
+        16,
+        13,
+        8,
+        0,
+        17,
+        18
+      ],
+      "determinant": {
+        "real": "[6.982772406127583702855257064775299097418125419133e-56 +/- 8.83e-105]",
+        "imag": "[+/- 4.77e-105]"
+      },
+      "certified_rank_lower": 14,
+      "exact_rank_upper": 14,
+      "exact_rank_certified": true,
+      "exact_zero_jet_columns": [
+        1,
+        2,
+        10,
+        19
+      ],
+      "numerical_rank_diagnostic": 14,
+      "reconstructed_Arb_jet_entries": true,
+      "numerical_matrix_entries_used_for_determinant": false,
+      "work": {
+        "direct": 41,
+        "validated_asymptotic": 0,
+        "validated_recurrence": 90,
+        "validated_majorant": 0,
+        "failed": 0
+      },
+      "constraint_kernel_certified": false,
+      "spectral_certificate": false
+    },
+    {
+      "M": 5,
+      "r": "6.62208",
+      "arb_bits": 192,
+      "selected_rows": [
+        1,
+        0,
+        8,
+        11,
+        12,
+        13,
+        6,
+        2,
+        7,
+        3,
+        5,
+        10,
+        4,
+        9
+      ],
+      "selected_columns": [
+        6,
+        5,
+        8,
+        11,
+        4,
+        22,
+        0,
+        14,
+        15,
+        18,
+        24,
+        16,
+        13,
+        19
+      ],
+      "determinant": {
+        "real": "[1.02879907328524671929321749981322027632006792257e-57 +/- 3.24e-105]",
+        "imag": "[+/- 2.30e-105]"
+      },
+      "certified_rank_lower": 14,
+      "exact_rank_upper": 14,
+      "exact_rank_certified": true,
+      "exact_zero_jet_columns": [
+        1,
+        2,
+        12,
+        21
+      ],
+      "numerical_rank_diagnostic": 14,
+      "reconstructed_Arb_jet_entries": true,
+      "numerical_matrix_entries_used_for_determinant": false,
+      "work": {
+        "direct": 44,
+        "validated_asymptotic": 0,
+        "validated_recurrence": 102,
+        "validated_majorant": 0,
+        "failed": 0
+      },
+      "constraint_kernel_certified": false,
+      "spectral_certificate": false
+    },
+    {
+      "M": 6,
+      "r": "6.62208",
+      "arb_bits": 192,
+      "selected_rows": [
+        1,
+        0,
+        8,
+        11,
+        4,
+        2,
+        12,
+        7,
+        10,
+        5,
+        3,
+        13,
+        6,
+        9
+      ],
+      "selected_columns": [
+        6,
+        5,
+        8,
+        11,
+        4,
+        22,
+        0,
+        14,
+        15,
+        18,
+        24,
+        16,
+        13,
+        26
+      ],
+      "determinant": {
+        "real": "[3.45181393657246781725206766219994737528265219008e-58 +/- 8.49e-106]",
+        "imag": "[+/- 4.49e-106]"
+      },
+      "certified_rank_lower": 14,
+      "exact_rank_upper": 14,
+      "exact_rank_certified": true,
+      "exact_zero_jet_columns": [
+        1,
+        2,
+        12,
+        21
+      ],
+      "numerical_rank_diagnostic": 14,
+      "reconstructed_Arb_jet_entries": true,
+      "numerical_matrix_entries_used_for_determinant": false,
+      "work": {
+        "direct": 50,
+        "validated_asymptotic": 0,
+        "validated_recurrence": 114,
+        "validated_majorant": 0,
+        "failed": 0
+      },
+      "constraint_kernel_certified": false,
+      "spectral_certificate": false
+    },
+    {
+      "M": 7,
+      "r": "6.62208",
+      "arb_bits": 192,
+      "selected_rows": [
+        1,
+        0,
+        8,
+        2,
+        6,
+        11,
+        10,
+        7,
+        12,
+        5,
+        3,
+        9,
+        4,
+        13
+      ],
+      "selected_columns": [
+        6,
+        8,
+        11,
+        5,
+        3,
+        22,
+        0,
+        14,
+        15,
+        18,
+        24,
+        16,
+        19,
+        31
+      ],
+      "determinant": {
+        "real": "[5.0648656401221161915816311894486261961081083619e-59 +/- 3.75e-106]",
+        "imag": "[+/- 1.60e-106]"
+      },
+      "certified_rank_lower": 14,
+      "exact_rank_upper": 14,
+      "exact_rank_certified": true,
+      "exact_zero_jet_columns": [
+        1,
+        2,
+        12,
+        21
+      ],
+      "numerical_rank_diagnostic": 14,
+      "reconstructed_Arb_jet_entries": true,
+      "numerical_matrix_entries_used_for_determinant": false,
+      "work": {
+        "direct": 56,
+        "validated_asymptotic": 0,
+        "validated_recurrence": 126,
+        "validated_majorant": 0,
+        "failed": 0
+      },
+      "constraint_kernel_certified": false,
+      "spectral_certificate": false
+    },
+    {
+      "M": 8,
+      "r": "6.62208",
+      "arb_bits": 192,
+      "selected_rows": [
+        1,
+        5,
+        8,
+        2,
+        4,
+        0,
+        7,
+        11,
+        10,
+        12,
+        3,
+        6,
+        9,
+        13
+      ],
+      "selected_columns": [
+        7,
+        9,
+        4,
+        8,
+        12,
+        23,
+        0,
+        14,
+        17,
+        19,
+        25,
+        16,
+        15,
+        30
+      ],
+      "determinant": {
+        "real": "[-1.68383316979982702501210373027649396870915453791e-58 +/- 7.82e-106]",
+        "imag": "[+/- 5.61e-106]"
+      },
+      "certified_rank_lower": 14,
+      "exact_rank_upper": 14,
+      "exact_rank_certified": true,
+      "exact_zero_jet_columns": [
+        1,
+        2,
+        5,
+        13,
+        22,
+        36
+      ],
+      "numerical_rank_diagnostic": 14,
+      "reconstructed_Arb_jet_entries": true,
+      "numerical_matrix_entries_used_for_determinant": false,
+      "work": {
+        "direct": 65,
+        "validated_asymptotic": 0,
+        "validated_recurrence": 150,
+        "validated_majorant": 0,
+        "failed": 0
+      },
+      "constraint_kernel_certified": false,
+      "spectral_certificate": false
+    },
+    {
+      "M": 2,
+      "r": "6.7439020359331625",
+      "arb_bits": 192,
+      "selected_rows": [
+        1,
+        0,
+        2,
+        5,
+        8,
+        4,
+        12,
+        7,
+        10
+      ],
+      "selected_columns": [
+        3,
+        2,
+        8,
+        10,
+        5,
+        6,
+        7,
+        0,
+        4
+      ],
+      "determinant": {
+        "real": "[-4.13014991547216142487808783287144573951991800111528e-35 +/- 4.30e-86]",
+        "imag": "[+/- 1.01e-86]"
+      },
+      "certified_rank_lower": 9,
+      "exact_rank_upper": 9,
+      "exact_rank_certified": true,
+      "exact_zero_jet_columns": [
+        1,
+        9
+      ],
+      "numerical_rank_diagnostic": 9,
+      "reconstructed_Arb_jet_entries": true,
+      "numerical_matrix_entries_used_for_determinant": false,
+      "work": {
+        "direct": 24,
+        "validated_asymptotic": 0,
+        "validated_recurrence": 54,
+        "validated_majorant": 0,
+        "failed": 0
+      },
+      "constraint_kernel_certified": false,
+      "spectral_certificate": false
+    },
+    {
+      "M": 3,
+      "r": "6.7439020359331625",
+      "arb_bits": 192,
+      "selected_rows": [
+        5,
+        2,
+        10,
+        8,
+        9,
+        4,
+        12,
+        1,
+        6,
+        11,
+        0
+      ],
+      "selected_columns": [
+        3,
+        2,
+        8,
+        5,
+        10,
+        6,
+        11,
+        12,
+        0,
+        7,
+        4
+      ],
+      "determinant": {
+        "real": "[9.0987768091179054122421823021188128581289077620219e-43 +/- 1.49e-93]",
+        "imag": "[+/- 9.56e-94]"
+      },
+      "certified_rank_lower": 11,
+      "exact_rank_upper": 11,
+      "exact_rank_certified": true,
+      "exact_zero_jet_columns": [
+        1,
+        9
+      ],
+      "numerical_rank_diagnostic": 11,
+      "reconstructed_Arb_jet_entries": true,
+      "numerical_matrix_entries_used_for_determinant": false,
+      "work": {
+        "direct": 27,
+        "validated_asymptotic": 0,
+        "validated_recurrence": 60,
+        "validated_majorant": 0,
+        "failed": 0
+      },
+      "constraint_kernel_certified": false,
+      "spectral_certificate": false
+    },
+    {
+      "M": 4,
+      "r": "6.7439020359331625",
+      "arb_bits": 192,
+      "selected_rows": [
+        2,
+        1,
+        0,
+        8,
+        5,
+        4,
+        12,
+        11,
+        10,
+        6,
+        7,
+        3,
+        13,
+        9
+      ],
+      "selected_columns": [
+        4,
+        3,
+        9,
+        0,
+        6,
+        12,
+        7,
+        14,
+        11,
+        16,
+        13,
+        8,
+        5,
+        15
+      ],
+      "determinant": {
+        "real": "[-1.647185989583136933736536759758980626171334117906e-55 +/- 2.32e-104]",
+        "imag": "[+/- 9.19e-105]"
+      },
+      "certified_rank_lower": 14,
+      "exact_rank_upper": 14,
+      "exact_rank_certified": true,
+      "exact_zero_jet_columns": [
+        1,
+        2,
+        10,
+        19
+      ],
+      "numerical_rank_diagnostic": 14,
+      "reconstructed_Arb_jet_entries": true,
+      "numerical_matrix_entries_used_for_determinant": false,
+      "work": {
+        "direct": 41,
+        "validated_asymptotic": 0,
+        "validated_recurrence": 90,
+        "validated_majorant": 0,
+        "failed": 0
+      },
+      "constraint_kernel_certified": false,
+      "spectral_certificate": false
+    },
+    {
+      "M": 5,
+      "r": "6.7439020359331625",
+      "arb_bits": 192,
+      "selected_rows": [
+        1,
+        12,
+        5,
+        8,
+        11,
+        10,
+        7,
+        2,
+        4,
+        0,
+        3,
+        13,
+        6,
+        9
+      ],
+      "selected_columns": [
+        6,
+        8,
+        11,
+        7,
+        3,
+        9,
+        13,
+        16,
+        22,
+        18,
+        24,
+        15,
+        19,
+        17
+      ],
+      "determinant": {
+        "real": "[-9.8024283032167554106374602239804632604784538552e-59 +/- 1.69e-106]",
+        "imag": "[+/- 8.22e-107]"
+      },
+      "certified_rank_lower": 14,
+      "exact_rank_upper": 14,
+      "exact_rank_certified": true,
+      "exact_zero_jet_columns": [
+        1,
+        2,
+        12,
+        21
+      ],
+      "numerical_rank_diagnostic": 14,
+      "reconstructed_Arb_jet_entries": true,
+      "numerical_matrix_entries_used_for_determinant": false,
+      "work": {
+        "direct": 44,
+        "validated_asymptotic": 0,
+        "validated_recurrence": 102,
+        "validated_majorant": 0,
+        "failed": 0
+      },
+      "constraint_kernel_certified": false,
+      "spectral_certificate": false
+    },
+    {
+      "M": 6,
+      "r": "6.7439020359331625",
+      "arb_bits": 192,
+      "selected_rows": [
+        1,
+        5,
+        8,
+        11,
+        12,
+        4,
+        0,
+        2,
+        7,
+        10,
+        3,
+        13,
+        9,
+        6
+      ],
+      "selected_columns": [
+        6,
+        8,
+        11,
+        7,
+        3,
+        9,
+        22,
+        13,
+        16,
+        18,
+        24,
+        15,
+        19,
+        26
+      ],
+      "determinant": {
+        "real": "[3.06073719756392658673829475845155124712389413139e-59 +/- 8.73e-107]",
+        "imag": "[+/- 6.60e-107]"
+      },
+      "certified_rank_lower": 14,
+      "exact_rank_upper": 14,
+      "exact_rank_certified": true,
+      "exact_zero_jet_columns": [
+        1,
+        2,
+        12,
+        21
+      ],
+      "numerical_rank_diagnostic": 14,
+      "reconstructed_Arb_jet_entries": true,
+      "numerical_matrix_entries_used_for_determinant": false,
+      "work": {
+        "direct": 50,
+        "validated_asymptotic": 0,
+        "validated_recurrence": 114,
+        "validated_majorant": 0,
+        "failed": 0
+      },
+      "constraint_kernel_certified": false,
+      "spectral_certificate": false
+    },
+    {
+      "M": 7,
+      "r": "6.7439020359331625",
+      "arb_bits": 192,
+      "selected_rows": [
+        1,
+        5,
+        8,
+        4,
+        0,
+        11,
+        2,
+        12,
+        7,
+        10,
+        3,
+        9,
+        6,
+        13
+      ],
+      "selected_columns": [
+        6,
+        8,
+        11,
+        7,
+        3,
+        9,
+        22,
+        13,
+        16,
+        18,
+        24,
+        15,
+        19,
+        29
+      ],
+      "determinant": {
+        "real": "[-1.53610610418971771387370756041039122807314159170e-59 +/- 7.34e-107]",
+        "imag": "[+/- 3.82e-107]"
+      },
+      "certified_rank_lower": 14,
+      "exact_rank_upper": 14,
+      "exact_rank_certified": true,
+      "exact_zero_jet_columns": [
+        1,
+        2,
+        12,
+        21
+      ],
+      "numerical_rank_diagnostic": 14,
+      "reconstructed_Arb_jet_entries": true,
+      "numerical_matrix_entries_used_for_determinant": false,
+      "work": {
+        "direct": 56,
+        "validated_asymptotic": 0,
+        "validated_recurrence": 126,
+        "validated_majorant": 0,
+        "failed": 0
+      },
+      "constraint_kernel_certified": false,
+      "spectral_certificate": false
+    },
+    {
+      "M": 8,
+      "r": "6.7439020359331625",
+      "arb_bits": 192,
+      "selected_rows": [
+        1,
+        5,
+        8,
+        4,
+        0,
+        2,
+        7,
+        11,
+        10,
+        12,
+        3,
+        9,
+        6,
+        13
+      ],
+      "selected_columns": [
+        7,
+        9,
+        12,
+        3,
+        8,
+        10,
+        23,
+        14,
+        17,
+        19,
+        25,
+        16,
+        20,
+        37
+      ],
+      "determinant": {
+        "real": "[5.7029578556354393669509941990192089197156856686e-60 +/- 8.99e-107]",
+        "imag": "[+/- 6.93e-107]"
+      },
+      "certified_rank_lower": 14,
+      "exact_rank_upper": 14,
+      "exact_rank_certified": true,
+      "exact_zero_jet_columns": [
+        1,
+        2,
+        5,
+        13,
+        22,
+        36
+      ],
+      "numerical_rank_diagnostic": 14,
+      "reconstructed_Arb_jet_entries": true,
+      "numerical_matrix_entries_used_for_determinant": false,
+      "work": {
+        "direct": 65,
+        "validated_asymptotic": 0,
+        "validated_recurrence": 150,
+        "validated_majorant": 0,
+        "failed": 0
+      },
+      "constraint_kernel_certified": false,
+      "spectral_certificate": false
+    }
+  ],
+  "certified": "nonzero Arb minors only; geometric rank upper14 proved separately",
+  "independent_from_midpoint_jet_assembler": true,
+  "hejhal_existence_certified": false
+}
