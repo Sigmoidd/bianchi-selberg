@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-14",
+  "first_floor_upper": "-3.267794988903953132152450160792489632e-11",
+  "inputs_sha256": {
+    "INDEPENDENT_MPFR_THEOREM_REVIEW.md": "395082d12144a85f394bcfadf16a5d20bbb94f66949c08af2ab0e4b7646e511c",
+    "analytic_constant_checks.log": "cd930351c6b9b3c925a7bbee8dac27fc79c59aa6f75124146292609c3f398490",
+    "audit_constants_mpfr.c": "ecff43165f385e0d0bf7a01c1f265f506a40788cdf2e96efcbb65204f2162a95",
+    "generate_gl_brackets.py": "ccbd7af1d2df861ce8627c1c659d06130f94c209017cbef5c3817e058ada0edf",
+    "gl_n56.txt": "9f09b59f8d0dd79ef526a3b413b3afdc3c340e4c82d0bec86c5b1110d774f646",
+    "gl_n64.txt": "f95cddadda2a8ac557c32343cea31c9af18d4469d3c83599c6228332547cbf81",
+    "gl_n80.txt": "adc273d6928551f9df5988ae455f305cb3b0df3138051e38426db65530c641d0",
+    "gl_n88.txt": "bdb32c9d58d98ccb5e31bb61b167ec8f00e7dd2714f5fa880837663755853069",
+    "mpfr_replay_56x80.log": "675c89ac312b91229eff19030831cf8069fec8e6c03e8aac029eda1d1a5c3e02",
+    "mpfr_replay_64x88.log": "4a3e3945d31a1279e49e1365b6a2c9c3b494df884614e2be6ec545acea452a2b",
+    "mutation_flip_rejected.log": "a2e8fb97560368c1d9cec71e7fe5f9cdbd87869664292cb61421a414bbd8dbb6",
+    "verify_floor_mpfr.c": "8b92b7bc0899521253ff1e81bc63365aff471a5fcac1c86a8a1d0888e80b4f08"
+  },
+  "precision_bits": 256,
+  "review_status": "independent directed-rounding MPFR replay plus analytic proof audit; external peer review pending",
+  "schema": "picard-one-profile-independent-mpfr/v1",
+  "second_floor_upper": "-3.214662750934517486987115280078813497e-11",
+  "theorem": "PSL2(Z[i]) has an odd cuspidal eigenvalue in (0,45)"
+}
