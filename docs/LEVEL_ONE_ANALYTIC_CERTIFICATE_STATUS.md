@@ -75,3 +75,7 @@ The first run is deterministic up to numeric library versions and should regener
 3. Prove a positive interval mass lower bound. The cusp four-mode Parseval integral can be bounded rigorously with Arb/Acb and a validated radial quadrature on a finite slab; this avoids relying on a mistaken `3e-6` tail mass assumption.
 4. Independently reconstruct the same frozen trial with a separate Bessel implementation and verify the 3D Jacobian, boundary/elliptic compatibility, and global automorphy.
 5. Only after those steps issue `certified=true` and a spectral interval. `rung4_certified` and `hejhal_existence_certified` remain **false**.
+
+## Pragmatic coarse certificate target
+
+There is no need to certify the tiny observed ratio exactly or integrate the full core mass rigorously. For a theorem with R/mu < 0.05, it is enough to prove the *coarse* rational inequalities R < 1/100000000 (1e-8) and mu >= 1/2500000 (4e-7), which imply R/mu < 0.025. The experimentally evaluated cusp Parseval mass is ~4.46946e-7, providing ~10% room in a future rigorous lower bound from the cusp alone. The numerical residual ~1.19e-11 gives ~840-fold headroom for the rigorous residual upper bound. Target a four-mode Arb/Acb cusp mass certificate and a cancellation-preserving core residual bound on this same frozen trial. Neither inequality is currently certified.
