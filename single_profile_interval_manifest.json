@@ -1,0 +1,29 @@
+{
+  "environment": {
+    "mpmath": "1.3.0",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+    "python": "3.13.5",
+    "scipy": "1.17.0"
+  },
+  "files_sha256": {
+    "ONE_PROFILE_PICARD_VARIATIONAL_PROOF.md": "e93976e2d4ad9a99d95aed467edcd0ded99781e079482de600ce7c609fba2692",
+    "certify_single_profile_floor.py": "1f76a6f904261b10bd637815bfd14f4f955ae9d48cc40f396c1f6ecae83a88e4",
+    "single_profile_floor_interval_independent_result.json": "7f2eee22e65306a4efff0d54779868f75333e8516d910d0bdd9574eed9b4f058",
+    "single_profile_floor_interval_result.json": "0e2faa93e5c3cabdb9365c6a8465df82637856aa3619115c98ac483249084f8b",
+    "test_single_profile_variational.py": "d090f6f7ea07551714d74089c425cece88519ce72e418e6bdfa376ac8b7ea208"
+  },
+  "parameter": {
+    "lambda0": "44996689/1000000",
+    "r": "6633/1000"
+  },
+  "schema": "picard-one-profile-variational-checkpoint/v1",
+  "status": "Strict interval sign obtained under mpmath.iv; independent Arb verifier pending",
+  "theorem_flags": {
+    "first_full_spectral_eigenvalue": false,
+    "independent_arb_verification": false,
+    "narrow_eigenvalue_enclosure": false,
+    "one_profile_floor_sign_iv": true,
+    "other_rung4_certified": false
+  },
+  "theorem_scope": "exists an odd cuspidal eigenvalue for PSL2(Z[i]) below 45, conditional on audited backend+lemma review"
+}
