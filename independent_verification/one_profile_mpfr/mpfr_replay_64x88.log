@@ -1,0 +1,12 @@
+verified 64 GL root brackets and positive weights: gl_n64.txt
+verified 88 GL root brackets and positive weights: gl_n88.txt
+spatial row 0/64
+spatial row 8/64
+spatial row 16/64
+spatial row 24/64
+spatial row 32/64
+spatial row 40/64
+spatial row 48/64
+spatial row 56/64
+MPFR certified B_floor [-3.521057971847403607007220621973182154e-11, -3.214662750934517486987115280078813497e-11]
+STRICT NEGATIVE YES
