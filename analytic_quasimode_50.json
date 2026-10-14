@@ -1,0 +1,50 @@
+{
+  "M": 50,
+  "coefficients_sha256": "b04f90ca943e5d6d574f5f7c47d7649c8fdadd6b40607f6cc9064a46cdbb671b",
+  "cosets": 26,
+  "elapsed_seconds": 25.103112906000035,
+  "lambda": 44.85246466691722,
+  "metrics": {
+    "decimal_frozen": {
+      "train": {
+        "R": 1.1894440617816407e-11,
+        "mu": 1.9078201028704313e-05,
+        "mu_core": 1.9078201028704313e-05,
+        "ratio": 6.234571383287396e-07,
+        "tail_mu": 0.0
+      },
+      "verify": {
+        "R": 1.1872014042252195e-11,
+        "mu": 1.9078201125911044e-05,
+        "mu_core": 1.9078201125911044e-05,
+        "mu_with_tail": 1.9083435715483997e-05,
+        "ratio": 6.222816272823662e-07,
+        "ratio_with_tail": 6.221109353290838e-07,
+        "tail_mu": 4.4694575319248587e-07
+      }
+    },
+    "fitted": {
+      "train": {
+        "R": 1.1894431475153011e-11,
+        "mu": 1.9078201028693406e-05,
+        "mu_core": 1.9078201028693406e-05,
+        "ratio": 6.23456659108682e-07,
+        "tail_mu": 0.0
+      },
+      "verify": {
+        "R": 1.1872625059654201e-11,
+        "mu": 1.9078201125900056e-05,
+        "mu_core": 1.9078201125900056e-05,
+        "ratio": 6.223136542751006e-07,
+        "tail_mu": 0.0
+      }
+    }
+  },
+  "n_orbits": 40,
+  "r": 6.622119348586011,
+  "radial_degree": 118,
+  "radial_heldout_max_abs": 2.261577969168982e-19,
+  "tier": "EXPERIMENTAL DOUBLE PRECISION, not certified",
+  "train_nodes": 1120,
+  "verify_nodes": 3696
+}
