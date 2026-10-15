@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-15",
+  "files": {
+    "2026-10-15_RESIDUAL_GEOMETRY_CERTIFICATE.md": "038d710a18740996620943c8771cccdeca2659491782a82743b3960079eaad8e",
+    "README_2026-10-15.md": "f5a7518b194c60fca6bf4aaddc82497ad372e9307ee4e816752868246e707ee5",
+    "RESIDUAL_INTERVAL_CLOSURE_GATE.md": "0e93074a5f770db444e811f62fb2e089ff67e85a06966e6f08fdafa3065b6ec2",
+    "analytic_quasimode_coefficients_50.json": "b04f90ca943e5d6d574f5f7c47d7649c8fdadd6b40607f6cc9064a46cdbb671b",
+    "analytic_quasimode_coefficients_50_reflection_even.json": "f306a3740651575df5be1b5e5130eda956e346b5a3905579b48556eb31d78f98",
+    "audit_seed_slab_simpson_bounds.py": "5bdde866fb2e6759ab3701f651f8b4983493262154f1282f2e91e0dda61fe4ae",
+    "certify_bessel_chebyshev_tail.py": "a3a1ad8da27880bb1cd3eb21b64efae2118e452bd212b4fde7ced175b7295bf9",
+    "certify_picard_seed_slab_mpfr.c": "595495b3fde404bd5185bd0932b9a20d6261ccd5adf7e4b95287f09f09fc4117",
+    "certify_transition_support.py": "6a3a22ff766b73c378dfed1f055f91c39a9857a73badb9affa5954285968e4ab",
+    "certify_triangle_symmetry.py": "1d2e9c003799646f3aa36742e7085379dbda798649ec8fcd230a5daa276dca0a",
+    "fast_scalar_residual.py": "33567a7989bde395973bc85a48875fd85dca433bb32b9a653501cf375ba74edf",
+    "ford_active_cosets.py": "21f53daca7d0bb4169a0f3454b365112cb0175b8575c88c7642f81d1134b12c2",
+    "level_one_quasimode_analytic.py": "50ba62302f8a2f95dd73f21cec697e0007069c329581adf89556c268036bd0c2",
+    "proof_gate_improved.py": "525e6d8c0e0ad2bc225d79416d87b4e85a90be55900d4c7c2775e99fa3f3c55e",
+    "reflection_even_trial.py": "97a1bf080d1bcc643206c0dea8c2b36032ebeaca361fb84be108f30dec7a21c3",
+    "seed_mass_mpfr.log": "4974c3c0e732e8c7b55fee564604cfd93ab008664705db4c9fb6e2cef6a91e41",
+    "seed_mass_mpfr_fine.log": "a0cc9dfc28b28c9a72966a23bc16de134ec2de76725a930bb11890c4937f6817",
+    "support_cover_128.json": "5838d72b30fffdd66c23d7758f89fb0382f4b8d6c8ddd89db9ed249a0f5f64bd",
+    "support_cover_256.json": "e6f77e387bd55cc8dc4d2d3708d26a2f3d247bddbb7d6e2ebf584d9c93267f44",
+    "support_cover_triangle_128.json": "13a49de41267acd54ec53cacae9ad52c56145ab429e76e97336e7bff4b697049",
+    "test_triangle_reduction.py": "2fa2353e2d6c26e789ef6c3f8aac78e2dbdc27e7c7b600a64fbbdf1c4ab9c9e0"
+  },
+  "status": "PARTIAL__TWO_UNPROVED_SUP_GATES"
+}
