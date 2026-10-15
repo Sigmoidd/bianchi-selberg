@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-14",
+  "files": {
+    "CUSP_MASS_AND_RESIDUAL_RESEARCH_STATUS.md": "a25691b1d09188d167d496d2b95afd98d2c90207b4c2e055efb1ca08a2476eba",
+    "README.md": "58d93db48bc960611bdbf7a8fa1df379396ca06754c6bf36467a6fe71c906d10",
+    "analytic_quasimode_coefficients_50.json": "b04f90ca943e5d6d574f5f7c47d7649c8fdadd6b40607f6cc9064a46cdbb671b",
+    "audit_cusp_simpson_bounds.py": "228e21210ec1e479e155af596ef413c950ba8c65ba50007c417924002bb0afb6",
+    "certify_picard_cusp_mass_mpfr.c": "c174b2142da22fc0af91b8d0af86276f2bd7a7e2b7737095b64f289e9d43853f",
+    "cusp_error_audit.json": "7a38ddcce2165587d42534b043e485be777d08590bddf967cced18c7704da5a9",
+    "cusp_error_audit.log": "fbdf64f4306b5320c230a17c3bd20be63a7682e4a08aec82768aed3f787ce06b",
+    "cusp_mass_mpfr.log": "4b0abcd890592f4d0ebe978304cca292d45f67baeffcd5692b64180aa12f0956",
+    "cusp_mass_mpfr_refined.log": "d3b5e594d896ead69bc66cc6bc10a57f7ef8c3ffbae90b155ba87a89a3e2823b",
+    "defect_residual_check.json": "0d8bd6ffc50fba6324207f075b5b7f5066b3a37220bface2483dbc821793a924",
+    "level_one_quasimode_analytic.py": "50ba62302f8a2f95dd73f21cec697e0007069c329581adf89556c268036bd0c2",
+    "level_one_quasimode_verify.py": "9d7d3c8680933d598f83198bc3222f310ed6c20cf461102e528d41088f83bbbc",
+    "test_picard_cusp_certificate.py": "de040a448106fb67a95b859532019e33a3b04a377323159b3a0aa1027b9c2b08",
+    "verify_picard_defect_residual.py": "452f3d030c5a691e9685404b6d28f713f98a212ae0ef15db0c0a60614a1e1e65"
+  },
+  "status": "CUSP MASS CERTIFIED; COMPACT RESIDUAL UNBOUNDED; NO SPECTRAL ENCLOSURE"
+}
