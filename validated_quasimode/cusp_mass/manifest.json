@@ -13,8 +13,8 @@
     "defect_residual_check.json": "0d8bd6ffc50fba6324207f075b5b7f5066b3a37220bface2483dbc821793a924",
     "level_one_quasimode_analytic.py": "50ba62302f8a2f95dd73f21cec697e0007069c329581adf89556c268036bd0c2",
     "level_one_quasimode_verify.py": "9d7d3c8680933d598f83198bc3222f310ed6c20cf461102e528d41088f83bbbc",
-    "test_picard_cusp_certificate.py": "de040a448106fb67a95b859532019e33a3b04a377323159b3a0aa1027b9c2b08",
-    "verify_picard_defect_residual.py": "452f3d030c5a691e9685404b6d28f713f98a212ae0ef15db0c0a60614a1e1e65"
+    "test_picard_cusp_certificate.py": "93e49a8702bbe0342045e3f6c8d7ae275c768165b9b8d5151f2098b1ba3f36e4",
+    "verify_picard_defect_residual.py": "bc09729937b21e9af39ff19eeaf2a4de2d9a217ae6b8b78a89afb6cae4de6ddb"
   },
   "status": "CUSP MASS CERTIFIED; COMPACT RESIDUAL UNBOUNDED; NO SPECTRAL ENCLOSURE"
 }
