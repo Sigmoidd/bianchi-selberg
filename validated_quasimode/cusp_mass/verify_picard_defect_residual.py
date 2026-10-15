@@ -8,6 +8,9 @@ import json
 import math
 import numpy as np
 from pathlib import Path
+import sys
+# Run either from the flat replay archive or from the nested GitHub directory.
+sys.path.insert(0,str(Path(__file__).resolve().parents[2]))
 from level_one_quasimode_analytic import Quasimode, cutoff
 from level_one_quasimode_verify import load_coeffs
 
@@ -86,4 +89,4 @@ def run(coefpath,degree=118):
 
 if __name__=='__main__':
     import sys
-    run(sys.argv[1] if len(sys.argv)>1 else 'analytic_quasimode_coefficients_50.json')
+    run(sys.argv[1] if len(sys.argv)>1 else str((Path(__file__).resolve().parent/'analytic_quasimode_coefficients_50.json') if (Path(__file__).resolve().parent/'analytic_quasimode_coefficients_50.json').exists() else Path(__file__).resolve().parents[2]/'analytic_quasimode_coefficients_50.json'))
