@@ -1,0 +1,73 @@
+{
+  "tier": "EXPERIMENTAL independent analytic and finite-difference check, no certified bounds",
+  "coefficients_sha256": "b04f90ca943e5d6d574f5f7c47d7649c8fdadd6b40607f6cc9064a46cdbb671b",
+  "gauss_nodes": 8960,
+  "gauss": {
+    "R": 1.1911346642703518e-11,
+    "mu_core": 1.9078201125828478e-05,
+    "mu": 1.9078201125828478e-05,
+    "tail_mu": 0.0,
+    "ratio": 6.243432787055422e-07
+  },
+  "sobol_nodes": 8192,
+  "sobol": [
+    {
+      "seed": 17,
+      "R": 1.1887576647688768e-11,
+      "mu_core": 1.9078238137205023e-05,
+      "mu": 1.9078238137205023e-05,
+      "tail_mu": 0.0,
+      "ratio": 6.230961455768004e-07
+    }
+  ],
+  "fd_check": [
+    {
+      "point": [
+        0.125,
+        0.16,
+        1.04
+      ],
+      "analytic_residual_real": 0.0,
+      "analytic_residual_imag": 0.0,
+      "finite_differences": [
+        {
+          "h": 0.004,
+          "fd_real": -1.5649081070324023e-08,
+          "fd_imag": -6.82665266270635e-27,
+          "abs_difference": 1.5649081070324023e-08
+        },
+        {
+          "h": 0.002,
+          "fd_real": -3.912374610208751e-09,
+          "fd_imag": -1.706880879534181e-27,
+          "abs_difference": 3.912374610208751e-09
+        }
+      ]
+    },
+    {
+      "point": [
+        0.22,
+        0.29,
+        0.93
+      ],
+      "analytic_residual_real": -2.956160159326912e-11,
+      "analytic_residual_imag": 1.010055392849895e-19,
+      "finite_differences": [
+        {
+          "h": 0.004,
+          "fd_real": -2.3056914907068973e-08,
+          "fd_imag": 1.0103037276205549e-19,
+          "abs_difference": 2.3027353305475704e-08
+        },
+        {
+          "h": 0.002,
+          "fd_real": -5.786314149613253e-09,
+          "fd_imag": 1.0101180350500695e-19,
+          "abs_difference": 5.756752548019984e-09
+        }
+      ]
+    }
+  ],
+  "height_isometry_max_error": 6.661338147750939e-16,
+  "elapsed_seconds": 25.240848701999994
+}

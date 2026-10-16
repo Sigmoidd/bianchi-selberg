@@ -1,0 +1,15 @@
+{
+  "BOUNDARY_METHOD_EXPERT_REVIEW.md": "da35a8ca24f330fef697882d2b758b449063961a07b3623eb9d6e0880562f463",
+  "NEXT_AGENT_PROMPT.md": "f12b8d5ce5a1a6e865d8da21a9c3547089f7ec649baedd787f79f29074795f80",
+  "README.md": "1c9d1e71f4a43f76463b706956f65db65d2edb9c79cba6ae643d03dd33c09700",
+  "audit_theorem.py": "00bc00917e4705207a49a1085198a06bf2eaaf647423643e1f8556b7349603fb",
+  "boundary_weak_residual.py": "e54b4ff78582ac1af7724ffda7e7bb5a46bc4d83e2730dc2c769c1110290e2c8",
+  "independent_direct_bessel_spots.py": "d9fb3d1be446e1f98534a07435d8a1ec2b8fd8913f79e6957809b33197651524",
+  "inputs/MPFR_RADIAL_CHEB_CERTIFICATE.md": "c30bb2a9dd3ed20345235658c8ab209e17364cc259b2fc513802a42ec2b42790",
+  "inputs/analytic_quasimode_coefficients_50_reflection_even.json": "f306a3740651575df5be1b5e5130eda956e346b5a3905579b48556eb31d78f98",
+  "inputs/level_one_quasimode_analytic.py": "50ba62302f8a2f95dd73f21cec697e0007069c329581adf89556c268036bd0c2",
+  "inputs/manifest_radial.json": "1246d2d12e36ce38aa39c480e663757343161b2c42aad1375d3a94d02ccde481",
+  "inputs/radial_coeffs_all.csv": "e342cada8750009af70ac1b50778df397ec90c11615048ac53ba2579cd1ace90",
+  "reports/boundary_diagnostics.json": "fcd7da20e2e30bf811ca0382d81e76f27d3d5f3d5746c271e5db86b1c0a1481f",
+  "test_boundary.py": "b86b35173e8c1c306f0486531225fdb301688c6ebcc198af6be28991af11e1ca"
+}

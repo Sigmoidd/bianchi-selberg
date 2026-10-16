@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-15",
+  "files": {
+    "MPFR_RADIAL_CHEB_CERTIFICATE.md": "c30bb2a9dd3ed20345235658c8ab209e17364cc259b2fc513802a42ec2b42790",
+    "audit_radial_theorem.py": "c60c619ba8706501ab8688588756285246077473fc74459c5d0855e37b6ad03b",
+    "certify_radial_chebyshev_nodes_mpfr.c": "a01f345f9489436c3c6de8f2f79f594e71263ba3d97880e8cf84b0f892b327c4",
+    "check_radial_table.py": "7c4e6cf6b7dc1b413c1cc48de2f977c79619b43d965715534bdf5764467046bb",
+    "gl_n132.txt": "aea787003e96f8871d62b6c51404bd1dc9b539577003fa7bcf0702980dbb11a8",
+    "radial_coeffs_all.csv": "e342cada8750009af70ac1b50778df397ec90c11615048ac53ba2579cd1ace90",
+    "radial_nodes_all.csv": "9df98698f889d6c427b9a9c50900f6335014fdcceb95bb999f7cd13a6ebd9da8",
+    "radial_table_mpfr.log": "9b4c94c60e1e6046a99b3eed728739ba85bbf9783ac6d9f64d99d775dd05a072"
+  },
+  "status": "RADIAL_INTERVAL_TABLES_VERIFIED__3D_RESIDUAL_UNPROVED"
+}

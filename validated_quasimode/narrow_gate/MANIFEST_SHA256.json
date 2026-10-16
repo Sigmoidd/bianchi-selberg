@@ -1,0 +1,27 @@
+{
+  "status": "PARTIAL_PROOF_NO_SPECTRAL_ENCLOSURE",
+  "files": {
+    "RESIDUAL_INTERVAL_CLOSURE_GATE.md": "0e93074a5f770db444e811f62fb2e089ff67e85a06966e6f08fdafa3065b6ec2",
+    "README_CLOSURE.md": "9bd7d118054be9c65e202e431366d4a1b8d9997adef65f8c87ef6d389089b4d7",
+    "level_one_quasimode_analytic.py": "50ba62302f8a2f95dd73f21cec697e0007069c329581adf89556c268036bd0c2",
+    "level_one_quasimode_verify.py": "9d7d3c8680933d598f83198bc3222f310ed6c20cf461102e528d41088f83bbbc",
+    "analytic_quasimode_coefficients_50.json": "b04f90ca943e5d6d574f5f7c47d7649c8fdadd6b40607f6cc9064a46cdbb671b",
+    "analytic_quasimode_coefficients_50_reflection_even.json": "f306a3740651575df5be1b5e5130eda956e346b5a3905579b48556eb31d78f98",
+    "ford_active_cosets.py": "21f53daca7d0bb4169a0f3454b365112cb0175b8575c88c7642f81d1134b12c2",
+    "fast_scalar_residual.py": "33567a7989bde395973bc85a48875fd85dca433bb32b9a653501cf375ba74edf",
+    "root_split_diagnostics.py": "69cde232305954c6b4b427787bf3158892efadb74a46b63a9cb7d8d464ff756e",
+    "root_split_diagnostics.json": "e97e8bf07b410dbb4f6b42416d1ee9241cd17c18cc07a95f6bf09582d4226ab6",
+    "real_trial_projection.py": "9c4063a94c792be1c802b2dc237df5f995e595ab72dad5904db5462ea61c0442",
+    "real_trial_projection_check.json": "3dc40660a6c9aa0abbf851c5c0272ad45ebd15f2304ce35c80827e1769fffcac",
+    "reflection_even_trial.py": "97a1bf080d1bcc643206c0dea8c2b36032ebeaca361fb84be108f30dec7a21c3",
+    "test_residual_support_reduction.py": "a850c734adc1e0f3f9a275ed679367aa4146b38a42f9f77511e14efbde2fda30",
+    "proof_gate_audit.py": "c85433f8718a5bfad261e959af6d3003c81ea1f92ed7a3d2eb68c713035d81fb",
+    "audit_seed_slab_simpson_bounds.py": "5bdde866fb2e6759ab3701f651f8b4983493262154f1282f2e91e0dda61fe4ae",
+    "certify_picard_seed_slab_mpfr.c": "595495b3fde404bd5185bd0932b9a20d6261ccd5adf7e4b95287f09f09fc4117",
+    "seed_mass_mpfr.log": "4974c3c0e732e8c7b55fee564604cfd93ab008664705db4c9fb6e2cef6a91e41",
+    "seed_mass_mpfr_fine.log": "a0cc9dfc28b28c9a72966a23bc16de134ec2de76725a930bb11890c4937f6817",
+    "sample_uniform_gates.py": "9be8a5950daa0840c7b950ac032ac891bebb137c0d35ae3b8f044f464108a5b8",
+    "uniform_gate_sobol_diagnostics.json": "2102c353338b0bdd79e149942ac9d892018b3df4be85ff0b05e38cd9ed5713f0",
+    "test_residual_support_reduction.log": "b3a7b75b7d04dd4d2d0a3669d5c93cbfba82ea68871988d4cb164c1a52a74a3b"
+  }
+}

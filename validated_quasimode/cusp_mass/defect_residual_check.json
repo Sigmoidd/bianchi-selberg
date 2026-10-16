@@ -1,0 +1,10 @@
+{
+  "points": 42,
+  "degree": 118,
+  "max_abs_W_difference": 1.3552527156068805e-20,
+  "max_abs_residual_difference": 2.8698549907561395e-18,
+  "max_sampled_abs_residual": 8.723490078295897e-11,
+  "r": 6.622119348586011,
+  "lambda": 44.85246466691722,
+  "nonidentity_cosets": 13
+}

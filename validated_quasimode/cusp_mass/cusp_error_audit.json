@@ -1,0 +1,14 @@
+{
+  "tier": "exact-rational proof audit",
+  "z_min": "157/15",
+  "z_max": "66/5",
+  "exp_lower_14_greater_30000": true,
+  "exp3_lower_8_greater_20": true,
+  "fourth_t_derivative_bound_upper": "233303/50000",
+  "fourth_y_derivative_bound_upper": "4553/10000",
+  "error_t_simpson_under": "1.964508555829525e-11",
+  "error_y_simpson_under": "8.477105034722222e-13",
+  "error_truncated_t_under": "1e-40",
+  "error_total_less_than": "1e-10",
+  "checks_passed": 8
+}

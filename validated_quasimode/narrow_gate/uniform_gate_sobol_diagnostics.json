@@ -1,0 +1,23 @@
+{
+  "status": "NONRIGOROUS_SOBOL_SCREEN_NOT_A_CERTIFICATE",
+  "coefficient_sha256": "f306a3740651575df5be1b5e5130eda956e346b5a3905579b48556eb31d78f98",
+  "core_samples": 16384,
+  "strip_samples": 16384,
+  "max_observed_R": 1.1563053969009598e-10,
+  "max_R_point": [
+    0.021313097327947617,
+    0.4908666592091322,
+    1.4582527843648856
+  ],
+  "max_observed_active_defect": 1.694970562965718e-12,
+  "max_defect_point": {
+    "gamma_index": 3,
+    "x": 0.16073881927877665,
+    "t": 0.25173215940594673,
+    "y": 1.161399256438017
+  },
+  "max_observed_W_minus_f": 4.3753888045224704e-13,
+  "R_required_global_upper": 2e-10,
+  "defect_required_global_upper": 7e-06,
+  "duration_seconds": 28.786495980999916
+}
