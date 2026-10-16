@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-15",
+  "files": {
+    "certify_radial_192.c": "a38737645da60262764bcd0ec5ab5615c78f966b3834af8427d2e0dc42f27d28",
+    "generate_gl_brackets.py": "665c970ef3c8f366bd494351dce02c4ff416dff1e90881d23a668dc09228583a",
+    "gl_n192.txt": "3c7e173aacd575c12ebdd776c5af57a176b26ffe1ae5b10b0afbd16dd1f63ed7",
+    "radial_coeffs_192.csv": "ffa365121590bb176d503811d448c2db5f0633204785547cde2541f8b5edfed8",
+    "radial_nodes_192.csv": "53776e78714e5f555b0d40a33386c07a47385b83f8237c9e867bedc23854d720",
+    "radial_192.log": "abd024fa74cb1de8ec584d25dbbf7b0350ea37f1a270f15b63e3507811bc1fb2",
+    "certify_boundary_dct_mpfr.c": "cc43f142384ce243c718b8f550411afef8ea794e49039e24d2fe150896a77204",
+    "terms.txt": "da1bddadaaddbfbe828307453dc257eff9d680273061b9d52cb0a58912c5d484",
+    "analytic_quasimode_coefficients_50_reflection_even.json": "f306a3740651575df5be1b5e5130eda956e346b5a3905579b48556eb31d78f98",
+    "audit_exact_theorem.py": "11738c80340196139994eec520581d92bab9502185d81611495ca043d4e1aed1",
+    "certify_picard_seed_slab_mpfr.c": "595495b3fde404bd5185bd0932b9a20d6261ccd5adf7e4b95287f09f09fc4117",
+    "audit_seed_slab_simpson_bounds.py": "5bdde866fb2e6759ab3701f651f8b4983493262154f1282f2e91e0dda61fe4ae",
+    "seed_mass_mpfr.log": "4974c3c0e732e8c7b55fee564604cfd93ab008664705db4c9fb6e2cef6a91e41",
+    "dct8_debug.out": "ffe283f4d1d1b86a4b0fd0ef2f21896b36e3bac3bd82fba174d8032136127a23",
+    "dct32_recheck.out": "0d16f8930d0b752dc98e3833741ad8a640a919227b7608c743cd4acf1837dc36",
+    "dct64.out": "877443ff5a8ad733b435b4736259d1d380722eb73ea108d1106d89a4027254b5",
+    "dct128.out": "aeb658dfadc8932620e1f74f52712e4015e76c95d73da2744772ef97de0b8ee5",
+    "dct128.err": "64e2fb1ed94288ded361db9bbc17545692860c667d2506973b334765b60c10c5",
+    "FINAL_PICARD_BOUNDARY_CERTIFICATE.md": "6bcf142455a727f762054cd3e787bb244a7f3fdaf4850c14855cfbd4315a4399",
+    "mutation32.out": "83f807f74b2ae813b7b4ac1815aec58eecc3cce8db5bb7e3efccb479bc07bc5b",
+    "mutation32.err": "35257db931491267d00d581d930b8055f36e8a22192dd80b4fd603fba2845368"
+  }
+}
